@@ -1,0 +1,239 @@
+@speed: 0.8s;
+
+/*向上滑动*/
+@keyframes slideInTop {
+    from {
+        transform: translate3d(0, 100%, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        transform: translate3d(0%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(0, -100%, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.slide-top-enter-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideInTop @speed linear forwards;
+}
+
+.slide-top-leave-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideInBottom @speed linear forwards;
+}
+
+/*向下滑动*/
+@keyframes slideOutBottom {
+    from {
+        transform: translate3d(0, -100%, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(0%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutTop {
+    from {
+        transform: translate3d(0%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(0, 100%, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.slide-bottom-enter-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideOutBottom @speed linear forwards;
+}
+
+.slide-bottom-leave-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideOutTop @speed linear forwards;
+
+}
+
+
+
+
+
+
+/*向左滑动*/
+@keyframes slideInLeft {
+    from {
+        transform: translate3d(100%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translate3d(0%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.slide-left-enter-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideInLeft @speed linear forwards;
+}
+
+.slide-left-leave-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideInRight @speed linear forwards;
+}
+
+/*向右滑动*/
+@keyframes slideOutRight {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(0%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translate3d(0%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate3d(100%, 0, 0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.slide-right-enter-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideOutRight @speed linear forwards;
+}
+
+.slide-right-leave-active {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    animation: slideOutLeft @speed linear forwards;
+
+}
+
+
+.slide-none-enter-active {}
+
+.slide-none-leave-active {}
+
+
+
+.sys_arrow_box{
+    
+}

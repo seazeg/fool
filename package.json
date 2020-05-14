@@ -1,0 +1,45 @@
+{
+  "name": "hope",
+  "version": "1.0.0",
+  "description": "UI FoolGenerator",
+  "author": "Evan.G",
+  "private": true,
+  "scripts": {
+    "serve:web": "vue-cli-service serve",
+    "serve:client": "vue-cli-service electron:serve",
+    "build": "npm run build:web;npm run build:client",
+    "build:web": "vue-cli-service build",
+    "build:client": "vue-cli-service electron:build --windows --macos"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "core-js": "^2.6.9",
+    "eg-utils": "^1.1.61",
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0",
+    "electron-debug": "^3.0.1",
+    "electron-devtools-installer": "^3.0.0",
+    "element-ui": "^2.13.1",
+    "nprogress": "^0.2.0",
+    "register-service-worker": "^1.6.2",
+    "vue": "^2.6.10",
+    "vue-electron": "^1.0.6",
+    "vue-navigation": "^1.1.4",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1",
+    "vuex-electron": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@babel/register": "7.0.0",
+    "@vue/cli-plugin-babel": "3.5.3",
+    "@vue/cli-service": "3.5.3",
+    "autoprefixer": "^9.5.1",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "script-loader": "^0.7.2",
+    "svg-sprite-loader": "^5.0.0",
+    "vue-cli-plugin-electron-builder": "^1.4.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

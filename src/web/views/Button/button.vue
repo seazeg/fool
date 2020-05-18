@@ -23,13 +23,12 @@
     cssProcess
   } from '@/libs/utils.js'
 
-
   export default {
     name: 'fool_button',
     data() {
       return {
-        widthval: document.styleSheets[2].cssRules[0].style.width,
-        res: cssProcess.format(document.styleSheets[2].cssRules[0].cssText)
+        widthval: document.styleSheets[3].cssRules[0].style.width,
+        res: cssProcess.format(document.styleSheets[3].cssRules[0].cssText)
       }
     },
     methods: {
@@ -39,8 +38,8 @@
     },
     watch: {
       widthval: function (n, o) {
-        document.styleSheets[2].cssRules[0].style.width = n;
-        this.res = cssProcess.format(document.styleSheets[2].cssRules[0].cssText)
+        document.styleSheets[3].cssRules[0].style.width = n;
+        this.res = cssProcess.format(document.styleSheets[3].cssRules[0].cssText)
       },
     },
     mounted() {

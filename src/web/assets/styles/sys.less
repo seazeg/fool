@@ -1,20 +1,26 @@
 @speed: 0.8s;
 
+html,
+body,
+#app {
+    height: 100%;
+}
+
 /*向上滑动*/
 @keyframes slideInTop {
     from {
         transform: translate3d(0, 100%, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 
     to {
         transform: translate3d(0, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 }
@@ -22,35 +28,35 @@
 @keyframes slideInBottom {
     from {
         transform: translate3d(0%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 
     to {
         transform: translate3d(0, -100%, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 }
 
 .slide-top-enter-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideInTop @speed linear forwards;
 }
 
 .slide-top-leave-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideInBottom @speed linear forwards;
 }
@@ -59,17 +65,17 @@
 @keyframes slideOutBottom {
     from {
         transform: translate3d(0, -100%, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 
     to {
         transform: translate3d(0%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 }
@@ -77,35 +83,35 @@
 @keyframes slideOutTop {
     from {
         transform: translate3d(0%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 
     to {
         transform: translate3d(0, 100%, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
-        left: 0;
+        left: 0%;
         opacity: 1;
     }
 }
 
 .slide-bottom-enter-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideOutBottom @speed linear forwards;
 }
 
 .slide-bottom-leave-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideOutTop @speed linear forwards;
 
@@ -120,7 +126,7 @@
 @keyframes slideInLeft {
     from {
         transform: translate3d(100%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -128,7 +134,7 @@
 
     to {
         transform: translate3d(0, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -138,7 +144,7 @@
 @keyframes slideInRight {
     from {
         transform: translate3d(0%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -146,7 +152,7 @@
 
     to {
         transform: translate3d(-100%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -154,19 +160,19 @@
 }
 
 .slide-left-enter-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideInLeft @speed linear forwards;
 }
 
 .slide-left-leave-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideInRight @speed linear forwards;
 }
@@ -175,7 +181,7 @@
 @keyframes slideOutRight {
     from {
         transform: translate3d(-100%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -183,7 +189,7 @@
 
     to {
         transform: translate3d(0%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -193,7 +199,7 @@
 @keyframes slideOutLeft {
     from {
         transform: translate3d(0%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -201,7 +207,7 @@
 
     to {
         transform: translate3d(100%, 0, 0);
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         opacity: 1;
@@ -209,19 +215,19 @@
 }
 
 .slide-right-enter-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideOutRight @speed linear forwards;
 }
 
 .slide-right-leave-active {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0%;
-    width: 100vw;
+    padding: 20px;
     height: 100vh;
     animation: slideOutLeft @speed linear forwards;
 
@@ -234,6 +240,33 @@
 
 
 
-.sys_arrow_box{
-    
+
+
+// .el-header {
+//     background-color: #B3C0D1;
+//     color: #333;
+//     text-align: center;
+//     line-height: 60px;
+// }
+
+.el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    line-height: 200px;
+    height: 100%;
 }
+
+.el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    height: 100%;
+    position: relative;
+}
+
+.el-container {
+    height: 100%;
+}
+
+
+
+.sys_arrow_box {}

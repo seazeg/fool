@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <div class="sys_arrow_box">
-      <span class="el-icon-iconName el-icon-d-arrow-left" @click="prev"></span>
-      <span class="el-icon-iconName el-icon-d-arrow-right" @click="next"></span>
-    </div>
-    <transition :name='transition'>
-      <navigation>
-        <router-view />
-      </navigation>
-    </transition>
+
+    <el-container>
+      <el-aside width="200px">
+        <div class="sys_arrow_box">
+          <span class="el-icon-iconName el-icon-d-arrow-left" @click="prev"></span>
+          <span class="el-icon-iconName el-icon-d-arrow-right" @click="next"></span>
+        </div>
+      </el-aside>
+      <el-container>
+        <!-- <el-header>Header</el-header> -->
+        <el-main>
+          <div class="sys_arrow_box">
+            <transition :name='transition'>
+              <navigation>
+                <router-view />
+              </navigation>
+            </transition>
+          </div>
+        </el-main>
+      </el-container>
+    </el-container>
+
+
   </div>
 </template>
 <script>
@@ -43,10 +57,10 @@
     },
     created() {
       this.$navigation.on('forward', (to, from) => {
-        this.transition = 'slide-left'
+        this.transition = 'slide-top'
       })
       this.$navigation.on('back', (to, from) => {
-        this.transition = 'slide-right'
+        this.transition = 'slide-bottom'
       })
     }
   }

@@ -12,6 +12,7 @@
     "build:client": "vue-cli-service electron:build --windows --macos"
   },
   "dependencies": {
+    "animate.css": "^4.1.0",
     "axios": "^0.19.2",
     "core-js": "^2.6.9",
     "eg-utils": "^1.1.61",

@@ -1,9 +1,17 @@
-@speed: 0.8s;
+@import './settings.less';
+@speed: 0.5s;
 
 html,
 body,
 #app {
     height: 100%;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    overflow: hidden;
 }
 
 /*向上滑动*/
@@ -164,7 +172,7 @@ body,
     top: 0;
     left: 0%;
     padding: 20px;
-    height: 100vh;
+    width: 100vw;
     animation: slideInLeft @speed linear forwards;
 }
 
@@ -173,7 +181,7 @@ body,
     top: 0;
     left: 0%;
     padding: 20px;
-    height: 100vh;
+    width: 100vw;
     animation: slideInRight @speed linear forwards;
 }
 
@@ -219,7 +227,7 @@ body,
     top: 0;
     left: 0%;
     padding: 20px;
-    height: 100vh;
+    width: 100vw;
     animation: slideOutRight @speed linear forwards;
 }
 
@@ -228,7 +236,7 @@ body,
     top: 0;
     left: 0%;
     padding: 20px;
-    height: 100vh;
+    width: 100vw;
     animation: slideOutLeft @speed linear forwards;
 
 }
@@ -239,29 +247,38 @@ body,
 .slide-none-leave-active {}
 
 
+.animate__animated{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width:100%;
+    padding:20px;
+}
 
 
 
-// .el-header {
-//     background-color: #B3C0D1;
-//     color: #333;
-//     text-align: center;
-//     line-height: 60px;
-// }
+
+.el-header {
+    background-color: #fff;
+    color: @fontGrey;
+    text-align: center;
+    height:50px!important;
+    line-height: 50px;
+  
+}
 
 .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    line-height: 200px;
-    height: 100%;
+    width: 250px !important;
+    background: @mainColor;
 }
 
 .el-main {
-    background-color: #E9EEF3;
+    background-color: #fff;
     color: #333;
     height: 100%;
     position: relative;
 }
+
 
 .el-container {
     height: 100%;
@@ -269,4 +286,50 @@ body,
 
 
 
-.sys_arrow_box {}
+
+.hope_info {
+    // width:100%;
+    // height:300px;
+    // background:@subColor - #111;
+    .logo {
+        width: 100%;
+        height: 50px;
+        background: @brightColor;
+        text-align: center;
+        color:@fontWhite;
+        font-size:20px;
+        line-height:50px;
+    }
+}
+
+.menu_list {
+    .box {
+        width: 90%;
+        height: 60px;
+        line-height: 60px;
+        padding-left: 10%;
+        border-bottom: 1px solid @subColor;
+        cursor: pointer;
+
+        &::last-child {
+            border: none;
+        }
+
+        * {
+            vertical-align: middle;
+        }
+
+        span {
+            color: @fontGrey;
+            font-size: 12px;
+           
+        }
+
+        &:hover {
+            background-color:@subColor;
+            span {
+                color: @brightColor;
+            }
+        }
+    }
+}

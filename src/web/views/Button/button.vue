@@ -394,7 +394,7 @@
         this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
           .getClassValue('.eg_button:hover').cssText)
       },
-      'style.backgroundColor': function (n, o) {
+      'styles.backgroundColor': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.backgroundColor = n;
 
         this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils

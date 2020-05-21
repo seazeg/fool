@@ -3,18 +3,18 @@
     <!-- 视图 -->
     <div class="view">
       <el-tabs v-model="tabChecked" type="border-card" @tab-click="toHtml">
-        <el-tab-pane name="preview" >
+        <el-tab-pane name="preview">
           <span slot="label" class="lab-icon">
             <i class="iconfont icon-yulan"></i>preview</span>
           <div class="view-box preview" id="preview">
             <div class="eg_button">{{base.buttonText}}</div>
           </div>
         </el-tab-pane>
-        <el-tab-pane name="html" >
+        <el-tab-pane name="html">
           <span slot="label" class="lab-icon">
             <i class="iconfont icon-html"></i>html</span>
-          <div class="view-box html">
-            <pre v-highlight>
+          <div class="view-box html" v-highlight>
+            <pre>
               <code v-text="workarea.html">
               </code>
             </pre>
@@ -23,8 +23,8 @@
         <el-tab-pane name="css">
           <span slot="label" class="lab-icon">
             <i class="iconfont icon-css"></i>css</span>
-          <div class="view-box css">
-            <pre v-highlight>
+          <div class="view-box css" v-highlight>
+            <pre>
               <code v-html="workarea.css">
               </code>
             </pre>
@@ -34,8 +34,8 @@
         <el-tab-pane name="javascript">
           <span slot="label" class="lab-icon">
             <i class="iconfont icon-js"></i>javascript</span>
-          <div class="view-box js">
-            <pre v-highlight>
+          <div class="view-box js" v-highlight>
+            <pre>
               <code v-html="workarea.js">
               </code>
             </pre>
@@ -348,13 +348,17 @@
       }
     },
     watch: {
+      'base.buttonText': function (n, o) {
+        this.workarea.html = document.querySelector('#preview').innerHTML;
+      },
       //基础
       'animationStyles.transitionDuration': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.transitionDuration = n + 's';
         this.$utils.getClassValue('.eg_button:hover').style.transitionDuration = n + 's';
         this.$utils.getClassValue('.eg_button:hover').style.animationDuration = n + 's';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
 
       },
       'animationStyles.animation': function (n, o) {
@@ -362,82 +366,97 @@
         this.$utils.getClassValue('.eg_button:hover').style.animationDuration = this.$utils.getClassValue(
           '.eg_button').style.transitionDuration;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.width': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.width = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.height': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.height = n + 'px';
         this.$utils.getClassValue('.eg_button').style.lineHeight = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.color': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.color = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.fontSize': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.fontSize = n + 'px';
-        
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'style.backgroundColor': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.backgroundColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.borderWidth': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderWidth = n + 'px';
         this.$utils.getClassValue('.eg_button').style.lineHeight = (parseInt(this.$utils.getClassValue('.eg_button')
           .style.height) - n * 2) + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.borderStyle': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderStyle = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.borderColor': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'styles.borderRadius': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderRadius = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.width': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.width = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.height': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.height = n + 'px';
         this.$utils.getClassValue('.eg_button:hover').style.lineHeight = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       //交互
       'interactionStyles.color': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.color = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.fontSize': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.fontSize = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.backgroundColor': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.backgroundColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.borderWidth': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderWidth = n + 'px';
@@ -445,28 +464,32 @@
             '.eg_button:hover')
           .style.height) - n * 2) + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.borderStyle': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderStyle = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.borderColor': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       },
       'interactionStyles.borderRadius': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderRadius = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils.getClassValue('.eg_button:hover').cssText)
+        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       }
     },
     methods: {
-        toHtml(tab, event){   
-          this.workarea.html = document.querySelector('#preview').innerHTML;
-        }
+      toHtml(tab, event) {
+        this.workarea.html = document.querySelector('#preview').innerHTML;
+      }
     },
     mounted() {
       console.log(this.$utils.getClassValue('.eg_button:hover').style);

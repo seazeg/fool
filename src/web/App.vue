@@ -15,7 +15,3 @@
     name: 'hope'
   }
 </script>
-<style lang="less">
-  @import 'styles/reset.less';
-  @import 'styles/theme.less';
-</style>

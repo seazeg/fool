@@ -7,7 +7,7 @@
           <span slot="label" class="lab-icon">
             <i class="iconfont icon-yulan"></i>preview</span>
           <div class="view-box preview">
-            <div class="eg_button solid_gradient">提交</div>
+            <div class="eg_button">提交</div>
             <!-- <span :style="buttonStyle[0]" :onMouseOver='buttonHoverStyle[1]'
               :onMouseOut='buttonStyle[1]'>{{toolsParam.buttonText}}</span> -->
           </div>
@@ -257,6 +257,7 @@
       },
       'styles.borderWidth': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderWidth = n + 'px';
+        this.$utils.getClassValue('.eg_button').style.lineHeight = (parseInt(this.$utils.getClassValue('.eg_button').style.height)-n*2) + 'px';
       },
       'styles.borderStyle': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderStyle = n;

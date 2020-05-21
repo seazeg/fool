@@ -63,13 +63,21 @@
           </p>
         </div>
         <div class="box">
-            <span class="field">动画效果（animation）</span>
-            <p>
-              <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%">
-                <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
+          <span class="field">动画效果（animation）</span>
+          <p>
+            <!-- <el-select v-model="styles.animationOpt" placeholder="请选择" style="width:100%">
+              <el-option v-for="item in animationOpt" :key="item.value" :label="item.label" :value="item.value">
+              </el-option>
+            </el-select> -->
+
+            <el-select v-model="base.animation" placeholder="请选择" style="width:100%">
+              <el-option-group v-for="group in animationOpt" :key="group.label" :label="group.label">
+                <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
-              </el-select>
-            </p>       
+              </el-option-group>
+            </el-select>
+
+          </p>
         </div>
       </div>
 
@@ -218,7 +226,8 @@
         tabChecked: 'preview',
         base: {
           buttonText: 'Button',
-          transitionDuration: parseFloat(this.$utils.getClassValue('.eg_button').style.transitionDuration)
+          transitionDuration: parseFloat(this.$utils.getClassValue('.eg_button').style.transitionDuration),
+          animation: this.$utils.getClassValue('.eg_button:hover').style.animationName
         },
         styles: {
           width: parseInt(this.$utils.getClassValue('.eg_button').style.width),
@@ -245,6 +254,64 @@
         senior: {
           texture: ''
         },
+        animationOpt: [{
+          label: '基础动画',
+          options: [{
+            value: 'bounce',
+            label: 'bounce'
+          }, {
+            value: 'flash',
+            label: 'flash'
+          }, {
+            value: 'pulse',
+            label: 'pulse'
+          }, {
+            value: 'rubberBand',
+            label: 'rubberBand'
+          }, {
+            value: 'shakeX',
+            label: 'shakeX'
+          }, {
+            value: 'shakeY',
+            label: 'shakeY'
+          }, {
+            value: 'headShake',
+            label: 'headShake'
+          }, {
+            value: 'swing',
+            label: 'swing'
+          }, {
+            value: 'tada',
+            label: 'tada'
+          }, {
+            value: 'wobble',
+            label: 'wobble'
+          }, {
+            value: 'jello',
+            label: 'jello'
+          }, {
+            value: 'heartBeat',
+            label: 'heartBeat'
+          }]
+        }, {
+          label: 'Flippers',
+          options: [{
+            value: 'flip',
+            label: 'flip'
+          }, {
+            value: 'flipInX',
+            label: 'flipInX'
+          }, {
+            value: 'flipInY',
+            label: 'flipInY'
+          }, {
+            value: 'flipOutX',
+            label: 'flipOutX'
+          }, {
+            value: 'flipOutY',
+            label: 'flipOutY'
+          }]
+        }],
         borderOpt: [{
           value: 'solid',
           label: 'solid'
@@ -277,9 +344,15 @@
     },
     watch: {
       //基础
-      'base.transition': function (n, o) {
+      'base.transitionDuration': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.transitionDuration = n + 's';
         this.$utils.getClassValue('.eg_button:hover').style.transitionDuration = n + 's';
+        this.$utils.getClassValue('.eg_button:hover').style.animationDuration = n + 's';
+      },
+      'base.animation': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.animationName = n;
+        this.$utils.getClassValue('.eg_button:hover').style.animationDuration = this.$utils.getClassValue(
+          '.eg_button').style.transitionDuration;
       },
       'styles.width': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.width = n + 'px';
@@ -348,7 +421,7 @@
 
     },
     mounted() {
-      console.log(this.$utils.getClassValue('.eg_button').style.transitionDuration);
+      console.log(this.$utils.getClassValue('.eg_button:hover').style);
     }
   }
 </script>

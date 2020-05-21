@@ -7,7 +7,7 @@
           <span slot="label" class="lab-icon">
             <i class="iconfont icon-yulan"></i>preview</span>
           <div class="view-box preview">
-            <div class="eg_button">提交</div>
+            <div class="eg_button">{{base.buttonText}}</div>
             <!-- <span :style="buttonStyle[0]" :onMouseOver='buttonHoverStyle[1]'
               :onMouseOut='buttonStyle[1]'>{{toolsParam.buttonText}}</span> -->
           </div>
@@ -48,18 +48,24 @@
     <!-- 编辑 -->
     <div class="edit">
       <!-- 基础 -->
-      <div class="control_group_title">基础信息：</div>
+      <div class="control_group_title">基础属性</div>
       <div class="control_group">
         <div class="box">
-          <span class="field">buttonText</span>
+          <span class="field">按钮标题</span>
           <p>
             <el-input v-model="base.buttonText" placeholder="请输入名称"></el-input>
           </p>
         </div>
+      </div>
+
+      <!-- 动画 -->
+      <div class="control_group_title">动画效果：</div>
+      <div class="control_group">
         <div class="box">
           <span class="field">过渡时间（transitionDuration）</span>
           <p>
-            <el-slider v-model="base.transitionDuration" :min="0" :max="5" :step="0.1" show-input></el-slider>
+            <el-slider v-model="animationStyles.transitionDuration" :min="0" :max="5" :step="0.1" show-input>
+            </el-slider>
           </p>
         </div>
         <div class="box">
@@ -70,7 +76,7 @@
               </el-option>
             </el-select> -->
 
-            <el-select v-model="base.animation" placeholder="请选择" style="width:100%">
+            <el-select v-model="animationStyles.animation" placeholder="请选择" style="width:100%" :clearable=true>
               <el-option-group v-for="group in animationOpt" :key="group.label" :label="group.label">
                 <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
@@ -127,7 +133,7 @@
           <div class="left">
             <span class="field">边框样式（borderStyle）</span>
             <p>
-              <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%">
+              <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
                 <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
@@ -136,7 +142,7 @@
           <div class="right">
             <span class="field">边框颜色（borderColor）</span>
             <p class="group">
-              <el-color-picker v-model="styles.borderColor" show-alpha></el-color-picker>
+              <el-color-picker v-model="styles.borderColor" show-alpha color-format=""></el-color-picker>
               <el-input v-model="styles.borderColor" placeholder="请输入色号"></el-input>
             </p>
           </div>
@@ -150,51 +156,51 @@
       </div>
       <div class="control_group_title">交互样式：</div>
       <div class="control_group">
-        <div class="box">
+        <!-- <div class="box">
           <span class="field">宽度（width）</span>
           <p>
-            <el-slider v-model="animateStyles.width" :min="100" :max="500" show-input></el-slider>
+            <el-slider v-model="interactionStyles.width" :min="100" :max="500" show-input></el-slider>
           </p>
         </div>
         <div class="box">
           <span class="field">高度（height）</span>
           <p>
-            <el-slider v-model="animateStyles.height" :min="40" :max="500" show-input></el-slider>
+            <el-slider v-model="interactionStyles.height" :min="40" :max="500" show-input></el-slider>
           </p>
-        </div>
+        </div> -->
         <div class="box">
           <span class="field">字号（fontSize）</span>
           <p>
-            <el-slider v-model="animateStyles.fontSize" :max="50" show-input></el-slider>
+            <el-slider v-model="interactionStyles.fontSize" :max="50" show-input></el-slider>
           </p>
         </div>
         <div class="box">
           <div class="left">
             <span class="field">字体颜色（color）</span>
             <p class="group">
-              <el-color-picker v-model="animateStyles.color" show-alpha></el-color-picker>
-              <el-input v-model="animateStyles.color" placeholder="请输入色号"></el-input>
+              <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
+              <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
             </p>
           </div>
           <div class="right">
             <span class="field">背景颜色（background）</span>
             <p class="group">
-              <el-color-picker v-model="animateStyles.backgroundColor" show-alpha></el-color-picker>
-              <el-input v-model="animateStyles.backgroundColor" placeholder="请输入色号"></el-input>
+              <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+              <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
             </p>
           </div>
         </div>
         <div class="box">
           <span class="field">边框宽（borderWidth）</span>
           <p>
-            <el-slider v-model="animateStyles.borderWidth" :max="10" show-input></el-slider>
+            <el-slider v-model="interactionStyles.borderWidth" :max="10" show-input></el-slider>
           </p>
         </div>
         <div class="box">
           <div class="left">
             <span class="field">边框样式（borderStyle）</span>
             <p>
-              <el-select v-model="animateStyles.borderStyle" placeholder="请选择" style="width:100%">
+              <el-select v-model="interactionStyles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
                 <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
@@ -203,15 +209,15 @@
           <div class="right">
             <span class="field">边框颜色（borderColor）</span>
             <p class="group">
-              <el-color-picker v-model="animateStyles.borderColor" show-alpha></el-color-picker>
-              <el-input v-model="animateStyles.borderColor" placeholder="请输入色号"></el-input>
+              <el-color-picker v-model="interactionStyles.borderColor" show-alpha></el-color-picker>
+              <el-input v-model="interactionStyles.borderColor" placeholder="请输入色号"></el-input>
             </p>
           </div>
         </div>
         <div class="box">
           <span class="field">圆角大小（borderRadius）</span>
           <p>
-            <el-slider v-model="animateStyles.borderRadius" :max="50" show-input></el-slider>
+            <el-slider v-model="interactionStyles.borderRadius" :max="50" show-input></el-slider>
           </p>
         </div>
       </div>
@@ -226,6 +232,8 @@
         tabChecked: 'preview',
         base: {
           buttonText: 'Button',
+        },
+        animationStyles: {
           transitionDuration: parseFloat(this.$utils.getClassValue('.eg_button').style.transitionDuration),
           animation: this.$utils.getClassValue('.eg_button:hover').style.animationName
         },
@@ -240,7 +248,7 @@
           borderColor: this.$utils.getClassValue('.eg_button').style.borderColor,
           borderRadius: parseInt(this.$utils.getClassValue('.eg_button').style.borderRadius)
         },
-        animateStyles: {
+        interactionStyles: {
           width: parseInt(this.$utils.getClassValue('.eg_button:hover').style.width),
           height: parseInt(this.$utils.getClassValue('.eg_button:hover').style.height),
           color: this.$utils.getClassValue('.eg_button:hover').style.color,
@@ -344,12 +352,12 @@
     },
     watch: {
       //基础
-      'base.transitionDuration': function (n, o) {
+      'animationStyles.transitionDuration': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.transitionDuration = n + 's';
         this.$utils.getClassValue('.eg_button:hover').style.transitionDuration = n + 's';
         this.$utils.getClassValue('.eg_button:hover').style.animationDuration = n + 's';
       },
-      'base.animation': function (n, o) {
+      'animationStyles.animation': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.animationName = n;
         this.$utils.getClassValue('.eg_button:hover').style.animationDuration = this.$utils.getClassValue(
           '.eg_button').style.transitionDuration;
@@ -384,36 +392,36 @@
       'styles.borderRadius': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderRadius = n + 'px';
       },
-      'animateStyles.width': function (n, o) {
+      'interactionStyles.width': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.width = n + 'px';
       },
-      'animateStyles.height': function (n, o) {
+      'interactionStyles.height': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.height = n + 'px';
         this.$utils.getClassValue('.eg_button:hover').style.lineHeight = n + 'px';
       },
       //交互
-      'animateStyles.color': function (n, o) {
+      'interactionStyles.color': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.color = n;
       },
-      'animateStyles.fontSize': function (n, o) {
+      'interactionStyles.fontSize': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.fontSize = n + 'px';
       },
-      'animateStyles.backgroundColor': function (n, o) {
+      'interactionStyles.backgroundColor': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.backgroundColor = n;
       },
-      'animateStyles.borderWidth': function (n, o) {
+      'interactionStyles.borderWidth': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderWidth = n + 'px';
         this.$utils.getClassValue('.eg_button:hover').style.lineHeight = (parseInt(this.$utils.getClassValue(
             '.eg_button:hover')
           .style.height) - n * 2) + 'px';
       },
-      'animateStyles.borderStyle': function (n, o) {
+      'interactionStyles.borderStyle': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderStyle = n;
       },
-      'animateStyles.borderColor': function (n, o) {
+      'interactionStyles.borderColor': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderColor = n;
       },
-      'animateStyles.borderRadius': function (n, o) {
+      'interactionStyles.borderRadius': function (n, o) {
         this.$utils.getClassValue('.eg_button:hover').style.borderRadius = n + 'px';
       }
     },

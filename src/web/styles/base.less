@@ -6,8 +6,8 @@
 *** 按钮 ***
 ***********/
 
-@borderWidth: 5px;
-@borderRadius: 1px;
+@borderWidth: 1px;
+@borderRadius: 10px;
 @buttonWidth: 200px;
 @buttonHeight: 80px;
 @fontSize: 20px;
@@ -19,19 +19,35 @@
     text-align: center;
     display: inline-block;
     position: relative;
-    transition: 0.5s;
+    transition-delay: 0s;
+    transition-duration: 0.5s;
+    transition-property: all;
+    transition-timing-function: ease;
     background-color: @mainColor;
     color: @fontWhite;
     border-style: solid;
     border-width: @borderWidth;
-    border-color: rgb(255, 0, 8);
+    border-color: @mainColor;
     border-radius: @borderRadius;
     font-size: @fontSize;
     cursor: pointer;
 }
 
 @{Button}:hover {
+    width: @buttonWidth;
+    height:  @buttonHeight;
+    line-height: @buttonHeight - @borderWidth*2;
+    transition-delay: 0s;
+    transition-duration: 0.5s;
+    transition-property: all;
+    transition-timing-function: ease;
     background-color: @subColor;
+    color: @fontWhite;
+    border-style: solid;
+    border-width: @borderWidth;
+    border-color: @mainColor;
+    border-radius: @borderRadius;
+    font-size: @fontSize;
 }
 
 //上层纹理

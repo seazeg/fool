@@ -47,7 +47,8 @@
     </div>
     <!-- 编辑 -->
     <div class="edit">
-      <div class="control_group_title">基础属性：</div>
+      <!-- 基础 -->
+      <div class="control_group_title">基础信息：</div>
       <div class="control_group">
         <div class="box">
           <span class="field">buttonText</span>
@@ -56,13 +57,23 @@
           </p>
         </div>
         <div class="box">
-          <span class="field">buttonObj</span>
+          <span class="field">过渡时间（transitionDuration）</span>
           <p>
-            <el-input v-model="base.buttonObj" placeholder="请输入名称"></el-input>
+            <el-slider v-model="base.transitionDuration" :min="0" :max="5" :step="0.1" show-input></el-slider>
           </p>
         </div>
+        <div class="box">
+            <span class="field">动画效果（animation）</span>
+            <p>
+              <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%">
+                <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
+            </p>       
+        </div>
       </div>
-      <div class="control_group_title">初始样式：</div>
+
+      <div class="control_group_title">基础样式：</div>
       <div class="control_group">
         <div class="box">
           <span class="field">宽度（width）</span>
@@ -73,7 +84,7 @@
         <div class="box">
           <span class="field">高度（height）</span>
           <p>
-            <el-slider v-model="styles.height" :min="80" :max="500" show-input></el-slider>
+            <el-slider v-model="styles.height" :min="40" :max="500" show-input></el-slider>
           </p>
         </div>
         <div class="box">
@@ -84,14 +95,14 @@
         </div>
         <div class="box">
           <div class="left">
-            <span class="field">字体色（color）</span>
+            <span class="field">字体颜色（color）</span>
             <p class="group">
               <el-color-picker v-model="styles.color" show-alpha></el-color-picker>
               <el-input v-model="styles.color" placeholder="请输入色号"></el-input>
             </p>
           </div>
           <div class="right">
-            <span class="field">背景色（background）</span>
+            <span class="field">背景颜色（background）</span>
             <p class="group">
               <el-color-picker v-model="styles.backgroundColor" show-alpha></el-color-picker>
               <el-input v-model="styles.backgroundColor" placeholder="请输入色号"></el-input>
@@ -99,14 +110,14 @@
           </div>
         </div>
         <div class="box">
-          <span class="field">borderWidth</span>
+          <span class="field">边框宽（borderWidth）</span>
           <p>
             <el-slider v-model="styles.borderWidth" :max="10" show-input></el-slider>
           </p>
         </div>
         <div class="box">
           <div class="left">
-            <span class="field">borderStyle</span>
+            <span class="field">边框样式（borderStyle）</span>
             <p>
               <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%">
                 <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
@@ -115,7 +126,7 @@
             </p>
           </div>
           <div class="right">
-            <span class="field">borderColor</span>
+            <span class="field">边框颜色（borderColor）</span>
             <p class="group">
               <el-color-picker v-model="styles.borderColor" show-alpha></el-color-picker>
               <el-input v-model="styles.borderColor" placeholder="请输入色号"></el-input>
@@ -123,56 +134,79 @@
           </div>
         </div>
         <div class="box">
-          <span class="field">borderRadius</span>
+          <span class="field">圆角大小（borderRadius）</span>
           <p>
             <el-slider v-model="styles.borderRadius" :max="50" show-input></el-slider>
           </p>
         </div>
       </div>
-      <!-- <div class="control_group_title">Hover样式：</div>
+      <div class="control_group_title">交互样式：</div>
       <div class="control_group">
         <div class="box">
-          <div class="left">
-            <span class="field">hoverColor</span>
-            <p class="group">
-              <el-color-picker v-model="toolsParam.hoverColor" show-alpha></el-color-picker>
-              <el-input v-model="toolsParam.hoverColor" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-          <div class="right">
-            <span class="field">hoverBackground</span>
-            <p class="group">
-              <el-color-picker v-model="toolsParam.hoverBackground" show-alpha></el-color-picker>
-              <el-input v-model="toolsParam.hoverBackground" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
+          <span class="field">宽度（width）</span>
+          <p>
+            <el-slider v-model="animateStyles.width" :min="100" :max="500" show-input></el-slider>
+          </p>
         </div>
         <div class="box">
-          <span class="field">hoverBorderWidth</span>
+          <span class="field">高度（height）</span>
           <p>
-            <el-slider v-model="toolsParam.hoverBorderWidth" :max="10" show-input></el-slider>
+            <el-slider v-model="animateStyles.height" :min="40" :max="500" show-input></el-slider>
+          </p>
+        </div>
+        <div class="box">
+          <span class="field">字号（fontSize）</span>
+          <p>
+            <el-slider v-model="animateStyles.fontSize" :max="50" show-input></el-slider>
           </p>
         </div>
         <div class="box">
           <div class="left">
-            <span class="field">hoverBorderStyle</span>
+            <span class="field">字体颜色（color）</span>
+            <p class="group">
+              <el-color-picker v-model="animateStyles.color" show-alpha></el-color-picker>
+              <el-input v-model="animateStyles.color" placeholder="请输入色号"></el-input>
+            </p>
+          </div>
+          <div class="right">
+            <span class="field">背景颜色（background）</span>
+            <p class="group">
+              <el-color-picker v-model="animateStyles.backgroundColor" show-alpha></el-color-picker>
+              <el-input v-model="animateStyles.backgroundColor" placeholder="请输入色号"></el-input>
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <span class="field">边框宽（borderWidth）</span>
+          <p>
+            <el-slider v-model="animateStyles.borderWidth" :max="10" show-input></el-slider>
+          </p>
+        </div>
+        <div class="box">
+          <div class="left">
+            <span class="field">边框样式（borderStyle）</span>
             <p>
-              <el-select v-model="toolsParam.hoverBorderStyle" placeholder="请选择" style="width:100%">
+              <el-select v-model="animateStyles.borderStyle" placeholder="请选择" style="width:100%">
                 <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
               </el-select>
             </p>
           </div>
           <div class="right">
-            <span class="field">hoverBorderColor</span>
+            <span class="field">边框颜色（borderColor）</span>
             <p class="group">
-              <el-color-picker v-model="toolsParam.hoverBorderColor" show-alpha></el-color-picker>
-              <el-input v-model="toolsParam.hoverBorderColor" placeholder="请输入色号"></el-input>
+              <el-color-picker v-model="animateStyles.borderColor" show-alpha></el-color-picker>
+              <el-input v-model="animateStyles.borderColor" placeholder="请输入色号"></el-input>
             </p>
           </div>
         </div>
-
-      </div> -->
+        <div class="box">
+          <span class="field">圆角大小（borderRadius）</span>
+          <p>
+            <el-slider v-model="animateStyles.borderRadius" :max="50" show-input></el-slider>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -181,9 +215,10 @@
   export default {
     data() {
       return {
+        tabChecked: 'preview',
         base: {
           buttonText: 'Button',
-          buttonObj: 'eg_button',
+          transitionDuration: parseFloat(this.$utils.getClassValue('.eg_button').style.transitionDuration)
         },
         styles: {
           width: parseInt(this.$utils.getClassValue('.eg_button').style.width),
@@ -197,16 +232,19 @@
           borderRadius: parseInt(this.$utils.getClassValue('.eg_button').style.borderRadius)
         },
         animateStyles: {
-          hoverColor: '#111',
-          hoverBgColor: '#fff',
-          hoverBorderWidth: 2,
-          hoverBorderStyle: 'solid',
-          hoverBorderColor: '#111',
+          width: parseInt(this.$utils.getClassValue('.eg_button:hover').style.width),
+          height: parseInt(this.$utils.getClassValue('.eg_button:hover').style.height),
+          color: this.$utils.getClassValue('.eg_button:hover').style.color,
+          fontSize: parseInt(this.$utils.getClassValue('.eg_button:hover').style.fontSize),
+          backgroundColor: this.$utils.getClassValue('.eg_button:hover').style.backgroundColor,
+          borderWidth: parseInt(this.$utils.getClassValue('.eg_button:hover').style.borderWidth),
+          borderStyle: this.$utils.getClassValue('.eg_button:hover').style.borderStyle,
+          borderColor: this.$utils.getClassValue('.eg_button:hover').style.borderColor,
+          borderRadius: parseInt(this.$utils.getClassValue('.eg_button:hover').style.borderRadius)
         },
         senior: {
           texture: ''
         },
-        tabChecked: 'preview',
         borderOpt: [{
           value: 'solid',
           label: 'solid'
@@ -235,10 +273,14 @@
           value: 'none',
           label: 'none'
         }]
-
       }
     },
     watch: {
+      //基础
+      'base.transition': function (n, o) {
+        this.$utils.getClassValue('.eg_button').style.transitionDuration = n + 's';
+        this.$utils.getClassValue('.eg_button:hover').style.transitionDuration = n + 's';
+      },
       'styles.width': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.width = n + 'px';
       },
@@ -257,24 +299,56 @@
       },
       'styles.borderWidth': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderWidth = n + 'px';
-        this.$utils.getClassValue('.eg_button').style.lineHeight = (parseInt(this.$utils.getClassValue('.eg_button').style.height)-n*2) + 'px';
+        this.$utils.getClassValue('.eg_button').style.lineHeight = (parseInt(this.$utils.getClassValue('.eg_button')
+          .style.height) - n * 2) + 'px';
       },
       'styles.borderStyle': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderStyle = n;
-        console.log( this.$utils.getClassValue('.eg_button').style.borderStyle);
       },
       'styles.borderColor': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderColor = n;
       },
       'styles.borderRadius': function (n, o) {
         this.$utils.getClassValue('.eg_button').style.borderRadius = n + 'px';
+      },
+      'animateStyles.width': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.width = n + 'px';
+      },
+      'animateStyles.height': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.height = n + 'px';
+        this.$utils.getClassValue('.eg_button:hover').style.lineHeight = n + 'px';
+      },
+      //交互
+      'animateStyles.color': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.color = n;
+      },
+      'animateStyles.fontSize': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.fontSize = n + 'px';
+      },
+      'animateStyles.backgroundColor': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.backgroundColor = n;
+      },
+      'animateStyles.borderWidth': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.borderWidth = n + 'px';
+        this.$utils.getClassValue('.eg_button:hover').style.lineHeight = (parseInt(this.$utils.getClassValue(
+            '.eg_button:hover')
+          .style.height) - n * 2) + 'px';
+      },
+      'animateStyles.borderStyle': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.borderStyle = n;
+      },
+      'animateStyles.borderColor': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.borderColor = n;
+      },
+      'animateStyles.borderRadius': function (n, o) {
+        this.$utils.getClassValue('.eg_button:hover').style.borderRadius = n + 'px';
       }
     },
     computed: {
 
     },
     mounted() {
-      console.log(this.$utils.getClassValue('.eg_button').style)
+      console.log(this.$utils.getClassValue('.eg_button').style.transitionDuration);
     }
   }
 </script>

@@ -21,6 +21,7 @@
     "electron-debug": "^3.0.1",
     "electron-devtools-installer": "^3.0.0",
     "element-ui": "^2.13.1",
+    "highlight.js": "^10.0.3",
     "nprogress": "^0.2.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",

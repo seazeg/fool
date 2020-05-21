@@ -12,7 +12,7 @@
   import './base.less'
   import {
     cssProcess
-  } from '@/libs/utils.js'
+  } from '@/utils/utils.js'
 
 
   export default {

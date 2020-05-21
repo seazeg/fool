@@ -45,7 +45,7 @@
     </div>
     <!-- 编辑 -->
     <div class="edit">
-      <!-- 基础 -->
+      <!-- 基础属性 -->
       <div class="control_group_title">基础属性</div>
       <div class="control_group">
         <div class="box">
@@ -55,29 +55,7 @@
           </p>
         </div>
       </div>
-
-      <!-- 动画 -->
-      <div class="control_group_title">动画效果：</div>
-      <div class="control_group">
-        <div class="box">
-          <span class="field">过渡时间（transitionDuration）</span>
-          <p>
-            <el-slider v-model="animationStyles.transitionDuration" :min="0" :max="5" :step="0.1" show-input>
-            </el-slider>
-          </p>
-        </div>
-        <div class="box">
-          <span class="field">动画效果（animation）</span>
-          <p>
-            <el-select v-model="animationStyles.animation" placeholder="请选择" style="width:100%" :clearable=true>
-              <el-option-group v-for="group in animationOpt" :key="group.label" :label="group.label">
-                <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-option-group>
-            </el-select>
-          </p>
-        </div>
-      </div>
+      <!-- 基础样式 -->
       <div class="control_group_title">基础样式：</div>
       <div class="control_group">
         <div class="box">
@@ -144,7 +122,44 @@
             <el-slider v-model="styles.borderRadius" :max="50" show-input></el-slider>
           </p>
         </div>
+        <div class="control_group_title">渐变色：</div>
+        <div class="control_group">
+          <div class="box">
+            <div class="left">
+              <span class="field">背景开始颜色（color）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">背景结束颜色（background）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="left">
+              <span class="field">边框开始颜色（borderStyle）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">边框结束颜色（borderColor）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- 交互样式 -->
       <div class="control_group_title">交互样式：</div>
       <div class="control_group">
         <!-- <div class="box">
@@ -209,6 +224,66 @@
           <span class="field">圆角大小（borderRadius）</span>
           <p>
             <el-slider v-model="interactionStyles.borderRadius" :max="50" show-input></el-slider>
+          </p>
+        </div>
+        <div class="control_group_title">渐变色：</div>
+        <div class="control_group">
+          <div class="box">
+            <div class="left">
+              <span class="field">开始颜色（color）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">结束颜色（background）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="left">
+              <span class="field">边框开始颜色（borderStyle）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">边框结束颜色（borderColor）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 动画 -->
+      <div class="control_group_title">动画效果：</div>
+      <div class="control_group">
+        <div class="box">
+          <span class="field">过渡时间（transitionDuration）</span>
+          <p>
+            <el-slider v-model="animationStyles.transitionDuration" :min="0" :max="5" :step="0.1" show-input>
+            </el-slider>
+          </p>
+        </div>
+        <div class="box">
+          <span class="field">动画效果（animation）</span>
+          <p>
+            <el-select v-model="animationStyles.animation" placeholder="请选择" style="width:100%" :clearable=true>
+              <el-option-group v-for="group in animationOpt" :key="group.label" :label="group.label">
+                <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-option-group>
+            </el-select>
           </p>
         </div>
       </div>

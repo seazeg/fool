@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <!-- 视图 -->
     <div class="view">
       <el-tabs v-model="tabChecked" type="border-card">
         <el-tab-pane name="preview">
@@ -43,6 +44,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+    <!-- 编辑 -->
     <div class="edit">
       <div class="control_group_title">基础属性：</div>
       <div class="control_group">

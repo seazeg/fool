@@ -49,7 +49,7 @@
       <div class="control_group_title">基础属性</div>
       <div class="control_group">
         <div class="box">
-          <span class="field">按钮标题</span>
+          <span class="field">按钮标题（buttonText）</span>
           <p>
             <el-input v-model="base.buttonText" placeholder="请输入名称"></el-input>
           </p>
@@ -77,79 +77,84 @@
           </p>
         </div>
         <div class="box">
-          <div class="left">
-            <span class="field">字体颜色（color）</span>
-            <p class="group">
-              <el-color-picker v-model="styles.color" show-alpha></el-color-picker>
-              <el-input v-model="styles.color" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-          <div class="right">
-            <span class="field">背景颜色（background）</span>
-            <p class="group">
-              <el-color-picker v-model="styles.backgroundColor" show-alpha></el-color-picker>
-              <el-input v-model="styles.backgroundColor" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <span class="field">边框宽（borderWidth）</span>
-          <p>
-            <el-slider v-model="styles.borderWidth" :max="10" show-input></el-slider>
-          </p>
-        </div>
-        <div class="box">
-          <div class="left">
-            <span class="field">边框样式（borderStyle）</span>
-            <p>
-              <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
-                <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </p>
-          </div>
-          <div class="right">
-            <span class="field">边框颜色（borderColor）</span>
-            <p class="group">
-              <el-color-picker v-model="styles.borderColor" show-alpha color-format=""></el-color-picker>
-              <el-input v-model="styles.borderColor" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-        </div>
-        <div class="box">
           <span class="field">圆角大小（borderRadius）</span>
           <p>
             <el-slider v-model="styles.borderRadius" :max="50" show-input></el-slider>
           </p>
         </div>
-        <div class="control_group_title">渐变色：</div>
+        <div class="control_group_title">主要颜色：</div>
         <div class="control_group">
           <div class="box">
             <div class="left">
-              <span class="field">背景开始颜色（color）</span>
+              <span class="field">字体颜色（color）</span>
+              <p class="group">
+                <el-color-picker v-model="styles.color" show-alpha></el-color-picker>
+                <el-input v-model="styles.color" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">背景颜色（backgroundColor）</span>
+              <p class="group">
+                <el-color-picker v-model="styles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="styles.backgroundColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="left">
+              <span class="field">背景渐变色开始（gradientStart）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
-              <span class="field">背景结束颜色（background）</span>
+              <span class="field">背景渐变色结束（gradientEnd）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
+
+        </div>
+
+        <div class="control_group_title">边框：</div>
+        <div class="control_group">
+          <div class="box">
+            <span class="field">边框宽（borderWidth）</span>
+            <p>
+              <el-slider v-model="styles.borderWidth" :max="10" show-input></el-slider>
+            </p>
+          </div>
           <div class="box">
             <div class="left">
-              <span class="field">边框开始颜色（borderStyle）</span>
+              <span class="field">边框样式（borderStyle）</span>
+              <p>
+                <el-select v-model="styles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
+                  <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
+                  </el-option>
+                </el-select>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">边框颜色（borderColor）</span>
+              <p class="group">
+                <el-color-picker v-model="styles.borderColor" show-alpha color-format=""></el-color-picker>
+                <el-input v-model="styles.borderColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="left">
+              <span class="field">边框渐变色开始（gradientStart）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
-              <span class="field">边框结束颜色（borderColor）</span>
+              <span class="field">边框渐变色结束（gradientEnd）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
@@ -157,7 +162,10 @@
               </p>
             </div>
           </div>
+
         </div>
+
+
       </div>
       <!-- 交互样式 -->
       <div class="control_group_title">交互样式：</div>
@@ -181,79 +189,87 @@
           </p>
         </div>
         <div class="box">
-          <div class="left">
-            <span class="field">字体颜色（color）</span>
-            <p class="group">
-              <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
-              <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-          <div class="right">
-            <span class="field">背景颜色（background）</span>
-            <p class="group">
-              <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
-              <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <span class="field">边框宽（borderWidth）</span>
-          <p>
-            <el-slider v-model="interactionStyles.borderWidth" :max="10" show-input></el-slider>
-          </p>
-        </div>
-        <div class="box">
-          <div class="left">
-            <span class="field">边框样式（borderStyle）</span>
-            <p>
-              <el-select v-model="interactionStyles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
-                <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </p>
-          </div>
-          <div class="right">
-            <span class="field">边框颜色（borderColor）</span>
-            <p class="group">
-              <el-color-picker v-model="interactionStyles.borderColor" show-alpha></el-color-picker>
-              <el-input v-model="interactionStyles.borderColor" placeholder="请输入色号"></el-input>
-            </p>
-          </div>
-        </div>
-        <div class="box">
           <span class="field">圆角大小（borderRadius）</span>
           <p>
             <el-slider v-model="interactionStyles.borderRadius" :max="50" show-input></el-slider>
           </p>
         </div>
-        <div class="control_group_title">渐变色：</div>
+
+        <div class="control_group_title">颜色：</div>
         <div class="control_group">
           <div class="box">
             <div class="left">
-              <span class="field">开始颜色（color）</span>
+              <span class="field">字体颜色（color）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
-              <span class="field">结束颜色（background）</span>
+              <span class="field">背景颜色（backgroundColor）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
+        
           <div class="box">
             <div class="left">
-              <span class="field">边框开始颜色（borderStyle）</span>
+              <span class="field">背景渐变色开始（gradientStart）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">背景渐变色结束（gradientEnd）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="control_group_title">边框：</div>
+        <div class="control_group">
+          <div class="box">
+            <span class="field">边框宽（borderWidth）</span>
+            <p>
+              <el-slider v-model="interactionStyles.borderWidth" :max="10" show-input></el-slider>
+            </p>
+          </div>
+          <div class="box">
+            <div class="left">
+              <span class="field">边框样式（borderStyle）</span>
+              <p>
+                <el-select v-model="interactionStyles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
+                  <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
+                  </el-option>
+                </el-select>
+              </p>
+            </div>
+            <div class="right">
+              <span class="field">边框颜色（borderColor）</span>
+              <p class="group">
+                <el-color-picker v-model="interactionStyles.borderColor" show-alpha></el-color-picker>
+                <el-input v-model="interactionStyles.borderColor" placeholder="请输入色号"></el-input>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="left">
+              <span class="field">边框渐变色开始（gradientStart）</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
-              <span class="field">边框结束颜色（borderColor）</span>
+              <span class="field">边框渐变色结束（gradientEnd)</span>
               <p class="group">
                 <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
@@ -261,7 +277,9 @@
               </p>
             </div>
           </div>
+
         </div>
+
       </div>
 
 

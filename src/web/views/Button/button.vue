@@ -8,7 +8,7 @@
             <i class="iconfont icon-yulan"></i>preview</span>
           <div class="view-box preview" id="preview">
             <div class="eg_button">{{base.buttonText}}</div>
-            <div class="eg_button solid_gradient">{{base.buttonText}}</div>
+            <div class="eg_button gradient">{{base.buttonText}}</div>
             <div class="eg_button hollow">{{base.buttonText}}</div>
 
           </div>
@@ -107,15 +107,15 @@
             <div class="left">
               <span class="field">背景渐变色开始（gradientStart）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
-                <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="styles.gradientStart" color-format="rgb"></el-color-picker>
+                <el-input v-model="styles.gradientStart" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">背景渐变色结束（gradientEnd）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="styles.gradientEnd" color-format="rgb"></el-color-picker>
+                <el-input v-model="styles.gradientEnd" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
@@ -148,23 +148,23 @@
               </p>
             </div>
           </div>
-          <div class="box">
+          <!-- <div class="box">
             <div class="left">
               <span class="field">边框渐变色开始（gradientStart）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-color-picker v-model="interactionStyles.backgroundColor"></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">边框渐变色结束（gradientEnd）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-color-picker v-model="interactionStyles.backgroundColor"></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
 
               </p>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
@@ -221,15 +221,15 @@
             <div class="left">
               <span class="field">背景渐变色开始（gradientStart）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
-                <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="interactionStyles.gradientStart" color-format="rgb"></el-color-picker>
+                <el-input v-model="interactionStyles.gradientStart" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">背景渐变色结束（gradientEnd）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="interactionStyles.gradientEnd" color-format="rgb"></el-color-picker>
+                <el-input v-model="interactionStyles.gradientEnd" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
@@ -263,23 +263,23 @@
               </p>
             </div>
           </div>
-          <div class="box">
+          <!-- <div class="box">
             <div class="left">
               <span class="field">边框渐变色开始（gradientStart）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-color-picker v-model="interactionStyles.backgroundColor" ></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">边框渐变色结束（gradientEnd)</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
+                <el-color-picker v-model="interactionStyles.backgroundColor"></el-color-picker>
                 <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
 
               </p>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
@@ -339,7 +339,11 @@
           borderWidth: parseInt(this.$utils.getClassValue('.eg_button').style.borderWidth),
           borderStyle: this.$utils.getClassValue('.eg_button').style.borderStyle,
           borderColor: this.$utils.getClassValue('.eg_button').style.borderColor,
-          borderRadius: parseInt(this.$utils.getClassValue('.eg_button').style.borderRadius)
+          borderRadius: parseInt(this.$utils.getClassValue('.eg_button').style.borderRadius),
+          gradientStart: this.$utils.getGradientParam(this.$utils.getClassValue('.eg_button.gradient').style
+            .backgroundImage).start,
+          gradientEnd: this.$utils.getGradientParam(this.$utils.getClassValue('.eg_button.gradient').style
+            .backgroundImage).end,
         },
         interactionStyles: {
           width: parseInt(this.$utils.getClassValue('.eg_button:hover').style.width),
@@ -350,7 +354,11 @@
           borderWidth: parseInt(this.$utils.getClassValue('.eg_button:hover').style.borderWidth),
           borderStyle: this.$utils.getClassValue('.eg_button:hover').style.borderStyle,
           borderColor: this.$utils.getClassValue('.eg_button:hover').style.borderColor,
-          borderRadius: parseInt(this.$utils.getClassValue('.eg_button:hover').style.borderRadius)
+          borderRadius: parseInt(this.$utils.getClassValue('.eg_button:hover').style.borderRadius),
+          gradientStart: this.$utils.getGradientParam(this.$utils.getClassValue('.eg_button.gradient:hover').style
+            .backgroundImage).start,
+          gradientEnd: this.$utils.getGradientParam(this.$utils.getClassValue('.eg_button.gradient:hover').style
+            .backgroundImage).end,
         },
         senior: {
           texture: ''
@@ -443,152 +451,175 @@
         }]
       }
     },
+    computed: {
+      normal: function () {
+        return this.$utils.getClassValue('.eg_button')
+      },
+      normalHover: function () {
+        return this.$utils.getClassValue('.eg_button:hover')
+      },
+      gradient: function () {
+        return this.$utils.getClassValue('.eg_button.gradient')
+      },
+      gradientHover: function () {
+        return this.$utils.getClassValue('.eg_button.gradient:hover')
+      }
+    },
     watch: {
       'base.buttonText': function (n, o) {
         this.workarea.html = document.querySelector('#preview').innerHTML;
       },
-      //基础
+      //动画
       'animationStyles.transitionDuration': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.transitionDuration = n + 's';
-        this.$utils.getClassValue('.eg_button:hover').style.transitionDuration = n + 's';
-        this.$utils.getClassValue('.eg_button:hover').style.animationDuration = n + 's';
+        this.normal.style.transitionDuration = n + 's';
+        this.normalHover.style.transitionDuration = n + 's';
+        this.normalHover.style.animationDuration = n + 's';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate();
 
       },
       'animationStyles.animation': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.animationName = n;
-        this.$utils.getClassValue('.eg_button:hover').style.animationDuration = this.$utils.getClassValue(
+        this.normalHover.style.animationName = n;
+        this.normalHover.style.animationDuration = this.$utils.getClassValue(
           '.eg_button').style.transitionDuration;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
+      //基础
       'styles.width': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.width = n + 'px';
+        this.normal.style.width = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.height': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.height = n + 'px';
-        this.$utils.getClassValue('.eg_button').style.lineHeight = n + 'px';
+        this.normal.style.height = n + 'px';
+        this.normal.style.lineHeight = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.color': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.color = n;
+        this.normal.style.color = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.fontSize': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.fontSize = n + 'px';
+        this.normal.style.fontSize = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.backgroundColor': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.backgroundColor = n;
+        this.normal.style.backgroundColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.borderWidth': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.borderWidth = n + 'px';
-        this.$utils.getClassValue('.eg_button').style.lineHeight = (parseInt(this.$utils.getClassValue('.eg_button')
+        this.normal.style.borderWidth = n + 'px';
+        this.normal.style.lineHeight = (parseInt(this.normal
           .style.height) - n * 2) + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.borderStyle': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.borderStyle = n;
+        this.normal.style.borderStyle = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.borderColor': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.borderColor = n;
+        this.normal.style.borderColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'styles.borderRadius': function (n, o) {
-        this.$utils.getClassValue('.eg_button').style.borderRadius = n + 'px';
+        this.normal.style.borderRadius = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
+      },
+      'styles.gradientStart': function (n, o) {
+        console.log(n);
+        this.gradient.style.backgroundImage = `linear-gradient(to right, ${n} 0%, ${this.$utils.getGradientParam(this.gradient.style
+            .backgroundImage).end} 51%, ${n} 100%)`
+        console.log('渐变', this.gradient.style.backgroundImage);
+        this.cssUpdate()
+      },
+      'styles.gradientEnd': function (n, o) {
+        this.gradient.style.backgroundImage = `linear-gradient(to right, ${this.$utils.getGradientParam(this.gradient.style
+            .backgroundImage).start} 0%, ${n} 51%, ${this.$utils.getGradientParam(this.gradient.style
+            .backgroundImage).start} 100%)`
+        this.cssUpdate()
       },
       'interactionStyles.width': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.width = n + 'px';
+        this.normalHover.style.width = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.height': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.height = n + 'px';
-        this.$utils.getClassValue('.eg_button:hover').style.lineHeight = n + 'px';
+        this.normalHover.style.height = n + 'px';
+        this.normalHover.style.lineHeight = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       //交互
       'interactionStyles.color': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.color = n;
+        this.normalHover.style.color = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.fontSize': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.fontSize = n + 'px';
+        this.normalHover.style.fontSize = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.backgroundColor': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.backgroundColor = n;
+        this.normalHover.style.backgroundColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.borderWidth': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.borderWidth = n + 'px';
-        this.$utils.getClassValue('.eg_button:hover').style.lineHeight = (parseInt(this.$utils.getClassValue(
+        this.normalHover.style.borderWidth = n + 'px';
+        this.normalHover.style.lineHeight = (parseInt(this.$utils.getClassValue(
             '.eg_button:hover')
           .style.height) - n * 2) + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.borderStyle': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.borderStyle = n;
+        this.normalHover.style.borderStyle = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.borderColor': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.borderColor = n;
+        this.normalHover.style.borderColor = n;
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
+        this.cssUpdate()
       },
       'interactionStyles.borderRadius': function (n, o) {
-        this.$utils.getClassValue('.eg_button:hover').style.borderRadius = n + 'px';
+        this.normalHover.style.borderRadius = n + 'px';
 
-        this.workarea.css = this.$utils.cssFormat(this.$utils.getClassValue('.eg_button').cssText + this.$utils
-          .getClassValue('.eg_button:hover').cssText)
-      }
+        this.cssUpdate()
+      },
+      'interactionStyles.gradientStart': function (n, o) {
+        this.gradientHover.style.backgroundImage = `linear-gradient(to right, ${n} 0%, ${this.$utils.getGradientParam(this.gradientHover.style
+            .backgroundImage).end} 51%, ${n} 100%)`
+        this.cssUpdate()
+      },
+      'interactionStyles.gradientEnd': function (n, o) {
+        this.gradientHover.style.backgroundImage = `linear-gradient(to right, ${this.$utils.getGradientParam(this.gradientHover.style
+            .backgroundImage).start} 0%, ${n} 51%, ${this.$utils.getGradientParam(this.gradientHover.style
+            .backgroundImage).start} 100%)`
+        this.cssUpdate()
+      },
     },
     methods: {
       toHtml(tab, event) {
         this.workarea.html = document.querySelector('#preview').innerHTML;
+      },
+      cssUpdate() {
+        this.workarea.css = this.$utils.cssFormat(this.normal.cssText + this.$utils
+          .getClassValue('.eg_button:hover').cssText)
       }
     },
     mounted() {
-      console.log(this.$utils.getClassValue('.eg_button:hover').style);
+      // console.log(this.$utils.getClassValue('.eg_button').style.backgroundImage)
     }
   }
 </script>

@@ -48,7 +48,7 @@
     color: @fontWhite;
     border-style: solid;
     border-width: @borderWidth;
-    border-color: @mainColor;
+    border-color: @subColor;
     border-radius: @borderRadius;
     font-size: @fontSize;
 }
@@ -70,58 +70,41 @@
     opacity: 0.2;
 }
 
+
 //实心渐变
-@{Button}.solid_gradient {
+@{Button}.gradient {
     background-image: linear-gradient(to right, @mainColor 0%, @subColor 51%, @mainColor 100%);
     background-size: 200% auto;
-    color: @fontWhite;
 }
 
-@{Button}.solid_gradient:hover {
+@{Button}.gradient:hover {
+    background-image: linear-gradient(to right, @mainColor 0%, @subColor 51%, @mainColor 100%);
     background-position: right center;
 }
 
-//实心
-@{Button}.solid {
-    width: @buttonWidth - @borderWidth*2;
-    height: @buttonHeight - @borderWidth*2;
-    line-height: @buttonHeight - @borderWidth*2;
-    background-color: @subColor;
-    border: @borderWidth solid @subColor;
-    color: @fontWhite;
-}
 
-@{Button}.solid:hover {
-    background-color: @mainColor;
-    border: @borderWidth solid @mainColor;
-    color: @fontWhite;
-}
 
 //空心
 @{Button}.hollow {
-    width: @buttonWidth - @borderWidth*2;
-    height: @buttonHeight - @borderWidth*2;
-    line-height: @buttonHeight - @borderWidth*2;
     background-color: @fontWhite;
-    border: @borderWidth solid @subColor;
     color: @subColor;
 }
 
-@{Button}.hollow:hover {
-    border: @borderWidth solid @mainColor;
-    color: @mainColor;
-}
+// @{Button}.hollow:hover {
+//     border: @borderWidth solid @mainColor;
+//     color: @mainColor;
+// }
 
-//空心渐变
-@{Button}.hollow_gradient {
-    width: @buttonWidth - @borderWidth*2;
-    height: @buttonHeight - @borderWidth*2;
-    line-height: @buttonHeight - @borderWidth*2;
-    background-color: transparent;
-    border: @borderWidth solid @subColor;
-    border-image: linear-gradient(to right, @mainColor 0%, @subColor 100%) 10 10;
-    color: @subColor;
-}
+// //空心渐变
+// @{Button}.hollow_gradient {
+//     width: @buttonWidth - @borderWidth*2;
+//     height: @buttonHeight - @borderWidth*2;
+//     line-height: @buttonHeight - @borderWidth*2;
+//     background-color: transparent;
+//     border: @borderWidth solid @subColor;
+//     border-image: linear-gradient(to right, @mainColor 0%, @subColor 100%) 10 10;
+//     color: @subColor;
+// }
 
 //失效
 @{Button}.disabled {

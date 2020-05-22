@@ -9,8 +9,6 @@
           <div class="view-box preview" id="preview">
             <div class="eg_button">{{base.buttonText}}</div>
             <div class="eg_button gradient">{{base.buttonText}}</div>
-            <div class="eg_button hollow">{{base.buttonText}}</div>
-
           </div>
         </el-tab-pane>
         <el-tab-pane name="html">
@@ -143,7 +141,7 @@
             <div class="right">
               <span class="field">边框颜色（borderColor）</span>
               <p class="group">
-                <el-color-picker v-model="styles.borderColor" show-alpha color-format=""></el-color-picker>
+                <el-color-picker v-model="styles.borderColor"  color-format="rgb"></el-color-picker>
                 <el-input v-model="styles.borderColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
@@ -258,7 +256,7 @@
             <div class="right">
               <span class="field">边框颜色（borderColor）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.borderColor" show-alpha></el-color-picker>
+                <el-color-picker v-model="interactionStyles.borderColor" color-format="rgb"></el-color-picker>
                 <el-input v-model="interactionStyles.borderColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
@@ -467,7 +465,7 @@
     },
     watch: {
       'base.buttonText': function (n, o) {
-        this.workarea.html = document.querySelector('#preview').innerHTML;
+        this.workarea.html = document.querySelector('#preview').innerHTML.replace('> <','>\n<');
       },
       //动画
       'animationStyles.transitionDuration': function (n, o) {
@@ -494,7 +492,7 @@
       'styles.height': function (n, o) {
         this.normal.style.height = n + 'px';
         this.normal.style.lineHeight = n + 'px';
-
+        this.gradient.style.lineHeight = n + 'px' ;
         this.cssUpdate()
       },
       'styles.color': function (n, o) {
@@ -535,10 +533,8 @@
         this.cssUpdate()
       },
       'styles.gradientStart': function (n, o) {
-        console.log(n);
         this.gradient.style.backgroundImage = `linear-gradient(to right, ${n} 0%, ${this.$utils.getGradientParam(this.gradient.style
             .backgroundImage).end} 51%, ${n} 100%)`
-        console.log('渐变', this.gradient.style.backgroundImage);
         this.cssUpdate()
       },
       'styles.gradientEnd': function (n, o) {
@@ -549,7 +545,6 @@
       },
       'interactionStyles.width': function (n, o) {
         this.normalHover.style.width = n + 'px';
-
         this.cssUpdate()
       },
       'interactionStyles.height': function (n, o) {
@@ -611,7 +606,7 @@
     },
     methods: {
       toHtml(tab, event) {
-        this.workarea.html = document.querySelector('#preview').innerHTML;
+        this.workarea.html =document.querySelector('#preview').innerHTML.replace('> <','>\n<')
       },
       cssUpdate() {
         this.workarea.css = this.$utils.cssFormat(this.normal.cssText + this.$utils

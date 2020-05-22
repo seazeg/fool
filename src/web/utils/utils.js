@@ -29,7 +29,6 @@ export const utils = {
     getGradientParam: (str) => {
         let regx = /\((.+?)\)/g;
         let res = str.match(regx);
-        // console.log(str);
         return {
             start:`rgb${res[2]}` ,
             end: `rgb${res[1]}`

@@ -73,6 +73,8 @@
 
 //实心渐变
 @{Button}.gradient {
+    border:none;
+    line-height: @buttonHeight;
     background-image: linear-gradient(to right, @mainColor 0%, @subColor 51%, @mainColor 100%);
     background-size: 200% auto;
 }
@@ -82,29 +84,16 @@
     background-position: right center;
 }
 
-
-
 //空心
 @{Button}.hollow {
     background-color: @fontWhite;
     color: @subColor;
 }
 
-// @{Button}.hollow:hover {
-//     border: @borderWidth solid @mainColor;
-//     color: @mainColor;
-// }
-
-// //空心渐变
-// @{Button}.hollow_gradient {
-//     width: @buttonWidth - @borderWidth*2;
-//     height: @buttonHeight - @borderWidth*2;
-//     line-height: @buttonHeight - @borderWidth*2;
-//     background-color: transparent;
-//     border: @borderWidth solid @subColor;
-//     border-image: linear-gradient(to right, @mainColor 0%, @subColor 100%) 10 10;
-//     color: @subColor;
-// }
+@{Button}.hollow:hover {
+    background-color: @fontWhite;
+    color: @subColor;
+}
 
 //失效
 @{Button}.disabled {
@@ -113,7 +102,6 @@
     line-height: @buttonHeight - @borderWidth*2;
     background-color: @fontGrey + rgb(17, 17, 17);
     border: @borderWidth solid @fontGrey + rgb(17, 17, 17);
-    ;
     color: @fontGrey;
 }
 

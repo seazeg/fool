@@ -47,7 +47,7 @@
     <!-- 编辑 -->
     <div class="edit">
       <!-- 基础属性 -->
-      <div class="control_group_title">基础属性</div>
+      <div class="control_group_title">基础属性：</div>
       <div class="control_group">
         <div class="box">
           <span class="field">按钮标题（buttonText）</span>
@@ -467,7 +467,8 @@
     },
     watch: {
       'base.buttonText': function (n, o) {
-        this.workarea.html = document.querySelector('#preview').innerHTML.replace('> <', '>\n<');
+        console.log(n);
+        this.workarea.html = `<div class="eg_button">${n}</div>\n<div class="eg_button gradient">${n}</div>`
       },
       //动画
       'animationStyles.transitionDuration': function (n, o) {

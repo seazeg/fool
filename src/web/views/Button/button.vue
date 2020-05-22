@@ -8,6 +8,9 @@
             <i class="iconfont icon-yulan"></i>preview</span>
           <div class="view-box preview" id="preview">
             <div class="eg_button">{{base.buttonText}}</div>
+            <div class="eg_button solid_gradient">{{base.buttonText}}</div>
+            <div class="eg_button hollow">{{base.buttonText}}</div>
+
           </div>
         </el-tab-pane>
         <el-tab-pane name="html">
@@ -213,7 +216,7 @@
               </p>
             </div>
           </div>
-        
+
           <div class="box">
             <div class="left">
               <span class="field">背景渐变色开始（gradientStart）</span>

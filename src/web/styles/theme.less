@@ -41,7 +41,7 @@ code {
     overflow: hidden;
     border: 1px solid @shadow_color;
     color: @font_color;
-    user-select: none;
+    // user-select: none;
 }
 
 //标题
@@ -108,6 +108,7 @@ code {
 .layout-sidetools {
     background: @main_color;
     border-right: 1px solid @shadow_color;
+    user-select:none;
 }
 
 .layout-sidetools .group .box {
@@ -174,7 +175,7 @@ code {
 }
 
 .layout-workarea .view-box {
-    height: 90vh;
+    height: 100vh;
 }
 
 .layout-workarea .view-box.preview {
@@ -212,17 +213,17 @@ code {
     padding: 0 10px;
     line-height: 25px;
     border: 1px solid @work_color;
-    user-select: auto;
+    // user-select: auto;
 }
 
 .layout-workarea .view-box.css pre code,
 .layout-workarea .view-box.js pre code,
 .layout-workarea .view-box.html pre code {
     background: @work_color;
-    font-family: Consolas;
+    font-family: 'Courier';
     font-style: normal;
     font-size: 16px;
-    user-select: auto;
+    // user-select: auto;
 }
 
 .layout-workarea .view-box.js pre code {
@@ -238,6 +239,7 @@ code {
 .layout-workarea .view .el-tabs--border-card>.el-tabs__header {
     background: @main_color;
     border-bottom: 1px solid @shadow_color;
+    user-select:none;
 }
 
 .layout-workarea .view .el-tabs--border-card>.el-tabs__header .el-tabs__item {
@@ -257,6 +259,7 @@ code {
     display: inline-block;
     padding: 13px;
     overflow-y: auto;
+    user-select:none;
 }
 
 .layout-workarea .edit .control_group_title {

@@ -112,7 +112,7 @@ code {
 }
 
 .layout-sidetools .group .box {
-    padding: 2px 3px;
+    padding: 10px;
     margin: 1px 0;
     border-bottom: 1px solid @deputy_color; // display: inline-block;
     margin: 1px
@@ -123,16 +123,15 @@ code {
     color: @tools_color;
     text-align: center;
     padding: 0 2px;
-    border: 1px solid @main_color;
 }
 
-.layout-sidetools .group .box>a:hover {
+.layout-sidetools .group .box:hover {
     background: @shadow_color;
     border-radius: 5px;
-    border: 1px solid @deputy_color
+    // border: 1px solid @deputy_color
 }
 
-.layout-sidetools .group .box>a.checked {
+.layout-sidetools .group .box.checked {
     background: @border_color;
     border-radius: 5px;
     border: 1px solid @work_color
@@ -197,11 +196,12 @@ code {
 
 .layout-workarea .view .lab-icon>i {
     color: @font_color;
-    font-size: 20px;
+    font-size: 22px;
     vertical-align: middle;
     margin-right: 2px;
     position: relative;
-    bottom: 2px;
+    bottom: 1px;
+    font-weight: bolder;
 }
 
 .layout-workarea .view-box.css pre,

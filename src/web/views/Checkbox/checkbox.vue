@@ -80,7 +80,7 @@
         },
         set(value) {
           
-          this.$store.commit('update', {'width':value})
+          this.$store.commit('updateParam', {'width':value})
         }
        
       },

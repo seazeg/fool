@@ -33,7 +33,7 @@ export default new Vuex.Store({
       }
     },
     selectEle2(state, id) {
-      debugger
+
       for (let i of state.eles) {
         if (i.id == id) {
           state.sel = i;
@@ -41,8 +41,8 @@ export default new Vuex.Store({
       }
       console.log(state.sel.style);
     },
-    update(state,o){
-      state.sel.style[Object.keys(o)[0]] = o
+    updateParam(state,o){
+      state.sel.style[Object.keys(o)[0]] = o[Object.keys(o)] + 'px'
     }
 
   },

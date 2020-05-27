@@ -15,6 +15,9 @@
         },
         mounted() {
             console.log(this.opt.style);
+        },
+        update(){
+             console.log(this.opt.style);
         }
     }
 </script>

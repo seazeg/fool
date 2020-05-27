@@ -1,17 +1,20 @@
 <template>
-    <div class="eg_button" @click="get()">{{opt}}</div>
+    <div class="eg_button" @click="get()" :style="opt.style">{{opt.label}}</div>
 </template>
 
 <script>
     export default {
         name: 'gbutton',
         props:{
-            opt:[String,Number]
+            opt:[Array,Object]
         },
         methods:{
             get(){
                 this.$emit('get',this.opt)
             }
+        },
+        mounted() {
+            console.log(this.opt.style);
         }
     }
 </script>

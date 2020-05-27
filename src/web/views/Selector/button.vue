@@ -14,7 +14,7 @@
             }
         },
         mounted() {
-            console.log(this.opt.style);
+            console.log('x',this.opt.style);
         },
         update(){
              console.log(this.opt.style);

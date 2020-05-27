@@ -27,16 +27,17 @@
           name: 'button',
           icon: 'icon-anniu',
           label: 'Button',
-          style:{
-            width:'200px',
-          height:'50px',
-          fontSize:'14px'
+          style: {
+            width: '200px',
+            height: '50px',
+            fontSize: '14px'
           }
         }]
       }
     },
     methods: {
       cloneDog(o) {
+        console.log('clone',o);
         return {
           id: this.$set(o, 'id', Math.random() * 100),
           ...o

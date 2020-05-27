@@ -76,6 +76,7 @@
       },
       width:{
         get() {
+          console.log(this.$store.state.sel.id);
           return parseInt(this.$store.state.sel.style.width)
         },
         set(value) {
@@ -105,6 +106,8 @@
     },
     methods: {
       cloneDog(o) {
+      
+        console.log('oo',o);
         return {
           id: this.$set(o, 'id', Math.random() * 100),
           ...o

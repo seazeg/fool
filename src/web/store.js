@@ -39,9 +39,10 @@ export default new Vuex.Store({
           state.sel = i;
         }
       }
-      console.log(state.sel.style);
+      console.log('x',state.sel.style);
     },
     updateParam(state,o){
+      console.log(state.sel.style.width);
       state.sel.style[Object.keys(o)[0]] = o[Object.keys(o)] + 'px'
     }
 

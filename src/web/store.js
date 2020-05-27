@@ -1,54 +1,37 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import _ from 'lodash'
+import Vue from "vue";
+import Vuex from "vuex";
+import _ from "lodash";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    eles: [],
-    sel: {
-      name: '',
-      style: {
-        width: 200,
-        height: 100,
-        fontSize: 14
-      }
+    state: {
+        controls: [],
+        selected: {
+            name: "",
+            style: {
+                width: 0,
+                height: 0,
+                fontSize: 0,
+            },
+        },
     },
-    list: []
-  },
-  mutations: {
-    updateList(state, eles) {
-
-      state.eles = eles
-      console.log(state.eles);
-    },
-    updateList2(state, eles) {
-      state.list = eles
-    },
-    selectEle(state, id) {
-      for (let i of state.list) {
-        if (i.id == id) {
-          state.sel = i;
-        }
-      }
-    },
-    selectEle2(state, id) {
-
-      for (let i of state.eles) {
-        if (i.id == id) {
-          state.sel = i;
-        }
-      }
-      console.log('x', state.sel.style);
-    },
-    updateParam(state, o) {
-      state.sel.style[Object.keys(o)[0]] = o[Object.keys(o)] + 'px'
-      state.sel.style = _.cloneDeep(state.sel.style);
+    mutations: {
+        "Hope/UpdateControls": (state, eles) => {
+            state.eles = eles;
+            console.log(state.eles);
+        },
+        "Hope/ChooseControl": (state, id) => {
+            for (let ele of state.controls) {
+                if (ele.id == id) {
+                    state.selected = ele;
+                }
+            }
+        },
+        "Hope/UpdateControlParams": (state, ele) => {
+            state.selected.style[Object.keys((ele))[0]] =
+                ele[Object.keys(ele)] + "px";
+            state.selected.style = _.cloneDeep(state.selected.style);
+        },
     }
-
-  },
-  actions: {
-
-  }
-})
+});

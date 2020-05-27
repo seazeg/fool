@@ -13,45 +13,31 @@
 @fontSize: 20px;
 
 @{Button} {
-    width: @buttonWidth;
-    height:  @buttonHeight;
-    line-height: @buttonHeight - @borderWidth*2;
     text-align: center;
     display: inline-block;
     position: relative;
-    transition-delay: 0s;
-    transition-duration: 0.5s;
-    transition-property: all;
-    transition-timing-function: ease;
-    background-color: @mainColor;
-    color: @fontWhite;
-    border-style: solid;
-    border-width: @borderWidth;
-    border-color: @mainColor;
-    border-radius: @borderRadius;
-    font-size: @fontSize;
-    overflow:hidden;
     cursor: pointer;
+    overflow: hidden;
 }
 
-@{Button}:hover {
-    width: @buttonWidth;
-    height:  @buttonHeight;
-    line-height: @buttonHeight - @borderWidth*2;
-    transition-delay: 0s;
-    transition-duration: 0.5s;
-    transition-property: all;
-    transition-timing-function: ease;
-    animation-name:'';
-    animation-duration:'';
-    background-color: @subColor;
-    color: @fontWhite;
-    border-style: solid;
-    border-width: @borderWidth;
-    border-color: @subColor;
-    border-radius: @borderRadius;
-    font-size: @fontSize;
-}
+// @{Button}:hover {
+//     width: @buttonWidth;
+//     height:  @buttonHeight;
+//     line-height: @buttonHeight - @borderWidth*2;
+//     transition-delay: 0s;
+//     transition-duration: 0.5s;
+//     transition-property: all;
+//     transition-timing-function: ease;
+//     animation-name:'';
+//     animation-duration:'';
+//     background-color: @subColor;
+//     color: @fontWhite;
+//     border-style: solid;
+//     border-width: @borderWidth;
+//     border-color: @subColor;
+//     border-radius: @borderRadius;
+//     font-size: @fontSize;
+// }
 
 //上层纹理
 @{Button}.texture:after {

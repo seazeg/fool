@@ -4,9 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export const navInfo = [{
-  path: '/button',
-  name: 'button',
-  component: () => import( /* webpackChunkName: "button" */ './views/Button/button.vue'),
+  path: '/editor',
+  name: 'editor',
+  component: () => import( /* webpackChunkName: "button" */ './components/layout/layout-view.vue'),
   meta: {
     lname: '按钮',
     icon: "icon-anniu",

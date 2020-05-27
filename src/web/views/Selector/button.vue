@@ -1,5 +1,5 @@
 <template>
-    <div class="eg_button" @click="get()" :style="opt.style">{{opt.label}}</div>
+    <div class="eg_button" @click="get()" :style="opt.style">{{opt.label+'|'+opt.id}}</div>
 </template>
 
 <script>

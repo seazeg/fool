@@ -1,24 +1,32 @@
 <template>
   <div class="layout-sidetools">
     <span class="operate iconfont icon-youshuangjiantou"></span>
-    <div class="group">
-      <div class="box" v-for="item in navInfo" :class="{'checked':$route.name==item.meta.lname}">
-        <a class="iconfont" :class="item.meta.icon" @click="goPage(item)">
+    <!-- <div class="group"> -->
+    <draggable class="group" :list="cps" :group="{ name: 'cps', pull: 'clone', put: false }" @change="log" >
+      <div class="box" v-for="(ele,i) in cps" :key="i" :alt="ele.label">
+        <a class="iconfont" :class="ele.icon" @click="goPage(ele)" >
+          {{ele.label}}
         </a>
       </div>
-    </div>
+    </draggable>
+
+
+    <!-- </div> -->
   </div>
 </template>
 <script>
   import {
     navInfo
   } from '../../router.js'
-  console.log(navInfo);
   export default {
     name: "layout-sidetools",
     data() {
-      return {
-        navInfo: navInfo
+      return{
+        cps: [{
+        name: 'button',
+        icon: 'icon-anniu',
+        label: 'Button'
+      }]
       }
     },
     methods: {
@@ -26,6 +34,10 @@
         this.$router.replace({
           path: obj.path,
         })
+      },
+      log(e) {
+        console.log(222222222222);
+        // console.log(e);
       }
     },
     mounted() {

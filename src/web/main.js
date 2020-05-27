@@ -8,7 +8,7 @@ import './registerServiceWorker'
 import ElementUI from 'element-ui'
 import Navigation from 'vue-navigation'
 import {utils} from './utils/utils.js'
-import draggable from "vuedraggable";
+import draggable from 'vuedraggable';
 
 import './styles/reset.less';
 import './styles/base.less';

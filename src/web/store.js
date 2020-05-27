@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import _ from 'lodash'
 
 Vue.use(Vuex)
 
@@ -39,11 +40,11 @@ export default new Vuex.Store({
           state.sel = i;
         }
       }
-      console.log('x',state.sel.style);
+      console.log('x', state.sel.style);
     },
-    updateParam(state,o){
-      console.log(state.sel.style.width);
+    updateParam(state, o) {
       state.sel.style[Object.keys(o)[0]] = o[Object.keys(o)] + 'px'
+      state.sel.style = _.cloneDeep(state.sel.style);
     }
 
   },

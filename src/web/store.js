@@ -7,14 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         controls: [],
-        selected: {
-            name: "",
-            style: {
-                width: 0,
-                height: 0,
-                fontSize: 0,
-            },
-        },
+        selected: {},
     },
     mutations: {
         "Hope/UpdateControls": (state, eles) => {
@@ -29,9 +22,14 @@ export default new Vuex.Store({
             }
         },
         "Hope/UpdateControlParams": (state, ele) => {
-            state.selected.style[Object.keys((ele))[0]] =
-                ele[Object.keys(ele)] + "px";
-            state.selected.style = _.cloneDeep(state.selected.style);
+            if (ele.isDiff) {
+                state.selected[ele.container][Object.keys(ele)[0]] =
+                    ele[Object.keys(ele)[0]] + "px";
+            } else {
+                state.selected[ele.container][Object.keys(ele)[0]] =
+                    ele[Object.keys(ele)[0]];
+            }
+            state.selected[ele.container] = _.cloneDeep(state.selected[ele.container]);
         },
-    }
+    },
 });

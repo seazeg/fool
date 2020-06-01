@@ -111,28 +111,41 @@ code {
     user-select: none;
 }
 
+
 .layout-sidetools .group .box {
     padding: 10px;
     margin: 1px 0;
     border-bottom: 1px solid @deputy_color; // display: inline-block;
     margin: 1px;
+   
 }
 
-.layout-sidetools .group .box > a {
-    font-size: 30px;
+.layout-sidetools .group .box > i {
+    font-size: 24px;
     color: @tools_color;
     text-align: center;
-    padding: 0 2px;
+    vertical-align:middle
+}
+
+.layout-sidetools .group .box > span {
+    font-size: 16px;
+    color: @tools_color;
+    vertical-align:middle
 }
 
 .layout-sidetools .group .box:hover {
     background: @shadow_color;
     border-radius: 5px;
+
 }
 
 .layout-sidetools .group .box.checked {
     background: @border_color;
     border-radius: 5px;
+}
+
+.layout-sidetools .group .box.sortable-chosen{
+
 }
 
 .layout-sidetools .operate {
@@ -167,7 +180,8 @@ code {
 }
 
 .layout-workarea .view {
-    width: 59%;
+    // width: 59%;
+    width:100%;
     display: inline-block; // margin-right: 30px;
 }
 
@@ -179,13 +193,13 @@ code {
     // width: 60%;
     // display: inline-block;
     background: url("../assets/images/background_b.png"); // height:85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: column;
 }
 .layout-workarea .view-box.preview > * {
-    margin: 10px 0;
+    margin:10px 0 0 10px;
 }
 .layout-workarea .view .lab-icon {
     font-size: 14px;

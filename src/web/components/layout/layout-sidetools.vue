@@ -8,9 +8,9 @@
             :clone="clone"
         >
             <div class="box" v-for="(ele, i) in controls" :key="i">
-                <a class="iconfont" :class="ele.icon">
-                    {{ ele.name }}
-                </a>
+                <i class="iconfont" :class="ele.icon">
+                </i>
+                <span> {{ ele.name }}</span>
             </div>
         </draggable>
     </div>
@@ -19,49 +19,49 @@
 export default {
     name: "layout-sidetools",
     computed: {
-        controls:function() {
+        controls: function() {
             let basis = {
                 mainColor: "#41B883",
                 subColor: "#e2574c",
             };
             return [
                 {
-                    name: "Button",
+                    name: "按钮",
                     label: "hope_button",
                     icon: "icon-anniu",
                     style: {
                         width: "200px",
                         height: "50px",
-                        "line-height": "50px",
-                        "text-align": "center",
-                        "transition-delay": "0s",
-                        "transition-duration": "0.5s",
-                        "transition-property": "all",
-                        "transition-timing-function": "ease",
-                        "background-color": basis.mainColor,
+                        lineHeight: "50px",
+                        textAlign: "center",
+                        transitionDelay: "0s",
+                        transitionDuration: "0.5s",
+                        transitionProperty: "all",
+                        transitionTimingFunction: "ease",
+                        backgroundColor: basis.mainColor,
                         color: "#ffffff",
-                        "border-style": "solid",
-                        "border-width": "0",
-                        "border-color": basis.mainColor,
-                        "border-radius": "0",
-                        "font-size": "14px",
+                        borderStyle: "solid",
+                        borderWidth: "0px",
+                        borderColor: basis.mainColor,
+                        borderEadius: "0px",
+                        fontSize: "14px",
                     },
                     effect: {
                         width: "200px",
                         height: "50px",
-                        "line-height": "50px",
-                        "text-align": "center",
-                        "transition-delay": "0s",
-                        "transition-duration": "0.5s",
-                        "transition-property": "all",
-                        "transition-timing-function": "ease",
-                        "background-color": basis.subColor,
+                        lineHeight: "50px",
+                        textAlign: "center",
+                        transitionDelay: "0s",
+                        transitionDuration: "0.5s",
+                        transitionProperty: "all",
+                        transitionTimingFunction: "ease",
+                        backgroundColor: basis.subColor,
                         color: "#ffffff",
-                        "border-style": "solid",
-                        "border-width": "0",
-                        "border-color": basis.subColor,
-                        "border-radius": "10px",
-                        "font-size": "14px",
+                        borderStyle: "solid",
+                        borderWidth: "0px",
+                        borderColor: basis.subColor,
+                        borderEadius: "0px",
+                        fontSize: "14px",
                     },
                 },
             ];

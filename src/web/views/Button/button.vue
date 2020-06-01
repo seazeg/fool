@@ -150,15 +150,15 @@
             <div class="left">
               <span class="field">边框渐变色开始（gradientStart）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor"></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_backgroundColor"></el-color-picker>
+                <el-input v-model="Hvr_backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">边框渐变色结束（gradientEnd）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor"></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_backgroundColor"></el-color-picker>
+                <el-input v-model="Hvr_backgroundColor" placeholder="请输入色号"></el-input>
 
               </p>
             </div>
@@ -171,28 +171,16 @@
       <!-- 交互样式 -->
       <div class="control_group_title">交互样式：</div>
       <div class="control_group">
-        <!-- <div class="box">
-          <span class="field">宽度（width）</span>
-          <p>
-            <el-slider v-model="interactionStyles.width" :min="100" :max="500" show-input></el-slider>
-          </p>
-        </div>
-        <div class="box">
-          <span class="field">高度（height）</span>
-          <p>
-            <el-slider v-model="interactionStyles.height" :min="40" :max="500" show-input></el-slider>
-          </p>
-        </div> -->
         <div class="box">
           <span class="field">字号（fontSize）</span>
           <p>
-            <el-slider v-model="interactionStyles.fontSize" :max="50" show-input></el-slider>
+            <el-slider v-model="Hvr_fontSize" :max="50" show-input></el-slider>
           </p>
         </div>
         <div class="box">
           <span class="field">圆角大小（borderRadius）</span>
           <p>
-            <el-slider v-model="interactionStyles.borderRadius" :max="50" show-input></el-slider>
+            <el-slider v-model="Hvr_borderRadius" :max="50" show-input></el-slider>
           </p>
         </div>
 
@@ -202,15 +190,15 @@
             <div class="left">
               <span class="field">字体颜色（color）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.color" show-alpha></el-color-picker>
-                <el-input v-model="interactionStyles.color" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_color" show-alpha></el-color-picker>
+                <el-input v-model="Hvr_color" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">背景颜色（backgroundColor）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" show-alpha></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_backgroundColor" show-alpha></el-color-picker>
+                <el-input v-model="Hvr_backgroundColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
@@ -219,15 +207,15 @@
             <div class="left">
               <span class="field">背景渐变色开始（gradientStart）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.gradientStart" color-format="rgb"></el-color-picker>
-                <el-input v-model="interactionStyles.gradientStart" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_gradientStart" color-format="rgb"></el-color-picker>
+                <el-input v-model="Hvr_gradientStart" placeholder="请输入色号"></el-input>
               </p>
             </div>
             <div class="right">
               <span class="field">背景渐变色结束（gradientEnd）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.gradientEnd" color-format="rgb"></el-color-picker>
-                <el-input v-model="interactionStyles.gradientEnd" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_gradientEnd" color-format="rgb"></el-color-picker>
+                <el-input v-model="Hvr_gradientEnd" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
@@ -240,14 +228,14 @@
           <div class="box">
             <span class="field">边框宽（borderWidth）</span>
             <p>
-              <el-slider v-model="interactionStyles.borderWidth" :max="10" show-input></el-slider>
+              <el-slider v-model="Hvr_borderWidth" :max="10" show-input></el-slider>
             </p>
           </div>
           <div class="box">
             <div class="left">
               <span class="field">边框样式（borderStyle）</span>
               <p>
-                <el-select v-model="interactionStyles.borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
+                <el-select v-model="Hvr_borderStyle" placeholder="请选择" style="width:100%" :clearable=true>
                   <el-option v-for="item in borderOpt" :key="item.value" :label="item.label" :value="item.value">
                   </el-option>
                 </el-select>
@@ -256,29 +244,11 @@
             <div class="right">
               <span class="field">边框颜色（borderColor）</span>
               <p class="group">
-                <el-color-picker v-model="interactionStyles.borderColor" color-format="rgb"></el-color-picker>
-                <el-input v-model="interactionStyles.borderColor" placeholder="请输入色号"></el-input>
+                <el-color-picker v-model="Hvr_borderColor" color-format="rgb"></el-color-picker>
+                <el-input v-model="Hvr_borderColor" placeholder="请输入色号"></el-input>
               </p>
             </div>
           </div>
-          <!-- <div class="box">
-            <div class="left">
-              <span class="field">边框渐变色开始（gradientStart）</span>
-              <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor" ></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
-              </p>
-            </div>
-            <div class="right">
-              <span class="field">边框渐变色结束（gradientEnd)</span>
-              <p class="group">
-                <el-color-picker v-model="interactionStyles.backgroundColor"></el-color-picker>
-                <el-input v-model="interactionStyles.backgroundColor" placeholder="请输入色号"></el-input>
-
-              </p>
-            </div>
-          </div> -->
-
         </div>
 
       </div>
@@ -546,33 +516,33 @@
             .backgroundImage).start} 100%)`
         this.cssUpdate()
       },
-      'interactionStyles.width': function (n, o) {
+      'Hvr_width': function (n, o) {
         this.normalHover.style.width = n + 'px';
         this.cssUpdate()
       },
-      'interactionStyles.height': function (n, o) {
+      'Hvr_height': function (n, o) {
         this.normalHover.style.height = n + 'px';
         this.normalHover.style.lineHeight = n + 'px';
 
         this.cssUpdate()
       },
       //交互
-      'interactionStyles.color': function (n, o) {
+      'Hvr_color': function (n, o) {
         this.normalHover.style.color = n;
 
         this.cssUpdate()
       },
-      'interactionStyles.fontSize': function (n, o) {
+      'Hvr_fontSize': function (n, o) {
         this.normalHover.style.fontSize = n + 'px';
 
         this.cssUpdate()
       },
-      'interactionStyles.backgroundColor': function (n, o) {
+      'Hvr_backgroundColor': function (n, o) {
         this.normalHover.style.backgroundColor = n;
 
         this.cssUpdate()
       },
-      'interactionStyles.borderWidth': function (n, o) {
+      'Hvr_borderWidth': function (n, o) {
         this.normalHover.style.borderWidth = n + 'px';
         this.normalHover.style.lineHeight = (parseInt(this.$utils.getClassValue(
             '.eg_button:hover')
@@ -580,27 +550,27 @@
 
         this.cssUpdate()
       },
-      'interactionStyles.borderStyle': function (n, o) {
+      'Hvr_borderStyle': function (n, o) {
         this.normalHover.style.borderStyle = n;
 
         this.cssUpdate()
       },
-      'interactionStyles.borderColor': function (n, o) {
+      'Hvr_borderColor': function (n, o) {
         this.normalHover.style.borderColor = n;
 
         this.cssUpdate()
       },
-      'interactionStyles.borderRadius': function (n, o) {
+      'Hvr_borderRadius': function (n, o) {
         this.normalHover.style.borderRadius = n + 'px';
 
         this.cssUpdate()
       },
-      'interactionStyles.gradientStart': function (n, o) {
+      'Hvr_gradientStart': function (n, o) {
         this.gradientHover.style.backgroundImage = `linear-gradient(to right, ${n} 0%, ${this.$utils.getGradientParam(this.gradientHover.style
             .backgroundImage).end} 51%, ${n} 100%)`
         this.cssUpdate()
       },
-      'interactionStyles.gradientEnd': function (n, o) {
+      'Hvr_gradientEnd': function (n, o) {
         this.gradientHover.style.backgroundImage = `linear-gradient(to right, ${this.$utils.getGradientParam(this.gradientHover.style
             .backgroundImage).start} 0%, ${n} 51%, ${this.$utils.getGradientParam(this.gradientHover.style
             .backgroundImage).start} 100%)`

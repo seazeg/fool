@@ -151,36 +151,8 @@
                         </div>
                     </div>
                     <div class="box">
-                        <div class="left">
-                            <span class="field"
-                                >背景渐变色开始（gradientStart）</span
-                            >
-                            <p class="group">
-                                <el-color-picker
-                                    v-model="gradientStart"
-                                    color-format="rgb"
-                                ></el-color-picker>
-                                <el-input
-                                    v-model="gradientStart"
-                                    placeholder="请输入色号"
-                                ></el-input>
-                            </p>
-                        </div>
-                        <div class="right">
-                            <span class="field"
-                                >背景渐变色结束（gradientEnd）</span
-                            >
-                            <p class="group">
-                                <el-color-picker
-                                    v-model="gradientEnd"
-                                    color-format="rgb"
-                                ></el-color-picker>
-                                <el-input
-                                    v-model="gradientEnd"
-                                    placeholder="请输入色号"
-                                ></el-input>
-                            </p>
-                        </div>
+                        <span class="field">渐变色（gradientColor）</span>
+                        <GradientPicker></GradientPicker>
                     </div>
                 </div>
 
@@ -287,38 +259,9 @@
                             </p>
                         </div>
                     </div>
-
                     <div class="box">
-                        <div class="left">
-                            <span class="field"
-                                >背景渐变色开始（gradientStart）</span
-                            >
-                            <p class="group">
-                                <el-color-picker
-                                    v-model="hvr_gradientStart"
-                                    color-format="rgb"
-                                ></el-color-picker>
-                                <el-input
-                                    v-model="hvr_gradientStart"
-                                    placeholder="请输入色号"
-                                ></el-input>
-                            </p>
-                        </div>
-                        <div class="right">
-                            <span class="field"
-                                >背景渐变色结束（gradientEnd）</span
-                            >
-                            <p class="group">
-                                <el-color-picker
-                                    v-model="hvr_gradientEnd"
-                                    color-format="rgb"
-                                ></el-color-picker>
-                                <el-input
-                                    v-model="hvr_gradientEnd"
-                                    placeholder="请输入色号"
-                                ></el-input>
-                            </p>
-                        </div>
+                        <span class="field">渐变色（gradientColor）</span>
+                        <GradientPicker></GradientPicker>
                     </div>
                 </div>
 
@@ -374,8 +317,10 @@
     </div>
 </template>
 <script>
-import { button } from "../plugins/style.js";
+import { button } from "../controls/style.js";
+import GradientPicker from '../plugins/gradientColorPicker.vue'
 export default {
+
     name: "layout-view",
     display: "Clone",
     order: 2,
@@ -501,6 +446,9 @@ export default {
                 },
             ],
         };
+    },
+    components: {
+        GradientPicker
     },
     computed: {
         controls: {

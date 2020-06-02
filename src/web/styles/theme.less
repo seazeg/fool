@@ -111,32 +111,29 @@ code {
     user-select: none;
 }
 
-
 .layout-sidetools .group .box {
     padding: 10px;
     margin: 1px 0;
     border-bottom: 1px solid @deputy_color; // display: inline-block;
     margin: 1px;
-   
 }
 
 .layout-sidetools .group .box > i {
     font-size: 24px;
     color: @tools_color;
     text-align: center;
-    vertical-align:middle
+    vertical-align: middle;
 }
 
 .layout-sidetools .group .box > span {
     font-size: 16px;
     color: @tools_color;
-    vertical-align:middle
+    vertical-align: middle;
 }
 
 .layout-sidetools .group .box:hover {
     background: @shadow_color;
     border-radius: 5px;
-
 }
 
 .layout-sidetools .group .box.checked {
@@ -144,8 +141,7 @@ code {
     border-radius: 5px;
 }
 
-.layout-sidetools .group .box.sortable-chosen{
-
+.layout-sidetools .group .box.sortable-chosen {
 }
 
 .layout-sidetools .operate {
@@ -181,7 +177,7 @@ code {
 
 .layout-workarea .view {
     // width: 59%;
-    width:100%;
+    width: 100%;
     display: inline-block; // margin-right: 30px;
 }
 
@@ -199,7 +195,7 @@ code {
     // flex-direction: column;
 }
 .layout-workarea .view-box.preview > * {
-    margin:10px 0 0 10px;
+    margin: 10px 0 0 10px;
 }
 .layout-workarea .view .lab-icon {
     font-size: 14px;
@@ -294,6 +290,10 @@ code {
     height: 90px;
 }
 
+.layout-workarea .edit .box p {
+    position: relative;
+}
+
 .layout-workarea .edit .box .left,
 .layout-workarea .edit .box .right {
     display: block;
@@ -323,6 +323,22 @@ code {
 .layout-workarea .edit .box p.group > div:last-child {
     width: 75%;
     margin-left: 4%;
+}
+
+.layout-workarea .edit .box .gradientBar {
+    width: 40px;
+    height: 40px;
+    border:4px double #fff;
+    background-image: linear-gradient(
+        to right,
+        rgb(65, 184, 131) 0%,
+        rgb(226, 87, 76) 51%,
+        rgb(65, 184, 131) 100%
+    );
+    border-radius: 5px;
+    float: left;
+    cursor: pointer;
+    display: inline-block;
 }
 
 .layout-workarea .upload-box {
@@ -427,4 +443,20 @@ code {
     color: @shadow_color;
     line-height: 500px;
     display: block;
+}
+
+.ui-color-picker {
+    position: absolute;
+    z-index: 1199;
+    margin: 0;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.ui-color-picker
+    .gradient-controls
+    .gradient-degrees-options
+    .gradient-degree-value
+    p {
+    color: #111;
 }

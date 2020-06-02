@@ -8,8 +8,7 @@
             :clone="clone"
         >
             <div class="box" v-for="(ele, i) in controls" :key="i">
-                <i class="iconfont" :class="ele.icon">
-                </i>
+                <i class="iconfont" :class="ele.icon"> </i>
                 <span> {{ ele.name }}</span>
             </div>
         </draggable>
@@ -45,6 +44,8 @@ export default {
                         borderColor: basis.mainColor,
                         borderEadius: "0px",
                         fontSize: "14px",
+                        backgroundImage: `linear-gradient(to right, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
+                        backgroundSize: "200% auto",
                     },
                     effect: {
                         width: "200px",
@@ -62,6 +63,9 @@ export default {
                         borderColor: basis.subColor,
                         borderEadius: "0px",
                         fontSize: "14px",
+                        backgroundImage: `linear-gradient(to right, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
+                        backgroundSize: "200% auto",
+                        backgroundPosition: "right center",
                     },
                 },
             ];
@@ -69,8 +73,9 @@ export default {
     },
     methods: {
         clone(o) {
+            console.log(o);
             return {
-                id: this.$set(o, "id", Math.random() * 100),
+                id: this.$set(o, "id", this.$egu.guid()),
                 ...o,
             };
         },

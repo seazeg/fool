@@ -20,6 +20,7 @@ export default new Vuex.Store({
                     state.selected = ele;
                 }
             }
+            console.log(state.selected);
         },
         "Hope/UpdateControlParams": (state, ele) => {
             if (ele.isDiff) {

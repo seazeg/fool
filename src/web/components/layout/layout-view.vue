@@ -152,7 +152,7 @@
                     </div>
                     <div class="box">
                         <span class="field">渐变色（gradientColor）</span>
-                        <GradientPicker></GradientPicker>
+                        <GradientPicker :color="backgroundImage" :container="'style'"></GradientPicker>
                     </div>
                 </div>
 
@@ -261,7 +261,7 @@
                     </div>
                     <div class="box">
                         <span class="field">渐变色（gradientColor）</span>
-                        <GradientPicker></GradientPicker>
+                        <GradientPicker :color="hvr_backgroundImage" :container="'effect'"></GradientPicker>
                     </div>
                 </div>
 

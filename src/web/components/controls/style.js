@@ -92,25 +92,13 @@ export const button = {
             });
         },
     },
-    gradientStart: {
+    backgroundImage: {
         get() {
-            return this.$store.state.selected.style.gradientStart;
+            return this.$store.state.selected.style.backgroundImage;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
-                gradientStart: value,
-                isDiff: false,
-                container: "style",
-            });
-        },
-    },
-    gradientEnd: {
-        get() {
-            return this.$store.state.selected.style.gradientEnd;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                gradientEnd: value,
+                backgroundImage: value,
                 isDiff: false,
                 container: "style",
             });
@@ -205,25 +193,13 @@ export const button = {
             });
         },
     },
-    hvr_gradientStart: {
+    hvr_backgroundImage: {
         get() {
-            return this.$store.state.selected.effect.gradientStart;
+            return this.$store.state.selected.effect.backgroundImage;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
-                gradientStart: value,
-                isDiff: false,
-                container: "effect",
-            });
-        },
-    },
-    hvr_gradientEnd: {
-        get() {
-            return this.$store.state.selected.effect.gradientEnd;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                gradientEnd: value,
+                backgroundImage: value,
                 isDiff: false,
                 container: "effect",
             });

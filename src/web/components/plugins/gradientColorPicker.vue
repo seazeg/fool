@@ -1,15 +1,16 @@
 <template>
     <p class="group" @mouseleave="close">
         <span
-            class="gradientBar"  
+            class="gradientBar"
             :style="result"
-            @click="openColorPicker" 
+            @click="openColorPicker"
         ></span>
         <el-input
-            v-model="result.backgroundImage"
+            v-model="result.backgroundImage || color"
             placeholder="请输入色号"
             style="margin-left:2%;width:88%"
-        ></el-input>
+        >
+        </el-input>
         <ColorPicker
             :gradient="gradient"
             :isGradient="true"
@@ -27,29 +28,44 @@ export default {
     name: "gradientColorPicker",
     data() {
         return {
-            gradient: {
-                type: "linear",
-                degree: 0,
-                points: [
-                    {
-                        left: 0,
-                        red: 0,
-                        green: 0,
-                        blue: 0,
-                        alpha: 1,
-                    },
-                    {
-                        left: 100,
-                        red: 255,
-                        green: 0,
-                        blue: 0,
-                        alpha: 1,
-                    },
-                ],
-            },
             result: "",
             colorPickerDisplay: false,
         };
+    },
+    props: {
+        color: String,
+        container:String
+    },
+    computed: {
+        gradient() {
+            const regex = /\((.+?)\)/g;
+            let points = [];
+            let [deg, ...temp] = this.color
+                .replace("linear-gradient(", "")
+                .substring(
+                    0,
+                    this.color.replace("linear-gradient(", "").length - 1
+                )
+                .split("rgba");
+                
+            for (let p of temp) {
+
+                let [r, g, b, a] = this.$egu.trim(p,'all').match(/(?<=\()(\d+),(\d+),(\d+),((?:0?\.\d+)|1)(?=\))/);
+
+                points.push({
+                    left: this.$egu.trim(p,'all').split(')')[1],
+                    red: r,
+                    green: g,
+                    blue: b,
+                    alpha: a,
+                });
+            }
+            return {
+                type: "linear",
+                degree: parseInt(deg),
+                points: points,
+            };
+        },
     },
     components: {
         ColorPicker,
@@ -59,14 +75,18 @@ export default {
             this.colorPickerDisplay = true;
         },
         onChange(attrs, name) {
-            console.log(attrs);
             this.result = {
                 backgroundImage: attrs.style,
             };
+            this.$store.commit("Hope/UpdateControlParams", {
+                backgroundImage: attrs.style,
+                isDiff: false,
+                container: this.container,
+            });
         },
-        close(){
+        close() {
             this.colorPickerDisplay = false;
-        }
+        },
     },
 };
 </script>

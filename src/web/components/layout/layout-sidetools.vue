@@ -20,8 +20,8 @@ export default {
     computed: {
         controls: function() {
             let basis = {
-                mainColor: "#41B883",
-                subColor: "#e2574c",
+                mainColor: "rgba(65, 184, 131, 1)",
+                subColor: "rgba(165, 184, 131, 1)",
             };
             return [
                 {
@@ -44,7 +44,7 @@ export default {
                         borderColor: basis.mainColor,
                         borderEadius: "0px",
                         fontSize: "14px",
-                        backgroundImage: `linear-gradient(to right, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
+                        backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
                         backgroundSize: "200% auto",
                     },
                     effect: {
@@ -63,7 +63,7 @@ export default {
                         borderColor: basis.subColor,
                         borderEadius: "0px",
                         fontSize: "14px",
-                        backgroundImage: `linear-gradient(to right, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
+                        backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
                         backgroundSize: "200% auto",
                         backgroundPosition: "right center",
                     },

@@ -2,12 +2,12 @@
     <p class="group" @mouseleave="close">
         <span
             class="gradientBar"
-            :style="result"
+            :style="'backgroundImage:'+color"
             @click="openColorPicker"
         ></span>
         <el-input
             v-model="result.backgroundImage || color"
-            placeholder="请输入色号"
+            placeholder="请选择色号"
             style="margin-left:2%;width:88%"
         >
         </el-input>
@@ -34,37 +34,63 @@ export default {
     },
     props: {
         color: String,
-        container:String
+        container: String,
     },
     computed: {
         gradient() {
-            const regex = /\((.+?)\)/g;
-            let points = [];
-            let [deg, ...temp] = this.color
-                .replace("linear-gradient(", "")
-                .substring(
-                    0,
-                    this.color.replace("linear-gradient(", "").length - 1
-                )
-                .split("rgba");
-                
-            for (let p of temp) {
+            if (this.color) {
+                const regex = /\((.+?)\)/g;
+                let points = [];
+                let [deg, ...temp] = this.color
+                    .replace("linear-gradient(", "")
+                    .substring(
+                        0,
+                        this.color.replace("linear-gradient(", "").length - 1
+                    )
+                    .split("rgba");
 
-                let [r, g, b, a] = this.$egu.trim(p,'all').match(/(?<=\()(\d+),(\d+),(\d+),((?:0?\.\d+)|1)(?=\))/);
+                for (let p of temp) {
+                    let [r, g, b, a] = this.$egu
+                        .trim(p, "all")
+                        .match(
+                            /(?<=\()(\d+),(\d+),(\d+),((?:0?\.\d+)|1)(?=\))/
+                        );
 
-                points.push({
-                    left: this.$egu.trim(p,'all').split(')')[1],
-                    red: r,
-                    green: g,
-                    blue: b,
-                    alpha: a,
-                });
+                    points.push({
+                        left: this.$egu.trim(p, "all").split(")")[1],
+                        red: r,
+                        green: g,
+                        blue: b,
+                        alpha: a,
+                    });
+                }
+                return {
+                    type: "linear",
+                    degree: parseInt(deg),
+                    points: points,
+                };
+            } else {
+                return {
+                    type: "linear",
+                    degree: 0,
+                    points: [
+                        {
+                            left: 0,
+                            red: 0,
+                            green: 0,
+                            blue: 0,
+                            alpha: 1,
+                        },
+                        {
+                            left: 100,
+                            red: 255,
+                            green: 255,
+                            blue: 255,
+                            alpha: 1,
+                        },
+                    ],
+                };
             }
-            return {
-                type: "linear",
-                degree: parseInt(deg),
-                points: points,
-            };
         },
     },
     components: {

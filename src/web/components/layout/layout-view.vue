@@ -14,14 +14,18 @@
                         :group="{ name: 'controls' }"
                         @change="change"
                     >
-                        <component
-                            :is="ele.label"
+                        <ChooseBox
                             v-for="(ele, i) in controls"
                             :key="i"
-                            :ele="ele"
-                            @choose="choose(ele)"
+                            :element="ele"
                         >
-                        </component>
+                            <component
+                                :is="ele.label"
+                                :ele="ele"
+                                @choose="choose(ele)"
+                            >
+                            </component>
+                        </ChooseBox>
                     </draggable>
                 </el-tab-pane>
                 <el-tab-pane name="html">
@@ -130,7 +134,7 @@
                                 ></el-color-picker>
                                 <el-input
                                     v-model="color"
-                                    placeholder="请输入色号"
+                                    placeholder="请选择色号"
                                 ></el-input>
                             </p>
                         </div>
@@ -145,14 +149,17 @@
                                 ></el-color-picker>
                                 <el-input
                                     v-model="backgroundColor"
-                                    placeholder="请输入色号"
+                                    placeholder="请选择色号"
                                 ></el-input>
                             </p>
                         </div>
                     </div>
                     <div class="box">
                         <span class="field">渐变色（gradientColor）</span>
-                        <GradientPicker :color="backgroundImage" :container="'style'"></GradientPicker>
+                        <GradientPicker
+                            :color="backgroundImage"
+                            :container="'style'"
+                        ></GradientPicker>
                     </div>
                 </div>
 
@@ -196,7 +203,7 @@
                                 ></el-color-picker>
                                 <el-input
                                     v-model="borderColor"
-                                    placeholder="请输入色号"
+                                    placeholder="请选择色号"
                                 ></el-input>
                             </p>
                         </div>
@@ -239,7 +246,7 @@
                                 ></el-color-picker>
                                 <el-input
                                     v-model="hvr_color"
-                                    placeholder="请输入色号"
+                                    placeholder="请选择色号"
                                 ></el-input>
                             </p>
                         </div>
@@ -254,14 +261,17 @@
                                 ></el-color-picker>
                                 <el-input
                                     v-model="hvr_backgroundColor"
-                                    placeholder="请输入色号"
+                                    placeholder="请选择色号"
                                 ></el-input>
                             </p>
                         </div>
                     </div>
                     <div class="box">
                         <span class="field">渐变色（gradientColor）</span>
-                        <GradientPicker :color="hvr_backgroundImage" :container="'effect'"></GradientPicker>
+                        <GradientPicker
+                            :color="hvr_backgroundImage"
+                            :container="'effect'"
+                        ></GradientPicker>
                     </div>
                 </div>
 
@@ -306,7 +316,7 @@
                                 ></el-color-picker>
                                 <el-input
                                     v-model="hvr_borderColor"
-                                    placeholder="请输入色号"
+                                    placeholder="请选择色号"
                                 ></el-input>
                             </p>
                         </div>
@@ -318,9 +328,9 @@
 </template>
 <script>
 import { button } from "../controls/style.js";
-import GradientPicker from '../plugins/gradientColorPicker.vue'
+import GradientPicker from "../plugins/gradientColorPicker.vue";
+import ChooseBox from "../../components/layout/layout-choosebox.vue";
 export default {
-
     name: "layout-view",
     display: "Clone",
     order: 2,
@@ -448,7 +458,8 @@ export default {
         };
     },
     components: {
-        GradientPicker
+        GradientPicker,
+        ChooseBox,
     },
     computed: {
         controls: {
@@ -470,6 +481,8 @@ export default {
         },
         change(e) {
             this.$store.commit("Hope/ChooseControl", e.added.element.id);
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ControlsSelected", e.added.element);
         },
     },
 };

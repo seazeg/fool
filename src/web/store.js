@@ -10,6 +10,21 @@ export default new Vuex.Store({
         selected: {},
     },
     mutations: {
+        "Hope/ResetControlSelected": (state, eles) => {
+            for(let cls of state.controls){
+                cls.isSelected = false;
+            }
+        },
+        "Hope/ControlsSelected": (state, eles) => {
+            eles.isSelected = true;
+            // for(let cls of state.controls){
+            //     if(cls.id == eles.id){
+            //         cls.isSelected = true;
+            //     }else{
+            //         cls.isSelected = false;
+            //     }
+            // }
+        },
         "Hope/UpdateControls": (state, eles) => {
             state.eles = eles;
             console.log(state.eles);

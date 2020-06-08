@@ -11,23 +11,16 @@ export default new Vuex.Store({
     },
     mutations: {
         "Hope/ResetControlSelected": (state, eles) => {
-            for(let cls of state.controls){
+            for (let cls of state.controls) {
                 cls.isSelected = false;
             }
         },
         "Hope/ControlsSelected": (state, eles) => {
             eles.isSelected = true;
-            // for(let cls of state.controls){
-            //     if(cls.id == eles.id){
-            //         cls.isSelected = true;
-            //     }else{
-            //         cls.isSelected = false;
-            //     }
-            // }
+          
         },
         "Hope/UpdateControls": (state, eles) => {
             state.eles = eles;
-            console.log(state.eles);
         },
         "Hope/ChooseControl": (state, id) => {
             for (let ele of state.controls) {
@@ -35,17 +28,29 @@ export default new Vuex.Store({
                     state.selected = ele;
                 }
             }
-            console.log(state.selected);
         },
         "Hope/UpdateControlParams": (state, ele) => {
-            if (ele.isDiff) {
-                state.selected[ele.container][Object.keys(ele)[0]] =
-                    ele[Object.keys(ele)[0]] + "px";
-            } else {
-                state.selected[ele.container][Object.keys(ele)[0]] =
-                    ele[Object.keys(ele)[0]];
+            switch (ele.isDiff) {
+                case "px":
+                    state.selected[ele.container][Object.keys(ele)[0]] =
+                        ele[Object.keys(ele)[0]] + "px";
+                    break;
+                case "time":
+                    state.selected[ele.container][Object.keys(ele)[0]] =
+                        ele[Object.keys(ele)[0]] + "s";
+                    break;
+                case "same":
+                    state.selected[ele.container][Object.keys(ele)[0]] =
+                        ele[Object.keys(ele)[0]];
+                    break;
+                default:
+                    break;
             }
-            state.selected[ele.container] = _.cloneDeep(state.selected[ele.container]);
+
+            state.selected[ele.container] = _.cloneDeep(
+                state.selected[ele.container]
+            );
+
         },
     },
 });

@@ -57,6 +57,8 @@ export default {
                         transitionDuration: "0.5s",
                         transitionProperty: "all",
                         transitionTimingFunction: "ease",
+                        animationDuration: "0.5s",
+                        animationName: "",
                         backgroundColor: basis.subColor,
                         color: "#ffffff",
                         borderStyle: "solid",

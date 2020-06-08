@@ -323,6 +323,50 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 动画 -->
+            <div class="control_group_title">动画参数：</div>
+            <div class="control_group">
+                <div class="box">
+                    <span class="field">过渡时间（transitionDuration）</span>
+                    <p>
+                        <el-slider
+                            v-model="transitionDuration"
+                            :min="0"
+                            :max="5"
+                            :step="0.1"
+                            show-input
+                        >
+                        </el-slider>
+                    </p>
+                </div>
+                <div class="box">
+                    <span class="field">动画效果（animation）</span>
+                    <p>
+                        <el-select
+                            v-model="animationName"
+                            placeholder="请选择"
+                            style="width:100%"
+                            :clearable=true
+                        >
+                            <el-option-group
+                                v-for="group in animationOption"
+                                :key="group.label"
+                                :label="group.label"
+                            >
+                                <el-option
+                                    v-for="item in group.options"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value"
+                                >
+                                </el-option>
+                            </el-option-group>
+                        </el-select>
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
@@ -390,32 +434,7 @@ export default {
                             label: "heartBeat",
                         },
                     ],
-                },
-                {
-                    label: "Flippers",
-                    options: [
-                        {
-                            value: "flip",
-                            label: "flip",
-                        },
-                        {
-                            value: "flipInX",
-                            label: "flipInX",
-                        },
-                        {
-                            value: "flipInY",
-                            label: "flipInY",
-                        },
-                        {
-                            value: "flipOutX",
-                            label: "flipOutX",
-                        },
-                        {
-                            value: "flipOutY",
-                            label: "flipOutY",
-                        },
-                    ],
-                },
+                }
             ],
             borderStyleOption: [
                 {

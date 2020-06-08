@@ -6,12 +6,12 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
         },
@@ -23,22 +23,22 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 lineHeight: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 lineHeight: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
 
@@ -51,7 +51,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 fontSize: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
         },
@@ -63,7 +63,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderRadius: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
         },
@@ -75,7 +75,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 color: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "style",
             });
         },
@@ -87,7 +87,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundColor: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "style",
             });
         },
@@ -99,7 +99,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundImage: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "style",
             });
         },
@@ -111,12 +111,12 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderWidth: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 lineHeight: this.height - value * 2,
-                isDiff: true,
+                isDiff: "px",
                 container: "style",
             });
         },
@@ -128,7 +128,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderStyle: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "style",
             });
         },
@@ -140,7 +140,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderColor: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "style",
             });
         },
@@ -152,7 +152,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 fontSize: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
         },
@@ -164,7 +164,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderRadius: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
         },
@@ -176,7 +176,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 color: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "effect",
             });
         },
@@ -188,7 +188,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundColor: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "effect",
             });
         },
@@ -200,7 +200,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundImage: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "effect",
             });
         },
@@ -212,12 +212,12 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderWidth: value,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 lineHeight: this.height - value * 2,
-                isDiff: true,
+                isDiff: "px",
                 container: "effect",
             });
         },
@@ -229,7 +229,7 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderStyle: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "effect",
             });
         },
@@ -241,9 +241,43 @@ export const button = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 borderColor: value,
-                isDiff: false,
+                isDiff: "same",
                 container: "effect",
             });
         },
     },
+    transitionDuration:{
+        get(){
+            return parseFloat(this.$store.state.selected.style.transitionDuration);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                transitionDuration: value,
+                isDiff: "time",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                transitionDuration: value,
+                isDiff: "time",
+                container: "effect",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                animationDuration: value,
+                isDiff: "time",
+                container: "effect",
+            });
+        }
+    },
+    animationName:{
+        get(){
+            return this.$store.state.selected.effect.animationName;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                animationName: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        }
+    }
 };

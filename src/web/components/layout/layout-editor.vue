@@ -7,26 +7,11 @@
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-yulan"></i>preview</span
                     >
-                    <draggable
-                        class="view-box preview"
-                        id="preview"
-                        :list="controls"
-                        :group="{ name: 'controls' }"
-                        @change="change"
-                    >
-                        <ChooseBox
-                            v-for="(ele, i) in controls"
-                            :key="i"
-                            :element="ele"
-                        >
-                            <component
-                                :is="ele.label"
-                                :ele="ele"
-                                @choose="choose(ele)"
-                            >
-                            </component>
-                        </ChooseBox>
-                    </draggable>
+                    <div class="view-box preview">
+                        <layout-draggable
+                            :controls="controls"
+                        ></layout-draggable>
+                    </div>
                 </el-tab-pane>
                 <el-tab-pane name="html">
                     <span slot="label" class="lab-icon">
@@ -64,7 +49,13 @@
             </el-tabs>
         </div>
 
-        <div class="edit" v-if="Object.keys(selectedControl).length > 0&&selectedControl.label.includes('button')">
+        <div
+            class="edit"
+            v-if="
+                Object.keys(selectedControl).length > 0 &&
+                    selectedControl.label.includes('button')
+            "
+        >
             <!-- 基础属性 -->
             <div class="control_group_title">基础属性：</div>
             <div class="control_group">
@@ -347,7 +338,7 @@
                             v-model="animationName"
                             placeholder="请选择"
                             style="width:100%"
-                            :clearable=true
+                            :clearable="true"
                         >
                             <el-option-group
                                 v-for="group in animationOption"
@@ -366,18 +357,15 @@
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 <script>
 import { button } from "../controls/style.js";
 import GradientPicker from "../plugins/gradientColorPicker.vue";
-import ChooseBox from "../../components/layout/layout-choosebox.vue";
+
 export default {
-    name: "layout-view",
-    display: "Clone",
-    order: 2,
+    name: "layout-editor",
     data() {
         return {
             tabChecked: "preview",
@@ -434,7 +422,7 @@ export default {
                             label: "heartBeat",
                         },
                     ],
-                }
+                },
             ],
             borderStyleOption: [
                 {
@@ -478,7 +466,6 @@ export default {
     },
     components: {
         GradientPicker,
-        ChooseBox,
     },
     computed: {
         controls: {
@@ -493,16 +480,6 @@ export default {
             return this.$store.state.selected;
         },
         ...button,
-    },
-    methods: {
-        choose(e) {
-            this.$store.commit("Hope/ChooseControl", e.id);
-        },
-        change(e) {
-            this.$store.commit("Hope/ChooseControl", e.added.element.id);
-            this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ControlsSelected", e.added.element);
-        },
     },
 };
 </script>

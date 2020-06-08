@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-sidetools">
+    <div class="layout-controls">
         <span class="operate iconfont icon-youshuangjiantou"></span>
         <draggable
             class="group"
@@ -15,8 +15,9 @@
     </div>
 </template>
 <script>
+import _ from "lodash";
 export default {
-    name: "layout-sidetools",
+    name: "layout-controls",
     computed: {
         controls: function() {
             let basis = {
@@ -82,16 +83,17 @@ export default {
                         height: "200px",
                         backgroundColor: "#fff",
                     },
+                    effect: {},
+                    children: [],
                 },
             ];
         },
     },
     methods: {
         clone(o) {
-            console.log(o);
             return {
                 id: this.$set(o, "id", this.$egu.guid()),
-                ...o,
+                ..._.cloneDeep(o),
             };
         },
     },

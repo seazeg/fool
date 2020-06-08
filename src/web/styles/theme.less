@@ -105,46 +105,46 @@ code {
 }
 
 //左侧工具栏
-.layout-sidetools {
+.layout-controls {
     background: @main_color;
     border-right: 1px solid @shadow_color;
     user-select: none;
 }
 
-.layout-sidetools .group .box {
+.layout-controls .group .box {
     padding: 10px;
     margin: 1px 0;
     border-bottom: 1px solid @deputy_color; // display: inline-block;
     margin: 1px;
 }
 
-.layout-sidetools .group .box > i {
+.layout-controls .group .box > i {
     font-size: 24px;
     color: @tools_color;
     text-align: center;
     vertical-align: middle;
 }
 
-.layout-sidetools .group .box > span {
+.layout-controls .group .box > span {
     font-size: 16px;
     color: @tools_color;
     vertical-align: middle;
 }
 
-.layout-sidetools .group .box:hover {
+.layout-controls .group .box:hover {
     background: @shadow_color;
     border-radius: 5px;
 }
 
-.layout-sidetools .group .box.checked {
+.layout-controls .group .box.checked {
     background: @border_color;
     border-radius: 5px;
 }
 
-.layout-sidetools .group .box.sortable-chosen {
+.layout-controls .group .box.sortable-chosen {
 }
 
-.layout-sidetools .operate {
+.layout-controls .operate {
     width: 100%;
     display: block;
     background: @deputy_color;
@@ -156,36 +156,36 @@ code {
     color: @tools_color;
 }
 
-.layout-sidetools .operate:hover {
+.layout-controls .operate:hover {
     background: @work_color;
     border-bottom: 1px solid @shadow_color;
 }
 
 //工作区
-.layout-workarea {
+.layout-container {
     -webkit-flex: 1;
     flex: 1;
     position: relative;
     background: @work_color;
 }
 
-.layout-workarea .wrapper {
+.layout-container .wrapper {
     height: 100%; // width: 100vw;
     padding: 2px;
     display: flex; // align-items: center;
 }
 
-.layout-workarea .view {
+.layout-container .view {
     // width: 59%;
     width: 100%;
     display: inline-block; // margin-right: 30px;
 }
 
-.layout-workarea .view-box {
+.layout-container .view-box {
     height: 100vh;
 }
 
-.layout-workarea .view-box.preview {
+.layout-container .view-box.preview {
     // width: 60%;
     // display: inline-block;
     background: url("../assets/images/background_b.png"); // height:85vh;
@@ -193,17 +193,16 @@ code {
     // justify-content: center;
     // align-items: center;
     // flex-direction: column;
-}
-.layout-workarea .view-box.preview > * {
-    margin: 10px 0 0 10px;
+    padding:10px;
     font-size: 0;
 }
-.layout-workarea .view .lab-icon {
+
+.layout-container .view .lab-icon {
     font-size: 14px;
     text-transform: capitalize;
 }
 
-.layout-workarea .view .lab-icon > i {
+.layout-container .view .lab-icon > i {
     color: @font_color;
     font-size: 22px;
     vertical-align: middle;
@@ -213,9 +212,9 @@ code {
     font-weight: bolder;
 }
 
-.layout-workarea .view-box.css pre,
-.layout-workarea .view-box.js pre,
-.layout-workarea .view-box.html pre {
+.layout-container .view-box.css pre,
+.layout-container .view-box.js pre,
+.layout-container .view-box.html pre {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -225,9 +224,9 @@ code {
     // user-select: auto;
 }
 
-.layout-workarea .view-box.css pre code,
-.layout-workarea .view-box.js pre code,
-.layout-workarea .view-box.html pre code {
+.layout-container .view-box.css pre code,
+.layout-container .view-box.js pre code,
+.layout-container .view-box.html pre code {
     background: @work_color;
     font-family: "Monaco";
     font-style: normal;
@@ -235,27 +234,27 @@ code {
     // user-select: auto;
 }
 
-.layout-workarea .view-box.js pre code {
+.layout-container .view-box.js pre code {
     font-size: 14px;
 }
 
-.layout-workarea .view .el-tabs--border-card {
+.layout-container .view .el-tabs--border-card {
     background: @work_color;
     border: 1px solid @shadow_color;
     height: 100%;
 }
 
-.layout-workarea .view .el-tabs--border-card > .el-tabs__header {
+.layout-container .view .el-tabs--border-card > .el-tabs__header {
     background: @main_color;
     border-bottom: 1px solid @shadow_color;
     user-select: none;
 }
 
-.layout-workarea .view .el-tabs--border-card > .el-tabs__header .el-tabs__item {
+.layout-container .view .el-tabs--border-card > .el-tabs__header .el-tabs__item {
     color: @font_color;
 }
 
-.layout-workarea
+.layout-container
     .view
     .el-tabs--border-card
     > .el-tabs__header
@@ -266,7 +265,7 @@ code {
     color: @tools_color;
 }
 
-.layout-workarea .edit {
+.layout-container .edit {
     width: 45%;
     min-width: 550px;
     display: inline-block;
@@ -275,60 +274,60 @@ code {
     user-select: none;
 }
 
-.layout-workarea .edit .control_group_title {
+.layout-container .edit .control_group_title {
     font-size: 16px;
     margin-bottom: 10px;
     clear: both;
     font-weight: bold;
 }
 
-.layout-workarea .edit .control_group {
+.layout-container .edit .control_group {
     padding: 17px;
     border: 1px dashed @shadow_color;
     margin-bottom: 10px;
     background:#333;
 }
 
-.layout-workarea .edit .box {
+.layout-container .edit .box {
     height: 90px;
 }
 
-.layout-workarea .edit .box p {
+.layout-container .edit .box p {
     position: relative;
 }
 
-.layout-workarea .edit .box .left,
-.layout-workarea .edit .box .right {
+.layout-container .edit .box .left,
+.layout-container .edit .box .right {
     display: block;
     width: 48%;
     margin-bottom: 5px;
 }
 
-.layout-workarea .edit .box .left {
+.layout-container .edit .box .left {
     float: left;
 }
 
-.layout-workarea .edit .box .right {
+.layout-container .edit .box .right {
     float: right;
 }
 
-.layout-workarea .edit .box span.field {
+.layout-container .edit .box span.field {
     margin: 10px 0 5px 0;
     display: inline-block;
     text-transform: capitalize;
     font-size: 14px;
 }
 
-.layout-workarea .edit .box p.group > div {
+.layout-container .edit .box p.group > div {
     float: left;
 }
 
-.layout-workarea .edit .box p.group > div:last-child {
+.layout-container .edit .box p.group > div:last-child {
     width: 75%;
     margin-left: 4%;
 }
 
-.layout-workarea .edit .box .gradientBar {
+.layout-container .edit .box .gradientBar {
     width: 40px;
     height: 40px;
     border: 4px double #fff;
@@ -342,36 +341,36 @@ code {
     cursor: pointer;
 }
 
-.layout-workarea .upload-box {
+.layout-container .upload-box {
     width: 100%;
     height: 50%;
     text-align: center;
     margin: 0 auto;
 }
 
-.layout-workarea .upload-box .el-upload {
+.layout-container .upload-box .el-upload {
     width: 100%;
     height: 100%; // border:1px dashed @shadow_color
 }
 
-.layout-workarea .upload-box .el-upload-dragger {
+.layout-container .upload-box .el-upload-dragger {
     background: @work_color;
     border: none;
     width: auto;
     height: 100%;
 }
 
-.layout-workarea .upload-box .el-upload-dragger .el-icon-upload {
+.layout-container .upload-box .el-upload-dragger .el-icon-upload {
     font-size: 300px;
     margin-top: 150px;
 }
 
-.layout-workarea .upload-box .el-upload-dragger .el-upload__text {
+.layout-container .upload-box .el-upload-dragger .el-upload__text {
     font-size: 16px;
     margin-top: 20px;
 }
 
-.layout-workarea .file_list {
+.layout-container .file_list {
     // width: 50%;
     margin: 0 auto;
     text-align: center; // background: @border_color;
@@ -379,67 +378,67 @@ code {
     padding: 10px; // background: @scroll_color;
 }
 
-.layout-workarea .file_list p {
+.layout-container .file_list p {
     padding: 10px 0;
     color: @shadow_color;
     cursor: pointer;
     font-size: 16px;
 }
 
-.layout-workarea .file_list p:hover {
+.layout-container .file_list p:hover {
     background: @main_color;
     color: @tools_color;
 }
 
-.layout-workarea .file_list p > span {
+.layout-container .file_list p > span {
     display: inline-block;
 }
 
-.layout-workarea .file_list p > img.loading {
+.layout-container .file_list p > img.loading {
     width: 20px;
     vertical-align: middle;
 }
 
-.layout-workarea .file_list p > i.end,
-.layout-workarea .file_list p > i.ready {
+.layout-container .file_list p > i.end,
+.layout-container .file_list p > i.ready {
     font-size: 20px;
     vertical-align: middle;
     color: @shadow_color;
 }
 
-.layout-workarea .file_list p:hover > i {
+.layout-container .file_list p:hover > i {
     color: @tools_color;
 }
 
-.layout-workarea .upload-list {
+.layout-container .upload-list {
     flex-grow: 1;
     border-radius: 20px;
 }
 
-.layout-workarea .upload-clear,
-.layout-workarea .upload-compress {
+.layout-container .upload-clear,
+.layout-container .upload-compress {
     flex-basis: 15%;
     background: @button_color;
     cursor: pointer;
     text-align: center;
 }
 
-.layout-workarea .upload-clear {
+.layout-container .upload-clear {
     order: -1;
 }
 
-.layout-workarea .upload-clear:hover,
-.layout-workarea .upload-compress:hover {
+.layout-container .upload-clear:hover,
+.layout-container .upload-compress:hover {
     background: @deputy_color;
 }
 
-.layout-workarea .upload-clear:hover i,
-.layout-workarea .upload-compress:hover i {
+.layout-container .upload-clear:hover i,
+.layout-container .upload-compress:hover i {
     color: @work_color;
 }
 
-.layout-workarea .upload-clear i,
-.layout-workarea .upload-compress i {
+.layout-container .upload-clear i,
+.layout-container .upload-compress i {
     font-size: 100px;
     color: @shadow_color;
     line-height: 500px;

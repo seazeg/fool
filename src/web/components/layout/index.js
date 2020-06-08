@@ -1,9 +1,13 @@
 //组件全局注册
 import Vue from 'vue'
 import header from './layout-header.vue'
-import sidetools from './layout-sidetools.vue'
-import workarea from './layout-workarea.vue'
+import controls from './layout-controls.vue'
+import container from './layout-container.vue'
+import editor from './layout-editor.vue'
+import draggable from './layout-draggable.vue'
 
 Vue.component(header.name, header);
-Vue.component(sidetools.name, sidetools);
-Vue.component(workarea.name, workarea);
+Vue.component(controls.name, controls);
+Vue.component(container.name, container);
+Vue.component(editor.name,editor)
+Vue.component(draggable.name,draggable);

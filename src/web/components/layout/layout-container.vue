@@ -1,10 +1,10 @@
 <template>
-  <div class="layout-workarea">
+  <div class="layout-container">
     <slot></slot>
   </div>
 </template>
 <script>
   export default {
-    name: "layout-workarea"
+    name: "layout-container"
   }
 </script>

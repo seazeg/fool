@@ -14,7 +14,7 @@ export default {
         choose(){
             this.$store.commit('Hope/ResetControlSelected')
             this.$store.commit('Hope/ControlsSelected',this.element)
-            console.log(this.$store.state.controls);
+            // console.log(this.$store.state.controls);
         }
     }
 };

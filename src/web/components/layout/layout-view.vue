@@ -64,7 +64,7 @@
             </el-tabs>
         </div>
 
-        <div class="edit" v-if="Object.keys(selectedControl).length > 0">
+        <div class="edit" v-if="Object.keys(selectedControl).length > 0&&selectedControl.label.includes('button')">
             <!-- 基础属性 -->
             <div class="control_group_title">基础属性：</div>
             <div class="control_group">

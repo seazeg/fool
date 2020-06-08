@@ -26,6 +26,7 @@ export default {
             return [
                 {
                     name: "按钮",
+
                     label: "hope_button",
                     icon: "icon-anniu",
                     isSelected: false,
@@ -69,6 +70,17 @@ export default {
                         backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
                         backgroundSize: "200% auto",
                         backgroundPosition: "right center",
+                    },
+                },
+                {
+                    name: "栅格",
+                    label: "hope_grid",
+                    icon: "icon-anniu",
+                    isSelected: false,
+                    style: {
+                        width: "200px",
+                        height: "200px",
+                        backgroundColor: "#fff",
                     },
                 },
             ];

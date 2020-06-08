@@ -28,6 +28,7 @@ export default new Vuex.Store({
                     state.selected = ele;
                 }
             }
+            console.log(state.selected)
         },
         "Hope/UpdateControlParams": (state, ele) => {
             switch (ele.isDiff) {
@@ -46,7 +47,6 @@ export default new Vuex.Store({
                 default:
                     break;
             }
-
             state.selected[ele.container] = _.cloneDeep(
                 state.selected[ele.container]
             );

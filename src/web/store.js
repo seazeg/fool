@@ -11,24 +11,37 @@ export default new Vuex.Store({
     },
     mutations: {
         "Hope/ResetControlSelected": (state, eles) => {
-            for (let cls of state.controls) {
-                cls.isSelected = false;
-            }
+            (function func(cls, state) {
+                for (let ele of cls) {
+                    if (ele.isSelected) {
+                        ele.isSelected = false;
+                    } else {
+                        if (ele.children) {
+                            func(ele.children, state);
+                        }
+                    }
+                }
+            })(state.controls, state);
         },
         "Hope/ControlsSelected": (state, eles) => {
             eles.isSelected = true;
-          
         },
         "Hope/UpdateControls": (state, eles) => {
             state.eles = eles;
         },
         "Hope/ChooseControl": (state, id) => {
-            for (let ele of state.controls) {
-                if (ele.id == id) {
-                    state.selected = ele;
+            (function func(cls, id, state) {
+                for (let ele of cls) {
+                    if (ele.id == id) {
+                        state.selected = ele;
+                        ele.isSelected = true;
+                    } else {
+                        if (ele.children) {
+                            func(ele.children, id, state);
+                        }
+                    }
                 }
-            }
-            console.log(state.selected)
+            })(state.controls, id, state);
         },
         "Hope/UpdateControlParams": (state, ele) => {
             switch (ele.isDiff) {
@@ -50,7 +63,6 @@ export default new Vuex.Store({
             state.selected[ele.container] = _.cloneDeep(
                 state.selected[ele.container]
             );
-
         },
     },
 });

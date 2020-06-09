@@ -1,10 +1,10 @@
 <template>
     <div
         class="hope_button"
-        @click="choose"
+        @click.stop="choose"
         :style="isHover ? ele.effect : ele.style"
-        @mouseenter="enter"
-        @mouseleave="leave"
+        @mouseenter.stop="enter"
+        @mouseleave.stop="leave"
     >
         {{ ele.name }}
     </div>

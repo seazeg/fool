@@ -1,3 +1,4 @@
+<style lang="less" scoped></style>
 <template>
     <div class="hope_grid" @click="choose" :style="ele.style">
         <slot></slot>

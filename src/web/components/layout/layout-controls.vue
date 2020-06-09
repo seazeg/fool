@@ -6,6 +6,7 @@
             :list="controls"
             :group="{ name: 'controls', pull: 'clone', put: false }"
             :clone="clone"
+            :sort="false"
         >
             <div class="box" v-for="(ele, i) in controls" :key="i">
                 <i class="iconfont" :class="ele.icon"> </i>
@@ -32,7 +33,7 @@ export default {
                     icon: "icon-anniu",
                     isSelected: false,
                     style: {
-                        width: "200px",
+                        width: "150px",
                         height: "50px",
                         lineHeight: "50px",
                         textAlign: "center",
@@ -51,7 +52,7 @@ export default {
                         backgroundSize: "200% auto",
                     },
                     effect: {
-                        width: "200px",
+                        width: "150px",
                         height: "50px",
                         lineHeight: "50px",
                         textAlign: "center",
@@ -74,14 +75,39 @@ export default {
                     },
                 },
                 {
-                    name: "栅格",
+                    name: "栅格200px",
                     label: "hope_grid",
                     icon: "icon-anniu",
                     isSelected: false,
                     style: {
-                        width: "200px",
-                        height: "200px",
-                        backgroundColor: "#fff",
+                        minWidth: "500px",
+                        height: "100%",
+                        borderWidth: "5px",
+                        borderStyle: "solid",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        paddingLeft: "10px",
+                        paddingRight: "10px",
+                        float:'left'
+                    },
+                    effect: {},
+                    children: [],
+                },
+                {
+                    name: "栅格1000px",
+                    label: "hope_grid",
+                    icon: "icon-anniu",
+                    isSelected: false,
+                    style: {
+                        minWidth: "1000px",
+                        height: "100%",
+                        borderWidth: "5px",
+                        borderStyle: "solid",
+                        paddingTop: "10px",
+                        paddingBottom: "10px",
+                        paddingLeft: "10px",
+                        paddingRight: "10px",
+                         float:'left'
                     },
                     effect: {},
                     children: [],

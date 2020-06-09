@@ -1,18 +1,13 @@
 <style lang="less">
 .draggable_box {
-    min-width: 100%;
-    min-height: 100%;
-    display: inline-block;
-    vertical-align: top;
-    font-size: 0;
-    box-sizing: border-box;
+    min-height:200px
 }
 </style>
 <template>
     <draggable
         class="draggable_box"
         :list="controls"
-        :group="{ name: 'controls' }"
+        :group="{ name: 'controls'}"
         @change="change"
     >
         <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele">
@@ -30,7 +25,7 @@ import ChooseBox from "../../components/layout/layout-choosebox.vue";
 export default {
     name: "layout-draggable",
     display: "Clone",
-    // order: 2,
+    order: 2,
     props: {
         controls: [Array, Object],
     },
@@ -40,14 +35,14 @@ export default {
     computed: {},
     methods: {
         choose(e) {
+            this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         change(e) {
             try {
-                this.$store.commit("Hope/ChooseControl", e.added.element.id);
                 this.$store.commit("Hope/ResetControlSelected");
                 this.$store.commit("Hope/ControlsSelected", e.added.element);
-            } catch (e) {}
+            } catch (error) {}
         },
     },
 };

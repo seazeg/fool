@@ -10,14 +10,14 @@
         :group="{ name: 'controls'}"
         @change="change"
     >
-        <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele">
-            <component :is="ele.label" :ele="ele" @choose="choose(ele)">
+        <!-- <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele"> -->
+            <component v-for="(ele, i) in controls" :key="i"  :is="ele.label" :ele="ele" @choose="choose(ele)" :class="{'selected':ele.isSelected}">
                 <layout-draggable
                     v-if="ele.children"
                     :controls="ele.children"
                 ></layout-draggable>
             </component>
-        </ChooseBox>
+        <!-- </ChooseBox> -->
     </draggable>
 </template>
 <script>

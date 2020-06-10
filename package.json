@@ -22,6 +22,8 @@
     "electron-devtools-installer": "^3.0.0",
     "element-ui": "^2.13.1",
     "highlight.js": "^10.0.3",
+    "html-formatter": "^0.1.9",
+    "jquery": "^3.5.1",
     "lodash": "^4.17.15",
     "nprogress": "^0.2.0",
     "register-service-worker": "^1.6.2",

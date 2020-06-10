@@ -1,22 +1,29 @@
 <style lang="less">
 .draggable_box {
-    min-height:200px
+    min-height: 100%;
 }
 </style>
 <template>
     <draggable
         class="draggable_box"
         :list="controls"
-        :group="{ name: 'controls'}"
+        :group="{ name: 'controls' }"
         @change="change"
     >
         <!-- <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele"> -->
-            <component v-for="(ele, i) in controls" :key="i"  :is="ele.label" :ele="ele" @choose="choose(ele)" :class="{'selected':ele.isSelected}">
-                <layout-draggable
-                    v-if="ele.children"
-                    :controls="ele.children"
-                ></layout-draggable>
-            </component>
+        <component
+            v-for="(ele, i) in controls"
+            :key="i"
+            :is="ele.label"
+            :ele="ele"
+            @choose="choose(ele)"
+            :class="{ selected: ele.isSelected }"
+        >
+            <layout-draggable
+                v-if="ele.children"
+                :controls="ele.children"
+            ></layout-draggable>
+        </component>
         <!-- </ChooseBox> -->
     </draggable>
 </template>

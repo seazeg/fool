@@ -7,7 +7,7 @@
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-yulan"></i>preview</span
                     >
-                    <div class="view-box preview">
+                    <div class="view-box preview" ref="preview">
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
@@ -18,10 +18,10 @@
                         <i class="iconfont icon-html"></i>html</span
                     >
                     <div class="view-box html" v-highlight>
-                        <!-- <pre>
-                        <code v-text="workarea.html">
-                        </code>
-                        </pre> -->
+                        <pre>
+                            <code v-text="source.html">
+                            </code>
+                        </pre>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="css">
@@ -29,10 +29,10 @@
                         <i class="iconfont icon-css"></i>css</span
                     >
                     <div class="view-box css" v-highlight>
-                        <!-- <pre>
-              <code v-html="workarea.css">
-              </code>
-            </pre> -->
+                        <pre>
+                            <code v-html="source.css">
+                            </code>
+                        </pre>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="javascript">
@@ -76,7 +76,7 @@
                     <p>
                         <el-slider
                             v-model="width"
-                            :min="100"
+                            :min="50"
                             :max="500"
                             show-input
                         ></el-slider>
@@ -87,7 +87,7 @@
                     <p>
                         <el-slider
                             v-model="height"
-                            :min="40"
+                            :min="25"
                             :max="500"
                             show-input
                         ></el-slider>
@@ -363,12 +363,17 @@
 <script>
 import { button } from "../controls/style.js";
 import GradientPicker from "../plugins/gradientColorPicker.vue";
-
+import { handle } from "../../utils/handle.js";
 export default {
     name: "layout-editor",
     data() {
         return {
             tabChecked: "preview",
+            source: {
+                html: "",
+                css: "",
+                js: "",
+            },
             animationOption: [
                 {
                     label: "基础动画",
@@ -480,6 +485,10 @@ export default {
             return this.$store.state.selected;
         },
         ...button,
+    },
+    updated() {
+        this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);
+        this.source.css = handle.pullCSS(this.$refs.preview.innerHTML);
     },
 };
 </script>

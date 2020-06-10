@@ -7,7 +7,7 @@ import "./utils/directive";
 import "./registerServiceWorker";
 import ElementUI from "element-ui";
 import Navigation from "vue-navigation";
-import { utils } from "./utils/utils.js";
+import $ from 'jquery'
 import egu from 'eg-utils';
 import draggable from "vuedraggable";
 
@@ -28,8 +28,9 @@ Vue.use(Navigation, {
 });
 Vue.component(draggable.name, draggable);
 
-Vue.prototype.$utils = utils;
 Vue.prototype.$egu = egu
+
+window.$ = $;
 
 window.vm = new Vue({
     router,

@@ -8,7 +8,10 @@
         class="draggable_box"
         :list="controls"
         :group="{ name: 'controls' }"
+        ghost-class="draggingChoose"
         @change="change"
+        @start="dragStart"
+        @end="dragEnd"
     >
         <!-- <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele"> -->
         <component
@@ -50,6 +53,12 @@ export default {
                 this.$store.commit("Hope/ResetControlSelected");
                 this.$store.commit("Hope/ControlsSelected", e.added.element);
             } catch (error) {}
+        },
+        dragStart(e) {
+            $(e.item).addClass("draggingNarrow");
+        },
+        dragEnd(e) {
+            $(e.item).removeClass("draggingNarrow");
         },
     },
 };

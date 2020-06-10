@@ -3,7 +3,7 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('grid')
+                selectedControl.label.includes('button')
         "
     >
         <!-- 基础属性 -->
@@ -307,10 +307,10 @@
 </template>
 
 <script>
-import { button } from "../../controls/Button/style.js";
+import { button } from "../../controls/style.js";
 import GradientPicker from "../../plugins/gradientColorPicker.vue";
 export default {
-    name: "GridEditor",
+    name: "ButtonEditor",
     components: {
         GradientPicker,
     },

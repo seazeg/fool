@@ -7,6 +7,8 @@
             :group="{ name: 'controls', pull: 'clone', put: false }"
             :clone="clone"
             :sort="false"
+            @start="dragStart"
+            @end="dragEnd"
         >
             <div class="box" v-for="(ele, i) in controls" :key="i">
                 <i class="iconfont" :class="ele.icon"> </i>
@@ -75,50 +77,7 @@ export default {
                     },
                 },
                 {
-                    name: "栅格25%",
-                    label: "hope_grid",
-                    icon: "icon-anniu",
-                    isSelected: false,
-                    style: {
-                        width: "25%",
-                        height: "100%",
-                        borderWidth: "5px",
-                        borderStyle: "dashed",
-                        paddingTop: "10px",
-                        paddingBottom: "10px",
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        display: "inline-block",
-                        fontSize: "0",
-                        verticalAlign: "top",
-                    },
-                    effect: {},
-                    children: [],
-                },
-                {
-                    name: "栅格33%",
-                    label: "hope_grid",
-                    icon: "icon-anniu",
-                    isSelected: false,
-                    style: {
-                        width: "33.333333333%",
-                        height: "100%",
-                        borderWidth: "5px",
-                        borderStyle: "dashed",
-                        paddingTop: "10px",
-                        paddingBottom: "10px",
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        display: "inline-block",
-                        fontSize: "0",
-                        verticalAlign: "top",
-                    },
-                    effect: {},
-                    children: [],
-                },
-
-                {
-                    name: "栅格100%",
+                    name: "栅格",
                     label: "hope_grid",
                     icon: "icon-anniu",
                     isSelected: false,
@@ -132,6 +91,7 @@ export default {
                         paddingLeft: "10px",
                         paddingRight: "10px",
                         verticalAlign: "top",
+                        display: "inline-block",
                     },
                     effect: {},
                     children: [],
@@ -146,6 +106,12 @@ export default {
                 ..._.cloneDeep(o),
             };
         },
+        dragStart(e) {
+            $(e.item).addClass("draggingNarrow");
+        },
+        dragEnd(e) {
+            $(e.item).removeClass("draggingNarrow");
+        }
     },
 };
 </script>

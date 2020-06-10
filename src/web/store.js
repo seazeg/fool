@@ -53,6 +53,10 @@ export default new Vuex.Store({
                     state.selected[ele.container][Object.keys(ele)[0]] =
                         ele[Object.keys(ele)[0]] + "s";
                     break;
+                case "per":
+                    state.selected[ele.container][Object.keys(ele)[0]] =
+                        ele[Object.keys(ele)[0]] + "%";
+                    break;
                 case "same":
                     state.selected[ele.container][Object.keys(ele)[0]] =
                         ele[Object.keys(ele)[0]];

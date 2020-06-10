@@ -281,3 +281,33 @@ export const button = {
         }
     }
 };
+
+
+
+
+export const grid = {
+    width: {
+        get() {
+            return parseInt(this.$store.state.selected.style.width);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                width: value,
+                isDiff: "per",
+                container: "style",
+            });
+        },
+    },
+    height: {
+        get() {
+            return parseInt(this.$store.state.selected.style.height);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                height: value,
+                isDiff: "per",
+                container: "style",
+            });
+        },
+    }
+};

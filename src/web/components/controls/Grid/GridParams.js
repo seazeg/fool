@@ -1,0 +1,47 @@
+let basis = {
+    mainColor: "rgba(65, 184, 131, 1)",
+    subColor: "rgba(165, 184, 131, 1)",
+};
+export const GridParams = {
+    name: "栅格",
+    label: "hope_grid",
+    icon: "icon-anniu",
+    isSelected: false,
+    customClass:"g_100",
+    style: {
+        width: "100%",
+        height: "100%",
+        borderWidth: "5px",
+        borderStyle: "dashed",
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        paddingLeft: "10px",
+        paddingRight: "10px",
+        verticalAlign: "top",
+        display: "inline-block",
+    },
+    effect: {},
+    children: [
+        {
+            name: "栅格",
+            label: "hope_grid",
+            icon: "icon-anniu",
+            isSelected: false,
+            customClass:"g_50",
+            style: {
+                width: "50%",
+                height: "100%",
+                borderWidth: "5px",
+                borderStyle: "dashed",
+                paddingTop: "10px",
+                paddingBottom: "10px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                verticalAlign: "top",
+                display: "inline-block",
+            },
+            effect: {},
+            children: [],
+        },
+    ],
+};

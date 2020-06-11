@@ -7,10 +7,12 @@ export const handle = {
             const style = /style\s*?=\s*?([‘"])[\s\S]*?\1/g;
             const datav = /data-v-([A-Za-z0-9]*)=""/g;
             const draggable = /draggable="false"/g;
+            const customClass = /custom-class\s*?=\s*?([‘"])[\s\S]*?\1/g;
             html = html.replace(style, "");
             html = html.replace(datav, "");
             html = html.replace(draggable, "");
             html = html.replace(" selected", "");
+            html = html.replace(customClass, "");
             let result = $(html)
                 .find(".draggable_box")
                 .each(function() {
@@ -28,10 +30,13 @@ export const handle = {
             const style = /style\s*?=\s*?([‘"])[\s\S]*?\1/g;
             let css = "";
             for (let s of html.match(style)) {
-                let className = $(html).find(
-                    `[style=${s.match(/\"([^\"]*)\"/)[0]}]`
-                )[0].classList[0];
-                css += `.${className}{${s.match(/\"([^\"]*)\"/)[1]}}`;
+                let o = $(html).find(`[style=${s.match(/\"([^\"]*)\"/)[0]}]`),
+                    className = o.attr("custom-class")
+                        ? `.${o.attr("custom-class")}`
+                        : `${o.attr("custom-class")}`;
+                css += `.${o[0].classList[0]}${className}{${
+                    s.match(/\"([^\"]*)\"/)[1]
+                }}`;
             }
             return utils.cssFormat(css);
         } catch (error) {}

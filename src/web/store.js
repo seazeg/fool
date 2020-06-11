@@ -24,6 +24,7 @@ export default new Vuex.Store({
             })(state.controls, state);
         },
         "Hope/ControlsSelected": (state, eles) => {
+            console.log(eles);
             eles.isSelected = true;
         },
         "Hope/UpdateControls": (state, eles) => {

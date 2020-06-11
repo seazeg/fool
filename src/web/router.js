@@ -17,11 +17,6 @@ export default new Router({
       path: '*',
       redirect: '/editor'
     },
-    {
-      path: '/initialPage',
-      name: 'initialPage',
-      component: () => import( /* webpackChunkName: "button" */ './views/Button/button.vue')
-    },
     ...navInfo
   ]
 })

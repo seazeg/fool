@@ -19,90 +19,28 @@
 </template>
 <script>
 import _ from "lodash";
+import { ButtonParams } from "../controls/Button/ButtonParams";
+import { GridParams } from "../controls/Grid/GridParams";
+
 export default {
     name: "layout-controls",
     computed: {
         controls: function() {
-            let basis = {
-                mainColor: "rgba(65, 184, 131, 1)",
-                subColor: "rgba(165, 184, 131, 1)",
-            };
-            return [
-                {
-                    name: "按钮",
-
-                    label: "hope_button",
-                    icon: "icon-anniu",
-                    isSelected: false,
-                    style: {
-                        width: "150px",
-                        height: "50px",
-                        lineHeight: "50px",
-                        textAlign: "center",
-                        transitionDelay: "0s",
-                        transitionDuration: "0.5s",
-                        transitionProperty: "all",
-                        transitionTimingFunction: "ease",
-                        backgroundColor: basis.mainColor,
-                        color: "#ffffff",
-                        borderStyle: "solid",
-                        borderWidth: "0px",
-                        borderColor: basis.mainColor,
-                        borderRadius: "10px",
-                        fontSize: "14px",
-                        backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
-                        backgroundSize: "200% auto",
-                    },
-                    effect: {
-                        width: "150px",
-                        height: "50px",
-                        lineHeight: "50px",
-                        textAlign: "center",
-                        transitionDelay: "0s",
-                        transitionDuration: "0.5s",
-                        transitionProperty: "all",
-                        transitionTimingFunction: "ease",
-                        animationDuration: "0.5s",
-                        animationName: "",
-                        backgroundColor: basis.subColor,
-                        color: "#ffffff",
-                        borderStyle: "solid",
-                        borderWidth: "0px",
-                        borderColor: basis.subColor,
-                        borderRadius: "10px",
-                        fontSize: "14px",
-                        backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
-                        backgroundSize: "200% auto",
-                        backgroundPosition: "right center",
-                    },
-                },
-                {
-                    name: "栅格",
-                    label: "hope_grid",
-                    icon: "icon-anniu",
-                    isSelected: false,
-                    style: {
-                        width: "100%",
-                        height: "100%",
-                        borderWidth: "5px",
-                        borderStyle: "dashed",
-                        paddingTop: "10px",
-                        paddingBottom: "10px",
-                        paddingLeft: "10px",
-                        paddingRight: "10px",
-                        verticalAlign: "top",
-                        display: "inline-block",
-                    },
-                    effect: {},
-                    children: [],
-                },
-            ];
+            return [ButtonParams, GridParams];
         },
     },
     methods: {
         clone(o) {
+            let _this = this;
+            (function func(cls) {
+                for (let ele of cls) {
+                    _this.$set(ele, "id", $egu.guid());
+                    if ($egu.isArray(ele.children)&&ele.children.length > 0) {
+                        func(ele.children);
+                    }
+                }
+            })([o]);
             return {
-                id: this.$set(o, "id", this.$egu.guid()),
                 ..._.cloneDeep(o),
             };
         },
@@ -111,7 +49,7 @@ export default {
         },
         dragEnd(e) {
             $(e.item).removeClass("draggingNarrow");
-        }
+        },
     },
 };
 </script>

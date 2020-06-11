@@ -18,6 +18,15 @@
                     ></el-input>
                 </p>
             </div>
+            <div class="box">
+                <span class="field">自定义类名（customClass）</span>
+                <p>
+                    <el-input
+                        v-model="selectedControl.customClass"
+                        placeholder="请输入类名"
+                    ></el-input>
+                </p>
+            </div>
         </div>
         <div class="control_group_title">基础样式：</div>
         <div class="control_group">
@@ -48,7 +57,7 @@
 </template>
 
 <script>
-import { grid } from "../../controls/style.js";
+import { grid } from "../../controls/fields.js";
 import GradientPicker from "../../plugins/gradientColorPicker.vue";
 export default {
     name: "GridEditor",

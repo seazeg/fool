@@ -17,6 +17,15 @@
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-html"></i>html</span
                     >
+                    <button
+                        type="button"
+                        class="autoCopy"
+                        v-clipboard:copy="source.html"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                    >
+                        Copy
+                    </button>
                     <div class="view-box html" v-highlight>
                         <pre>
                             <code v-text="source.html">
@@ -174,6 +183,22 @@ export default {
             set(value) {
                 this.$store.commit("Hope/UpdateControls", value);
             },
+        },
+    },
+    methods: {
+        onCopy(e) {
+            this.$message({
+                message: "复制成功",
+                type: "success",
+                duration: 500,
+            });
+        },
+        onError(e) {
+            this.$message({
+                message: "复制失败",
+                type: "error",
+                duration: 500,
+            });
         },
     },
     updated() {

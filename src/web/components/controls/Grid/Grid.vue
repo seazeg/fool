@@ -1,5 +1,11 @@
 <template>
-    <div class="hope_grid" @click.stop="choose" :style="ele.style">
+    <div
+        class="hope_grid"
+        :class="ele.customClass"
+        :custom-class="ele.customClass"
+        @click.stop="choose"
+        :style="ele.style"
+    >
         <slot></slot>
     </div>
 </template>

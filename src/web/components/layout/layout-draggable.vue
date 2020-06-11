@@ -52,6 +52,7 @@ export default {
             try {
                 this.$store.commit("Hope/ResetControlSelected");
                 this.$store.commit("Hope/ControlsSelected", e.added.element);
+                this.$store.commit("Hope/ChooseControl", e.added.element.id);
             } catch (error) {}
         },
         dragStart(e) {

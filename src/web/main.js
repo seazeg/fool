@@ -7,6 +7,7 @@ import "./utils/directive";
 import "./registerServiceWorker";
 import ElementUI from "element-ui";
 import Navigation from "vue-navigation";
+import VueClipboard from 'vue-clipboard2'
 import $ from 'jquery'
 import egu from 'eg-utils';
 import draggable from "vuedraggable";
@@ -26,10 +27,10 @@ Vue.use(Navigation, {
     router,
     store,
 });
+Vue.use(VueClipboard)
 Vue.component(draggable.name, draggable);
 
-Vue.prototype.$egu = egu
-
+window.$egu = egu
 window.$ = $;
 
 window.vm = new Vue({

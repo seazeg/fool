@@ -1,6 +1,8 @@
 <template>
     <div
         class="hope_button"
+        :class="ele.customClass"
+        :custom-class="ele.customClass"
         @click.stop="choose"
         :style="isHover ? ele.effect : ele.style"
         @mouseenter.stop="enter"

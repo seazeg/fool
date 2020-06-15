@@ -75,7 +75,7 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></GridEditor>
-          <InputEditor
+        <InputEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></InputEditor>
@@ -197,6 +197,9 @@ export default {
                 this.$store.commit("Hope/UpdateControls", value);
             },
         },
+        selectedControl() {
+            return this.$store.state.selected;
+        },
     },
     methods: {
         onCopy(e) {
@@ -214,9 +217,20 @@ export default {
             });
         },
     },
-    updated() {
-        this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);
-        this.source.css = handle.pullCSS(this.$refs.preview.innerHTML);
+    watch: {
+        selectedControl: {
+            handler(n, o) {
+                this.source.html = handle.reduceHTML(
+                    this.$refs.preview.innerHTML
+                );
+                this.source.css = handle.pullCSS(this.$refs.preview.innerHTML);
+            },
+            deep: true,
+        },
     },
+    // updated() {
+    //     this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);
+    //     this.source.css = handle.pullCSS(this.$refs.preview.innerHTML);
+    // },
 };
 </script>

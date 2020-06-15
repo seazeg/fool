@@ -32,13 +32,9 @@ export const utils = {
     },
     getEndEffect(s, e) {
         let _this = this;
-
         let style = _this.json2css(s).split(";"),
             effect = _this.json2css(e).split(";");
-        //TODO
 
-        console.log(style);
-        console.log(effect);
         return effect
             .filter((items) => {
                 if (!style.includes(items.trim())) {

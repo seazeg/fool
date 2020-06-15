@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./components/layout/index";
+import "./components/controls/register.js";
+
 import "./utils/directive";
 import "./registerServiceWorker";
 import ElementUI from "element-ui";
@@ -20,7 +22,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import "./assets/icons/fonts/iconfont.css";
 import "./styles/theme.less";
 
-import "./components/controls/index.js";
+
 
 Vue.use(ElementUI);
 Vue.use(Navigation, {

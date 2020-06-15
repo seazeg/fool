@@ -1,6 +1,6 @@
 let basis = {
-    mainColor: "rgba(65, 184, 131, 1)",
-    subColor: "rgba(165, 184, 131, 1)",
+    mainColor: "rgb(65, 184, 131)",
+    subColor: "rgb(165, 184, 131)",
 };
 export const ButtonParams = {
     name: "按钮",
@@ -18,7 +18,7 @@ export const ButtonParams = {
         transitionProperty: "all",
         transitionTimingFunction: "ease",
         backgroundColor: basis.mainColor,
-        color: "#ffffff",
+        color: "rgb(255,255,255)",
         borderStyle: "solid",
         borderWidth: "0px",
         borderColor: basis.mainColor,
@@ -38,11 +38,11 @@ export const ButtonParams = {
         transitionTimingFunction: "ease",
         animationDuration: "0.5s",
         animationName: "",
-        backgroundColor: basis.subColor,
-        color: "#ffffff",
+        backgroundColor: basis.mainColor,
+        color: "rgb(255,255,255)",
         borderStyle: "solid",
         borderWidth: "0px",
-        borderColor: basis.subColor,
+        borderColor: basis.mainColor,
         borderRadius: "10px",
         fontSize: "14px",
         backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,

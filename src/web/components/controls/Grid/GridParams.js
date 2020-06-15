@@ -1,6 +1,6 @@
 let basis = {
-    mainColor: "rgba(65, 184, 131, 1)",
-    subColor: "rgba(165, 184, 131, 1)",
+    mainColor: "rgb(65, 184, 131)",
+    subColor: "rgb(165, 184, 131)",
 };
 export const GridParams = {
     name: "栅格",

@@ -37,6 +37,15 @@
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-css"></i>css</span
                     >
+                    <button
+                        type="button"
+                        class="autoCopy"
+                        v-clipboard:copy="source.css"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                    >
+                        Copy
+                    </button>
                     <div class="view-box css" v-highlight>
                         <pre>
                             <code v-html="source.css">
@@ -66,6 +75,10 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></GridEditor>
+          <InputEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+        ></InputEditor>
     </div>
 </template>
 <script>

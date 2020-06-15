@@ -41,7 +41,6 @@ export const button = {
                 isDiff: "px",
                 container: "effect",
             });
-
         },
     },
     fontSize: {
@@ -246,9 +245,11 @@ export const button = {
             });
         },
     },
-    transitionDuration:{
-        get(){
-            return parseFloat(this.$store.state.selected.style.transitionDuration);
+    transitionDuration: {
+        get() {
+            return parseFloat(
+                this.$store.state.selected.style.transitionDuration
+            );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -266,10 +267,10 @@ export const button = {
                 isDiff: "time",
                 container: "effect",
             });
-        }
+        },
     },
-    animationName:{
-        get(){
+    animationName: {
+        get() {
             return this.$store.state.selected.effect.animationName;
         },
         set(value) {
@@ -278,12 +279,9 @@ export const button = {
                 isDiff: "same",
                 container: "effect",
             });
-        }
-    }
+        },
+    },
 };
-
-
-
 
 export const grid = {
     width: {
@@ -309,5 +307,215 @@ export const grid = {
                 container: "style",
             });
         },
-    }
+    },
+};
+
+export const input = {
+    width: {
+        get() {
+            return parseInt(this.$store.state.selected.style.width);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                width: value,
+                isDiff: "per",
+                container: "style",
+            });
+        },
+    },
+    height: {
+        get() {
+            return parseInt(this.$store.state.selected.style.height);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                height: value,
+                isDiff: "px",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    fontSize: {
+        get() {
+            return parseInt(this.$store.state.selected.style.fontSize);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                fontSize: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    borderRadius: {
+        get() {
+            return parseInt(this.$store.state.selected.style.borderRadius);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderRadius: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    color: {
+        get() {
+            return this.$store.state.selected.style.color;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                color: value,
+                isDiff: "same",
+                container: "style",
+            });
+        },
+    },
+    backgroundColor: {
+        get() {
+            return this.$store.state.selected.style.backgroundColor;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                backgroundColor: value,
+                isDiff: "same",
+                container: "style",
+            });
+        },
+    },
+    borderWidth: {
+        get() {
+            return parseInt(this.$store.state.selected.style.borderWidth);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderWidth: value,
+                isDiff: "px",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: this.height - value * 2,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    borderStyle: {
+        get() {
+            return this.$store.state.selected.style.borderStyle;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderStyle: value,
+                isDiff: "same",
+                container: "style",
+            });
+        },
+    },
+    borderColor: {
+        get() {
+            return this.$store.state.selected.style.borderColor;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderColor: value,
+                isDiff: "same",
+                container: "style",
+            });
+        },
+    },
+    hvr_borderWidth: {
+        get() {
+            return parseInt(this.$store.state.selected.effect.borderWidth);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderWidth: value,
+                isDiff: "px",
+                container: "effect",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: this.height - value * 2,
+                isDiff: "px",
+                container: "effect",
+            });
+        },
+    },
+    hvr_borderStyle: {
+        get() {
+            return this.$store.state.selected.effect.borderStyle;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderStyle: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    hvr_borderColor: {
+        get() {
+            return this.$store.state.selected.effect.borderColor;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderColor: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    paddingLeft: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingLeft);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingLeft: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    paddingRight: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingRight);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingRight: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    paddingTop: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingTop);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingTop: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    paddingBottom: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingBottom);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingBottom: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
 };

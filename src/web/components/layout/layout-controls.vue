@@ -21,12 +21,15 @@
 import _ from "lodash";
 import { ButtonParams } from "../controls/Button/ButtonParams";
 import { GridParams } from "../controls/Grid/GridParams";
+import { SelectorParams } from "../controls/Selector/SelectorParams";
+import { PagerParams } from "../controls/Pager/PagerParams";
+import { InputParams } from "../controls/Input/InputParams";
 
 export default {
     name: "layout-controls",
     computed: {
         controls: function() {
-            return [ButtonParams, GridParams];
+            return [ButtonParams, GridParams, SelectorParams, PagerParams,InputParams];
         },
     },
     methods: {
@@ -35,7 +38,7 @@ export default {
             (function func(cls) {
                 for (let ele of cls) {
                     _this.$set(ele, "id", $egu.guid());
-                    if ($egu.isArray(ele.children)&&ele.children.length > 0) {
+                    if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }
                 }

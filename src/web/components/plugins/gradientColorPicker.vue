@@ -50,14 +50,14 @@ export default {
                     .split("rgba");
 
                 for (let p of temp) {
-                    let [r, g, b, a] = this.$egu
+                    let [r, g, b, a] = $egu
                         .trim(p, "all")
                         .match(
                             /(?<=\()(\d+),(\d+),(\d+),((?:0?\.\d+)|1)(?=\))/
                         );
 
                     points.push({
-                        left: this.$egu.trim(p, "all").split(")")[1],
+                        left: $egu.trim(p, "all").split(")")[1],
                         red: r,
                         green: g,
                         blue: b,
@@ -106,7 +106,7 @@ export default {
             };
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundImage: attrs.style,
-                isDiff: false,
+                isDiff: 'same',
                 container: this.container,
             });
         },

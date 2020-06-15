@@ -3,8 +3,6 @@
         class="hope_button"
         :class="ele.customClass"
         :custom-class="ele.customClass"
-        :data-effect="JSON.stringify(ele.effect)"
-        :data-css="JSON.stringify(ele.style)"
         @click.stop="choose"
         :style="isHover ? ele.effect : ele.style"
         @mouseenter.stop="enter"
@@ -16,7 +14,7 @@
 
 <script>
 export default {
-    name: "hope_button",
+    name: "hope_pager",
     data() {
         return {
             isHover: false,

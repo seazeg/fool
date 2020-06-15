@@ -8,11 +8,15 @@ export const handle = {
             const datav = /data-v-([A-Za-z0-9]*)=""/g;
             const draggable = /draggable="false"/g;
             const customClass = /custom-class\s*?=\s*?([‘"])[\s\S]*?\1/g;
+            const effect = /data-effect\s*?=\s*?([‘"])[\s\S]*?\1/g;
+            const mycss = /data-css\s*?=\s*?([‘"])[\s\S]*?\1/g;
             html = html.replace(style, "");
             html = html.replace(datav, "");
             html = html.replace(draggable, "");
             html = html.replace(" selected", "");
             html = html.replace(customClass, "");
+            html = html.replace(effect, "");
+            html = html.replace(mycss, "");
             let result = $(html)
                 .find(".draggable_box")
                 .each(function() {
@@ -29,14 +33,23 @@ export const handle = {
         try {
             const style = /style\s*?=\s*?([‘"])[\s\S]*?\1/g;
             let css = "";
-            for (let s of html.match(style)) {
-                let o = $(html).find(`[style=${s.match(/\"([^\"]*)\"/)[0]}]`),
+            for (let line of html.match(style)) {
+                let o = $(html).find(
+                        `[style=${line.match(/\"([^\"]*)\"/)[0]}]`
+                    ),
+                    e = o.attr("data-effect") || {},
+                    s = o.attr("data-css") || {},
                     className = o.attr("custom-class")
                         ? `.${o.attr("custom-class")}`
                         : `${o.attr("custom-class")}`;
                 css += `.${o[0].classList[0]}${className}{${
-                    s.match(/\"([^\"]*)\"/)[1]
-                }}`;
+                    line.match(/\"([^\"]*)\"/)[1]
+                }}
+                .${o[0].classList[0]}${className}:hover{${utils.getEndEffect(
+                    JSON.parse(s),
+                    JSON.parse(e)
+                )}}
+                `;
             }
             return utils.cssFormat(css);
         } catch (error) {}

@@ -319,7 +319,7 @@
 import { button } from "../../controls/fields.js";
 import GradientPicker from "../../plugins/gradientColorPicker.vue";
 export default {
-    name: "ButtonEditor",
+    name: "PagerEditor",
     components: {
         GradientPicker,
     },

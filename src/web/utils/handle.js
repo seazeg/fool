@@ -37,19 +37,20 @@ export const handle = {
                 let o = $(html).find(
                         `[style=${line.match(/\"([^\"]*)\"/)[0]}]`
                     ),
-                    e = o.attr("data-effect") || {},
-                    s = o.attr("data-css") || {},
+                    e = o.attr("data-effect"),
+                    s = o.attr("data-css"),
                     className = o.attr("custom-class")
                         ? `.${o.attr("custom-class")}`
                         : `${o.attr("custom-class")}`;
                 css += `.${o[0].classList[0]}${className}{${
                     line.match(/\"([^\"]*)\"/)[1]
-                }}
-                .${o[0].classList[0]}${className}:hover{${utils.getEndEffect(
-                    JSON.parse(s),
-                    JSON.parse(e)
-                )}}
-                `;
+                }}`;
+                if(e&&s){
+                    css+=`.${o[0].classList[0]}${className}:hover{${utils.getEndEffect(
+                        JSON.parse(s),
+                        JSON.parse(e)
+                    )}}`
+                }
             }
             return utils.cssFormat(css);
         } catch (error) {}

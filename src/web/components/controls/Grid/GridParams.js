@@ -11,7 +11,7 @@ export const GridParams = {
     style: {
         width: "100%",
         height: "100%",
-        borderWidth: "5px",
+        borderWidth: "1px",
         borderStyle: "dashed",
         paddingTop: "10px",
         paddingBottom: "10px",
@@ -31,7 +31,7 @@ export const GridParams = {
             style: {
                 width: "50%",
                 height: "100%",
-                borderWidth: "5px",
+                borderWidth: "1px",
                 borderStyle: "dashed",
                 paddingTop: "10px",
                 paddingBottom: "10px",
@@ -52,7 +52,7 @@ export const GridParams = {
             style: {
                 width: "50%",
                 height: "100%",
-                borderWidth: "5px",
+                borderWidth: "1px",
                 borderStyle: "dashed",
                 paddingTop: "10px",
                 paddingBottom: "10px",

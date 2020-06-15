@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./components/layout/index";
 import "./components/controls/register.js";
+import http from './api/request.js'
 
 import "./utils/directive";
 import "./registerServiceWorker";
@@ -34,6 +35,7 @@ Vue.component(draggable.name, draggable);
 
 window.$egu = egu
 window.$ = $;
+window.$http = http
 
 window.vm = new Vue({
     router,

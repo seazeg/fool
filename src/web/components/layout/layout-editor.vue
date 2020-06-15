@@ -59,9 +59,17 @@
                     >
                     <div class="view-box js" v-highlight>
                         <!-- <pre>
-              <code v-html="workarea.js">
-              </code>
-            </pre> -->
+                            <code v-html="workarea.js">
+                            </code>
+                            </pre> -->
+                    </div>
+                </el-tab-pane>
+                <el-tab-pane name="tools">
+                    <span slot="label" class="lab-icon">
+                        <i class="iconfont icon-js"></i>tools</span
+                    >
+                    <div class="view-box" v-highlight>
+                        <el-button @click="htmlGenerator">生成</el-button>
                     </div>
                 </el-tab-pane>
             </el-tabs>
@@ -216,6 +224,41 @@ export default {
                 duration: 500,
             });
         },
+        htmlGenerator() {
+            let defaultHTML = `
+                <!DOCTYPE html>
+                    <html lang="zh">
+
+                    <head>
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                        <meta charset="UTF-8">
+                        <title>集团首页</title>
+                        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
+                        <meta name="format-detection" content="telephone=no, email=no" />
+                        <meta name="renderer" content="webkit">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                        <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
+                        <style>
+                            ${this.source.css}
+                        </style>
+                    </head>
+
+                    <body>
+                        ${this.source.html}
+                    </body>
+
+                </html>
+           `;
+
+            $http
+                .post("http://localhost:2599/generateHTML", {
+                    html: defaultHTML,
+                })
+                .then(function(res) {
+                    console.log(res);
+                    window.open('http://localhost:2599/preview.html')
+                });
+        },
     },
     watch: {
         selectedControl: {
@@ -228,9 +271,5 @@ export default {
             deep: true,
         },
     },
-    // updated() {
-    //     this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);
-    //     this.source.css = handle.pullCSS(this.$refs.preview.innerHTML);
-    // },
 };
 </script>

@@ -9,7 +9,8 @@
     "serve:client": "vue-cli-service electron:serve",
     "build": "npm run build:web;npm run build:client",
     "build:web": "vue-cli-service build",
-    "build:client": "vue-cli-service electron:build --windows --macos"
+    "build:client": "vue-cli-service electron:build --windows --macos",
+    "go": "npm run serve:web;cd generator;node server.js"
   },
   "dependencies": {
     "animate.css": "^4.1.0",
@@ -24,6 +25,11 @@
     "highlight.js": "^10.0.3",
     "html-formatter": "^0.1.9",
     "jquery": "^3.5.1",
+    "koa": "^2.12.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.0.1",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
     "lodash": "^4.17.15",
     "nprogress": "^0.2.0",
     "register-service-worker": "^1.6.2",

@@ -42,23 +42,5 @@ export const utils = {
                 }
             })
             .join(";");
-    },
-    getClassValue: (className) => {
-        let res = {};
-        let classList = document.styleSheets[2].cssRules;
-        for (let item of classList) {
-            if (className == item.selectorText) {
-                res = item;
-            }
-        }
-        return res;
-    },
-    getGradientParam: (str) => {
-        let regx = /\((.+?)\)/g;
-        let res = str.match(regx);
-        return {
-            start: `rgb${res[2]}`,
-            end: `rgb${res[1]}`,
-        };
-    },
+    }
 };

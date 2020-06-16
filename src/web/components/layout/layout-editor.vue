@@ -232,7 +232,7 @@ export default {
                     <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         <meta charset="UTF-8">
-                        <title>集团首页</title>
+                        <title>HOPE</title>
                         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
                         <meta name="format-detection" content="telephone=no, email=no" />
                         <meta name="renderer" content="webkit">
@@ -256,7 +256,7 @@ export default {
                 })
                 .then(function(res) {
                     console.log(res);
-                    window.open('http://localhost:2599/preview.html')
+                    window.open("http://localhost:2599/preview.html");
                 });
         },
     },
@@ -266,7 +266,8 @@ export default {
                 this.source.html = handle.reduceHTML(
                     this.$refs.preview.innerHTML
                 );
-                this.source.css = handle.pullCSS(this.$refs.preview.innerHTML);
+                //todo
+                this.source.css = handle.pullCSS(this.$refs.preview.innerHTML,'border');
             },
             deep: true,
         },

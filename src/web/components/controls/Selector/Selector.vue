@@ -3,6 +3,7 @@
         class="hope_selector"
         :class="ele.customClass"
         :custom-class="ele.customClass"
+        :data-css="JSON.stringify(ele.style)"
         @click.stop="choose"
         :style="isHover ? ele.effect : ele.style"
         @mouseenter.stop="enter"

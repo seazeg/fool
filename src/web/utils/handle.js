@@ -29,11 +29,12 @@ export const handle = {
             return formatter.render(result.prevObject[0].innerHTML);
         } catch (error) {}
     },
-    pullCSS: (html) => {
+    pullCSS: (html, filter) => {
         try {
             const style = /style\s*?=\s*?([‘"])[\s\S]*?\1/g;
             let css = "";
             for (let line of html.match(style)) {
+                let filterCSS = {};
                 let o = $(html).find(
                         `[style=${line.match(/\"([^\"]*)\"/)[0]}]`
                     ),
@@ -42,14 +43,27 @@ export const handle = {
                     className = o.attr("custom-class")
                         ? `.${o.attr("custom-class")}`
                         : `${o.attr("custom-class")}`;
-                css += `.${o[0].classList[0]}${className}{${
-                    line.match(/\"([^\"]*)\"/)[1]
-                }}`;
-                if(e&&s){
-                    css+=`.${o[0].classList[0]}${className}:hover{${utils.getEndEffect(
+
+
+                if (filter) {
+                    Object.keys(JSON.parse(s)).forEach(function(key) {
+                        if (!key.includes(filter)) {
+                            filterCSS[key] = JSON.parse(s)[key];
+                        }
+                    });
+                }
+                console.log(filterCSS);
+                css += `.${o[0].classList[0]}${className}{${utils.json2css(
+                    filterCSS
+                )}}`;
+
+                if (e && s) {
+                    css += `.${
+                        o[0].classList[0]
+                    }${className}:hover{${utils.getEndEffect(
                         JSON.parse(s),
                         JSON.parse(e)
-                    )}}`
+                    )}}`;
                 }
             }
             return utils.cssFormat(css);

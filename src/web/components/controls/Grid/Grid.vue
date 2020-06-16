@@ -3,6 +3,7 @@
         class="hope_grid"
         :class="ele.customClass"
         :custom-class="ele.customClass"
+        :data-css="JSON.stringify(ele.style)"
         @click.stop="choose"
         :style="ele.style"
     >

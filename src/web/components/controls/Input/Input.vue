@@ -4,6 +4,7 @@
         class="hope_input"
         :class="ele.customClass"
         :custom-class="ele.customClass"
+        :data-css="JSON.stringify(ele.style)"
         @click.stop="choose"
         :style="isFocus?ele.effect:ele.style"
         @focus.stop="focus"

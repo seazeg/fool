@@ -5,6 +5,7 @@
         :class="ele.customClass"
         :custom-class="ele.customClass"
         :data-css="JSON.stringify(ele.style)"
+        :data-label="ele.label"
         @click.stop="choose"
         :style="isFocus?ele.effect:ele.style"
         @focus.stop="focus"

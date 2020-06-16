@@ -1,20 +1,20 @@
 
                 <!DOCTYPE html>
                     <html lang="zh">
-
                     <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         <meta charset="UTF-8">
-                        <title>集团首页</title>
+                        <title>HOPE</title>
                         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
                         <meta name="format-detection" content="telephone=no, email=no" />
                         <meta name="renderer" content="webkit">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                         <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
+                        <link rel="stylesheet" href="base.css" />
                         <style>
                             .hope_grid.g_100 {
 	width:100%;
-	height:100%;
+	height:1%;
 	padding-top:0px;
 	padding-bottom:0px;
 	padding-left:0px;
@@ -25,11 +25,11 @@
 }
 .hope_grid.g_50 {
 	width:50%;
-	height:100%;
-	padding-top:0px;
-	padding-bottom:0px;
-	padding-left:0px;
-	padding-right:0px;
+	height:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	padding-right:20px;
 	vertical-align:top;
 	display:inline-block;
 	font-size:0;
@@ -39,6 +39,10 @@
 	height:50px;
 	color:#333;
 	font-size:16px;
+	border-color:rgb(165,184,131);
+	border-width:1px;
+	border-style:solid;
+	border-radius:5px;
 	padding-top:2px;
 	padding-bottom:2px;
 	padding-left:10px;
@@ -50,11 +54,10 @@
 }
 .hope_grid.g_50 {
 	width:50%;
-	height:100%;
-	padding-top:0px;
-	padding-bottom:0px;
-	padding-left:0px;
-	padding-right:0px;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	padding-right:20px;
 	vertical-align:top;
 	display:inline-block;
 	font-size:0;
@@ -64,6 +67,49 @@
 	height:50px;
 	color:#333;
 	font-size:16px;
+	border-color:rgb(165,184,131);
+	border-width:1px;
+	border-style:solid;
+	border-radius:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:10px;
+	padding-right:10px;
+	vertical-align:top;
+	display:inline-block;
+	outline:none;
+}
+.hope_grid.g_100 {
+	width:100%;
+	height:auto;
+	padding-top:0px;
+	padding-bottom:0px;
+	padding-left:0px;
+	padding-right:0px;
+	vertical-align:top;
+	display:inline-block;
+	font-size:0;
+}
+.hope_grid.g_50 {
+	width:50%;
+	height:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	padding-right:20px;
+	vertical-align:top;
+	display:inline-block;
+	font-size:0;
+}
+.hope_input {
+	width:100%;
+	height:50px;
+	color:#333;
+	font-size:16px;
+	border-color:rgb(165,184,131);
+	border-width:1px;
+	border-style:solid;
+	border-radius:5px;
 	padding-top:2px;
 	padding-bottom:2px;
 	padding-left:10px;
@@ -73,25 +119,32 @@
 	outline:none;
 	line-height:48px;
 }
-.hope_button {
-	width:150px;
-	height:50px;
-	line-height:50px;
-	text-align:center;
-	transition-delay:0s;
-	transition-duration:0.5s;
-	transition-property:all;
-	transition-timing-function:ease;
-	background-color:rgb(65,184,131);
-	color:rgb(255,255,255);
-	font-size:14px;
-	background-image:linear-gradient(90deg,rgb(65,184,131) 0%,rgb(165,184,131) 51%,rgb(65,184,131) 100%);
-	background-size:200% auto;
+.hope_grid.g_50 {
+	width:50%;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	padding-right:20px;
+	vertical-align:top;
+	display:inline-block;
+	font-size:0;
 }
-.hope_button:hover {
-	animation-duration:0.5s;
-	animation-name:;
-	background-position:right center
+.hope_input {
+	width:100%;
+	height:50px;
+	color:#333;
+	font-size:16px;
+	border-color:rgb(165,184,131);
+	border-width:1px;
+	border-style:solid;
+	border-radius:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:10px;
+	padding-right:10px;
+	vertical-align:top;
+	display:inline-block;
+	outline:none;
 }
 
                         </style>
@@ -106,7 +159,14 @@
 		<input type="text" placeholder="请输入" class="hope_input" />
 	</div>
 </div>
-<div class="hope_button">按钮</div>
+<div class="hope_grid g_100">
+	<div class="hope_grid g_50">
+		<input type="text" placeholder="请输入" class="hope_input" />
+	</div>
+	<div class="hope_grid g_50">
+		<input type="text" placeholder="请输入" class="hope_input" />
+	</div>
+</div>
                     </body>
 
                 </html>

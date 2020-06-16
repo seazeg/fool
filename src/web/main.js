@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./components/layout/index";
 import "./components/controls/register.js";
-import http from './api/request.js'
+import http from './utils/request.js'
 
 import "./utils/directive";
 import "./registerServiceWorker";

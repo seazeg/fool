@@ -38,10 +38,11 @@
                         :min="1"
                         :max="100"
                         show-input
+                        :step="0.1"
                     ></el-slider>
                 </p>
             </div>
-            <div class="box">
+            <!-- <div class="box">
                 <span class="field">高度（height）</span>
                 <p>
                     <el-slider
@@ -49,8 +50,52 @@
                         :min="1"
                         :max="100"
                         show-input
+                        :step="0.1"
                     ></el-slider>
                 </p>
+            </div> -->
+            <div class="control_group_title">布局：</div>
+            <div class="control_group">
+                <div class="box">
+                    <span class="field">内间距-左（paddingLeft）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingLeft"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="box">
+                    <span class="field">内间距-右（paddingRight）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingRight"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="box">
+                    <span class="field">内间距-上（paddingTop）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingTop"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="box">
+                    <span class="field">内间距-下（paddingBottom）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingBottom"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

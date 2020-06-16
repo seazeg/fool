@@ -228,7 +228,6 @@ export default {
             let defaultHTML = `
                 <!DOCTYPE html>
                     <html lang="zh">
-
                     <head>
                         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         <meta charset="UTF-8">
@@ -238,6 +237,7 @@ export default {
                         <meta name="renderer" content="webkit">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                         <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
+                        <link rel="stylesheet" href="base.css" />
                         <style>
                             ${this.source.css}
                         </style>
@@ -255,7 +255,6 @@ export default {
                     html: defaultHTML,
                 })
                 .then(function(res) {
-                    console.log(res);
                     window.open("http://localhost:2599/preview.html");
                 });
         },
@@ -266,8 +265,10 @@ export default {
                 this.source.html = handle.reduceHTML(
                     this.$refs.preview.innerHTML
                 );
-                //todo
-                this.source.css = handle.pullCSS(this.$refs.preview.innerHTML,'border');
+                //filter =>  controlName:cssName
+                this.source.css = handle.pullCSS(this.$refs.preview.innerHTML, {
+                    hope_grid: "border",
+                });
             },
             deep: true,
         },

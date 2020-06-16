@@ -10,6 +10,7 @@ export const handle = {
             const customClass = /custom-class\s*?=\s*?([‘"])[\s\S]*?\1/g;
             const effect = /data-effect\s*?=\s*?([‘"])[\s\S]*?\1/g;
             const mycss = /data-css\s*?=\s*?([‘"])[\s\S]*?\1/g;
+            const label = /data-label\s*?=\s*?([‘"])[\s\S]*?\1/g;
             html = html.replace(style, "");
             html = html.replace(datav, "");
             html = html.replace(draggable, "");
@@ -17,6 +18,7 @@ export const handle = {
             html = html.replace(customClass, "");
             html = html.replace(effect, "");
             html = html.replace(mycss, "");
+            html = html.replace(label, "");
             let result = $(html)
                 .find(".draggable_box")
                 .each(function() {
@@ -44,15 +46,20 @@ export const handle = {
                         ? `.${o.attr("custom-class")}`
                         : `${o.attr("custom-class")}`;
 
-
                 if (filter) {
-                    Object.keys(JSON.parse(s)).forEach(function(key) {
-                        if (!key.includes(filter)) {
-                            filterCSS[key] = JSON.parse(s)[key];
+                    Object.keys(filter).forEach(function(filterKey) {
+                        if (filterKey == o.eq(0).attr("data-label")) {
+                            Object.keys(JSON.parse(s)).forEach(function(key) {
+                                if (!key.includes(filter[filterKey])) {
+                                    filterCSS[key] = JSON.parse(s)[key];
+                                }
+                            });
+                        }else{
+                            filterCSS = JSON.parse(s)
                         }
                     });
                 }
-                console.log(filterCSS);
+      
                 css += `.${o[0].classList[0]}${className}{${utils.json2css(
                     filterCSS
                 )}}`;

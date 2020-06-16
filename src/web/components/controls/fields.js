@@ -286,7 +286,7 @@ export const button = {
 export const grid = {
     width: {
         get() {
-            return parseInt(this.$store.state.selected.style.width);
+            return parseFloat(this.$store.state.selected.style.width);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -296,14 +296,62 @@ export const grid = {
             });
         },
     },
-    height: {
+    // height: {
+    //     get() {
+    //         return parseFloat(this.$store.state.selected.style.height);
+    //     },
+    //     set(value) {
+    //         this.$store.commit("Hope/UpdateControlParams", {
+    //             height: value,
+    //             isDiff: "per",
+    //             container: "style",
+    //         });
+    //     },
+    // },
+    paddingLeft: {
         get() {
-            return parseInt(this.$store.state.selected.style.height);
+            return parseInt(this.$store.state.selected.style.paddingLeft);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
-                isDiff: "per",
+                paddingLeft: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    paddingRight: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingRight);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingRight: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    paddingTop: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingTop);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingTop: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    paddingBottom: {
+        get() {
+            return parseInt(this.$store.state.selected.style.paddingBottom);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingBottom: value,
+                isDiff: "px",
                 container: "style",
             });
         },

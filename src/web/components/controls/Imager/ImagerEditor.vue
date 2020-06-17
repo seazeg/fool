@@ -161,10 +161,10 @@
 </template>
 
 <script>
-import { button } from "../../controls/fields.js";
+import { fields } from "../../controls/fields.js";
 import GradientPicker from "../../plugins/gradientColorPicker.vue";
 export default {
-    name: "ButtonEditor",
+    name: "ImagerEditor",
     components: {
         GradientPicker,
     },
@@ -176,7 +176,7 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
-        ...button,
+        ...fields,
     },
 };
 </script>

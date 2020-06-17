@@ -34,7 +34,7 @@
                 <span class="field">宽度（width）</span>
                 <p>
                     <el-slider
-                        v-model="width"
+                        v-model="width_per"
                         :min="1"
                         :max="100"
                         show-input
@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { grid } from "../../controls/fields.js";
+import { fields } from "../../controls/fields.js";
 import GradientPicker from "../../plugins/gradientColorPicker.vue";
 export default {
     name: "GridEditor",
@@ -117,7 +117,7 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
-        ...grid,
+        ...fields,
     },
 };
 </script>

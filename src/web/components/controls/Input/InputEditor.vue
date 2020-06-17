@@ -43,7 +43,7 @@
                 <span class="field">宽度（width）</span>
                 <p>
                     <el-slider
-                        v-model="width"
+                        v-model="width_per"
                         :min="1"
                         :max="100"
                         show-input
@@ -258,7 +258,7 @@
 </template>
 
 <script>
-import { input } from "../../controls/fields.js";
+import { fields } from "../../controls/fields.js";
 export default {
     name: "InputEditor",
     props: {
@@ -269,7 +269,7 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
-        ...input,
+        ...fields,
     },
 };
 </script>

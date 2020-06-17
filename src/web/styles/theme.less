@@ -107,43 +107,12 @@ code {
 //左侧工具栏
 .layout-controls {
     background: @main_color;
-    border-right: 1px solid @shadow_color;
     user-select: none;
+    width:180px;
 }
 
-.layout-controls .group .box {
-    padding: 10px;
-    margin: 1px 0;
-    border-bottom: 1px solid @deputy_color; // display: inline-block;
-    margin: 1px;
-    width:auto!important;
-    height:auto!important;
-}
-
-.layout-controls .group .box > i {
-    font-size: 22px;
+.layout-controls i {
     color: @tools_color;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.layout-controls .group .box > span {
-    font-size: 14px;
-    color: @tools_color;
-    vertical-align: middle;
-}
-
-.layout-controls .group .box:hover {
-    background: @shadow_color;
-    border-radius: 5px;
-}
-
-.layout-controls .group .box.checked {
-    background: @border_color;
-    border-radius: 5px;
-}
-
-.layout-controls .group .box.sortable-chosen {
 }
 
 .layout-controls .operate {
@@ -479,13 +448,13 @@ code {
 .draggingNarrow {
     width: 10px !important;
     height: 10px !important;
-
 }
 
 .draggingChoose {
+    width: 10px !important;
+    height: 10px !important;
     background: rgba(0, 255, 76, 0.5) !important;
     border-radius: 5px;
-    // position:absolute;
     i{
         font-size:0!important;
     }
@@ -504,3 +473,7 @@ code {
 // .selected{
 //     box-shadow: 10px 10px 5px #888888;
 // }
+
+.theme-border{
+    border: 1px dashed #eee;
+}

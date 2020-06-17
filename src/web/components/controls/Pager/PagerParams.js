@@ -8,7 +8,7 @@ export const PagerParams = {
     icon: "icon-anniu",
     isSelected: false,
     event: "focus",
-    defaultClass:"hope_input",
+    defaultClass:"hope_pager",
     customClass:"",
     style: {
         width: "100%",

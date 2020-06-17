@@ -19,6 +19,7 @@ export const handle = {
             html = html.replace(effect, "");
             html = html.replace(mycss, "");
             html = html.replace(label, "");
+            html = html.replace(/ theme-border /g, " ");
             let result = $(html)
                 .find(".draggable_box")
                 .each(function() {
@@ -31,50 +32,50 @@ export const handle = {
             return formatter.render(result.prevObject[0].innerHTML);
         } catch (error) {}
     },
-    getCSS: (controls, filter) => {
+    getCSS: (controls) => {
         let css = "";
-        return (function func(cls, filter) {
+        return (function func(cls) {
             for (let ele of cls) {
+                let customClass = ele.customClass
+                        ? `.${ele.customClass}`
+                        : `${ele.customClass}`,
+                    effect = ele.effect,
+                    style = ele.style,
+                    defaultClass = ele.defaultClass,
+                    event = ele.event,
+                    filterCSS = {};
+
+                // if (filter) {
+                //     Object.keys(filter).forEach(function(filterKey) {
+                //         if (filterKey == label) {
+                //             Object.keys(style).forEach(function(key) {
+                //                 if (!key.includes(filter[filterKey])) {
+                //                     filterCSS[key] = style[key];
+                //                 }
+                //             });
+                //         } else {
+                //             filterCSS = style;
+                //         }
+                //     });
+                // }
+
+                filterCSS = utils.json2css(style);
+                if (!css.includes(filterCSS)) {
+                    css += `.${defaultClass}${customClass}{${filterCSS}}`;
+                }
+
+                if (event) {
+                    let eventCSS = utils.getEndEffect(style, effect);
+                    if (!css.includes(eventCSS)) {
+                        css += `.${defaultClass}${customClass}:${event}{${eventCSS}}`;
+                    }
+                }
+
                 if (ele.children && ele.children.length > 0) {
-                    func(ele.children, filter);
-                } else {
-                    let customClass = ele.customClass
-                            ? `.${ele.customClass}`
-                            : `${ele.customClass}`,
-                        effect = ele.effect,
-                        style = ele.style,
-                        defaultClass = ele.defaultClass,
-                        label = ele.label,
-                        event = ele.event,
-                        filterCSS = {};
-
-                    if (filter) {
-                        Object.keys(filter).forEach(function(filterKey) {
-                            if (filterKey == label) {
-                                Object.keys(style).forEach(function(key) {
-                                    if (!key.includes(filter[filterKey])) {
-                                        filterCSS[key] = style[key];
-                                    }
-                                });
-                            } else {
-                                filterCSS = style;
-                            }
-                        });
-                    }
-
-                    css += `.${defaultClass}${customClass}{${utils.json2css(
-                        filterCSS
-                    )}}`;
-
-                    if (event) {
-                        css += `.${defaultClass}${customClass}:${event}{${utils.getEndEffect(
-                            style,
-                            effect
-                        )}}`;
-                    }
+                    func(ele.children);
                 }
             }
             return utils.cssFormat(css);
-        })(controls, filter);
+        })(controls);
     },
 };

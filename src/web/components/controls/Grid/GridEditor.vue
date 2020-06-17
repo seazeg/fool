@@ -21,7 +21,7 @@
             <div class="box">
                 <span class="field">自定义类名（customClass）</span>
                 <p>
-                    <el-input
+                    <el-input disabled
                         v-model="selectedControl.customClass"
                         placeholder="请输入类名"
                     ></el-input>

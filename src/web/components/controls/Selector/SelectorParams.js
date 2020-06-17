@@ -8,7 +8,7 @@ export const SelectorParams = {
     icon: "icon-anniu",
     isSelected: false,
     event: "focus",
-    defaultClass:"hope_input",
+    defaultClass:"hope_selector",
     customClass:"",
     style: {
         width: "100%",

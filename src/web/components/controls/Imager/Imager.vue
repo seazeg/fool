@@ -1,21 +1,23 @@
 <template>
     <div
-        class="hope_grid theme-border"
+        class="hope_imager"
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="ele.style"
+        :style="isHover ? ele.effect : ele.style"
+        @mouseenter.stop="enter"
+        @mouseleave.stop="leave"
     >
-        <slot></slot>
+        {{ ele.name }}
     </div>
 </template>
 
 <script>
 export default {
-    name: "hope_grid",
+    name: "hope_imager",
     data() {
         return {
-            isSlot: false,
+            isHover: false,
         };
     },
     props: {
@@ -24,6 +26,12 @@ export default {
     methods: {
         choose() {
             this.$emit("choose", this.ele);
+        },
+        enter() {
+            this.isHover = true;
+        },
+        leave() {
+            this.isHover = false;
         },
     },
 };

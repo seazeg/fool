@@ -22,6 +22,7 @@ import "animate.css";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/icons/fonts/iconfont.css";
 import "./styles/theme.less";
+import "./styles/controls.less"
 
 
 

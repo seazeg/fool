@@ -43,7 +43,8 @@ export const handle = {
                     style = ele.style,
                     defaultClass = ele.defaultClass,
                     event = ele.event,
-                    filterCSS = {};
+                    cssInherit = ele.cssInherit || "",
+                    filterCSS = {}
 
                 // if (filter) {
                 //     Object.keys(filter).forEach(function(filterKey) {
@@ -58,16 +59,17 @@ export const handle = {
                 //         }
                 //     });
                 // }
+                
 
                 filterCSS = utils.json2css(style);
                 if (!css.includes(filterCSS)) {
-                    css += `.${defaultClass}${customClass}{${filterCSS}}`;
+                    css += `.${defaultClass}${cssInherit}${customClass}{${filterCSS}}`;
                 }
 
                 if (event) {
                     let eventCSS = utils.getEndEffect(style, effect);
                     if (!css.includes(eventCSS)) {
-                        css += `.${defaultClass}${customClass}:${event}{${eventCSS}}`;
+                        css += `.${defaultClass}${cssInherit}${customClass}:${event}{${eventCSS}}`;
                     }
                 }
 

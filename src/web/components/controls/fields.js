@@ -234,6 +234,11 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingLeft: value,
+                isDiff: "px",
+                container: "effect",
+            });
         },
     },
     paddingRight: {
@@ -245,6 +250,11 @@ export const fields = {
                 paddingRight: value,
                 isDiff: "px",
                 container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingRight: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -258,6 +268,11 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingTop: value,
+                isDiff: "px",
+                container: "effect",
+            });
         },
     },
     paddingBottom: {
@@ -269,6 +284,11 @@ export const fields = {
                 paddingBottom: value,
                 isDiff: "px",
                 container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingBottom: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -282,6 +302,11 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginLeft: value,
+                isDiff: "px",
+                container: "effect",
+            });
         },
     },
     marginRight: {
@@ -293,6 +318,11 @@ export const fields = {
                 marginRight: value,
                 isDiff: "px",
                 container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginRight: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -306,6 +336,11 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginTop: value,
+                isDiff: "px",
+                container: "effect",
+            });
         },
     },
     marginBottom: {
@@ -317,6 +352,11 @@ export const fields = {
                 marginBottom: value,
                 isDiff: "px",
                 container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginBottom: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },

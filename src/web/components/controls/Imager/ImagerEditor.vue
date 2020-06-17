@@ -35,7 +35,7 @@
                 <span class="field">宽度（width）</span>
                 <p>
                     <el-slider
-                        v-model="width"
+                        v-model="width_per"
                         :min="50"
                         :max="500"
                         show-input
@@ -46,7 +46,7 @@
                 <span class="field">高度（height）</span>
                 <p>
                     <el-slider
-                        v-model="height"
+                        v-model="height_per"
                         :min="25"
                         :max="500"
                         show-input

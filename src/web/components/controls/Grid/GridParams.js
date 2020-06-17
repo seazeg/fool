@@ -30,8 +30,8 @@ export const GridParams = {
                 customClass: "g_50",
                 style: {
                     width: "50%",
-                    paddingTop: "20px",
-                    paddingBottom: "20px",
+                    paddingTop: "30px",
+                    paddingBottom: "30px",
                     paddingLeft: "20px",
                     paddingRight: "20px"
                 },
@@ -48,8 +48,8 @@ export const GridParams = {
                 customClass: "g_50",
                 style: {
                     width: "50%",
-                    paddingTop: "20px",
-                    paddingBottom: "20px",
+                    paddingTop: "30px",
+                    paddingBottom: "30px",
                     paddingLeft: "20px",
                     paddingRight: "20px"
                 },
@@ -85,8 +85,8 @@ export const GridParams = {
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
-                    paddingTop: "20px",
-                    paddingBottom: "20px",
+                    paddingTop: "30px",
+                    paddingBottom: "30px",
                     paddingLeft: "20px",
                     paddingRight: "20px"
                 },
@@ -103,8 +103,8 @@ export const GridParams = {
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
-                    paddingTop: "20px",
-                    paddingBottom: "20px",
+                    paddingTop: "30px",
+                    paddingBottom: "30px",
                     paddingLeft: "20px",
                     paddingRight: "20px"
                 },
@@ -121,10 +121,10 @@ export const GridParams = {
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
-                    paddingTop: "20px",
-                    paddingBottom: "20px",
+                    paddingTop: "30px",
+                    paddingBottom: "30px",
                     paddingLeft: "20px",
-                    paddingRight: "20px",
+                    paddingRight: "20px"
                 },
                 effect: {},
                 children: [],

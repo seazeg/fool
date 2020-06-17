@@ -7,10 +7,11 @@ export const ImagerParams = {
     label: "hope_imager",
     icon: "icon-anniu",
     isSelected: false,
-    event: "",
+    event: "hover",
     defaultClass: "hope_imager",
-    customClass: "",
+    customClass: "inner_img",
     src: "http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg",
+    cssInherit:" ",
     style: {
         width: "100%",
         height: "100%",
@@ -18,11 +19,9 @@ export const ImagerParams = {
         transitionDuration: "0.5s",
         transitionProperty: "all",
         transitionTimingFunction: "ease",
-        color: "rgb(255,255,255)",
         borderStyle: "solid",
         borderWidth: "0px",
         borderColor: basis.mainColor,
-        borderRadius: "10px",
     },
     effect: {
         width: "100%",
@@ -31,11 +30,9 @@ export const ImagerParams = {
         transitionDuration: "0.5s",
         transitionProperty: "all",
         transitionTimingFunction: "ease",
-        color: "rgb(255,255,255)",
         borderStyle: "solid",
         borderWidth: "0px",
         borderColor: basis.mainColor,
-        borderRadius: "10px",
         transform:"scale(1.5)"
     },
 };

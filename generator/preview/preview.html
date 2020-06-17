@@ -11,31 +11,52 @@
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                         <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
                         <link rel="stylesheet" href="base.css" />
+                        <link rel="stylesheet" href="hope.css" />
                         <style>
                             .hope_grid.g_100 {
 	width:100%;
-	height:auto;
-	border-width:1px;
-	border-style:dashed;
 	padding-top:0px;
 	padding-bottom:0px;
 	padding-left:0px;
 	padding-right:0px;
-	vertical-align:top;
-	display:inline-block;
-	font-size:0;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
 }
-.hope_grid.g_30 {
-	width:33.3333%;
-	border-width:1px;
-	border-style:dashed;
-	padding-top:20px;
-	padding-bottom:20px;
+.hope_grid.g_50 {
+	width:50%;
+	padding-top:30px;
+	padding-bottom:30px;
 	padding-left:20px;
 	padding-right:20px;
-	vertical-align:top;
-	display:inline-block;
-	font-size:0;
+}
+.hope_imager .inner_img {
+	width:100%;
+	height:100%;
+	transition-delay:0s;
+	transition-duration:0.5s;
+	transition-property:all;
+	transition-timing-function:ease;
+	border-style:solid;
+	border-width:10px;
+	border-color:rgb(65,184,131);
+	line-height:80px;
+	border-radius:0px;
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.hope_imager .inner_img:hover {
+	border-width:0px;
+	transform:scale(1.5);
+	line-height:100px;
+	animation-duration:0.5s
 }
 
                         </style>
@@ -43,9 +64,16 @@
 
                     <body>
                         <div class="hope_grid g_100">
-	<div class="hope_grid g_30"></div>
-	<div class="hope_grid g_30"></div>
-	<div class="hope_grid g_30"></div>
+	<div class="hope_grid g_50">
+		<div class="hope_imager">
+			<img src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg" alt="图片" class="inner_img" />
+		</div>
+	</div>
+	<div class="hope_grid g_50">
+		<div class="hope_imager">
+			<img src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg" alt="图片" class="inner_img" />
+		</div>
+	</div>
 </div>
                     </body>
 

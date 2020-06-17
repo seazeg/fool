@@ -87,6 +87,10 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></InputEditor>
+         <ImagerEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+        ></ImagerEditor>
     </div>
 </template>
 <script>
@@ -238,7 +242,7 @@ export default {
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                         <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
                         <link rel="stylesheet" href="base.css" />
-                        <link rel="stylesheet" href="controls.css" />
+                        <link rel="stylesheet" href="hope.css" />
                         <style>
                             ${this.source.css}
                         </style>

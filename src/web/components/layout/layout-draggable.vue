@@ -11,8 +11,6 @@
         :group="{ name: 'controls' }"
         ghost-class="draggingChoose"
         @change="change"
-        @start="dragStart"
-        @end="dragEnd"
     >
         <!-- <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele"> -->
         <component
@@ -55,13 +53,7 @@ export default {
                 this.$store.commit("Hope/ControlsSelected", e.added.element);
                 this.$store.commit("Hope/ChooseControl", e.added.element.id);
             } catch (error) {}
-        },
-        dragStart(e) {
-            $(e.item).addClass("draggingNarrow");
-        },
-        dragEnd(e) {
-            $(e.item).removeClass("draggingNarrow");
-        },
+        }
     },
 };
 </script>

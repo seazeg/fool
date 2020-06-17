@@ -8,7 +8,7 @@ export const InputParams = {
     icon: "icon-anniu",
     isSelected: false,
     event: "focus",
-    defaultClass:"hope_input",
+    defaultClass: "hope_input",
     customClass: "",
     placeholder: "请输入",
     style: {
@@ -20,10 +20,6 @@ export const InputParams = {
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: "5px",
-        paddingTop: "2px",
-        paddingBottom: "2px",
-        paddingLeft: "10px",
-        paddingRight: "10px"
     },
     effect: {
         width: "100%",
@@ -34,9 +30,7 @@ export const InputParams = {
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: "5px",
-        paddingTop: "2px",
-        paddingBottom: "2px",
-        paddingLeft: "10px",
-        paddingRight: "10px"
+    },
+    layout: {
     },
 };

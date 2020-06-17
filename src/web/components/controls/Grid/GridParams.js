@@ -13,12 +13,9 @@ export const GridParams = {
         customClass: "g_100",
         style: {
             width: "100%",
-            paddingTop: "0px",
-            paddingBottom: "0px",
-            paddingLeft: "0px",
-            paddingRight: "0px"
         },
         effect: {},
+        layout: {},
         children: [
             {
                 name: "2_1",
@@ -30,12 +27,14 @@ export const GridParams = {
                 customClass: "g_50",
                 style: {
                     width: "50%",
+                },
+                effect: {},
+                layout: {
                     paddingTop: "30px",
                     paddingBottom: "30px",
                     paddingLeft: "20px",
-                    paddingRight: "20px"
+                    paddingRight: "20px",
                 },
-                effect: {},
                 children: [],
             },
             {
@@ -48,10 +47,12 @@ export const GridParams = {
                 customClass: "g_50",
                 style: {
                     width: "50%",
+                },
+                layout: {
                     paddingTop: "30px",
                     paddingBottom: "30px",
                     paddingLeft: "20px",
-                    paddingRight: "20px"
+                    paddingRight: "20px",
                 },
                 effect: {},
                 children: [],
@@ -68,12 +69,9 @@ export const GridParams = {
         customClass: "g_100",
         style: {
             width: "100%",
-            paddingTop: "0px",
-            paddingBottom: "0px",
-            paddingLeft: "0px",
-            paddingRight: "0px"
         },
         effect: {},
+        layout: {},
         children: [
             {
                 name: "3_1",
@@ -85,12 +83,14 @@ export const GridParams = {
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
+                },
+                effect: {},
+                layout: {
                     paddingTop: "30px",
                     paddingBottom: "30px",
                     paddingLeft: "20px",
-                    paddingRight: "20px"
+                    paddingRight: "20px",
                 },
-                effect: {},
                 children: [],
             },
             {
@@ -103,12 +103,14 @@ export const GridParams = {
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
+                },
+                effect: {},
+                layout: {
                     paddingTop: "30px",
                     paddingBottom: "30px",
                     paddingLeft: "20px",
-                    paddingRight: "20px"
+                    paddingRight: "20px",
                 },
-                effect: {},
                 children: [],
             },
             {
@@ -121,12 +123,14 @@ export const GridParams = {
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
+                },
+                effect: {},
+                layout: {
                     paddingTop: "30px",
                     paddingBottom: "30px",
                     paddingLeft: "20px",
-                    paddingRight: "20px"
+                    paddingRight: "20px",
                 },
-                effect: {},
                 children: [],
             },
         ],

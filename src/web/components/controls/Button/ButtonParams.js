@@ -8,7 +8,7 @@ export const ButtonParams = {
     icon: "icon-anniu",
     isSelected: false,
     event: "hover",
-    defaultClass:"hope_button",
+    defaultClass: "hope_button",
     customClass: "",
     style: {
         width: "150px",
@@ -48,5 +48,7 @@ export const ButtonParams = {
         backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
         backgroundSize: "200% auto",
         backgroundPosition: "right center",
+    },
+    layout: {
     },
 };

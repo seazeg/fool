@@ -87,7 +87,7 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></InputEditor>
-         <ImagerEditor
+        <ImagerEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></ImagerEditor>
@@ -263,23 +263,21 @@ export default {
                     window.open("http://localhost:2599/preview.html");
                 });
         },
+        codeListener() {
+            this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);
+            this.source.css = handle.getCSS(this.controls);
+        },
     },
     watch: {
         selectedControl: {
             handler(n, o) {
-                this.source.html = handle.reduceHTML(
-                    this.$refs.preview.innerHTML
-                );
-                //filter =>  controlName:cssName
-                // this.source.css = handle.pullCSS(this.$refs.preview.innerHTML, {
-                //     hope_grid: "border",
-                // });
-                 this.source.css = handle.getCSS(this.controls,{
-                    hope_grid: "border",
-                });
+                this.codeListener();
             },
             deep: true,
         },
+    },
+    updated() {
+        this.codeListener();
     },
 };
 </script>

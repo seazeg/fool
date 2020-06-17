@@ -10,8 +10,9 @@ export const ImagerParams = {
     event: "hover",
     defaultClass: "hope_imager",
     customClass: "inner_img",
-    src: "http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg",
-    cssInherit:" ",
+    src:
+        "http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg",
+    cssInherit: " ",
     style: {
         width: "100%",
         height: "100%",
@@ -33,6 +34,8 @@ export const ImagerParams = {
         borderStyle: "solid",
         borderWidth: "0px",
         borderColor: basis.mainColor,
-        transform:"scale(1.5)"
+        transform: "scale(1.5)",
+    },
+    layout: {
     },
 };

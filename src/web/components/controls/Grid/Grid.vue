@@ -4,7 +4,7 @@
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="ele.style"
+        :style="Object.assign(this.ele.style, this.ele.layout)"
     >
         <slot></slot>
     </div>

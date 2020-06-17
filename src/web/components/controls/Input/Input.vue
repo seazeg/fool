@@ -4,8 +4,8 @@
         class="hope_input"
         :class="ele.customClass"
         :custom-class="ele.customClass"
+        :style="isFocus ? Object.assign(this.ele.style, this.ele.layout) : ele.style"
         @click.stop="choose"
-        :style="isFocus?ele.effect:ele.style"
         @focus.stop="focus"
         @blur.stop="blur"
         v-model="ele.name"
@@ -15,13 +15,12 @@
 </template>
 
 <script>
-import _ from 'lodash';
 export default {
     name: "hope_input",
     data() {
         return {
             isFocus: false,
-        };
+        }
     },
     props: {
         ele: [Array, Object],
@@ -32,7 +31,6 @@ export default {
         },
         focus() {
             this.isFocus = true;
-          
         },
         blur() {
             this.isFocus = false;

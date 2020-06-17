@@ -98,10 +98,10 @@ export default {
         controls() {
             return [
                 ButtonParams,
-                SelectorParams,
-                PagerParams,
                 InputParams,
                 ImagerParams,
+                SelectorParams,
+                PagerParams,
             ];
         },
     },

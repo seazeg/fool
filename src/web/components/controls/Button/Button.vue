@@ -4,7 +4,7 @@
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="isHover ? ele.effect : ele.style"
+        :style="isHover ? Object.assign(this.ele.style, this.ele.layout) : ele.style"
         @mouseenter.stop="enter"
         @mouseleave.stop="leave"
     >

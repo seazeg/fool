@@ -266,7 +266,10 @@ export default {
                     this.$refs.preview.innerHTML
                 );
                 //filter =>  controlName:cssName
-                this.source.css = handle.pullCSS(this.$refs.preview.innerHTML, {
+                // this.source.css = handle.pullCSS(this.$refs.preview.innerHTML, {
+                //     hope_grid: "border",
+                // });
+                 this.source.css = handle.getCSS(this.controls,{
                     hope_grid: "border",
                 });
             },

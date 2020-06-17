@@ -7,6 +7,8 @@ export const GridParams = {
     label: "hope_grid",
     icon: "icon-anniu",
     isSelected: false,
+    event: "",
+    defaultClass:"hope_input",
     customClass: "g_100",
     style: {
         width: "100%",
@@ -28,6 +30,8 @@ export const GridParams = {
             label: "hope_grid",
             icon: "icon-anniu",
             isSelected: false,
+            event: "",
+            defaultClass:"hope_input",
             customClass: "g_50",
             style: {
                 width: "50%",
@@ -50,6 +54,8 @@ export const GridParams = {
             label: "hope_grid",
             icon: "icon-anniu",
             isSelected: false,
+            event: "",
+            defaultClass:"hope_input",
             customClass: "g_50",
             style: {
                 width: "50%",

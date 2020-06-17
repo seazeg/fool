@@ -4,11 +4,11 @@
 }
 </style>
 <template>
+        <!-- ghost-class="draggingChoose" -->
     <draggable
         class="draggable_box"
         :list="controls"
         :group="{ name: 'controls' }"
-        ghost-class="draggingChoose"
         @change="change"
         @start="dragStart"
         @end="dragEnd"

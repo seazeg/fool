@@ -31,49 +31,50 @@ export const handle = {
             return formatter.render(result.prevObject[0].innerHTML);
         } catch (error) {}
     },
-    pullCSS: (html, filter) => {
-        try {
-            const style = /style\s*?=\s*?([‘"])[\s\S]*?\1/g;
-            let css = "";
-            for (let line of html.match(style)) {
-                let filterCSS = {};
-                let o = $(html).find(
-                        `[style=${line.match(/\"([^\"]*)\"/)[0]}]`
-                    ),
-                    e = o.attr("data-effect"),
-                    s = o.attr("data-css"),
-                    className = o.attr("custom-class")
-                        ? `.${o.attr("custom-class")}`
-                        : `${o.attr("custom-class")}`;
+    getCSS: (controls, filter) => {
+        let css = "";
+        return (function func(cls, filter) {
+            for (let ele of cls) {
+                if (ele.children && ele.children.length > 0) {
+                    func(ele.children, filter);
+                } else {
+                    let customClass = ele.customClass
+                            ? `.${ele.customClass}`
+                            : `${ele.customClass}`,
+                        effect = ele.effect,
+                        style = ele.style,
+                        defaultClass = ele.defaultClass,
+                        label = ele.label,
+                        event = ele.event,
+                        filterCSS = {};
 
-                if (filter) {
-                    Object.keys(filter).forEach(function(filterKey) {
-                        if (filterKey == o.eq(0).attr("data-label")) {
-                            Object.keys(JSON.parse(s)).forEach(function(key) {
-                                if (!key.includes(filter[filterKey])) {
-                                    filterCSS[key] = JSON.parse(s)[key];
-                                }
-                            });
-                        }else{
-                            filterCSS = JSON.parse(s)
-                        }
-                    });
-                }
-      
-                css += `.${o[0].classList[0]}${className}{${utils.json2css(
-                    filterCSS
-                )}}`;
+                    if (filter) {
+                        Object.keys(filter).forEach(function(filterKey) {
+                            if (filterKey == label) {
+                                Object.keys(style).forEach(function(key) {
+                                    if (!key.includes(filter[filterKey])) {
+                                        filterCSS[key] = style[key];
+                                    }
+                                });
+                            } else {
+                                filterCSS = style;
+                            }
+                        });
+                    }
 
-                if (e && s) {
-                    css += `.${
-                        o[0].classList[0]
-                    }${className}:hover{${utils.getEndEffect(
-                        JSON.parse(s),
-                        JSON.parse(e)
+                    css += `.${defaultClass}${customClass}{${utils.json2css(
+                        filterCSS
                     )}}`;
+
+                    if (event) {
+                        css += `.${defaultClass}${customClass}:${event}{${utils.getEndEffect(
+                            style,
+                            effect
+                        )}}`;
+                    }
                 }
             }
             return utils.cssFormat(css);
-        } catch (error) {}
+        })(controls, filter);
     },
 };

@@ -1,14 +1,17 @@
 <template>
     <div
         class="hope_imager"
-        :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="isHover ? ele.effect : ele.style"
         @mouseenter.stop="enter"
         @mouseleave.stop="leave"
     >
-        {{ ele.name }}
+        <img
+            :src="ele.src"
+            :class="ele.customClass"
+            :style="isHover ? ele.effect : ele.style"
+            :alt="ele.name"
+        />
     </div>
 </template>
 

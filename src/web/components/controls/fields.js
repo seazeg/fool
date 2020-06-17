@@ -188,107 +188,6 @@ export const fields = {
             });
         },
     },
-    hvr_fontSize: {
-        get() {
-            return parseInt(this.$store.state.selected.effect.fontSize);
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                fontSize: value,
-                isDiff: "px",
-                container: "effect",
-            });
-        },
-    },
-    hvr_borderRadius: {
-        get() {
-            return parseInt(this.$store.state.selected.effect.borderRadius);
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                borderRadius: value,
-                isDiff: "px",
-                container: "effect",
-            });
-        },
-    },
-    hvr_color: {
-        get() {
-            return this.$store.state.selected.effect.color;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                color: value,
-                isDiff: "same",
-                container: "effect",
-            });
-        },
-    },
-    hvr_backgroundColor: {
-        get() {
-            return this.$store.state.selected.effect.backgroundColor;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                backgroundColor: value,
-                isDiff: "same",
-                container: "effect",
-            });
-        },
-    },
-    hvr_backgroundImage: {
-        get() {
-            return this.$store.state.selected.effect.backgroundImage;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                backgroundImage: value,
-                isDiff: "same",
-                container: "effect",
-            });
-        },
-    },
-    hvr_borderWidth: {
-        get() {
-            return parseInt(this.$store.state.selected.effect.borderWidth);
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                borderWidth: value,
-                isDiff: "px",
-                container: "effect",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: this.height - value * 2,
-                isDiff: "px",
-                container: "effect",
-            });
-        },
-    },
-    hvr_borderStyle: {
-        get() {
-            return this.$store.state.selected.effect.borderStyle;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                borderStyle: value,
-                isDiff: "same",
-                container: "effect",
-            });
-        },
-    },
-    hvr_borderColor: {
-        get() {
-            return this.$store.state.selected.effect.borderColor;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                borderColor: value,
-                isDiff: "same",
-                container: "effect",
-            });
-        },
-    },
     transitionDuration: {
         get() {
             return parseFloat(
@@ -372,5 +271,154 @@ export const fields = {
                 container: "style",
             });
         },
-    }
+    },
+    marginLeft: {
+        get() {
+            return parseInt(this.$store.state.selected.style.marginLeft);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginLeft: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    marginRight: {
+        get() {
+            return parseInt(this.$store.state.selected.style.marginRight);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginRight: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    marginTop: {
+        get() {
+            return parseInt(this.$store.state.selected.style.marginTop);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginTop: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    marginBottom: {
+        get() {
+            return parseInt(this.$store.state.selected.style.marginBottom);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginBottom: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    evt_fontSize: {
+        get() {
+            return parseInt(this.$store.state.selected.effect.fontSize);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                fontSize: value,
+                isDiff: "px",
+                container: "effect",
+            });
+        },
+    },
+    evt_borderRadius: {
+        get() {
+            return parseInt(this.$store.state.selected.effect.borderRadius);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderRadius: value,
+                isDiff: "px",
+                container: "effect",
+            });
+        },
+    },
+    evt_color: {
+        get() {
+            return this.$store.state.selected.effect.color;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                color: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    evt_backgroundColor: {
+        get() {
+            return this.$store.state.selected.effect.backgroundColor;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                backgroundColor: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    evt_backgroundImage: {
+        get() {
+            return this.$store.state.selected.effect.backgroundImage;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                backgroundImage: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    evt_borderWidth: {
+        get() {
+            return parseInt(this.$store.state.selected.effect.borderWidth);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderWidth: value,
+                isDiff: "px",
+                container: "effect",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: this.height - value * 2,
+                isDiff: "px",
+                container: "effect",
+            });
+        },
+    },
+    evt_borderStyle: {
+        get() {
+            return this.$store.state.selected.effect.borderStyle;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderStyle: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    evt_borderColor: {
+        get() {
+            return this.$store.state.selected.effect.borderColor;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                borderColor: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
 };

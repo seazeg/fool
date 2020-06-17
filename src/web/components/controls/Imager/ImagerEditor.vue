@@ -28,6 +28,7 @@
                 </p>
             </div>
         </div>
+        <!-- 基础样式 -->
         <div class="control_group_title">基础样式：</div>
         <div class="control_group">
             <div class="box">
@@ -111,10 +112,101 @@
         </div>
         <!-- 交互属性 -->
         <div class="control_group_title">交互样式：</div>
+        <div class="control_group"></div>
+        <!-- 布局 -->
+        <div class="control_group_title">布局属性：</div>
         <div class="control_group">
-           
-        </div>
+            <div class="box">
+                <div class="left">
+                    <span class="field">内间距-左（paddingLeft）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingLeft"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">内间距-右（paddingRight）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingRight"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="left">
+                    <span class="field">内间距-上（paddingTop）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingTop"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">内间距-下（paddingBottom）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingBottom"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <div class="left">
+                    <span class="field">外间距-左（marginLeft）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginLeft"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">外间距-右（marginRight）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginRight"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
 
+            <div class="box">
+                <div class="left">
+                    <span class="field">外间距-上（marginTop）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginTop"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">外间距-下（marginBottom）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginBottom"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+        </div>
         <!-- 动画 -->
         <div class="control_group_title">动画参数：</div>
         <div class="control_group">

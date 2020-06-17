@@ -165,7 +165,7 @@
                 <span class="field">字号（fontSize）</span>
                 <p>
                     <el-slider
-                        v-model="hvr_fontSize"
+                        v-model="evt_fontSize"
                         :max="50"
                         show-input
                     ></el-slider>
@@ -175,7 +175,7 @@
                 <span class="field">圆角大小（borderRadius）</span>
                 <p>
                     <el-slider
-                        v-model="hvr_borderRadius"
+                        v-model="evt_borderRadius"
                         :max="50"
                         show-input
                     ></el-slider>
@@ -189,11 +189,11 @@
                         <span class="field">字体颜色（color）</span>
                         <p class="group">
                             <el-color-picker
-                                v-model="hvr_color"
+                                v-model="evt_color"
                                 color-format="rgb"
                             ></el-color-picker>
                             <el-input
-                                v-model="hvr_color"
+                                v-model="evt_color"
                                 placeholder="请选择色号"
                             ></el-input>
                         </p>
@@ -202,11 +202,11 @@
                         <span class="field">背景颜色（backgroundColor）</span>
                         <p class="group">
                             <el-color-picker
-                                v-model="hvr_backgroundColor"
+                                v-model="evt_backgroundColor"
                                 color-format="rgb"
                             ></el-color-picker>
                             <el-input
-                                v-model="hvr_backgroundColor"
+                                v-model="evt_backgroundColor"
                                 placeholder="请选择色号"
                             ></el-input>
                         </p>
@@ -215,7 +215,7 @@
                 <div class="box">
                     <span class="field">渐变色（gradientColor）</span>
                     <GradientPicker
-                        :color="hvr_backgroundImage"
+                        :color="evt_backgroundImage"
                         :container="'effect'"
                     ></GradientPicker>
                 </div>
@@ -227,7 +227,7 @@
                     <span class="field">边框宽（borderWidth）</span>
                     <p>
                         <el-slider
-                            v-model="hvr_borderWidth"
+                            v-model="evt_borderWidth"
                             :max="10"
                             show-input
                         ></el-slider>
@@ -238,7 +238,7 @@
                         <span class="field">边框样式（borderStyle）</span>
                         <p>
                             <el-select
-                                v-model="hvr_borderStyle"
+                                v-model="evt_borderStyle"
                                 placeholder="请选择"
                                 style="width:100%"
                                 :clearable="true"
@@ -257,11 +257,11 @@
                         <span class="field">边框颜色（borderColor）</span>
                         <p class="group">
                             <el-color-picker
-                                v-model="hvr_borderColor"
+                                v-model="evt_borderColor"
                                 color-format="rgb"
                             ></el-color-picker>
                             <el-input
-                                v-model="hvr_borderColor"
+                                v-model="evt_borderColor"
                                 placeholder="请选择色号"
                             ></el-input>
                         </p>
@@ -269,7 +269,100 @@
                 </div>
             </div>
         </div>
+        <!-- 布局 -->
+        <div class="control_group_title">布局属性：</div>
+        <div class="control_group">
+            <div class="box">
+                <div class="left">
+                    <span class="field">内间距-左（paddingLeft）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingLeft"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">内间距-右（paddingRight）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingRight"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="left">
+                    <span class="field">内间距-上（paddingTop）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingTop"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">内间距-下（paddingBottom）</span>
+                    <p>
+                        <el-slider
+                            v-model="paddingBottom"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <div class="left">
+                    <span class="field">外间距-左（marginLeft）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginLeft"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">外间距-右（marginRight）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginRight"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
 
+            <div class="box">
+                <div class="left">
+                    <span class="field">外间距-上（marginTop）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginTop"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">外间距-下（marginBottom）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginBottom"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+        </div>
         <!-- 动画 -->
         <div class="control_group_title">动画参数：</div>
         <div class="control_group">

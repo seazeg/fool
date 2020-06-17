@@ -23,10 +23,7 @@ export const InputParams = {
         paddingTop: "2px",
         paddingBottom: "2px",
         paddingLeft: "10px",
-        paddingRight: "10px",
-        verticalAlign: "top",
-        display: "inline-block",
-        outline: "none",
+        paddingRight: "10px"
     },
     effect: {
         width: "100%",
@@ -40,9 +37,6 @@ export const InputParams = {
         paddingTop: "2px",
         paddingBottom: "2px",
         paddingLeft: "10px",
-        paddingRight: "10px",
-        verticalAlign: "top",
-        display: "inline-block",
-        outline: "none",
+        paddingRight: "10px"
     },
 };

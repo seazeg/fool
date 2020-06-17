@@ -21,13 +21,15 @@
             <div class="box">
                 <span class="field">自定义类名（customClass）</span>
                 <p>
-                    <el-input disabled
+                    <el-input
+                        disabled
                         v-model="selectedControl.customClass"
                         placeholder="请输入类名"
                     ></el-input>
                 </p>
             </div>
         </div>
+        <!-- 基础样式 -->
         <div class="control_group_title">基础样式：</div>
         <div class="control_group">
             <div class="box">
@@ -42,21 +44,12 @@
                     ></el-slider>
                 </p>
             </div>
-            <!-- <div class="box">
-                <span class="field">高度（height）</span>
-                <p>
-                    <el-slider
-                        v-model="height"
-                        :min="1"
-                        :max="100"
-                        show-input
-                        :step="0.1"
-                    ></el-slider>
-                </p>
-            </div> -->
-            <div class="control_group_title">布局：</div>
-            <div class="control_group">
-                <div class="box">
+        </div>
+        <!-- 布局 -->
+        <div class="control_group_title">布局属性：</div>
+        <div class="control_group">
+            <div class="box">
+                <div class="left">
                     <span class="field">内间距-左（paddingLeft）</span>
                     <p>
                         <el-slider
@@ -66,7 +59,7 @@
                         ></el-slider>
                     </p>
                 </div>
-                <div class="box">
+                <div class="right">
                     <span class="field">内间距-右（paddingRight）</span>
                     <p>
                         <el-slider
@@ -76,7 +69,9 @@
                         ></el-slider>
                     </p>
                 </div>
-                <div class="box">
+            </div>
+            <div class="box">
+                <div class="left">
                     <span class="field">内间距-上（paddingTop）</span>
                     <p>
                         <el-slider
@@ -86,11 +81,57 @@
                         ></el-slider>
                     </p>
                 </div>
-                <div class="box">
+                <div class="right">
                     <span class="field">内间距-下（paddingBottom）</span>
                     <p>
                         <el-slider
                             v-model="paddingBottom"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="box">
+                <div class="left">
+                    <span class="field">外间距-左（marginLeft）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginLeft"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">外间距-右（marginRight）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginRight"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="left">
+                    <span class="field">外间距-上（marginTop）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginTop"
+                            :max="30"
+                            show-input
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="right">
+                    <span class="field">外间距-下（marginBottom）</span>
+                    <p>
+                        <el-slider
+                            v-model="marginBottom"
                             :max="30"
                             show-input
                         ></el-slider>

@@ -82,6 +82,7 @@ import { GridParams } from "../controls/Grid/GridParams";
 import { SelectorParams } from "../controls/Selector/SelectorParams";
 import { PagerParams } from "../controls/Pager/PagerParams";
 import { InputParams } from "../controls/Input/InputParams";
+import { ImagerParams } from "../controls/Imager/ImagerParams";
 
 export default {
     name: "layout-controls",
@@ -95,7 +96,13 @@ export default {
             return [GridParams.g_2, GridParams.g_3];
         },
         controls() {
-            return [ButtonParams, SelectorParams, PagerParams, InputParams];
+            return [
+                ButtonParams,
+                SelectorParams,
+                PagerParams,
+                InputParams,
+                ImagerParams,
+            ];
         },
     },
     methods: {

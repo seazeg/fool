@@ -428,7 +428,6 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 uploadImg: value,
-                isDiff: "same",
                 container: "uploadImg",
             });
         },

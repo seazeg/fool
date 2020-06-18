@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import 'theme.config.less';
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -39,12 +37,8 @@ a {
     padding: 0;
     font-family: "微软雅黑", "Helvetica Neue", "Montserrat", "Hiragino Sans GB", "LiHei Pro", Arial, sans-serif;
     outline: none;
-    // color: @font_color;
 }
 
-textarea {
-    color: @border_color;
-}
 
 h1,
 h2,
@@ -124,25 +118,7 @@ table {
 
 html,
 body {
+    width: 100%;
     height: 100%;
     margin: 0;
-    overflow: hidden;
-}
-
-.component-fade-enter-active,
-.component-fade-leave-active {
-    transition: opacity .1s ease;
-}
-
-.component-fade-enter,
-.component-fade-leave-active {
-    opacity: 0;
-}
-
-.el-notification__content p {
-    color: @deputy_color  !important
-}
-
-.el-message {
-    top: 50px !important;
 }

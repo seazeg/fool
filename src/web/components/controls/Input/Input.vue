@@ -4,7 +4,7 @@
         class="hope_input"
         :class="ele.customClass"
         :custom-class="ele.customClass"
-        :style="isFocus ? Object.assign(this.ele.style, this.ele.layout) : ele.style"
+        :style="isFocus ? mergeEffect : mergeStyle"
         @click.stop="choose"
         @focus.stop="focus"
         @blur.stop="blur"
@@ -25,6 +25,14 @@ export default {
     props: {
         ele: [Array, Object],
     },
+    computed: {
+        mergeStyle(){
+            return  Object.assign(this.ele.style, this.ele.layout)
+        },
+        mergeEffect(){
+            return  Object.assign(this.ele.style, this.ele.layout)
+        }
+    },
     methods: {
         choose() {
             this.$emit("choose", this.ele);
@@ -35,6 +43,6 @@ export default {
         blur() {
             this.isFocus = false;
         },
-    },
+    }
 };
 </script>

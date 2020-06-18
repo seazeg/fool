@@ -32,5 +32,7 @@ export const InputParams = {
         borderRadius: "5px",
     },
     layout: {
+        paddingLeft:"10px",
+        paddingRight:"10px"
     },
 };

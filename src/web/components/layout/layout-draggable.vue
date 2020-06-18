@@ -9,6 +9,7 @@
         class="draggable_box"
         :list="controls"
         :group="{ name: 'controls' }"
+        :emptyInsertThreshold="1"
         ghost-class="draggingChoose"
         @change="change"
     >
@@ -34,7 +35,7 @@ import ChooseBox from "../../components/layout/layout-choosebox.vue";
 export default {
     name: "layout-draggable",
     display: "Clone",
-    order: 2,
+    order: 0,
     props: {
         controls: [Array, Object],
     },

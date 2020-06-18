@@ -36,7 +36,7 @@
                 <p>
                     <el-slider
                         v-model="width_per"
-                        :min="50"
+                        :min="1"
                         :max="500"
                         show-input
                     ></el-slider>
@@ -47,7 +47,7 @@
                 <p>
                     <el-slider
                         v-model="height_per"
-                        :min="25"
+                        :min="1"
                         :max="500"
                         show-input
                     ></el-slider>

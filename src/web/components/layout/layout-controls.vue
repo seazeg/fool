@@ -5,6 +5,7 @@
 }
 .el-menu-item {
     background-color: @deputy_color!important;
+    display: inline-block;
 }
 .el-menu-item:hover {
     background-color: @shadow_color!important;

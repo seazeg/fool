@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 exports.generator = function(html) {
     fs.writeFile("./preview/preview.html", html, function(err) {
         if (err) {
@@ -7,3 +8,5 @@ exports.generator = function(html) {
         console.log("写入成功");
     });
 };
+
+

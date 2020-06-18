@@ -45,25 +45,30 @@ export default new Vuex.Store({
             console.log(state.selected);
         },
         "Hope/UpdateControlParams": (state, ele) => {
-            switch (ele.isDiff) {
-                case "px":
-                    state.selected[ele.container][Object.keys(ele)[0]] =
-                        ele[Object.keys(ele)[0]] + "px";
-                    break;
-                case "time":
-                    state.selected[ele.container][Object.keys(ele)[0]] =
-                        ele[Object.keys(ele)[0]] + "s";
-                    break;
-                case "per":
-                    state.selected[ele.container][Object.keys(ele)[0]] =
-                        ele[Object.keys(ele)[0]] + "%";
-                    break;
-                case "same":
-                    state.selected[ele.container][Object.keys(ele)[0]] =
-                        ele[Object.keys(ele)[0]];
-                    break;
-                default:
-                    break;
+            if (Object.keys(ele)[0] == ele.container) {
+                debugger
+                state.selected[ele.container] = ele[Object.keys(ele)[0]];
+            } else {
+                switch (ele.isDiff) {
+                    case "px":
+                        state.selected[ele.container][Object.keys(ele)[0]] =
+                            ele[Object.keys(ele)[0]] + "px";
+                        break;
+                    case "time":
+                        state.selected[ele.container][Object.keys(ele)[0]] =
+                            ele[Object.keys(ele)[0]] + "s";
+                        break;
+                    case "per":
+                        state.selected[ele.container][Object.keys(ele)[0]] =
+                            ele[Object.keys(ele)[0]] + "%";
+                        break;
+                    case "same":
+                        state.selected[ele.container][Object.keys(ele)[0]] =
+                            ele[Object.keys(ele)[0]];
+                        break;
+                    default:
+                        break;
+                }
             }
             state.selected[ele.container] = _.cloneDeep(
                 state.selected[ele.container]

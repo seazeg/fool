@@ -421,4 +421,16 @@ export const fields = {
             });
         },
     },
+    uploadImg:{
+        get() {
+            return this.$store.state.selected.uploadImg;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                uploadImg: value,
+                isDiff: "same",
+                container: "uploadImg",
+            });
+        },
+    }
 };

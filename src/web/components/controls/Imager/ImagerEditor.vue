@@ -27,6 +27,22 @@
                     ></el-input>
                 </p>
             </div>
+            <div class="box">
+                <span class="field">图片上传（imgUpload）</span>
+                <p>
+                    <el-upload
+                        ref="imgUpload"
+                        action="http://localhost:2599/upload"
+                        list-type="picture-card"
+                        :on-success="uploadSuccess"
+                        :on-remove="uploadRemove"
+                        :on-change="uploadChange"
+                        :limit="1"
+                    >
+                        <i class="el-icon-plus"></i>
+                    </el-upload>
+                </p>
+            </div>
         </div>
         <!-- 基础样式 -->
         <div class="control_group_title">基础样式：</div>
@@ -270,5 +286,20 @@ export default {
         },
         ...fields,
     },
+    methods: {
+        uploadSuccess(response, file, fileList) {
+            this.imgSrc = fileList;
+        },
+        uploadRemove() {
+            this.imgSrc = { name: "", url: "" };
+        },
+        uploadChange(fileList) {
+            if (fileList.length > 0) {
+                this.$refs.imgUpload.$children[1].$el.style.display = "none";
+            } else {
+                this.$refs.imgUpload.$children[1].$el.style.display = "block";
+            }
+        },
+    }
 };
 </script>

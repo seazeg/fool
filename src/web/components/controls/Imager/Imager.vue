@@ -1,7 +1,7 @@
 <template>
     <div class="hope_imager" :style="ele.layout">
         <img
-            :src="ele.src"
+            :src="ele.uploadImg"
             :class="ele.customClass"
             :custom-class="ele.customClass"
             :style="isHover ? ele.effect : ele.style"

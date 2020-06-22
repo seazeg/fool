@@ -91,6 +91,10 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></ImagerEditor>
+        <RadioEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+        ></RadioEditor>
     </div>
 </template>
 <script>

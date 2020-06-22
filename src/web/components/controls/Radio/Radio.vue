@@ -1,23 +1,22 @@
 <template>
     <div
-        class="hope_button"
+        class="hope_radio"
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="isHover ? ele.effect : ele.style"
-        @mouseenter.stop="enter"
-        @mouseleave.stop="leave"
+        :style="isCLick ? ele.effect : ele.style"
     >
-        {{ ele.name }}
+        <i class="iconfont icon-plus-unradio" :class="{'icon-plus-radio':isCLick}"></i>
+        <span class="label">{{ ele.name }}</span>
     </div>
 </template>
 
 <script>
 export default {
-    name: "hope_pager",
+    name: "hope_radio",
     data() {
         return {
-            isHover: false,
+            isCLick: false,
         };
     },
     props: {
@@ -25,13 +24,11 @@ export default {
     },
     methods: {
         choose() {
+            this.click();
             this.$emit("choose", this.ele);
         },
-        enter() {
-            this.isHover = true;
-        },
-        leave() {
-            this.isHover = false;
+        click() {
+            this.isCLick = !this.isCLick;
         },
     },
 };

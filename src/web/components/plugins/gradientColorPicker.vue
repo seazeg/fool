@@ -2,13 +2,15 @@
     <p class="group" @mouseleave="close">
         <span
             class="gradientBar"
-            :style="'backgroundImage:'+color"
+            :style="'backgroundImage:' + color"
             @click="openColorPicker"
         ></span>
         <el-input
-            v-model="result.backgroundImage || color"
+            v-model="color"
             placeholder="请选择色号"
             style="margin-left:2%;width:88%"
+            :clearable="true"
+            @clear="clear"
         >
         </el-input>
         <ColorPicker
@@ -28,7 +30,7 @@ export default {
     name: "gradientColorPicker",
     data() {
         return {
-            result: "",
+            // result: "",
             colorPickerDisplay: false,
         };
     },
@@ -101,12 +103,16 @@ export default {
             this.colorPickerDisplay = true;
         },
         onChange(attrs, name) {
-            this.result = {
-                backgroundImage: attrs.style,
-            };
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundImage: attrs.style,
-                isDiff: 'same',
+                isDiff: "same",
+                container: this.container,
+            });
+        },
+        clear() {
+            this.$store.commit("Hope/UpdateControlParams", {
+                backgroundImage: "",
+                isDiff: "same",
                 container: this.container,
             });
         },

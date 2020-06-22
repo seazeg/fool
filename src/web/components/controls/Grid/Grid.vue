@@ -4,7 +4,7 @@
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="mergeStyle"
+        :style="ele.style"
     >
         <slot></slot>
     </div>
@@ -20,14 +20,6 @@ export default {
     },
     props: {
         ele: [Array, Object],
-    },
-    computed: {
-        mergeStyle() {
-            return Object.assign(this.ele.style, this.ele.layout);
-        },
-        mergeEffect() {
-            return Object.assign(this.ele.effect, this.ele.layout);
-        },
     },
     methods: {
         choose() {

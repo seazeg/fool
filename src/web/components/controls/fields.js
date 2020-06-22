@@ -232,7 +232,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 paddingLeft: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingLeft: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -244,7 +249,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 paddingRight: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingRight: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -256,7 +266,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 paddingTop: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingTop: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -268,7 +283,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 paddingBottom: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                paddingBottom: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -280,7 +300,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 marginLeft: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginLeft: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -292,7 +317,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 marginRight: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginRight: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -304,7 +334,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 marginTop: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginTop: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -316,7 +351,12 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 marginBottom: value,
                 isDiff: "px",
-                container: "layout",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                marginBottom: value,
+                isDiff: "px",
+                container: "effect",
             });
         },
     },
@@ -421,7 +461,7 @@ export const fields = {
             });
         },
     },
-    uploadImg:{
+    uploadImg: {
         get() {
             return this.$store.state.selected.uploadImg;
         },
@@ -431,5 +471,5 @@ export const fields = {
                 container: "uploadImg",
             });
         },
-    }
+    },
 };

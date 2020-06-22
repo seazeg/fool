@@ -277,7 +277,7 @@ export default {
         },
     },
     updated() {
-        this.codeListener();
+        // this.codeListener();
     },
 };
 </script>

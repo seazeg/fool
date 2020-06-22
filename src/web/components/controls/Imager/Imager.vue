@@ -1,5 +1,5 @@
 <template>
-    <div class="hope_imager" :style="ele.layout">
+    <div class="hope_imager">
         <img
             :src="ele.uploadImg"
             :class="ele.customClass"

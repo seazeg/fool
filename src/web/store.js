@@ -46,7 +46,6 @@ export default new Vuex.Store({
         },
         "Hope/UpdateControlParams": (state, ele) => {
             if (Object.keys(ele)[0] == ele.container) {
-                debugger
                 state.selected[ele.container] = ele[Object.keys(ele)[0]];
             } else {
                 switch (ele.isDiff) {

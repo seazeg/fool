@@ -4,7 +4,7 @@
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
-        :style="isHover ? mergeEffect : mergeStyle"
+        :style="isHover ? ele.effect : ele.style"
         @mouseenter.stop="enter"
         @mouseleave.stop="leave"
     >
@@ -22,14 +22,6 @@ export default {
     },
     props: {
         ele: [Array, Object],
-    },
-    computed: {
-        mergeStyle() {
-            return Object.assign(this.ele.style, this.ele.layout);
-        },
-        mergeEffect() {
-            return Object.assign(this.ele.effect, this.ele.layout);
-        },
     },
     methods: {
         choose() {

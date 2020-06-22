@@ -4,7 +4,7 @@
         class="hope_input"
         :class="ele.customClass"
         :custom-class="ele.customClass"
-        :style="isFocus ? mergeEffect : mergeStyle"
+        :style="isFocus ? ele.effect : ele.style"
         @click.stop="choose"
         @focus.stop="focus"
         @blur.stop="blur"
@@ -24,14 +24,6 @@ export default {
     },
     props: {
         ele: [Array, Object],
-    },
-    computed: {
-        mergeStyle(){
-            return  Object.assign(this.ele.style, this.ele.layout)
-        },
-        mergeEffect(){
-            return  Object.assign(this.ele.effect, this.ele.layout)
-        }
     },
     methods: {
         choose() {

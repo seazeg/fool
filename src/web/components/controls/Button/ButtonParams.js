@@ -49,6 +49,5 @@ export const ButtonParams = {
         backgroundSize: "200% auto",
         backgroundPosition: "right center",
     },
-    layout: {
-    },
+    layout: {},
 };

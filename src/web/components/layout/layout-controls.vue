@@ -122,10 +122,10 @@ export default {
             };
         },
         // dragStart(e) {
-        //     $(e.item).addClass("draggingNarrow");
+        //     $(e.item).addClass("draggingList");
         // },
         // dragEnd(e) {
-        //     $(e.item).removeClass("draggingNarrow");
+        //     $(e.item).removeClass("draggingList");
         // },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);

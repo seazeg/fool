@@ -28,7 +28,7 @@ export default {
             return Object.assign(this.ele.style, this.ele.layout);
         },
         mergeEffect() {
-            return Object.assign(this.ele.style, this.ele.layout);
+            return Object.assign(this.ele.effect, this.ele.layout);
         },
     },
     methods: {

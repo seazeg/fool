@@ -1,7 +1,7 @@
 export const fields = {
     width: {
         get() {
-            return parseInt(this.$store.state.selected.style.width);
+            return parseFloat(this.$store.state.selected.style.width);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -18,7 +18,7 @@ export const fields = {
     },
     width_per: {
         get() {
-            return parseInt(this.$store.state.selected.style.width);
+            return parseFloat(this.$store.state.selected.style.width);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -35,7 +35,7 @@ export const fields = {
     },
     height: {
         get() {
-            return parseInt(this.$store.state.selected.style.height);
+            return parseFloat(this.$store.state.selected.style.height);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -62,7 +62,7 @@ export const fields = {
     },
     height_per: {
         get() {
-            return parseInt(this.$store.state.selected.style.height);
+            return parseFloat(this.$store.state.selected.style.height);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {

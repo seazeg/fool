@@ -9,6 +9,7 @@
         class="draggable_box"
         :list="controls"
         :group="{ name: 'controls' }"
+        filter=".ignoreEle"
         @change="change"
         @start="start"
         @end="end"

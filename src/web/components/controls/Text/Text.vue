@@ -1,6 +1,6 @@
 <template>
     <div
-        class="hope_selector"
+        class="hope_text"
         :class="ele.customClass"
         :custom-class="ele.customClass"
         @click.stop="choose"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: "hope_selector",
+    name: "hope_text",
     data() {
         return {
             isHover: false,

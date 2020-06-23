@@ -24,6 +24,8 @@ export const InputParams = {
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: "5px",
+        paddingLeft:"10px",
+        paddingRight:"10px"
     },
     effect: {
         width: "100%",
@@ -34,9 +36,5 @@ export const InputParams = {
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: "5px",
-    },
-    layout: {
-        paddingLeft:"10px",
-        paddingRight:"10px"
-    },
+    }
 };

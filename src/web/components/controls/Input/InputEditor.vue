@@ -82,7 +82,7 @@
                 <p>
                     <el-slider
                         v-model="fontSize"
-                        :max="30"
+                        :max="100"
                         show-input
                     ></el-slider>
                 </p>
@@ -92,7 +92,7 @@
                 <p>
                     <el-slider
                         v-model="borderRadius"
-                        :max="50"
+                        :max="100"
                         show-input
                     ></el-slider>
                 </p>
@@ -236,7 +236,7 @@
                     <p>
                         <el-slider
                             v-model="paddingLeft"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -246,7 +246,7 @@
                     <p>
                         <el-slider
                             v-model="paddingRight"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -258,7 +258,7 @@
                     <p>
                         <el-slider
                             v-model="paddingTop"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -268,7 +268,7 @@
                     <p>
                         <el-slider
                             v-model="paddingBottom"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -281,7 +281,7 @@
                     <p>
                         <el-slider
                             v-model="marginLeft"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -291,7 +291,7 @@
                     <p>
                         <el-slider
                             v-model="marginRight"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -304,7 +304,7 @@
                     <p>
                         <el-slider
                             v-model="marginTop"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -314,7 +314,7 @@
                     <p>
                         <el-slider
                             v-model="marginBottom"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>

@@ -38,7 +38,6 @@ export const ImagerParams = {
         borderStyle: "solid",
         borderWidth: "0px",
         borderColor: basis.mainColor,
-        transform: "scale(1.5)",
-    },
-    layout: {},
+        // transform: "scale(1.5)",
+    }
 };

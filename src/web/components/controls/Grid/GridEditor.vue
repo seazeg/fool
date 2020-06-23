@@ -35,7 +35,8 @@
             <div class="box">
                 <span class="field"
                     >宽度（width）
-                    <el-switch class="fr"
+                    <el-switch
+                        class="fr"
                         v-model="selectedControl.isPer.width"
                         active-text="百分比"
                         active-color="#13ce66"
@@ -44,12 +45,25 @@
                 <p>
                     <el-slider
                         v-model="width"
-                       :show-tooltip="false"
+                        :show-tooltip="false"
                         :min="1"
                         :max="500"
                         show-input
                         :step="0.1"
                     ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">背景颜色（backgroundColor）</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="backgroundColor"
+                        color-format="rgb"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="backgroundColor"
+                        placeholder="请选择色号"
+                    ></el-input>
                 </p>
             </div>
             <!-- <div class="box">
@@ -80,8 +94,9 @@
                     <span class="field">内间距-左（paddingLeft）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingLeft"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -90,8 +105,9 @@
                     <span class="field">内间距-右（paddingRight）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingRight"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -102,8 +118,9 @@
                     <span class="field">内间距-上（paddingTop）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingTop"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -112,8 +129,9 @@
                     <span class="field">内间距-下（paddingBottom）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingBottom"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -125,8 +143,9 @@
                     <span class="field">外间距-左（marginLeft）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginLeft"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -135,8 +154,9 @@
                     <span class="field">外间距-右（marginRight）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginRight"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -148,8 +168,9 @@
                     <span class="field">外间距-上（marginTop）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginTop"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -158,8 +179,9 @@
                     <span class="field">外间距-下（marginBottom）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginBottom"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>

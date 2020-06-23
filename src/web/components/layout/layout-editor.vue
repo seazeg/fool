@@ -95,6 +95,11 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
         ></RadioEditor>
+        <TextEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+        ></TextEditor>
     </div>
 </template>
 <script>
@@ -201,6 +206,16 @@ export default {
                     value: "none",
                     label: "none",
                 },
+            ],
+            fontStyleOption: [
+                {
+                    value: "normal",
+                    label: "normal",
+                },
+                 {
+                    value: "italic",
+                    label: "italic",
+                }
             ],
         };
     },

@@ -3,14 +3,14 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('button')
+                selectedControl.label.includes('text')
         "
     >
         <!-- 基础属性 -->
         <div class="control_group_title">基础属性：</div>
         <div class="control_group">
             <div class="box">
-                <span class="field">按钮标题（buttonText）</span>
+                <span class="field">内容（Text）</span>
                 <p>
                     <el-input
                         v-model="selectedControl.name"
@@ -31,22 +31,19 @@
         <div class="control_group_title">基础样式：</div>
         <div class="control_group">
             <div class="box">
-                <span class="field">宽度（width）</span>
+                <span class="field"
+                    >宽度（width）
+                    <el-switch
+                        class="fr"
+                        v-model="selectedControl.isPer.width"
+                        active-text="百分比"
+                        active-color="#13ce66"
+                    ></el-switch>
+                </span>
                 <p>
                     <el-slider
+                        :show-tooltip="false"
                         v-model="width"
-                       :show-tooltip="false"
-                        :min="1"
-                        :max="500"
-                        show-input
-                    ></el-slider>
-                </p>
-            </div>
-            <div class="box">
-                <span class="field">高度（height）</span>
-                <p>
-                    <el-slider
-                        v-model="height"
                         :min="1"
                         :max="500"
                         show-input
@@ -57,20 +54,63 @@
                 <span class="field">字号（fontSize）</span>
                 <p>
                     <el-slider
+                        :show-tooltip="false"
                         v-model="fontSize"
-                        :max="50"
+                        :max="100"
                         show-input
                     ></el-slider>
                 </p>
             </div>
             <div class="box">
-                <span class="field">圆角大小（borderRadius）</span>
+                <span class="field">行高（lineHeight）</span>
                 <p>
                     <el-slider
-                        v-model="borderRadius"
-                        :max="50"
+                        :show-tooltip="false"
+                        v-model="lineHeight"
+                        :max="100"
                         show-input
                     ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">字间距（letterSpacing）</span>
+                <p>
+                    <el-slider
+                        :show-tooltip="false"
+                        v-model="letterSpacing"
+                        :max="100"
+                        show-input
+                    ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">粗体（fontWeight）</span>
+                <p>
+                    <el-slider
+                        :show-tooltip="false"
+                        v-model="fontWeight"
+                        :max="900"
+                        show-input
+                        :step="100"
+                    ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">字体样式（fontStyle）</span>
+                <p>
+                    <el-select
+                        v-model="fontStyle"
+                        placeholder="请选择"
+                        style="width:100%"
+                    >
+                        <el-option
+                            v-for="ele in fontStyleOption"
+                            :key="ele.value"
+                            :label="ele.label"
+                            :value="ele.value"
+                        >
+                        </el-option>
+                    </el-select>
                 </p>
             </div>
             <div class="control_group_title">颜色：</div>
@@ -118,6 +158,7 @@
                     <span class="field">边框宽（borderWidth）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="borderWidth"
                             :max="10"
                             show-input
@@ -166,23 +207,13 @@
                 <span class="field">字号（fontSize）</span>
                 <p>
                     <el-slider
+                        :show-tooltip="false"
                         v-model="evt_fontSize"
-                        :max="50"
+                        :max="100"
                         show-input
                     ></el-slider>
                 </p>
             </div>
-            <div class="box">
-                <span class="field">圆角大小（borderRadius）</span>
-                <p>
-                    <el-slider
-                        v-model="evt_borderRadius"
-                        :max="50"
-                        show-input
-                    ></el-slider>
-                </p>
-            </div>
-
             <div class="control_group_title">颜色：</div>
             <div class="control_group">
                 <div class="box">
@@ -228,6 +259,7 @@
                     <span class="field">边框宽（borderWidth）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="evt_borderWidth"
                             :max="10"
                             show-input
@@ -278,8 +310,9 @@
                     <span class="field">内间距-左（paddingLeft）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingLeft"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -288,8 +321,9 @@
                     <span class="field">内间距-右（paddingRight）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingRight"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -300,8 +334,9 @@
                     <span class="field">内间距-上（paddingTop）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingTop"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -310,8 +345,9 @@
                     <span class="field">内间距-下（paddingBottom）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="paddingBottom"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -323,8 +359,9 @@
                     <span class="field">外间距-左（marginLeft）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginLeft"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -333,8 +370,9 @@
                     <span class="field">外间距-右（marginRight）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginRight"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -346,8 +384,9 @@
                     <span class="field">外间距-上（marginTop）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginTop"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -356,8 +395,9 @@
                     <span class="field">外间距-下（marginBottom）</span>
                     <p>
                         <el-slider
+                            :show-tooltip="false"
                             v-model="marginBottom"
-                            :max="30"
+                            :max="100"
                             show-input
                         ></el-slider>
                     </p>
@@ -371,6 +411,7 @@
                 <span class="field">过渡时间（transitionDuration）</span>
                 <p>
                     <el-slider
+                        :show-tooltip="false"
                         v-model="transitionDuration"
                         :min="0"
                         :max="5"
@@ -413,13 +454,14 @@
 import { fields } from "../../controls/fields.js";
 import GradientPicker from "../../plugins/gradientColorPicker.vue";
 export default {
-    name: "SelectorEditor",
+    name: "TextEditor",
     components: {
         GradientPicker,
     },
     props: {
         borderStyleOption: [Array, Object],
         animationOption: [Array, Object],
+        fontStyleOption: [Array, Object],
     },
     computed: {
         selectedControl() {

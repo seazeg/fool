@@ -13,41 +13,15 @@
                         <link rel="stylesheet" href="base.css" />
                         <link rel="stylesheet" href="hope.css" />
                         <style>
-                            .hope_grid.g_100 {
+                            .hope_text {
 	width:100%;
-	padding-left:0px;
-	padding-right:0px;
-	padding-top:0px;
-	padding-bottom:0px;
-	margin-left:0px;
-	margin-right:0px;
-	margin-top:0px;
-	margin-bottom:0px;
-}
-.hope_grid.g_50 {
-	width:50%;
-	height:500px;
-	padding-left:0px;
-	padding-right:0px;
-	padding-top:0px;
-	padding-bottom:0px;
-	margin-left:0px;
-	margin-right:0px;
-	margin-top:0px;
-	margin-bottom:0px;
-}
-.hope_imager .inner_img {
-	width:100%;
-	height:100%;
-	transition-delay:0s;
-	transition-duration:0.5s;
-	transition-property:all;
-	transition-timing-function:ease;
-	border-style:solid;
+	font-size:100px;
+	line-height:NaNpx;
+	letter-spacing:8px;
+	font-weight:900;
+	font-style:normal;
+	color:rgb(65,184,131);
 	border-width:0px;
-	border-color:rgb(65,184,131);
-	line-height:100px;
-	border-radius:0px;
 	padding-left:0px;
 	padding-right:0px;
 	padding-top:0px;
@@ -56,57 +30,19 @@
 	margin-right:0px;
 	margin-top:0px;
 	margin-bottom:0px;
-}
-.hope_imager .inner_img:hover {
-	transform:scale(1.5);
-	animation-duration:0.5s
-}
-.hope_input {
-	width:100%;
-	height:50px;
-	color:#333;
-	font-size:16px;
-	border-color:rgb(165,184,131);
-	border-width:1px;
+	transition-duration:0s;
 	border-style:solid;
-	border-radius:5px;
-	line-height:48px;
-	padding-left:10px;
-	padding-right:10px;
-	padding-top:0px;
-	padding-bottom:0px;
-	margin-left:0px;
-	margin-right:0px;
-	margin-top:0px;
-	margin-bottom:0px;
 }
-.hope_input:focus {
-	border-color:rgb(255,0,0)
+.hope_text:hover {
+	color:rgb(165,184,131);
+	animation-duration:0s
 }
 
                         </style>
                     </head>
 
                     <body>
-                        <div class="hope_grid g_100">
-	<div class="hope_grid g_50">
-		<div class="hope_imager">
-			<img src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg" alt="图片" class="inner_img" />
-		</div>
-		<div class="hope_imager">
-			<img src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg" alt="图片" class="inner_img" />
-		</div>
-		<div class="hope_imager">
-			<img src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg" alt="图片" class="inner_img" />
-		</div>
-		<div class="hope_imager">
-			<img src="http://attach.bbs.miui.com/forum/201105/17/113554rnu40q7nbgnn3lgq.jpg" alt="图片" class="inner_img" />
-		</div>
-	</div>
-	<div class="hope_grid g_50">
-		<input type="text" placeholder="请输入" class="hope_input" />
-	</div>
-</div>
+                        <div class="hope_text">内容块</div>
                     </body>
 
                 </html>

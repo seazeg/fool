@@ -61,13 +61,79 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
-            if (this.$store.state.selected.isSync) {
-                this.$store.commit("Hope/UpdateControlParams", {
-                    fontSize: value,
-                    isDiff: "px",
-                    container: "effect",
-                });
-            }
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: value,
+                isDiff: "px",
+                container: "style",
+            });
+        },
+    },
+    lineHeight: {
+        get() {
+            return parseInt(this.$store.state.selected.style.lineHeight);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: value,
+                isDiff: "px",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: value,
+                isDiff: "px",
+                container: "effect",
+            });
+        },
+    },
+    letterSpacing: {
+        get() {
+            return parseInt(this.$store.state.selected.style.letterSpacing);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                letterSpacing: value,
+                isDiff: "px",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                letterSpacing: value,
+                isDiff: "px",
+                container: "effect",
+            });
+        },
+    },
+    fontWeight: {
+        get() {
+            return parseInt(this.$store.state.selected.style.fontWeight);
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                fontWeight: value,
+                isDiff: "same",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                fontWeight: value,
+                isDiff: "same",
+                container: "effect",
+            });
+        },
+    },
+    fontStyle: {
+        get() {
+            return this.$store.state.selected.style.fontStyle;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                fontStyle: value,
+                isDiff: "same",
+                container: "style",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                fontStyle: value,
+                isDiff: "same",
+                container: "effect",
+            });
         },
     },
     borderRadius: {

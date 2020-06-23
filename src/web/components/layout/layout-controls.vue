@@ -80,7 +80,7 @@
 import _ from "lodash";
 import { ButtonParams } from "../controls/Button/ButtonParams";
 import { GridParams } from "../controls/Grid/GridParams";
-import { SelectorParams } from "../controls/Selector/SelectorParams";
+import { TextParams } from "../controls/Text/TextParams";
 import { RadioParams } from "../controls/Radio/RadioParams";
 import { InputParams } from "../controls/Input/InputParams";
 import { ImagerParams } from "../controls/Imager/ImagerParams";
@@ -102,7 +102,7 @@ export default {
                 InputParams,
                 ImagerParams,
                 RadioParams,
-                SelectorParams,
+                TextParams,
             ];
         },
     },

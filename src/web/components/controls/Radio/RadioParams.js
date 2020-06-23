@@ -7,6 +7,10 @@ export const RadioParams = {
     label: "hope_radio",
     icon: "icon-anniu",
     isSelected: false,
+    isPer:{
+        width:true,
+        height:true
+    },
     event: "",
     defaultClass: "hope_radio",
     customClass: "",
@@ -15,5 +19,5 @@ export const RadioParams = {
         color: "rgb(255,255,255)",
         fontSize: "16px",
     },
-    effect: { width: "100px", color: basis.mainColor, fontSize: "16px" },
+    effect: { width: "100px", color: basis.mainColor, fontSize: "16px" }
 };

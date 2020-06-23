@@ -4,31 +4,18 @@ export const fields = {
             return parseFloat(this.$store.state.selected.style.width);
         },
         set(value) {
+            let isDiff = "px";
+            if (this.$store.state.selected.isPer.width) {
+                isDiff = "per";
+            }
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                isDiff: "px",
+                isDiff: isDiff,
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                isDiff: "px",
-                container: "effect",
-            });
-        },
-    },
-    width_per: {
-        get() {
-            return parseFloat(this.$store.state.selected.style.width);
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                width: value,
-                isDiff: "per",
-                container: "style",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                width: value,
-                isDiff: "per",
+                isDiff: isDiff,
                 container: "effect",
             });
         },
@@ -38,51 +25,28 @@ export const fields = {
             return parseFloat(this.$store.state.selected.style.height);
         },
         set(value) {
+            let isDiff = "px";
+            if (this.$store.state.selected.isPer.height) {
+                isDiff = "per";
+            }
             this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
-                isDiff: "px",
+                isDiff: isDiff,
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 lineHeight: value,
-                isDiff: "px",
+                isDiff: isDiff,
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
-                isDiff: "px",
+                isDiff: isDiff,
                 container: "effect",
             });
             this.$store.commit("Hope/UpdateControlParams", {
                 lineHeight: value,
-                isDiff: "px",
-                container: "effect",
-            });
-        },
-    },
-    height_per: {
-        get() {
-            return parseFloat(this.$store.state.selected.style.height);
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
-                isDiff: "per",
-                container: "style",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: value,
-                isDiff: "px",
-                container: "style",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
-                isDiff: "per",
-                container: "effect",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: value,
-                isDiff: "px",
+                isDiff: isDiff,
                 container: "effect",
             });
         },
@@ -97,6 +61,13 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
+            if (this.$store.state.selected.isSync) {
+                this.$store.commit("Hope/UpdateControlParams", {
+                    fontSize: value,
+                    isDiff: "px",
+                    container: "effect",
+                });
+            }
         },
     },
     borderRadius: {
@@ -226,7 +197,7 @@ export const fields = {
     },
     paddingLeft: {
         get() {
-            return parseInt(this.$store.state.selected.layout.paddingLeft);
+            return parseInt(this.$store.state.selected.style.paddingLeft);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -243,7 +214,7 @@ export const fields = {
     },
     paddingRight: {
         get() {
-            return parseInt(this.$store.state.selected.layout.paddingRight);
+            return parseInt(this.$store.state.selected.style.paddingRight);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -260,7 +231,7 @@ export const fields = {
     },
     paddingTop: {
         get() {
-            return parseInt(this.$store.state.selected.layout.paddingTop);
+            return parseInt(this.$store.state.selected.style.paddingTop);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -277,7 +248,7 @@ export const fields = {
     },
     paddingBottom: {
         get() {
-            return parseInt(this.$store.state.selected.layout.paddingBottom);
+            return parseInt(this.$store.state.selected.style.paddingBottom);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -294,7 +265,7 @@ export const fields = {
     },
     marginLeft: {
         get() {
-            return parseInt(this.$store.state.selected.layout.marginLeft);
+            return parseInt(this.$store.state.selected.style.marginLeft);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -311,7 +282,7 @@ export const fields = {
     },
     marginRight: {
         get() {
-            return parseInt(this.$store.state.selected.layout.marginRight);
+            return parseInt(this.$store.state.selected.style.marginRight);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -328,7 +299,7 @@ export const fields = {
     },
     marginTop: {
         get() {
-            return parseInt(this.$store.state.selected.layout.marginTop);
+            return parseInt(this.$store.state.selected.style.marginTop);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -345,7 +316,7 @@ export const fields = {
     },
     marginBottom: {
         get() {
-            return parseInt(this.$store.state.selected.layout.marginBottom);
+            return parseInt(this.$store.state.selected.style.marginBottom);
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {

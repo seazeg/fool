@@ -31,11 +31,19 @@
         <div class="control_group_title">基础样式：</div>
         <div class="control_group">
             <div class="box">
-                <span class="field">宽度（width）</span>
+                <span class="field"
+                    >宽度（width）
+                    <el-switch class="fr"
+                        v-model="selectedControl.isPer.width"
+                        active-text="百分比"
+                        active-color="#13ce66"
+                    ></el-switch>
+                </span>
                 <p>
                     <el-slider
                         v-model="width"
-                        :min="50"
+                       :show-tooltip="false"
+                        :min="1"
                         :max="500"
                         show-input
                     ></el-slider>
@@ -66,7 +74,9 @@
             </div>
         </div>
         <!-- 交互属性 -->
-        <div class="control_group_title">交互样式：</div>
+        <div class="control_group_title">
+            交互样式：
+        </div>
         <div class="control_group">
             <div class="box">
                 <span class="field">字号（fontSize）</span>

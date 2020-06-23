@@ -35,7 +35,8 @@
                 <p>
                     <el-slider
                         v-model="width"
-                        :min="50"
+                       :show-tooltip="false"
+                        :min="1"
                         :max="500"
                         show-input
                     ></el-slider>
@@ -46,7 +47,7 @@
                 <p>
                     <el-slider
                         v-model="height"
-                        :min="25"
+                        :min="1"
                         :max="500"
                         show-input
                     ></el-slider>

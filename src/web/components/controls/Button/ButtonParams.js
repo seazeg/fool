@@ -7,6 +7,10 @@ export const ButtonParams = {
     label: "hope_button",
     icon: "icon-anniu",
     isSelected: false,
+    isPer: {
+        width: false,
+        height: false,
+    },
     event: "hover",
     defaultClass: "hope_button",
     customClass: "",

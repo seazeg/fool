@@ -41,10 +41,18 @@
         <div class="control_group_title">基础样式：</div>
         <div class="control_group">
             <div class="box">
-                <span class="field">宽度（width）</span>
+                <span class="field"
+                    >宽度（width）
+                    <el-switch class="fr"
+                        v-model="selectedControl.isPer.width"
+                        active-text="百分比"
+                        active-color="#13ce66"
+                    ></el-switch
+                ></span>
                 <p>
                     <el-slider
-                        v-model="width_per"
+                        v-model="width"
+                       :show-tooltip="false"
                         :min="1"
                         :max="100"
                         show-input
@@ -52,7 +60,14 @@
                 </p>
             </div>
             <div class="box">
-                <span class="field">高度（height）</span>
+                <span class="field"
+                    >高度（height）
+                    <el-switch class="fr"
+                        v-model="selectedControl.isPer.height"
+                        active-text="百分比"
+                        active-color="#13ce66"
+                    ></el-switch
+                ></span>
                 <p>
                     <el-slider
                         v-model="height"

@@ -7,6 +7,10 @@ export const ImagerParams = {
     label: "hope_imager",
     icon: "icon-anniu",
     isSelected: false,
+    isPer:{
+        width:true,
+        height:true
+    },
     event: "hover",
     defaultClass: "hope_imager",
     customClass: "inner_img",

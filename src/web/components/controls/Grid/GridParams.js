@@ -8,11 +8,15 @@ export const GridParams = {
         label: "hope_grid",
         icon: "icon-anniu",
         isSelected: false,
+        isPer: {
+            width: true,
+            height: false,
+        },
         event: "",
         defaultClass: "hope_grid",
         customClass: "g_100",
         style: {
-            width: "100%",
+            width: "100%"
         },
         effect: {},
         layout: {},
@@ -22,6 +26,10 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
+                isPer: {
+                    width: true,
+                    height: false,
+                },
                 event: "",
                 defaultClass: "hope_grid",
                 customClass: "g_50",
@@ -47,6 +55,10 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
+                isPer: {
+                    width: true,
+                    height: false,
+                },
                 event: "",
                 defaultClass: "hope_grid",
                 customClass: "g_50",
@@ -74,6 +86,10 @@ export const GridParams = {
         label: "hope_grid",
         icon: "icon-anniu",
         isSelected: false,
+        isPer: {
+            width: true,
+            height: false,
+        },
         event: "",
         defaultClass: "hope_grid",
         customClass: "g_100",
@@ -88,12 +104,16 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
+                isPer: {
+                    width: true,
+                    height: false,
+                },
                 event: "",
                 defaultClass: "hope_grid",
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
-                    height:"500px"
+                    height: "500px",
                 },
                 effect: {},
                 layout: {
@@ -113,12 +133,16 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
+                isPer: {
+                    width: true,
+                    height: false,
+                },
                 event: "",
                 defaultClass: "hope_grid",
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
-                    height:"500px"
+                    height: "500px",
                 },
                 effect: {},
                 layout: {
@@ -138,12 +162,16 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
+                isPer: {
+                    width: true,
+                    height: false,
+                },
                 event: "",
                 defaultClass: "hope_grid",
                 customClass: "g_30",
                 style: {
                     width: "33.3333%",
-                    height:"500px"
+                    height: "500px",
                 },
                 effect: {},
                 layout: {

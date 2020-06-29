@@ -64,13 +64,11 @@
                             </pre> -->
                     </div>
                 </el-tab-pane>
-                <el-tab-pane name="tools">
+                <el-tab-pane name="htmlGenerator" disabled="true">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-js"></i>tools</span
-                    >
-                    <div class="view-box" v-highlight>
                         <el-button @click="htmlGenerator">生成</el-button>
-                    </div>
+                        <el-button @click="htmlGenerator">组件树</el-button>
+                    </span>
                 </el-tab-pane>
             </el-tabs>
         </div>
@@ -78,28 +76,38 @@
         <ButtonEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
         ></ButtonEditor>
         <GridEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
         ></GridEditor>
         <InputEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
         ></InputEditor>
         <ImagerEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
         ></ImagerEditor>
         <RadioEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
         ></RadioEditor>
         <TextEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
         ></TextEditor>
+        <BoxEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+        ></BoxEditor>
     </div>
 </template>
 <script>
@@ -212,10 +220,10 @@ export default {
                     value: "normal",
                     label: "normal",
                 },
-                 {
+                {
                     value: "italic",
                     label: "italic",
-                }
+                },
             ],
         };
     },

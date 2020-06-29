@@ -84,6 +84,7 @@ import { TextParams } from "../controls/Text/TextParams";
 import { RadioParams } from "../controls/Radio/RadioParams";
 import { InputParams } from "../controls/Input/InputParams";
 import { ImagerParams } from "../controls/Imager/ImagerParams";
+import { BoxParams } from "../controls/Box/BoxParams";
 
 export default {
     name: "layout-controls",
@@ -103,6 +104,7 @@ export default {
                 ImagerParams,
                 RadioParams,
                 TextParams,
+                BoxParams,
             ];
         },
     },

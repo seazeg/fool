@@ -263,7 +263,7 @@ export const fields = {
     },
     paddingLeft: {
         get() {
-            return parseInt(this.$store.state.selected.style.paddingLeft);
+            return parseInt(this.$store.state.selected.style.paddingLeft) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -280,7 +280,7 @@ export const fields = {
     },
     paddingRight: {
         get() {
-            return parseInt(this.$store.state.selected.style.paddingRight);
+            return parseInt(this.$store.state.selected.style.paddingRight) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -297,7 +297,7 @@ export const fields = {
     },
     paddingTop: {
         get() {
-            return parseInt(this.$store.state.selected.style.paddingTop);
+            return parseInt(this.$store.state.selected.style.paddingTop) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -314,7 +314,9 @@ export const fields = {
     },
     paddingBottom: {
         get() {
-            return parseInt(this.$store.state.selected.style.paddingBottom);
+            return (
+                parseInt(this.$store.state.selected.style.paddingBottom) || 0
+            );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -331,7 +333,7 @@ export const fields = {
     },
     marginLeft: {
         get() {
-            return parseInt(this.$store.state.selected.style.marginLeft);
+            return parseInt(this.$store.state.selected.style.marginLeft) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -348,7 +350,7 @@ export const fields = {
     },
     marginRight: {
         get() {
-            return parseInt(this.$store.state.selected.style.marginRight);
+            return parseInt(this.$store.state.selected.style.marginRight) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -365,7 +367,7 @@ export const fields = {
     },
     marginTop: {
         get() {
-            return parseInt(this.$store.state.selected.style.marginTop);
+            return parseInt(this.$store.state.selected.style.marginTop) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -382,7 +384,7 @@ export const fields = {
     },
     marginBottom: {
         get() {
-            return parseInt(this.$store.state.selected.style.marginBottom);
+            return parseInt(this.$store.state.selected.style.marginBottom) || 0;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -404,6 +406,11 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 fontSize: value,
+                isDiff: "px",
+                container: "effect",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                lineHeight: value,
                 isDiff: "px",
                 container: "effect",
             });

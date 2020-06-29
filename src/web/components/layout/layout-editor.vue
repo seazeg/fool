@@ -71,7 +71,11 @@
                             v-clipboard:error="onError"
                             >代码复制</el-button
                         >
-                        <el-button plain icon="el-icon-delete-solid" size="mini"
+                        <el-button
+                            plain
+                            @click="visualNodeRemove()"
+                            icon="el-icon-delete-solid"
+                            size="mini"
                             >移除</el-button
                         >
                     </span>
@@ -353,6 +357,10 @@ export default {
         },
         treeNodeRemove(node, e) {
             this.$store.commit("Hope/removeControl", e.id);
+        },
+        visualNodeRemove() {
+            this.$store.commit("Hope/removeControl", this.selectedControl.id);
+            this.$store.state.selected = {}
         },
         codeListener() {
             this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);

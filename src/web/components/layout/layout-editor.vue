@@ -17,15 +17,6 @@
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-notebook-2"></i>html</span
                     >
-                    <button
-                        type="button"
-                        class="autoCopy"
-                        v-clipboard:copy="source.html"
-                        v-clipboard:success="onCopy"
-                        v-clipboard:error="onError"
-                    >
-                        Copy
-                    </button>
                     <div class="view-box html" v-highlight>
                         <pre>
                             <code v-text="source.html">
@@ -37,15 +28,6 @@
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-magic-stick"></i>css</span
                     >
-                    <button
-                        type="button"
-                        class="autoCopy"
-                        v-clipboard:copy="source.css"
-                        v-clipboard:success="onCopy"
-                        v-clipboard:error="onError"
-                    >
-                        Copy
-                    </button>
                     <div class="view-box css" v-highlight>
                         <pre>
                             <code v-html="source.css">
@@ -79,6 +61,18 @@
                             icon="el-icon-s-help"
                             size="mini"
                             >预览生成</el-button
+                        >
+                        <el-button
+                            plain
+                            icon="el-icon-s-open"
+                            size="mini"
+                            v-clipboard:copy="copy()"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                            >代码复制</el-button
+                        >
+                        <el-button plain icon="el-icon-delete-solid" size="mini"
+                            >移除</el-button
                         >
                     </span>
                 </el-tab-pane>
@@ -155,6 +149,7 @@ export default {
         return {
             tabChecked: "preview",
             drawer: false,
+            copySource: "",
             source: {
                 html: "",
                 css: "",
@@ -279,6 +274,23 @@ export default {
         },
     },
     methods: {
+        copy() {
+            let source = "";
+            switch (this.tabChecked) {
+                case "html":
+                    source = this.source.html;
+                    break;
+                case "css":
+                    source = this.source.css;
+                    break;
+                case "javascript":
+                    source = this.source.js;
+                    break;
+                default:
+                    break;
+            }
+            return source;
+        },
         onCopy(e) {
             this.$message({
                 message: "复制成功",

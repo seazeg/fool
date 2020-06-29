@@ -53,7 +53,7 @@
                             @click="visualNodeRemove()"
                             icon="el-icon-delete-solid"
                             size="mini"
-                            >移除</el-button
+                            >控件移除</el-button
                         >
                         <el-button
                             plain

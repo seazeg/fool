@@ -170,14 +170,62 @@ code {
 
 .layout-container .view .lab-icon {
     font-size: 14px;
-    text-transform: capitalize;
+    text-transform: uppercase;
+}
+
+.layout-container .el-button.is-active,
+.layout-container .el-button.is-plain:active,
+.layout-container .el-button.is-plain:focus{
+    color: #606266;
+    border-color: #dcdfe6;
+}
+
+
+.layout-container .el-button--text{
+    color:@fontGrey;
+    position: relative;
+    bottom:1px;
+}
+
+.layout-container .el-button--text:hover{
+    color:@fontWhite;
+}
+
+
+.layout-container .el-button.is-plain:hover {
+    background: #fff;
+    border-color: #409eff;
+    color: #409eff;
+}
+
+.layout-container .el-drawer {
+    background: @border_color;
+    padding:20px;
+}
+
+.layout-container .el-tree {
+    background: @border_color;
+}
+.layout-container .custom-tree-node {
+    color: @fontGrey;
+    font-size:16px;
+}
+
+.layout-container .el-tree-node__content:hover,
+.layout-container .el-tree-node:focus > .el-tree-node__content{
+    background: @main_color;
+}
+
+.layout-container .el-tree-node__content {
+    height:40px;
+   
 }
 
 .layout-container .view .lab-icon > i {
     color: @font_color;
-    font-size: 22px;
+    font-size: 16px;
     vertical-align: middle;
-    margin-right: 2px;
+    margin-right: 5px;
     position: relative;
     bottom: 1px;
     font-weight: bolder;
@@ -209,6 +257,19 @@ code {
     font-size: 14px;
 }
 
+.layout-container .el-button + .el-button {
+    margin-left: 5px;
+}
+
+.layout-container .el-tabs__nav {
+    width: 100%;
+}
+
+.layout-container #tab-htmlGenerator {
+    float: right;
+    line-height: 35px;
+}
+
 .layout-container .el-tabs--border-card {
     background: @work_color;
     border: 1px solid @shadow_color;
@@ -221,10 +282,7 @@ code {
     user-select: none;
 }
 
-.layout-container
-    .el-tabs--border-card
-    > .el-tabs__header
-    .el-tabs__item {
+.layout-container .el-tabs--border-card > .el-tabs__header .el-tabs__item {
     color: @font_color;
 }
 
@@ -321,30 +379,30 @@ code {
     text-align: center;
     background: @shadow_color;
 }
-.layout-container .edit .el-switch{
-position: relative;
-bottom:1px;
+.layout-container .edit .el-switch {
+    position: relative;
+    bottom: 1px;
 }
 .layout-container .edit .el-switch__label {
     color: @font_color;
 }
 
-.layout-container .edit .el-switch__core{
-    width:30px!important;
-    height:15px!important;
+.layout-container .edit .el-switch__core {
+    width: 30px !important;
+    height: 15px !important;
 }
 
-.el-switch.is-checked .el-switch__core::after{
-    margin-left: -12px!important;
+.el-switch.is-checked .el-switch__core::after {
+    margin-left: -12px !important;
 }
 
-.el-switch__core:after{
-    width: 11px!important;
-    height: 11px!important;
+.el-switch__core:after {
+    width: 11px !important;
+    height: 11px !important;
 }
 
-.layout-container .edit .el-switch__label.is-active{
-    color:@mainColor;
+.layout-container .edit .el-switch__label.is-active {
+    color: @mainColor;
 }
 
 .layout-container .upload-box {

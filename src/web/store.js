@@ -44,6 +44,19 @@ export default new Vuex.Store({
             })(state.controls, id, state);
             console.log(state.selected);
         },
+        "Hope/removeControl": (state, id) => {
+            (function func(cls, id, state) {
+                cls.forEach(function(ele, i) {
+                    if (ele.id == id) {
+                        cls.splice(i, 1);
+                    } else {
+                        if (ele.children) {
+                            func(ele.children, id, state);
+                        }
+                    }
+                });
+            })(state.controls, id, state);
+        },
         "Hope/UpdateControlParams": (state, ele) => {
             if (Object.keys(ele)[0] == ele.container) {
                 state.selected[ele.container] = ele[Object.keys(ele)[0]];

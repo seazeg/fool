@@ -5,7 +5,7 @@
             <el-tabs v-model="tabChecked" type="border-card">
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-yulan"></i>preview</span
+                        <i class="el-icon-edit-outline"></i>preview</span
                     >
                     <div class="view-box preview" ref="preview">
                         <layout-draggable
@@ -15,7 +15,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="html">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-html"></i>html</span
+                        <i class="el-icon-notebook-2"></i>html</span
                     >
                     <button
                         type="button"
@@ -35,7 +35,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="css">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-css"></i>css</span
+                        <i class="el-icon-magic-stick"></i>css</span
                     >
                     <button
                         type="button"
@@ -55,7 +55,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="javascript">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-js"></i>javascript</span
+                        <i class="el-icon-cpu"></i>javascript</span
                     >
                     <div class="view-box js" v-highlight>
                         <!-- <pre>
@@ -64,14 +64,51 @@
                             </pre> -->
                     </div>
                 </el-tab-pane>
-                <el-tab-pane name="htmlGenerator" disabled="true">
+                <el-tab-pane name="htmlGenerator" :disabled="true">
                     <span slot="label" class="lab-icon">
-                        <el-button @click="htmlGenerator">生成</el-button>
-                        <el-button @click="htmlGenerator">组件树</el-button>
+                        <el-button
+                            plain
+                            @click="drawer = true"
+                            icon="el-icon-s-promotion"
+                            size="mini"
+                            >控件树</el-button
+                        >
+                        <el-button
+                            plain
+                            @click="htmlGenerator"
+                            icon="el-icon-s-help"
+                            size="mini"
+                            >预览生成</el-button
+                        >
                     </span>
                 </el-tab-pane>
             </el-tabs>
         </div>
+
+        <el-drawer title="空间树" :visible.sync="drawer" :with-header="false">
+            <el-tree
+                :data="controls"
+                node-key="controlsTree"
+                @node-click="treeNodeClick"
+                :expand-on-click-node="false"
+                :allow-drop="allowDrop"
+                draggable
+            >
+                <span class="custom-tree-node" slot-scope="{ node, data }">
+                    <span>{{ node.label }}</span>
+                    <span>
+                        <el-button
+                            type="text"
+                            icon="el-icon-delete"
+                            circle
+                            size="mini"
+                            @click="() => treeNodeRemove(node, data)"
+                        >
+                        </el-button>
+                    </span>
+                </span>
+            </el-tree>
+        </el-drawer>
 
         <ButtonEditor
             :animationOption="animationOption"
@@ -117,6 +154,7 @@ export default {
     data() {
         return {
             tabChecked: "preview",
+            drawer: false,
             source: {
                 html: "",
                 css: "",
@@ -255,6 +293,13 @@ export default {
                 duration: 500,
             });
         },
+        allowDrop(draggingNode, dropNode, type) {
+            if (!dropNode.data.label.includes("grid")) {
+                return type !== "inner";
+            } else {
+                return true;
+            }
+        },
         htmlGenerator() {
             let defaultHTML = `
                 <!DOCTYPE html>
@@ -289,6 +334,13 @@ export default {
                 .then(function(res) {
                     window.open("http://localhost:2599/preview.html");
                 });
+        },
+        treeNodeClick(e) {
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", e.id);
+        },
+        treeNodeRemove(node, e) {
+            this.$store.commit("Hope/removeControl", e.id);
         },
         codeListener() {
             this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);

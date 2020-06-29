@@ -182,13 +182,13 @@ code {
 
 
 .layout-container .el-button--text{
-    color:@fontGrey;
+    color:@fontWhite;
     position: relative;
     bottom:1px;
 }
 
 .layout-container .el-button--text:hover{
-    color:@fontWhite;
+    color:@close_hover_color;
 }
 
 
@@ -199,21 +199,22 @@ code {
 }
 
 .layout-container .el-drawer {
-    background: @border_color;
+    background: @deputy_color;
     padding:20px;
+    border-left: 1px solid @tools_color;
 }
 
 .layout-container .el-tree {
-    background: @border_color;
+    background: @deputy_color;
 }
 .layout-container .custom-tree-node {
-    color: @fontGrey;
+    color: @fontWhite;
     font-size:16px;
 }
 
 .layout-container .el-tree-node__content:hover,
 .layout-container .el-tree-node:focus > .el-tree-node__content{
-    background: @main_color;
+    background: @shadow_color;
 }
 
 .layout-container .el-tree-node__content {

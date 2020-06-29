@@ -50,17 +50,10 @@
                     <span slot="label" class="lab-icon">
                         <el-button
                             plain
-                            @click="drawer = true"
-                            icon="el-icon-s-promotion"
+                            @click="visualNodeRemove()"
+                            icon="el-icon-delete-solid"
                             size="mini"
-                            >控件树</el-button
-                        >
-                        <el-button
-                            plain
-                            @click="htmlGenerator"
-                            icon="el-icon-s-help"
-                            size="mini"
-                            >预览生成</el-button
+                            >移除</el-button
                         >
                         <el-button
                             plain
@@ -73,10 +66,17 @@
                         >
                         <el-button
                             plain
-                            @click="visualNodeRemove()"
-                            icon="el-icon-delete-solid"
+                            @click="htmlGenerator"
+                            icon="el-icon-s-help"
                             size="mini"
-                            >移除</el-button
+                            >生成预览</el-button
+                        >
+                        <el-button
+                            plain
+                            @click="drawer = true"
+                            icon="el-icon-s-promotion"
+                            size="mini"
+                            >控件树</el-button
                         >
                     </span>
                 </el-tab-pane>
@@ -89,6 +89,7 @@
                 node-key="controlsTree"
                 @node-click="treeNodeClick"
                 :expand-on-click-node="false"
+                default-expand-all
                 :allow-drop="allowDrop"
                 draggable
             >
@@ -360,7 +361,7 @@ export default {
         },
         visualNodeRemove() {
             this.$store.commit("Hope/removeControl", this.selectedControl.id);
-            this.$store.state.selected = {}
+            this.$store.state.selected = {};
         },
         codeListener() {
             this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);

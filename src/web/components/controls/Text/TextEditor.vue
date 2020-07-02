@@ -7,7 +7,17 @@
         "
     >
         <!-- 基础属性 -->
-        <div class="control_group_title">基础属性：</div>
+        <div class="control_group_title">
+            基础属性：
+            <el-button
+                type="danger"
+                round
+                @click="visualNodeRemove()"
+                icon="el-icon-delete-solid"
+                size="mini"
+                ></el-button
+            >
+        </div>
         <div class="control_group">
             <div class="box">
                 <span class="field">内容（Text）</span>
@@ -468,6 +478,23 @@ export default {
             return this.$store.state.selected;
         },
         ...fields,
+    },
+    methods: {
+        visualNodeRemove() {
+            this.$confirm("确定删除当前节点？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "info",
+            })
+                .then(() => {
+                    this.$store.commit(
+                        "Hope/removeControl",
+                        this.selectedControl.id
+                    );
+                    this.$store.state.selected = {};
+                })
+                .catch(() => {});
+        },
     },
 };
 </script>

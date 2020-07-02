@@ -50,33 +50,28 @@
                     <span slot="label" class="lab-icon">
                         <el-button
                             plain
-                            @click="visualNodeRemove()"
-                            icon="el-icon-delete-solid"
-                            size="mini"
-                            >控件移除</el-button
-                        >
-                        <el-button
-                            plain
                             icon="el-icon-s-open"
                             size="mini"
                             v-clipboard:copy="copy()"
                             v-clipboard:success="onCopy"
                             v-clipboard:error="onError"
+                            v-show="tabChecked != 'preview'"
                             >代码复制</el-button
-                        >
-                        <el-button
-                            plain
-                            @click="htmlGenerator"
-                            icon="el-icon-s-help"
-                            size="mini"
-                            >生成预览</el-button
                         >
                         <el-button
                             plain
                             @click="drawer = true"
                             icon="el-icon-s-promotion"
                             size="mini"
-                            >控件树</el-button
+                            v-show="tabChecked == 'preview'"
+                            >查看控件树</el-button
+                        >
+                        <el-button
+                            type="success"
+                            @click="htmlGenerator"
+                            icon="el-icon-s-help"
+                            size="mini"
+                            >生成预览</el-button
                         >
                     </span>
                 </el-tab-pane>
@@ -357,11 +352,15 @@ export default {
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         treeNodeRemove(node, e) {
-            this.$store.commit("Hope/removeControl", e.id);
-        },
-        visualNodeRemove() {
-            this.$store.commit("Hope/removeControl", this.selectedControl.id);
-            this.$store.state.selected = {};
+            this.$confirm("确定删除当前节点？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "info",
+            })
+                .then(() => {
+                    this.$store.commit("Hope/removeControl", e.id);
+                })
+                .catch(() => {});
         },
         codeListener() {
             this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);

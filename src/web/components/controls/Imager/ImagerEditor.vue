@@ -7,7 +7,17 @@
         "
     >
         <!-- 基础属性 -->
-        <div class="control_group_title">基础属性：</div>
+        <div class="control_group_title">
+            基础属性：
+            <el-button
+                type="danger"
+                round
+                @click="visualNodeRemove()"
+                icon="el-icon-delete-solid"
+                size="mini"
+                ></el-button
+            >
+        </div>
         <div class="control_group">
             <div class="box">
                 <span class="field">按钮标题（buttonText）</span>
@@ -50,7 +60,8 @@
             <div class="box">
                 <span class="field"
                     >宽度（width）
-                    <el-switch class="fr"
+                    <el-switch
+                        class="fr"
                         v-model="selectedControl.isPer.width"
                         active-text="百分比"
                         active-color="#13ce66"
@@ -59,7 +70,7 @@
                 <p>
                     <el-slider
                         v-model="width"
-                       :show-tooltip="false"
+                        :show-tooltip="false"
                         :min="1"
                         :max="500"
                         show-input
@@ -69,7 +80,8 @@
             <div class="box">
                 <span class="field"
                     >高度（height）
-                    <el-switch class="fr"
+                    <el-switch
+                        class="fr"
                         v-model="selectedControl.isPer.height"
                         active-text="百分比"
                         active-color="#13ce66"
@@ -318,6 +330,21 @@ export default {
             } else {
                 this.$refs.imgUpload.$children[1].$el.style.display = "block";
             }
+        },
+        visualNodeRemove() {
+            this.$confirm("确定删除当前节点？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "info",
+            })
+                .then(() => {
+                    this.$store.commit(
+                        "Hope/removeControl",
+                        this.selectedControl.id
+                    );
+                    this.$store.state.selected = {};
+                })
+                .catch(() => {});
         },
     },
 };

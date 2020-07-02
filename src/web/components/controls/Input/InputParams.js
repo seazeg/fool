@@ -36,5 +36,7 @@ export const InputParams = {
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: "5px",
+        paddingLeft:"10px",
+        paddingRight:"10px"
     }
 };

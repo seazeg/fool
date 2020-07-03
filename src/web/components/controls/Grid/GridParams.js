@@ -8,9 +8,12 @@ export const GridParams = {
         label: "hope_grid",
         icon: "icon-anniu",
         isSelected: false,
-        isPer: {
-            width: true,
-            height: true,
+        spcConfig: {
+            isPer: {
+                width: true,
+                height: true,
+            },
+            isAutoLineHeight: false,
         },
         event: "",
         defaultClass: "hope_grid",
@@ -26,9 +29,12 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
-                isPer: {
-                    width: true,
-                    height: false,
+                spcConfig: {
+                    isPer: {
+                        width: true,
+                        height: false,
+                    },
+                    isAutoLineHeight: false,
                 },
                 event: "",
                 defaultClass: "hope_grid",
@@ -45,9 +51,12 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
-                isPer: {
-                    width: true,
-                    height: false,
+                spcConfig: {
+                    isPer: {
+                        width: true,
+                        height: false,
+                    },
+                    isAutoLineHeight: false,
                 },
                 event: "",
                 defaultClass: "hope_grid",
@@ -66,9 +75,12 @@ export const GridParams = {
         label: "hope_grid",
         icon: "icon-anniu",
         isSelected: false,
-        isPer: {
-            width: true,
-            height: true,
+        spcConfig: {
+            isPer: {
+                width: true,
+                height: false,
+            },
+            isAutoLineHeight: false,
         },
         event: "",
         defaultClass: "hope_grid",
@@ -84,9 +96,12 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
-                isPer: {
-                    width: true,
-                    height: false,
+                spcConfig: {
+                    isPer: {
+                        width: true,
+                        height: false,
+                    },
+                    isAutoLineHeight: false,
                 },
                 event: "",
                 defaultClass: "hope_grid",
@@ -103,9 +118,12 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
-                isPer: {
-                    width: true,
-                    height: false,
+                spcConfig: {
+                    isPer: {
+                        width: true,
+                        height: false,
+                    },
+                    isAutoLineHeight: false,
                 },
                 event: "",
                 defaultClass: "hope_grid",
@@ -122,9 +140,12 @@ export const GridParams = {
                 label: "hope_grid",
                 icon: "icon-anniu",
                 isSelected: false,
-                isPer: {
-                    width: true,
-                    height: false,
+                spcConfig: {
+                    isPer: {
+                        width: true,
+                        height: false,
+                    },
+                    isAutoLineHeight: false,
                 },
                 event: "",
                 defaultClass: "hope_grid",
@@ -142,12 +163,15 @@ export const GridParams = {
         name: "自定栏",
         label: "hope_grid",
         icon: "icon-anniu",
-        isSelected: false,
-        isPer: {
-            width: true,
-            height: true,
-        },
         isCustom: true,
+        isSelected: false,
+        spcConfig: {
+            isPer: {
+                width: true,
+                height: false,
+            },
+            isAutoLineHeight: false,
+        },
         event: "",
         defaultClass: "hope_grid",
         customClass: "g_100",

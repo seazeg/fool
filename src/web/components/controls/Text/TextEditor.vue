@@ -45,7 +45,7 @@
                     >宽度（width）
                     <el-switch
                         class="fr"
-                        v-model="selectedControl.isPer.width"
+                        v-model="selectedControl.spcConfig.isPer.width"
                         active-text="百分比"
                         active-color="#13ce66"
                     ></el-switch>
@@ -55,7 +55,7 @@
                         :show-tooltip="false"
                         v-model="width"
                         :min="1"
-                        :max="selectedControl.isPer.width?100:500"
+                        :max="selectedControl.spcConfig.isPer.width?100:500"
                         show-input
                     ></el-slider>
                 </p>

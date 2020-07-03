@@ -46,7 +46,7 @@
                     >宽度（width）
                     <el-switch
                         class="fr"
-                        v-model="selectedControl.isPer.width"
+                        v-model="selectedControl.spcConfig.isPer.width"
                         active-text="百分比"
                         active-color="#13ce66"
                     ></el-switch>
@@ -56,7 +56,7 @@
                         v-model="width"
                         :show-tooltip="false"
                         :min="1"
-                        :max="selectedControl.isPer.width?100:500"
+                        :max="selectedControl.spcConfig.isPer.width?100:500"
                         show-input
                         :step="0.1"
                     ></el-slider>
@@ -67,7 +67,7 @@
                     >高度（height）
                     <el-switch
                         class="fr"
-                        v-model="selectedControl.isPer.height"
+                        v-model="selectedControl.spcConfig.isPer.height"
                         active-text="百分比"
                         active-color="#13ce66"
                     ></el-switch>
@@ -76,7 +76,7 @@
                     <el-slider
                         v-model="height"
                         :min="1"
-                        :max="selectedControl.isPer.height?100:500"
+                        :max="selectedControl.spcConfig.isPer.height?100:500"
                         show-input
                         :step="0.1"
                     ></el-slider>

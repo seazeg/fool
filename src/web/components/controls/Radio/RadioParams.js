@@ -7,9 +7,12 @@ export const RadioParams = {
     label: "hope_radio",
     icon: "icon-anniu",
     isSelected: false,
-    isPer: {
-        width: true,
-        height: true,
+    spcConfig:{
+        isPer: {
+            width: true,
+            height: true,
+        },
+        isAutoLineHeight: true,
     },
     event: "",
     defaultClass: "hope_radio",

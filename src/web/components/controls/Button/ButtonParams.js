@@ -7,9 +7,12 @@ export const ButtonParams = {
     label: "hope_button",
     icon: "icon-anniu",
     isSelected: false,
-    isPer: {
-        width: false,
-        height: false,
+    spcConfig: {
+        isPer: {
+            width: false,
+            height: false,
+        },
+        isAutoLineHeight: true,
     },
     event: "hover",
     defaultClass: "hope_button",
@@ -52,5 +55,5 @@ export const ButtonParams = {
         backgroundImage: `linear-gradient(90deg, ${basis.mainColor} 0%, ${basis.subColor} 51%, ${basis.mainColor} 100%)`,
         backgroundSize: "200% auto",
         backgroundPosition: "right center",
-    }
+    },
 };

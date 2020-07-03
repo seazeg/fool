@@ -7,9 +7,12 @@ export const InputParams = {
     label: "hope_input",
     icon: "icon-anniu",
     isSelected: false,
-    isPer:{
-        width:true,
-        height:false
+    spcConfig:{
+        isPer: {
+            width: true,
+            height: false,
+        },
+        isAutoLineHeight: true,
     },
     event: "focus",
     defaultClass: "hope_input",

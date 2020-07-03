@@ -10,7 +10,7 @@ export const fields = {
         set(value) {
             let isDiff = "px";
             if (typeof value == "number") {
-                if (this.$store.state.selected.isPer.width) {
+                if (this.$store.state.selected.spcConfig.isPer.width) {
                     isDiff = "per";
                 }
             } else {
@@ -40,7 +40,7 @@ export const fields = {
             let isDiff = "px";
             let lineHeight = value;
             if (typeof value == "number") {
-                if (this.$store.state.selected.isPer.height) {
+                if (this.$store.state.selected.spcConfig.isPer.height) {
                     isDiff = "per";
                 }
             } else {
@@ -53,20 +53,22 @@ export const fields = {
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: lineHeight,
-                isDiff: isDiff,
-                container: "style",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
                 isDiff: isDiff,
                 container: "effect",
             });
-            this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: lineHeight,
-                isDiff: isDiff,
-                container: "effect",
-            });
+            if (this.$store.state.selected.spcConfig.isAutoLineHeight) {
+                this.$store.commit("Hope/UpdateControlParams", {
+                    lineHeight: lineHeight,
+                    isDiff: isDiff,
+                    container: "style",
+                });
+                this.$store.commit("Hope/UpdateControlParams", {
+                    lineHeight: lineHeight,
+                    isDiff: isDiff,
+                    container: "effect",
+                });
+            }
         },
     },
     fontSize: {
@@ -79,11 +81,11 @@ export const fields = {
                 isDiff: "px",
                 container: "style",
             });
-            this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: value,
-                isDiff: "px",
-                container: "style",
-            });
+            // this.$store.commit("Hope/UpdateControlParams", {
+            //     lineHeight: value,
+            //     isDiff: "px",
+            //     container: "style",
+            // });
         },
     },
     lineHeight: {

@@ -13,10 +13,10 @@
                         <link rel="stylesheet" href="base.css" />
                         <link rel="stylesheet" href="hope.css" />
                         <style>
-                            .hope_box.ibox {
-	width:300px;
-	height:300px;
-	line-height:300px;
+                            .hope_grid.g_100 {
+	width:100%;
+	height:100%;
+	line-height:100%;
 	padding-left:0px;
 	padding-right:0px;
 	padding-top:0px;
@@ -26,12 +26,87 @@
 	margin-top:0px;
 	margin-bottom:0px;
 }
+.hope_grid.g_30 {
+	width:33.3333%;
+	height:100%;
+	line-height:100%;
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.hope_input {
+	width:100%;
+	height:50px;
+	color:#333;
+	font-size:16px;
+	border-color:rgb(165,184,131);
+	border-width:1px;
+	border-style:solid;
+	border-radius:5px;
+	padding-left:10px;
+	padding-right:10px;
+	line-height:48px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.hope_input:focus {
+	border-color:rgb(255,0,0)
+}
+.hope_grid.g_10 {
+	width:10.0000%;
+	height:500px;
+}
+.hope_grid.g_16 {
+	width:16.6667%;
+	height:500px;
+}
 
                         </style>
                     </head>
 
                     <body>
-                        <div class="hope_box ibox"></div>
+                        <div class="hope_grid g_100">
+	<div class="hope_grid g_30">
+		<input type="text" placeholder="请输入" class="hope_input" />
+	</div>
+	<div class="hope_grid g_30"></div>
+	<div class="hope_grid g_30"></div>
+</div>
+<div class="hope_grid g_100">
+	<div class="hope_grid g_10">
+		<input type="text" placeholder="请输入" class="hope_input" />
+	</div>
+	<div class="hope_grid g_10"></div>
+	<div class="hope_grid g_10">
+		<input type="text" placeholder="请输入" class="hope_input" />
+	</div>
+	<div class="hope_grid g_10"></div>
+	<div class="hope_grid g_10"></div>
+	<div class="hope_grid g_10"></div>
+	<div class="hope_grid g_10"></div>
+	<div class="hope_grid g_10"></div>
+	<div class="hope_grid g_10">
+		<input type="text" placeholder="请输入" class="hope_input" />
+	</div>
+	<div class="hope_grid g_10"></div>
+</div>
+<div class="hope_grid g_100">
+	<div class="hope_grid g_16"></div>
+	<div class="hope_grid g_16"></div>
+	<div class="hope_grid g_16"></div>
+	<div class="hope_grid g_16"></div>
+	<div class="hope_grid g_16"></div>
+	<div class="hope_grid g_16"></div>
+</div>
                     </body>
 
                 </html>

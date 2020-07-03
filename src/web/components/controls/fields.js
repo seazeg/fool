@@ -1,12 +1,20 @@
 export const fields = {
     width: {
         get() {
-            return parseFloat(this.$store.state.selected.style.width);
+            if (/\d/.test(this.$store.state.selected.style.width)) {
+                return parseFloat(this.$store.state.selected.style.width);
+            } else {
+                return this.$store.state.selected.style.width;
+            }
         },
         set(value) {
             let isDiff = "px";
-            if (this.$store.state.selected.isPer.width) {
-                isDiff = "per";
+            if (typeof value == "number") {
+                if (this.$store.state.selected.isPer.width) {
+                    isDiff = "per";
+                }
+            } else {
+                isDiff = "same";
             }
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
@@ -22,12 +30,22 @@ export const fields = {
     },
     height: {
         get() {
-            return parseFloat(this.$store.state.selected.style.height);
+            if (/\d/.test(this.$store.state.selected.style.height)) {
+                return parseFloat(this.$store.state.selected.style.height);
+            } else {
+                return this.$store.state.selected.style.height;
+            }
         },
         set(value) {
             let isDiff = "px";
-            if (this.$store.state.selected.isPer.height) {
-                isDiff = "per";
+            let lineHeight = value;
+            if (typeof value == "number") {
+                if (this.$store.state.selected.isPer.height) {
+                    isDiff = "per";
+                }
+            } else {
+                isDiff = "same";
+                lineHeight = "normal";
             }
             this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
@@ -35,7 +53,7 @@ export const fields = {
                 container: "style",
             });
             this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: value,
+                lineHeight: lineHeight,
                 isDiff: isDiff,
                 container: "style",
             });
@@ -45,7 +63,7 @@ export const fields = {
                 container: "effect",
             });
             this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: value,
+                lineHeight: lineHeight,
                 isDiff: isDiff,
                 container: "effect",
             });

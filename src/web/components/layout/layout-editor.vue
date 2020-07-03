@@ -108,36 +108,43 @@
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></ButtonEditor>
         <GridEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></GridEditor>
         <InputEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></InputEditor>
         <ImagerEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></ImagerEditor>
         <RadioEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></RadioEditor>
         <TextEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></TextEditor>
         <BoxEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
         ></BoxEditor>
     </div>
 </template>
@@ -256,6 +263,28 @@ export default {
                 {
                     value: "italic",
                     label: "italic",
+                },
+            ],
+            generalStyleOption: [
+                {
+                    value:100,
+                    label: "默认数值化"
+                },
+                {
+                    value: "auto",
+                    label: "auto",
+                },
+                {
+                    value: "inherit",
+                    label: "inherit",
+                },
+                {
+                    value: "initial",
+                    label: "initial",
+                },
+                {
+                    value: "unset",
+                    label: "unset",
                 },
             ],
         };

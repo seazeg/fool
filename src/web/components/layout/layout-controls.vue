@@ -95,7 +95,7 @@ export default {
     },
     computed: {
         layout() {
-            return [GridParams.g_2, GridParams.g_3];
+            return [GridParams.g_2, GridParams.g_3, GridParams.g_custom];
         },
         controls() {
             return [

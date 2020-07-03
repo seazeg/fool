@@ -65,7 +65,7 @@
                         v-model="width"
                         :show-tooltip="false"
                         :min="1"
-                        :max="100"
+                        :max="selectedControl.isPer.width?100:500"
                         show-input
                     ></el-slider>
                 </p>
@@ -84,7 +84,7 @@
                     <el-slider
                         v-model="height"
                         :min="10"
-                        :max="100"
+                        :max="selectedControl.isPer.height?100:500"
                         show-input
                     ></el-slider>
                 </p>

@@ -10,16 +10,16 @@ export const GridParams = {
         isSelected: false,
         isPer: {
             width: true,
-            height: false,
+            height: true,
         },
         event: "",
         defaultClass: "hope_grid",
         customClass: "g_100",
         style: {
             width: "100%",
+            height: "auto",
         },
         effect: {},
-        layout: {},
         children: [
             {
                 name: "2_1",
@@ -68,16 +68,16 @@ export const GridParams = {
         isSelected: false,
         isPer: {
             width: true,
-            height: false,
+            height: true,
         },
         event: "",
         defaultClass: "hope_grid",
         customClass: "g_100",
         style: {
             width: "100%",
+            height: "100%",
         },
         effect: {},
-        layout: {},
         children: [
             {
                 name: "3_1",
@@ -137,5 +137,25 @@ export const GridParams = {
                 children: [],
             },
         ],
+    },
+    g_custom: {
+        name: "自定栏",
+        label: "hope_grid",
+        icon: "icon-anniu",
+        isSelected: false,
+        isPer: {
+            width: true,
+            height: true,
+        },
+        isCustom: true,
+        event: "",
+        defaultClass: "hope_grid",
+        customClass: "g_100",
+        style: {
+            width: "100%",
+            height: "100%",
+        },
+        effect: {},
+        children: [],
     },
 };

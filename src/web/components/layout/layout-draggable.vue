@@ -62,17 +62,21 @@ export default {
                         let cols = parseInt(value);
                         for (let i = 0; i < cols; i++) {
                             e.added.element.children.push({
-                                name: `${cols}_${i + 1}`,
+                                name: `${cols}_${i+1}`,
                                 label: "hope_grid",
+                                id: $egu.guid(),
                                 icon: "icon-anniu",
                                 isSelected: false,
-                                isPer: {
-                                    width: true,
-                                    height: false,
+                                spcConfig: {
+                                    isPer: {
+                                        width: true,
+                                        height: false,
+                                    },
+                                    isAutoLineHeight: false,
                                 },
                                 event: "",
                                 defaultClass: "hope_grid",
-                                customClass: `g_${parseInt((100 / cols))}`,
+                                customClass: `g_${parseInt(100 / cols)}`,
                                 style: {
                                     width: `${(100 / cols).toFixed(4)}%`,
                                     height: "500px",
@@ -81,6 +85,7 @@ export default {
                                 children: [],
                             });
                         }
+                        console.log(e.added.element);
                         try {
                             this.$store.commit("Hope/ResetControlSelected");
                             this.$store.commit(

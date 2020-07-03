@@ -44,22 +44,7 @@ export const handle = {
                     defaultClass = ele.defaultClass,
                     event = ele.event,
                     cssInherit = ele.cssInherit || "",
-                    filterCSS = {}
-
-                // if (filter) {
-                //     Object.keys(filter).forEach(function(filterKey) {
-                //         if (filterKey == label) {
-                //             Object.keys(style).forEach(function(key) {
-                //                 if (!key.includes(filter[filterKey])) {
-                //                     filterCSS[key] = style[key];
-                //                 }
-                //             });
-                //         } else {
-                //             filterCSS = style;
-                //         }
-                //     });
-                // }
-                
+                    filterCSS = {};
 
                 filterCSS = utils.json2css(style);
                 if (!css.includes(filterCSS)) {
@@ -79,5 +64,8 @@ export const handle = {
             }
             return utils.cssFormat(css);
         })(controls);
+    },
+    dragEndMethod: (vue, ele) => {
+        
     },
 };

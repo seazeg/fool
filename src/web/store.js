@@ -42,7 +42,7 @@ export default new Vuex.Store({
                     }
                 }
             })(state.controls, id, state);
-            
+            console.log(state.selected);
         },
         "Hope/removeControl": (state, id) => {
             (function func(cls, id, state) {

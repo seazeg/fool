@@ -429,11 +429,11 @@ export const fields = {
                 isDiff: "px",
                 container: "effect",
             });
-            this.$store.commit("Hope/UpdateControlParams", {
-                lineHeight: value,
-                isDiff: "px",
-                container: "effect",
-            });
+            // this.$store.commit("Hope/UpdateControlParams", {
+            //     lineHeight: value,
+            //     isDiff: "px",
+            //     container: "effect",
+            // });
         },
     },
     evt_borderRadius: {

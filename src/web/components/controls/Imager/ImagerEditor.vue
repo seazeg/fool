@@ -154,8 +154,8 @@
             </div>
         </div>
         <!-- 交互属性 -->
-        <div class="control_group_title">交互样式：</div>
-        <div class="control_group"></div>
+        <!-- <div class="control_group_title">交互样式：</div>
+        <div class="control_group"></div> -->
         <!-- 布局 -->
         <div class="control_group_title">布局属性：</div>
         <div class="control_group">
@@ -255,7 +255,7 @@
             </div>
         </div>
         <!-- 动画 -->
-        <div class="control_group_title">动画参数：</div>
+        <!-- <div class="control_group_title">动画参数：</div>
         <div class="control_group">
             <div class="box">
                 <span class="field">过渡时间（transitionDuration）</span>
@@ -295,7 +295,7 @@
                     </el-select>
                 </p>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

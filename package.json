@@ -19,7 +19,7 @@
     "axios": "^0.19.2",
     "core-js": "^2.6.9",
     "eg-utils": "^1.1.61",
-    "electron": "^8.2.5",
+    "electron": "^7.2.4",
     "electron-builder": "^22.6.0",
     "electron-debug": "^3.0.1",
     "electron-devtools-installer": "^3.0.0",

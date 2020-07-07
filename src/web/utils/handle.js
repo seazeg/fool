@@ -1,4 +1,4 @@
-const formatter = require("html-formatter");
+import formatter from "./html-formatter/";
 import { utils } from "./utils.js";
 
 export const handle = {
@@ -65,7 +65,5 @@ export const handle = {
             return utils.cssFormat(css);
         })(controls);
     },
-    dragEndMethod: (vue, ele) => {
-        
-    },
+    dragEndMethod: (vue, ele) => {},
 };

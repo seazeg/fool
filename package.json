@@ -22,7 +22,6 @@
     "electron": "^8.2.5",
     "element-ui": "^2.13.1",
     "highlight.js": "^10.0.3",
-    "html-formatter": "^0.1.9",
     "jquery": "^3.5.1",
     "koa": "^2.12.1",
     "koa-bodyparser": "^4.3.0",

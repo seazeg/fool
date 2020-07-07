@@ -2,7 +2,7 @@
   "name": "hope",
   "version": "1.0.0",
   "description": "UI FoolGenerator",
-  "main": "index.html",
+  "main": "background.js",
   "author": "Evan.G",
   "private": true,
   "scripts": {

@@ -76,7 +76,7 @@ module.exports = {
                     return args;
                 });
             },
-            mainProcessFile: "src/client/main.js",
+            mainProcessFile: "src/client/backgound.js",
             mainProcessWatch: ["src/client", "src/web"],
             outputDir: "dist/client",
             builderOptions: {

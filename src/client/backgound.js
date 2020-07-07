@@ -1,25 +1,16 @@
 'use strict'
 
+import { app, protocol, BrowserWindow } from 'electron'
 import {
-  app,
-  protocol,
-  BrowserWindow
-} from 'electron'
-import {
-  createProtocol
+  createProtocol,
+  installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
-
-const os = require('os');
-const { ipcMain } = require('electron')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
-
-
-
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{
@@ -30,17 +21,20 @@ protocol.registerSchemesAsPrivileged([{
   }
 }])
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
     width: 1200,
-    height: 750,
+    height: 600,
     webPreferences: {
+      webSecurity: false,
       nodeIntegration: true
     }
   })
 
-  win.webContents.openDevTools();
+
+  win.webContents.openDevTools()
+
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -56,8 +50,6 @@ function createWindow() {
     win = null
   })
 }
-
-
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -82,32 +74,14 @@ app.on('activate', () => {
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
-    // Devtools extensions are broken in Electron 6.0.0 and greater
-    // See https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/378 for more info
-    // Electron will not launch with Devtools extensions installed on Windows 10 with dark mode
-    // If you are not using Windows 10 dark mode, you may uncomment these lines
-    // In addition, if the linked issue is closed, you can upgrade electron and uncomment these lines
-    // try {
-    //   await installVueDevtools()
-    // } catch (e) {
-    //   console.error('Vue Devtools failed to install:', e.toString())
-    // }
-
+    try {
+      await installVueDevtools()
+    } catch (e) {
+      console.error('Vue Devtools failed to install:', e.toString())
+    }
   }
   createWindow()
 })
-
-ipcMain.on('asynchronous-message', (event, arg) => {
-  event.reply('asynchronous-reply', {
-    name:os.hostname(),
-    type:os.type(),
-    platform:os.platform(),
-    arch:os.arch(),
-    release:os.release(),
-    G:(os.totalmem()/1024/1024/1024).toFixed(1)+'G'
-  })
-})
-
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {

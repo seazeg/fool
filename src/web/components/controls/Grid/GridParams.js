@@ -87,7 +87,7 @@ export const GridParams = {
         customClass: "g_100",
         style: {
             width: "100%",
-            height: "100%",
+            height: "auto",
         },
         effect: {},
         children: [
@@ -177,7 +177,7 @@ export const GridParams = {
         customClass: "g_100",
         style: {
             width: "100%",
-            height: "100%",
+            height: "auto",
         },
         effect: {},
         children: [],

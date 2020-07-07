@@ -18,6 +18,9 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
+
+
+
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{
   scheme: 'app',
@@ -37,6 +40,8 @@ function createWindow() {
     }
   })
 
+  win.webContents.openDevTools();
+
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
@@ -51,6 +56,8 @@ function createWindow() {
     win = null
   })
 }
+
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

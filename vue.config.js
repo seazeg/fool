@@ -1,7 +1,7 @@
 "use strict";
 const path = require("path");
 const defaultSettings = require("./src/web/settings.js");
-const webpack = require('webpack')
+const webpack = require("webpack");
 
 function resolve(dir) {
     return path.join(__dirname, dir);
@@ -60,8 +60,8 @@ module.exports = {
             new webpack.ProvidePlugin({
                 $: "jquery",
                 jQuery: "jquery",
-            })
-        ]
+            }),
+        ],
     },
     pluginOptions: {
         electronBuilder: {
@@ -79,6 +79,15 @@ module.exports = {
             mainProcessFile: "src/client/main.js",
             mainProcessWatch: ["src/client", "src/web"],
             outputDir: "dist/client",
+            builderOptions: {
+                win: {
+                    icon: "src/client/icons/icon.ico", //安装包图标
+                },
+
+                mac: {
+                    icon: "src/client/icons/icon.icns",
+                },
+            },
         },
     },
     chainWebpack(config) {

@@ -69,12 +69,25 @@ module.exports = {
             mainProcessWatch: ["src/client", "src/web"],
             outputDir: "build/client",
             builderOptions: {
+                productName: "HOPE.UI",
                 win: {
-                    icon: "src/client/icons/icon.ico", //安装包图标
+                    icon: "src/client/icons/icon.ico",
+                    target: ["zip", "nsis"],
                 },
 
                 mac: {
                     icon: "src/client/icons/icon.icns",
+                    target: ["zip", "dmg"],
+                },
+                nsis: {
+                    oneClick: false,
+                    allowElevation: true,
+                    allowToChangeInstallationDirectory: true,
+                    installerIcon: "src/client/icons/icon.ico",
+                    uninstallerIcon: "src/client/icons/icon.ico",
+                    installerHeaderIcon: "src/client/icons/icon.ico",
+                    createDesktopShortcut: true,
+                    createStartMenuShortcut: true,
                 },
             },
         },

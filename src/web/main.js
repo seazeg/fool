@@ -9,7 +9,7 @@ import http from "./utils/request.js";
 import "./utils/directive";
 import "./registerServiceWorker";
 import ElementUI from "element-ui";
-import Navigation from "vue-navigation";
+// Navigation
 import VueClipboard from "vue-clipboard2";
 import $ from "jquery";
 import egu from "eg-utils";
@@ -25,10 +25,10 @@ import "./styles/theme.less";
 import "./styles/controls.less";
 
 Vue.use(ElementUI);
-Vue.use(Navigation, {
-    router,
-    store,
-});
+// Vue.use(Navigation, {
+//     router,
+//     store,
+// });
 Vue.use(VueClipboard);
 Vue.component(draggable.name, draggable);
 

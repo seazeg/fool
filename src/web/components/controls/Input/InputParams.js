@@ -1,6 +1,7 @@
+import {utils} from '../../../utils/utils.js'
 let basis = {
-    mainColor: "rgb(65, 184, 131)",
-    subColor: "rgb(165, 184, 131)",
+    mainColor: utils.getRandomColor(),
+    subColor: utils.getRandomColor(),
 };
 export const InputParams = {
     name: "文本框",

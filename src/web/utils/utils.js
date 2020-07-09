@@ -1,3 +1,4 @@
+import $egu from "eg-utils";
 export const utils = {
     cssFormat: function(s) {
         //格式化代码
@@ -33,16 +34,18 @@ export const utils = {
     filterParamsZero(css) {
         let res = "";
         let filterList = [
-            "padding-left:0px;",
-            "padding-right:0px;",
-            "padding-top:0px;",
-            "padding-bottom:0px;",
-            "margin-left:0px;",
-            "margin-right:0px;",
-            "margin-top:0px;",
-            "margin-bottom:0px;",
-            "animation-name:;",
+            /padding-left:0px;/g,
+            /padding-right:0px;/g,
+            /padding-top:0px;/g,
+            /padding-bottom:0px;/g,
+            /margin-left:0px;/g,
+            /margin-right:0px;/g,
+            /margin-top:0px;/g,
+            /margin-bottom:0px;/g,
+            /animation-name:;/g,
+            /background-image:;/g,
         ];
+
         for (let ft of filterList) {
             if (res) {
                 res = res.replace(ft, "");
@@ -51,6 +54,12 @@ export const utils = {
             }
         }
         return res;
+    },
+    getRandomColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgba(" + r + "," + g + "," + b + ",1)";
     },
     getEndEffect(s, e) {
         let _this = this;

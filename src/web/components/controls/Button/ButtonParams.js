@@ -1,6 +1,7 @@
+import {utils} from '../../../utils/utils.js'
 let basis = {
-    mainColor: "rgba(65, 184, 131, 1)",
-    subColor: "rgba(165, 184, 131, 1)",
+    mainColor: utils.getRandomColor(),
+    subColor: utils.getRandomColor(),
 };
 export const ButtonParams = {
     name: "按钮",

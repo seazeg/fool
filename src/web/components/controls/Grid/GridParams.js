@@ -1,7 +1,3 @@
-let basis = {
-    mainColor: "rgb(65, 184, 131)",
-    subColor: "rgb(165, 184, 131)",
-};
 export const GridParams = {
     g_2: {
         name: "双栏",

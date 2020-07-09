@@ -30,7 +30,6 @@ export default {
     name: "gradientColorPicker",
     data() {
         return {
-            // result: "",
             colorPickerDisplay: false,
         };
     },
@@ -49,23 +48,27 @@ export default {
                         0,
                         this.color.replace("linear-gradient(", "").length - 1
                     )
-                    .split("rgba");
+                    .split("rgb");
 
                 for (let p of temp) {
-                    let [r, g, b, a] = $egu
+                    let [rgba, r, g, b, a] = $egu
                         .trim(p, "all")
                         .match(
                             /(?<=\()(\d+),(\d+),(\d+),((?:0?\.\d+)|1)(?=\))/
                         );
-
                     points.push({
-                        left: $egu.trim(p, "all").split(")")[1],
-                        red: r,
-                        green: g,
-                        blue: b,
-                        alpha: a,
+                        left: parseFloat($egu.trim(p, "all").split(")")[1]),
+                        red: +r,
+                        green: +g,
+                        blue: +b,
+                        alpha: +a,
                     });
                 }
+                console.log({
+                    type: "linear",
+                    degree: parseInt(deg),
+                    points: points,
+                });
                 return {
                     type: "linear",
                     degree: parseInt(deg),
@@ -103,6 +106,7 @@ export default {
             this.colorPickerDisplay = true;
         },
         onChange(attrs, name) {
+            console.log("jieguo", attrs);
             this.$store.commit("Hope/UpdateControlParams", {
                 backgroundImage: attrs.style,
                 isDiff: "same",

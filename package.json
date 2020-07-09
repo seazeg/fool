@@ -34,7 +34,7 @@
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-clipboard2": "^0.3.1",
-    "vue-color-gradient-picker": "^0.1.11",
+    "vue-color-gradient-picker": "^0.1.2",
     "vue-router": "^3.0.3",
     "vuedraggable": "^2.23.2",
     "vuex": "^3.0.1",

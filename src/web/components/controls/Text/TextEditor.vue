@@ -15,8 +15,7 @@
                 @click="visualNodeRemove()"
                 icon="el-icon-delete-solid"
                 size="mini"
-                ></el-button
-            >
+            ></el-button>
         </div>
         <div class="control_group">
             <div class="box">
@@ -25,6 +24,7 @@
                     <el-input
                         v-model="selectedControl.name"
                         placeholder="请输入名称"
+                        type="textarea"
                     ></el-input>
                 </p>
             </div>
@@ -51,12 +51,65 @@
                     ></el-switch>
                 </span>
                 <p>
-                    <el-slider
-                        :show-tooltip="false"
+                    <el-select
                         v-model="width"
+                        placeholder="特殊选择项"
+                        class="fixed"
+                        clearable
+                    >
+                        <el-option
+                            v-for="item in generalStyleOption"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
+                        >
+                        </el-option>
+                    </el-select>
+                    <el-slider
+                        v-model="width"
+                        :show-tooltip="false"
                         :min="1"
-                        :max="selectedControl.spcConfig.isPer.width?100:500"
+                        :max="selectedControl.spcConfig.isPer.width ? 100 : 500"
                         show-input
+                        :step="0.1"
+                        v-if="/\d/.test(width)"
+                    ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field"
+                    >高度（height）
+                    <el-switch
+                        class="fr"
+                        v-model="selectedControl.spcConfig.isPer.height"
+                        active-text="百分比"
+                        active-color="#13ce66"
+                    ></el-switch>
+                </span>
+                <p>
+                    <el-select
+                        v-model="height"
+                        placeholder="特殊选择项"
+                        class="fixed"
+                        clearable
+                    >
+                        <el-option
+                            v-for="item in generalStyleOption"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
+                        >
+                        </el-option>
+                    </el-select>
+                    <el-slider
+                        v-model="height"
+                        :min="1"
+                        :max="
+                            selectedControl.spcConfig.isPer.height ? 100 : 500
+                        "
+                        show-input
+                        :step="0.1"
+                        v-if="/\d/.test(height)"
                     ></el-slider>
                 </p>
             </div>
@@ -472,6 +525,7 @@ export default {
         borderStyleOption: [Array, Object],
         animationOption: [Array, Object],
         fontStyleOption: [Array, Object],
+        generalStyleOption: [Array, Object],
     },
     computed: {
         selectedControl() {

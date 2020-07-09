@@ -62,7 +62,8 @@ export const handle = {
                     func(ele.children);
                 }
             }
-            return utils.cssFormat(css);
+
+            return utils.cssFormat(utils.filterParamsZero(css));
         })(controls);
     },
     dragEndMethod: (vue, ele) => {},

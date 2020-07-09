@@ -30,6 +30,28 @@ export const utils = {
         });
         return css;
     },
+    filterParamsZero(css) {
+        let res = "";
+        let filterList = [
+            "padding-left:0px;",
+            "padding-right:0px;",
+            "padding-top:0px;",
+            "padding-bottom:0px;",
+            "margin-left:0px;",
+            "margin-right:0px;",
+            "margin-top:0px;",
+            "margin-bottom:0px;",
+            "animation-name:;",
+        ];
+        for (let ft of filterList) {
+            if (res) {
+                res = res.replace(ft, "");
+            } else {
+                res = css.replace(ft, "");
+            }
+        }
+        return res;
+    },
     getEndEffect(s, e) {
         let _this = this;
         let style = _this.json2css(s).split(";"),
@@ -42,5 +64,5 @@ export const utils = {
                 }
             })
             .join(";");
-    }
+    },
 };

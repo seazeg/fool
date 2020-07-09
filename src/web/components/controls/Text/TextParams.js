@@ -12,7 +12,7 @@ export const TextParams = {
             width: true,
             height: true,
         },
-        isAutoLineHeight: true,
+        isAutoLineHeight: false,
     },
     event: "hover",
     defaultClass: "hope_text",

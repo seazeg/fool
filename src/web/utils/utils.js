@@ -1,6 +1,6 @@
 import $egu from "eg-utils";
 export const utils = {
-    cssFormat: function(s) {
+    cssFormat: function (s) {
         //格式化代码
         s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
         s = s.replace(/;\s*;/g, ";"); //清除连续分号
@@ -10,7 +10,7 @@ export const utils = {
         s = s.replace(/([^\s]);([^\s\}])/g, "$1;\n\t$2");
         return s;
     },
-    cssPack: function(s) {
+    cssPack: function (s) {
         //压缩代码
         s = s.replace(/\/\*(.|\n)*?\*\//g, ""); //删除注释
         s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
@@ -19,14 +19,14 @@ export const utils = {
         s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/); //去掉首尾空白
         return s == null ? "" : s[1];
     },
-    hump2Hyphen: function(s) {
+    hump2Hyphen: function (s) {
         return s.replace(/([A-Z])/g, "-$1").toLowerCase();
     },
     json2css(json) {
         let _this = this;
         let css = "";
 
-        Object.keys(json).forEach(function(key) {
+        Object.keys(json).forEach(function (key) {
             css += `${_this.hump2Hyphen(key)}:${json[key]};`;
         });
         return css;
@@ -56,10 +56,19 @@ export const utils = {
         return res;
     },
     getRandomColor() {
-        var r = Math.floor(Math.random() * 256);
-        var g = Math.floor(Math.random() * 256);
-        var b = Math.floor(Math.random() * 256);
+        let r = Math.floor(Math.random() * 256),
+            g = Math.floor(Math.random() * 256),
+            b = Math.floor(Math.random() * 256);
         return "rgba(" + r + "," + g + "," + b + ",1)";
+    },
+    getRandomName(n) {
+        let chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        let res = "";
+        for (let i = 0; i < n; i++) {
+            let id = Math.ceil(Math.random() * 35);
+            res += chars[id];
+        }
+        return res;
     },
     getEndEffect(s, e) {
         let _this = this;

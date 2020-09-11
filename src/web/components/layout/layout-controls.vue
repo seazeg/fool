@@ -78,6 +78,7 @@
 </template>
 <script>
 import _ from "lodash";
+import { utils } from '../../utils/utils.js'
 import { ButtonParams } from "../controls/Button/ButtonParams";
 import { GridParams } from "../controls/Grid/GridParams";
 import { TextParams } from "../controls/Text/TextParams";
@@ -114,6 +115,7 @@ export default {
             (function func(cls) {
                 for (let ele of cls) {
                     _this.$set(ele, "id", $egu.guid());
+                    // _this.$set(ele,"customClass",utils.getRandomName(6))
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }

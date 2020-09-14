@@ -21,7 +21,7 @@
             :is="ele.label"
             :ele="ele"
             @choose="choose(ele)"
-            :class="{ selected: ele.isSelected }"
+            :class="[{ selected: ele.isSelected }, ele.id]"
         >
             <layout-draggable
                 v-if="ele.children"
@@ -47,6 +47,7 @@ export default {
     methods: {
         choose(e) {
             this.$store.commit("Hope/ResetControlSelected");
+            console.log(e);
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         change(e) {
@@ -62,7 +63,7 @@ export default {
                         let cols = parseInt(value);
                         for (let i = 0; i < cols; i++) {
                             e.added.element.children.push({
-                                name: `${cols}_${i+1}`,
+                                name: `${cols}_${i + 1}`,
                                 label: "hope_grid",
                                 id: $egu.guid(),
                                 icon: "icon-anniu",
@@ -100,6 +101,8 @@ export default {
                     })
                     .catch(() => {});
             } else {
+                console.log(e.added.element);
+
                 try {
                     this.$store.commit("Hope/ResetControlSelected");
                     this.$store.commit(

@@ -8,23 +8,9 @@ export const fields = {
             }
         },
         set(value) {
-            let isDiff = "px";
-            if (typeof value == "number") {
-                if (this.$store.state.selected.spcConfig.isPer.width) {
-                    isDiff = "per";
-                }
-            } else {
-                isDiff = "same";
-            }
-            this.$store.commit("Hope/UpdateControlParams", {
+            this.$store.commit("Hope/newUpdate", {
                 width: value,
-                isDiff: isDiff,
-                container: "style",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                width: value,
-                isDiff: isDiff,
-                container: "effect",
+                isDiff: "px",
             });
         },
     },
@@ -37,55 +23,25 @@ export const fields = {
             }
         },
         set(value) {
-            let isDiff = "px";
-            let lineHeight = value;
-            if (typeof value == "number") {
-                if (this.$store.state.selected.spcConfig.isPer.height) {
-                    isDiff = "per";
-                }
-            } else {
-                isDiff = "same";
-                lineHeight = "normal";
-            }
-            this.$store.commit("Hope/UpdateControlParams", {
+            this.$store.commit("Hope/newUpdate", {
                 height: value,
-                isDiff: isDiff,
-                container: "style",
+                isDiff: "px",
             });
-            this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
-                isDiff: isDiff,
-                container: "effect",
+            this.$store.commit("Hope/newUpdate", {
+                top: value,
+                isDiff: "px",
             });
-            if (this.$store.state.selected.spcConfig.isAutoLineHeight) {
-                this.$store.commit("Hope/UpdateControlParams", {
-                    lineHeight: lineHeight,
-                    isDiff: isDiff,
-                    container: "style",
-                });
-                this.$store.commit("Hope/UpdateControlParams", {
-                    lineHeight: lineHeight,
-                    isDiff: isDiff,
-                    container: "effect",
-                });
-            }
         },
     },
     fontSize: {
         get() {
-            return parseInt(this.$store.state.selected.style.fontSize);
+            return parseInt(this.$store.state.selected.style['font-size']);
         },
         set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                fontSize: value,
+            this.$store.commit("Hope/newUpdate", {
+                "font-size": value,
                 isDiff: "px",
-                container: "style",
             });
-            // this.$store.commit("Hope/UpdateControlParams", {
-            //     lineHeight: value,
-            //     isDiff: "px",
-            //     container: "style",
-            // });
         },
     },
     lineHeight: {
@@ -173,22 +129,20 @@ export const fields = {
             return this.$store.state.selected.style.color;
         },
         set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
+            this.$store.commit("Hope/newUpdate", {
                 color: value,
                 isDiff: "same",
-                container: "style",
             });
         },
     },
     backgroundColor: {
         get() {
-            return this.$store.state.selected.style.backgroundColor;
+            return this.$store.state.selected.style['background-color'];
         },
         set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                backgroundColor: value,
+            this.$store.commit("Hope/newUpdate", {
+                "background-color": value,
                 isDiff: "same",
-                container: "style",
             });
         },
     },

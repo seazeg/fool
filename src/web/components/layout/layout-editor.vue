@@ -399,7 +399,7 @@ export default {
     watch: {
         selectedControl: {
             handler(n, o) {
-                this.codeListener();
+                // this.codeListener();
             },
             deep: true,
         },

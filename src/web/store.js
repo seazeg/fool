@@ -1,3 +1,9 @@
+/*
+ * @Author       : Evan.G
+ * @Date         : 2020-06-08 15:06:52
+ * @LastEditTime : 2020-09-14 17:36:36
+ * @Description  :
+ */
 import Vue from "vue";
 import Vuex from "vuex";
 import _ from "lodash";
@@ -10,6 +16,41 @@ export default new Vuex.Store({
         selected: {},
     },
     mutations: {
+        "Hope/newUpdate": (state, ele) => {
+            let styleSheet = state.selected.styleSheet;
+            let handler = (ele, isDiff) => {
+                Object.keys(styleSheet).forEach(function(key) {
+                    ele.key.forEach(function(item) {
+                        if (key == item) {
+                            Object.keys(styleSheet[key]).forEach(function(
+                                line
+                            ) {
+                                if (line == Object.keys(ele)[0]) {
+                                    styleSheet[key][line] =
+                                        ele[Object.keys(ele)[0]] + isDiff;
+                                }
+                            });
+                        }
+                    });
+                });
+            };
+            switch (ele.isDiff) {
+                case "px":
+                    handler(ele, "px");
+                    break;
+                case "time":
+                    handler(ele, "s");
+                    break;
+                case "per":
+                    handler(ele, "%");
+                    break;
+                case "same":
+                    handler(ele, "");
+                    break;
+                default:
+                    break;
+            }
+        },
         "Hope/ResetControlSelected": (state, eles) => {
             (function func(cls, state) {
                 for (let ele of cls) {

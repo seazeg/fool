@@ -1,28 +1,15 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-14 17:28:49
+ * @LastEditTime : 2020-09-15 15:43:04
  * @Description  :
  */
-import { utils } from "../../../utils/utils.js";
-let basis = {
-    mainColor: utils.getRandomColor(),
-    subColor: utils.getRandomColor(),
-};
-export const ButtonParams = {
-    name: "按钮",
-    label: "hope_button",
+export const SelectorParams = {
+    name: "下拉框",
+    label: "hope_selector",
     icon: "icon-anniu",
     isSelected: false,
-    spcConfig: {
-        isPer: {
-            width: false,
-            height: false,
-        },
-        isAutoLineHeight: true,
-    },
-    event: "hover",
-    defaultClass: "hope_button",
+    defaultClass: "",
     customClass: "",
     styleSheet: {
         ".hopeui-form-select": {
@@ -50,8 +37,13 @@ export const ButtonParams = {
             "background-color": "#ff7400",
             color: "#fff",
         },
+        ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this:hover": {
+            "background-color": "#ff7400",
+            color: "#fff",
+        },
         ".hopeui-form-select .hopeui-select-list .option:hover": {
             "background-color": "#f2f2f2",
+            color: "#333",
         },
         ".hopeui-form-select .hopeui-select-list .groupTitle": {
             "font-size": "12px",

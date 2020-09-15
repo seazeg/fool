@@ -1,3 +1,9 @@
+<!--
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 11:49:06
+ * @LastEditTime : 2020-09-15 15:36:15
+ * @Description  : 
+-->
 <template>
     <div>
         <div @click.stop="choose" style="color:#fff">选中我</div>
@@ -23,17 +29,9 @@
 </template>
 
 <script>
-function json2css(json) {
-    return JSON.stringify(json, 4)
-        .slice(1, JSON.stringify(json).length - 1)
-        .replace(new RegExp(",", "gm"), ";")
-        .replace(new RegExp("};", "gm"), "}")
-        .replace(new RegExp('"', "gm"), "")
-        .replace(/:{/gi, "{");
-}
-
+import { utils } from "../../../utils/utils.js";
 export default {
-    name: "hope_button",
+    name: "hope_selector",
     data() {
         return {
             isHover: false,
@@ -44,7 +42,13 @@ export default {
     },
     computed: {
         style() {
-            return `<style>${json2css(this.ele.styleSheet)}</style>`;
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
         },
     },
     methods: {
@@ -61,9 +65,9 @@ export default {
     mounted() {
         let _this = this;
 
-        this.$nextTick(function() {
+        _this.$nextTick(function() {
             let select_normal = hope.selector({
-                ele: "#" + this.ele.id,
+                ele: "#" + _this.ele.id,
                 on: {
                     change: function(e) {
                         console.log(e);

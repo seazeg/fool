@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2020-09-14 17:36:36
+ * @LastEditTime : 2020-09-15 14:47:57
  * @Description  :
  */
 import Vue from "vue";
@@ -16,7 +16,7 @@ export default new Vuex.Store({
         selected: {},
     },
     mutations: {
-        "Hope/newUpdate": (state, ele) => {
+        "Hope/UpdateControlParams": (state, ele) => {
             let styleSheet = state.selected.styleSheet;
             let handler = (ele, isDiff) => {
                 Object.keys(styleSheet).forEach(function(key) {
@@ -98,34 +98,34 @@ export default new Vuex.Store({
                 });
             })(state.controls, id, state);
         },
-        "Hope/UpdateControlParams": (state, ele) => {
-            if (Object.keys(ele)[0] == ele.container) {
-                state.selected[ele.container] = ele[Object.keys(ele)[0]];
-            } else {
-                switch (ele.isDiff) {
-                    case "px":
-                        state.selected[ele.container][Object.keys(ele)[0]] =
-                            ele[Object.keys(ele)[0]] + "px";
-                        break;
-                    case "time":
-                        state.selected[ele.container][Object.keys(ele)[0]] =
-                            ele[Object.keys(ele)[0]] + "s";
-                        break;
-                    case "per":
-                        state.selected[ele.container][Object.keys(ele)[0]] =
-                            ele[Object.keys(ele)[0]] + "%";
-                        break;
-                    case "same":
-                        state.selected[ele.container][Object.keys(ele)[0]] =
-                            ele[Object.keys(ele)[0]];
-                        break;
-                    default:
-                        break;
-                }
-            }
-            state.selected[ele.container] = _.cloneDeep(
-                state.selected[ele.container]
-            );
-        },
+        // "Hope/UpdateControlParams": (state, ele) => {
+        //     if (Object.keys(ele)[0] == ele.container) {
+        //         state.selected[ele.container] = ele[Object.keys(ele)[0]];
+        //     } else {
+        //         switch (ele.isDiff) {
+        //             case "px":
+        //                 state.selected[ele.container][Object.keys(ele)[0]] =
+        //                     ele[Object.keys(ele)[0]] + "px";
+        //                 break;
+        //             case "time":
+        //                 state.selected[ele.container][Object.keys(ele)[0]] =
+        //                     ele[Object.keys(ele)[0]] + "s";
+        //                 break;
+        //             case "per":
+        //                 state.selected[ele.container][Object.keys(ele)[0]] =
+        //                     ele[Object.keys(ele)[0]] + "%";
+        //                 break;
+        //             case "same":
+        //                 state.selected[ele.container][Object.keys(ele)[0]] =
+        //                     ele[Object.keys(ele)[0]];
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //     }
+        //     state.selected[ele.container] = _.cloneDeep(
+        //         state.selected[ele.container]
+        //     );
+        // },
     },
 });

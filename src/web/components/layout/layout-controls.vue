@@ -79,7 +79,7 @@
 <script>
 import _ from "lodash";
 import { utils } from "../../utils/utils.js";
-import { ButtonParams } from "../controls/Button/ButtonParams";
+import { SelectorParams } from "../controls/Selector/SelectorParams";
 import { GridParams } from "../controls/Grid/GridParams";
 import { TextParams } from "../controls/Text/TextParams";
 import { RadioParams } from "../controls/Radio/RadioParams";
@@ -100,7 +100,7 @@ export default {
         },
         controls() {
             return [
-                ButtonParams,
+                SelectorParams,
                 InputParams,
                 ImagerParams,
                 RadioParams,

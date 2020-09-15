@@ -3,7 +3,7 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('button')
+                selectedControl.label.includes('selector')
         "
     >
         <!-- 基础属性 -->
@@ -19,7 +19,7 @@
         </div>
         <div class="control_group">
             <div class="box">
-                <span class="field">宽度（width）</span>
+                <span class="field">宽度</span>
                 <p>
                     <el-slider
                         v-model="width"
@@ -30,8 +30,8 @@
                     ></el-slider>
                 </p>
             </div>
-            <!-- <div class="box">
-                <span class="field">高度（height）</span>
+            <div class="box">
+                <span class="field">高度</span>
                 <p>
                     <el-slider
                         v-model="height"
@@ -41,35 +41,9 @@
                         :step="1"
                     ></el-slider>
                 </p>
-            </div> -->
-            <div class="box">
-                <span class="field">选中背景颜色</span>
-                <p class="group">
-                    <el-color-picker
-                        v-model="selectBG"
-                        color-format="hex"
-                    ></el-color-picker>
-                    <el-input
-                        v-model="selectBG"
-                        placeholder="请选择色号"
-                    ></el-input>
-                </p>
-            </div>
-            <!-- <div class="box">
-                <span class="field">字体颜色（color）</span>
-                <p class="group">
-                    <el-color-picker
-                        v-model="color"
-                        color-format="hex"
-                    ></el-color-picker>
-                    <el-input
-                        v-model="color"
-                        placeholder="请选择色号"
-                    ></el-input>
-                </p>
             </div>
             <div class="box">
-                <span class="field">字体大小（fontSize）</span>
+                <span class="field">字体大小</span>
                 <p>
                     <el-slider
                         v-model="fontSize"
@@ -79,19 +53,81 @@
                         :step="1"
                     ></el-slider>
                 </p>
-            </div> -->
+            </div>
+            <div class="box">
+                <span class="field">常态字体颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="color"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="color"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">选中背景颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="selectBg"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="selectBg"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">选中字体颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="selectColor"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="selectColor"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">hover背景颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="hoverBg"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="hoverBg"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">hover字体颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="hoverColor"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="hoverColor"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import { fields } from "./fields.js";
-import GradientPicker from "../../plugins/gradientColorPicker.vue";
+
 export default {
-    name: "ButtonEditor",
-    components: {
-        GradientPicker,
-    },
+    name: "SelectorEditor",
     props: {
         borderStyleOption: [Array, Object],
         animationOption: [Array, Object],

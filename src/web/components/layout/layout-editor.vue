@@ -104,12 +104,12 @@
             </el-tree>
         </el-drawer>
 
-        <ButtonEditor
+        <SelectorEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
-        ></ButtonEditor>
+        ></SelectorEditor>
         <GridEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"

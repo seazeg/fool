@@ -1,3 +1,9 @@
+/*
+ * @Author       : Evan.G
+ * @Date         : 2020-05-13 16:31:05
+ * @LastEditTime : 2020-09-15 15:31:26
+ * @Description  : 
+ */
 import $egu from "eg-utils";
 export const utils = {
     cssFormat: function (s) {
@@ -19,17 +25,13 @@ export const utils = {
         s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/); //去掉首尾空白
         return s == null ? "" : s[1];
     },
-    hump2Hyphen: function (s) {
-        return s.replace(/([A-Z])/g, "-$1").toLowerCase();
-    },
     json2css(json) {
-        let _this = this;
-        let css = "";
-
-        Object.keys(json).forEach(function (key) {
-            css += `${_this.hump2Hyphen(key)}:${json[key]};`;
-        });
-        return css;
+        return JSON.stringify(json, 4)
+            .slice(1, JSON.stringify(json).length - 1)
+            .replace(new RegExp(",", "gm"), ";")
+            .replace(new RegExp("};", "gm"), "}")
+            .replace(new RegExp('"', "gm"), "")
+            .replace(/:{/gi, "{");
     },
     filterParamsZero(css) {
         let res = "";

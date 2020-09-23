@@ -1,40 +1,66 @@
 <template>
-    <input
-        type="text"
-        class="hope_input"
-        :class="ele.customClass"
-        :custom-class="ele.customClass"
-        :style="isFocus ? ele.effect : ele.style"
-        @click.stop="choose"
-        @focus.stop="focus"
-        @blur.stop="blur"
-        v-model="ele.name"
-        :placeholder="ele.placeholder"
-    >
-    </input>
+    <div>
+        <div @click.stop="choose" style="color:#111">选中我</div>
+        <div v-html="style"></div>
+        <input name="text" type="text" placeholder="请输入文本" value="" class="hopeui-input input_normal"
+            hope-verify="required" :id="ele.id"/>
+    </div>
 </template>
 
 <script>
-export default {
-    name: "hope_input",
-    data() {
-        return {
-            isFocus: false,
-        }
-    },
-    props: {
-        ele: [Array, Object],
-    },
-    methods: {
-        choose() {
-            this.$emit("choose", this.ele);
+    import {
+        utils
+    } from "../../../utils/utils.js";
+    export default {
+        name: "hope_input",
+        data() {
+            return {
+                isHover: false,
+            };
         },
-        focus() {
-            this.isFocus = true;
+        props: {
+            ele: [Array, Object],
         },
-        blur() {
-            this.isFocus = false;
+        computed: {
+            style() {
+                let styleSheet = this.ele.styleSheet;
+                let root = this.ele.id;
+                let res = {};
+                Object.keys(styleSheet).forEach(function (line) {
+                    res[`.${root} ${line}`] = styleSheet[line];
+                });
+                return `<style>${utils.json2css(res)}</style>`;
+            },
         },
-    }
-};
+        methods: {
+            choose() {
+                this.$emit("choose", this.ele);
+            },
+            enter() {
+                this.isHover = true;
+            },
+            leave() {
+                this.isHover = false;
+            },
+        },
+        mounted() {
+            let _this = this;
+            _this.$nextTick(function () {
+                let radio = hope.input({
+                    ele: "#" + _this.ele.id,
+                    on: {
+                        blur: function (e) {
+                            console.log(e);
+                        },
+                        focus: function (e) {
+                            console.log(e);
+                        },
+                        input: function (e) {
+                            console.log(e);
+                        },
+                    },
+                });
+            });
+        },
+    };
 </script>

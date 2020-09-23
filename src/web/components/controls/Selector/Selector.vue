@@ -1,12 +1,12 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 11:49:06
- * @LastEditTime : 2020-09-15 15:36:15
+ * @LastEditTime : 2020-09-23 10:24:29
  * @Description  : 
 -->
 <template>
     <div>
-        <div @click.stop="choose" style="color:#fff">选中我</div>
+        <div @click.stop="choose" style="color:#111">选中我</div>
         <div v-html="style"></div>
         <select
             name="city"

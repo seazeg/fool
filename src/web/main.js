@@ -1,3 +1,9 @@
+/*
+ * @Author       : Evan.G
+ * @Date         : 2020-05-18 15:06:51
+ * @LastEditTime : 2020-09-23 10:20:00
+ * @Description  : 
+ */
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -21,6 +27,7 @@ import "./styles/base.less";
 import "animate.css";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/icons/fonts/iconfont.css";
+import "./assets/icons/fonts/hopeui/hopefont.css";
 import "./styles/theme.less";
 import "./styles/controls.less";
 

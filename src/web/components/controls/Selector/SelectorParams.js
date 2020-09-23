@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-15 15:43:04
+ * @LastEditTime : 2020-09-23 09:47:26
  * @Description  :
  */
 export const SelectorParams = {
@@ -42,8 +42,7 @@ export const SelectorParams = {
             color: "#fff",
         },
         ".hopeui-form-select .hopeui-select-list .option:hover": {
-            "background-color": "#f2f2f2",
-            color: "#333",
+            "background-color": "#f2f2f2"
         },
         ".hopeui-form-select .hopeui-select-list .groupTitle": {
             "font-size": "12px",

@@ -1,27 +1,32 @@
-import {utils} from '../../../utils/utils.js'
-let basis = {
-    mainColor: utils.getRandomColor(),
-    subColor: utils.getRandomColor(),
-};
+/*
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 10:59:23
+ * @LastEditTime : 2020-09-23 10:55:56
+ * @Description  :
+ */
 export const RadioParams = {
     name: "单选框",
     label: "hope_radio",
     icon: "icon-anniu",
     isSelected: false,
-    spcConfig:{
-        isPer: {
-            width: true,
-            height: true,
-        },
-        isAutoLineHeight: true,
-    },
-    event: "",
-    defaultClass: "hope_radio",
+    defaultClass: "",
     customClass: "",
-    style: {
-        width: "100px",
-        color: "rgb(255,255,255)",
-        fontSize: "16px",
+    styleSheet: {
+        ".hopeui-form-radio *": {
+            "font-size": "14px",
+        },
+        ".hopeui-form-radio i": {
+            "font-size": "20px",
+            color: "#c2c2c2"
+        },
+        ".hopeui-form-radio.hopeui-form-radio": {
+            color: "#666",
+        },
+        ".hopeui-form-radio.hopeui-form-radio > i:hover": {
+            color: "#ff7400",
+        },
+        ".hopeui-form-radio.hopeui-form-radioed > i": {
+            color: "#ff7400",
+        },
     },
-    effect: { width: "100px", color: basis.mainColor, fontSize: "16px" },
 };

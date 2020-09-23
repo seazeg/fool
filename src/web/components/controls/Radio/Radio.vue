@@ -1,35 +1,74 @@
+<!--
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 10:59:23
+ * @LastEditTime : 2020-09-23 13:40:32
+ * @Description  : 
+-->
+<!--
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 11:49:06
+ * @LastEditTime : 2020-09-23 10:34:19
+ * @Description  : 
+-->
 <template>
-    <div
-        class="hope_radio"
-        :class="ele.customClass"
-        :custom-class="ele.customClass"
-        @click.stop="choose"
-        :style="isCLick ? ele.effect : ele.style"
-    >
-        <i class="iconfont icon-plus-unradio" :class="{'icon-plus-radio':isCLick}"></i>
-        <span class="label">{{ ele.name }}</span>
+    <div>
+        <div @click.stop="choose" style="color:#111">选中我</div>
+        <div v-html="style"></div>
+        <input type="radio" name="radio" value="男" title="男" :class="ele.id" hope-verify="required" checked />
+        <input type="radio" name="radio" value="女" title="女" :class="ele.id" hope-verify="required" />
+        <input type="radio" name="radio" value="什么玩意" title="什么玩意" :class="ele.id" hope-verify="required" disabled />
     </div>
 </template>
 
 <script>
-export default {
-    name: "hope_radio",
-    data() {
-        return {
-            isCLick: false,
-        };
-    },
-    props: {
-        ele: [Array, Object],
-    },
-    methods: {
-        choose() {
-            this.click();
-            this.$emit("choose", this.ele);
+    import {
+        utils
+    } from "../../../utils/utils.js";
+    export default {
+        name: "hope_radio",
+        data() {
+            return {
+                isHover: false,
+            };
         },
-        click() {
-            this.isCLick = !this.isCLick;
+        props: {
+            ele: [Array, Object],
         },
-    },
-};
+        computed: {
+            style() {
+                let styleSheet = this.ele.styleSheet;
+                let root = this.ele.id;
+                let res = {};
+                Object.keys(styleSheet).forEach(function (line) {
+                    res[`.${root} ${line}`] = styleSheet[line];
+                });
+                return `<style>${utils.json2css(res)}</style>`;
+            },
+        },
+        methods: {
+            choose() {
+                this.$emit("choose", this.ele);
+            },
+            enter() {
+                this.isHover = true;
+            },
+            leave() {
+                this.isHover = false;
+            },
+        },
+        mounted() {
+            let _this = this;
+
+            _this.$nextTick(function () {
+                let radio = hope.radio({
+                    ele: "." + _this.ele.id,
+                    on: {
+                        change: function (e) {
+                            console.log(e);
+                        },
+                    },
+                });
+            });
+        },
+    };
 </script>

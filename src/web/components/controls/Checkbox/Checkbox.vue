@@ -1,16 +1,17 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 15:54:26
+ * @LastEditTime : 2020-09-23 16:11:04
  * @Description  : 
 -->
 <template>
     <div>
         <div @click.stop="choose" style="color:#111">选中我</div>
         <div v-html="style"></div>
-        <input type="radio" name="radio" value="男" title="男" :class="ele.id" hope-verify="required" checked />
-        <input type="radio" name="radio" value="女" title="女" :class="ele.id" hope-verify="required" />
-        <input type="radio" name="radio" value="什么玩意" title="什么玩意" :class="ele.id" hope-verify="required" disabled />
+        <input type="checkbox" name="subject" value="音乐" hope-verify="required" :class="ele.id" />
+        <input type="checkbox" name="subject" value="历史" hope-verify="required" :class="ele.id" />
+        <input type="checkbox" name="subject" value="生物" hope-verify="required" :class="ele.id" disabled />
+
     </div>
 </template>
 
@@ -19,7 +20,7 @@
         utils
     } from "../../../utils/utils.js";
     export default {
-        name: "hope_radio",
+        name: "hope_checkbox",
         data() {
             return {
                 isHover: false,
@@ -54,7 +55,7 @@
             let _this = this;
 
             _this.$nextTick(function () {
-                let radio = hope.radio({
+                let checkbox = hope.checkbox({
                     ele: "." + _this.ele.id,
                     on: {
                         change: function (e) {

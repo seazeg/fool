@@ -81,11 +81,9 @@ import _ from "lodash";
 import { utils } from "../../utils/utils.js";
 import { SelectorParams } from "../controls/Selector/SelectorParams";
 import { GridParams } from "../controls/Grid/GridParams";
-import { TextParams } from "../controls/Text/TextParams";
 import { RadioParams } from "../controls/Radio/RadioParams";
 import { InputParams } from "../controls/Input/InputParams";
-import { ImagerParams } from "../controls/Imager/ImagerParams";
-import { BoxParams } from "../controls/Box/BoxParams";
+import { CheckboxParams } from "../controls/Checkbox/CheckboxParams";
 
 export default {
     name: "layout-controls",
@@ -102,10 +100,8 @@ export default {
             return [
                 SelectorParams,
                 InputParams,
-                ImagerParams,
                 RadioParams,
-                TextParams,
-                BoxParams,
+                CheckboxParams
             ];
         },
     },

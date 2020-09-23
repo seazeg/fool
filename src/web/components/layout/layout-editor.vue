@@ -122,30 +122,18 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></InputEditor>
-        <ImagerEditor
-            :animationOption="animationOption"
-            :borderStyleOption="borderStyleOption"
-            :fontStyleOption="fontStyleOption"
-            :generalStyleOption="generalStyleOption"
-        ></ImagerEditor>
         <RadioEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></RadioEditor>
-        <TextEditor
+        <CheckboxEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
-        ></TextEditor>
-        <BoxEditor
-            :animationOption="animationOption"
-            :borderStyleOption="borderStyleOption"
-            :fontStyleOption="fontStyleOption"
-            :generalStyleOption="generalStyleOption"
-        ></BoxEditor>
+        ></CheckboxEditor>
     </div>
 </template>
 <script>
@@ -267,8 +255,8 @@ export default {
             ],
             generalStyleOption: [
                 {
-                    value:100,
-                    label: "默认数值化"
+                    value: 100,
+                    label: "默认数值化",
                 },
                 {
                     value: "auto",

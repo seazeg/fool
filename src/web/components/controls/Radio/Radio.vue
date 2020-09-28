@@ -1,16 +1,19 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 15:54:26
+ * @LastEditTime : 2020-09-23 17:19:22
  * @Description  : 
 -->
 <template>
-    <div>
-        <div @click.stop="choose" style="color:#111">选中我</div>
-        <div v-html="style"></div>
-        <input type="radio" name="radio" value="男" title="男" :class="ele.id" hope-verify="required" checked />
-        <input type="radio" name="radio" value="女" title="女" :class="ele.id" hope-verify="required" />
-        <input type="radio" name="radio" value="什么玩意" title="什么玩意" :class="ele.id" hope-verify="required" disabled />
+    <div class="controls_block">
+        <div class="controls_inner">
+            <div @click.stop="choose" class="controls_change hopeui-icon hopeui-icon-edit"></div>
+            <div v-html="style"></div>
+            <input type="radio" name="radio" value="男" title="男" :class="ele.id" hope-verify="required" checked />
+            <input type="radio" name="radio" value="女" title="女" :class="ele.id" hope-verify="required" />
+            <input type="radio" name="radio" value="什么玩意" title="什么玩意" :class="ele.id" hope-verify="required"
+                disabled />
+        </div>
     </div>
 </template>
 

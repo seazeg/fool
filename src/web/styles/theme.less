@@ -160,7 +160,7 @@ code {
 }
 .layout-container .el-tab-pane:first-child {
     // background: url("../assets/images/background_b.png");
-    background:#fff;
+    background: #fff;
 }
 
 .layout-container .view-box.preview {
@@ -174,10 +174,9 @@ code {
     text-transform: uppercase;
 }
 
-
-.layout-container .el-textarea__inner{
-    height:200px;
-    padding:10px 15px;
+.layout-container .el-textarea__inner {
+    height: 200px;
+    padding: 10px 15px;
 }
 
 .layout-container .el-button.is-active,
@@ -363,7 +362,7 @@ code {
     display: block;
     text-transform: capitalize;
     font-size: 14px;
-    color:#f2f2f2;
+    color: #f2f2f2;
 }
 
 .layout-container .edit .box p.group > div {
@@ -575,14 +574,6 @@ code {
     right: 0;
 }
 
-// *[class^="hope_"]{
-//     cursor: pointer;
-// }
-
-// .selected{
-//     box-shadow: 10px 10px 5px #888888;
-// }
-
 .theme-border {
     outline: 1px dashed #eee;
 }
@@ -591,4 +582,34 @@ code {
     width: 90px !important;
     height: 90px !important;
     line-height: 96px !important;
+}
+
+.layout-container .controls_block {
+    display: block;
+    .controls_inner {
+        position: relative;
+        padding: 20px 20px 20px 0;
+        display: inline-block;
+    }
+    .controls_change {
+        color: #666;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        border: 1px solid;
+        border-radius: 2px;
+        display: none;
+    }
+    &.selected {
+        .controls_change {
+            color: #ff7400;
+            display: block!important;
+        }
+    }
+    &:hover{
+        .controls_change{
+            display: block;
+        }
+    }
 }

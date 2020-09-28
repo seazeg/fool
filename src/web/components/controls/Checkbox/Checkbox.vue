@@ -1,17 +1,18 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 16:11:04
+ * @LastEditTime : 2020-09-23 17:36:55
  * @Description  : 
 -->
 <template>
-    <div>
-        <div @click.stop="choose" style="color:#111">选中我</div>
-        <div v-html="style"></div>
-        <input type="checkbox" name="subject" value="音乐" hope-verify="required" :class="ele.id" />
-        <input type="checkbox" name="subject" value="历史" hope-verify="required" :class="ele.id" />
-        <input type="checkbox" name="subject" value="生物" hope-verify="required" :class="ele.id" disabled />
-
+    <div class="controls_block">
+        <div class="controls_inner">
+            <div @click.stop="choose" class="controls_change hopeui-icon hopeui-icon-edit" ></div>
+            <div v-html="style"></div>
+            <input type="checkbox" name="subject" value="音乐" hope-verify="required" :class="ele.id" />
+            <input type="checkbox" name="subject" value="历史" hope-verify="required" :class="ele.id" />
+            <input type="checkbox" name="subject" value="生物" hope-verify="required" :class="ele.id" disabled />
+        </div>
     </div>
 </template>
 
@@ -43,13 +44,7 @@
         methods: {
             choose() {
                 this.$emit("choose", this.ele);
-            },
-            enter() {
-                this.isHover = true;
-            },
-            leave() {
-                this.isHover = false;
-            },
+            }
         },
         mounted() {
             let _this = this;

@@ -1,9 +1,17 @@
+<!--
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 11:49:06
+ * @LastEditTime : 2020-09-23 17:38:29
+ * @Description  : 
+-->
 <template>
-    <div>
-        <div @click.stop="choose" style="color:#111">选中我</div>
-        <div v-html="style"></div>
-        <input name="text" type="text" placeholder="请输入文本" value="" class="hopeui-input input_normal"
-            hope-verify="required" :id="ele.id"/>
+    <div class="controls_block">
+        <div class="controls_inner">
+            <div @click.stop="choose" class="controls_change hopeui-icon hopeui-icon-edit"></div>
+            <div v-html="style"></div>
+            <input name="text" type="text" placeholder="请输入文本" value="" class="hopeui-input input_normal"
+                hope-verify="required" :id="ele.id" />
+        </div>
     </div>
 </template>
 

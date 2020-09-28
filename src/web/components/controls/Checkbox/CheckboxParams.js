@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 17:03:18
+ * @LastEditTime : 2020-09-23 17:19:58
  * @Description  :
  */
 export const CheckboxParams = {
@@ -13,8 +13,6 @@ export const CheckboxParams = {
     customClass: "",
     styleSheet: {
         ".hopeui-form-checkbox": {
-            "min-width": "18px",
-            "min-height": "18px",
             "padding-left": "28px",
         },
         ".hopeui-form-checkbox:hover i": {

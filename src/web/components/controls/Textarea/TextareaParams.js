@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-28 15:32:09
+ * @LastEditTime : 2020-09-28 15:56:36
  * @Description  :
  */
 export const TextareaParams = {
@@ -39,5 +39,8 @@ export const TextareaParams = {
         "textarea::-ms-input-placeholder": {
             color: " #555",
         },
+        ".hopeui-placeholder":{
+            color: " #555",
+        }
     },
 };

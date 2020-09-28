@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-28 15:33:31
+ * @LastEditTime : 2020-09-28 15:57:06
  * @Description  :
  */
 export const fields = {
@@ -74,6 +74,7 @@ export const fields = {
                 color: value,
                 key: [
                     ".hopeui-textarea",
+                    ".hopeui-placeholder",
                     "textarea::-webkit-input-placeholder",
                     "textarea::-moz-placeholder",
                     "textarea::-ms-input-placeholder",

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-28 15:31:12
+ * @LastEditTime : 2020-09-28 15:58:15
  * @Description  :
  */
 export const fields = {
@@ -34,6 +34,11 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 "line-height": value - 2,
                 key: [".hopeui-input"],
+                isDiff: "px",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                "line-height": value - 2,
+                key: [".hopeui-placeholder"],
                 isDiff: "px",
             });
         },
@@ -79,6 +84,7 @@ export const fields = {
                 color: value,
                 key: [
                     ".hopeui-input",
+                    ".hopeui-placeholder",
                     "input::-webkit-input-placeholder",
                     "input::-moz-placeholder",
                     "input::-ms-input-placeholder",

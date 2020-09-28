@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 14:26:40
+ * @LastEditTime : 2020-09-28 15:57:40
  * @Description  :
  */
 export const InputParams = {
@@ -40,5 +40,9 @@ export const InputParams = {
         "input::-ms-input-placeholder": {
             color: " #555",
         },
+        ".hopeui-placeholder":{
+            color: " #555",
+            "line-height":"38px"
+        }
     },
 };

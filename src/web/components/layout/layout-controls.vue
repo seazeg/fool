@@ -84,6 +84,7 @@ import { GridParams } from "../controls/Grid/GridParams";
 import { RadioParams } from "../controls/Radio/RadioParams";
 import { InputParams } from "../controls/Input/InputParams";
 import { CheckboxParams } from "../controls/Checkbox/CheckboxParams";
+import { TextareaParams } from "../controls/Textarea/TextareaParams";
 
 export default {
     name: "layout-controls",
@@ -101,7 +102,8 @@ export default {
                 SelectorParams,
                 InputParams,
                 RadioParams,
-                CheckboxParams
+                CheckboxParams,
+                TextareaParams
             ];
         },
     },

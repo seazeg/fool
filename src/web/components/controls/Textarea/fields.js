@@ -1,20 +1,20 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-28 15:31:12
+ * @LastEditTime : 2020-09-28 15:33:31
  * @Description  :
  */
 export const fields = {
     width: {
         get() {
             return parseFloat(
-                this.$store.state.selected.styleSheet[".hopeui-input"].width
+                this.$store.state.selected.styleSheet[".hopeui-textarea"].width
             );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                key: [".hopeui-input"],
+                key: [".hopeui-textarea"],
                 isDiff: "px",
             });
         },
@@ -22,18 +22,13 @@ export const fields = {
     height: {
         get() {
             return parseFloat(
-                this.$store.state.selected.styleSheet[".hopeui-input"].height
+                this.$store.state.selected.styleSheet[".hopeui-textarea"].height
             );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 height: value,
-                key: [".hopeui-input"],
-                isDiff: "px",
-            });
-            this.$store.commit("Hope/UpdateControlParams", {
-                "line-height": value - 2,
-                key: [".hopeui-input"],
+                key: [".hopeui-textarea"],
                 isDiff: "px",
             });
         },
@@ -41,7 +36,7 @@ export const fields = {
     fontSize: {
         get() {
             return parseInt(
-                this.$store.state.selected.styleSheet[".hopeui-input"][
+                this.$store.state.selected.styleSheet[".hopeui-textarea"][
                     "font-size"
                 ]
             );
@@ -49,7 +44,7 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "font-size": value,
-                key: [".hopeui-input"],
+                key: [".hopeui-textarea"],
                 isDiff: "px",
             });
         },
@@ -57,7 +52,7 @@ export const fields = {
     borderRadius: {
         get() {
             return parseInt(
-                this.$store.state.selected.styleSheet[".hopeui-input"][
+                this.$store.state.selected.styleSheet[".hopeui-textarea"][
                     "border-radius"
                 ]
             );
@@ -65,23 +60,23 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "border-radius": value,
-                key: [".hopeui-input"],
+                key: [".hopeui-textarea"],
                 isDiff: "px",
             });
         },
     },
     color: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-input"].color;
+            return this.$store.state.selected.styleSheet[".hopeui-textarea"].color;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 color: value,
                 key: [
-                    ".hopeui-input",
-                    "input::-webkit-input-placeholder",
-                    "input::-moz-placeholder",
-                    "input::-ms-input-placeholder",
+                    ".hopeui-textarea",
+                    "textarea::-webkit-input-placeholder",
+                    "textarea::-moz-placeholder",
+                    "textarea::-ms-input-placeholder",
                 ],
                 isDiff: "same",
             });
@@ -89,7 +84,7 @@ export const fields = {
     },
     borderColor: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-input"][
+            return this.$store.state.selected.styleSheet[".hopeui-textarea"][
                 "border-color"
             ];
         },
@@ -97,7 +92,7 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 "border-color": value,
                 key: [
-                    ".hopeui-input"
+                    ".hopeui-textarea"
                 ],
                 isDiff: "same",
             });
@@ -105,28 +100,28 @@ export const fields = {
     },
     hoverBorderColor: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-input:hover"][
+            return this.$store.state.selected.styleSheet[".hopeui-textarea:hover"][
                 "border-color"
             ];
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "border-color": value,
-                key: [".hopeui-input:hover"],
+                key: [".hopeui-textarea:hover"],
                 isDiff: "same",
             });
         },
     },
     focusBorderColor: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-input:focus"][
+            return this.$store.state.selected.styleSheet[".hopeui-textarea:focus"][
                 "border-color"
             ];
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "border-color": value,
-                key: [".hopeui-input:focus"],
+                key: [".hopeui-textarea:focus"],
                 isDiff: "same",
             });
         },

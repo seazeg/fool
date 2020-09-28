@@ -134,6 +134,12 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></CheckboxEditor>
+        <TextareaEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></TextareaEditor>
     </div>
 </template>
 <script>

@@ -140,6 +140,18 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></TextareaEditor>
+        <TabEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></TabEditor>
+         <PagerEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></PagerEditor>
     </div>
 </template>
 <script>

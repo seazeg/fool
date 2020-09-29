@@ -85,6 +85,8 @@ import { RadioParams } from "../controls/Radio/RadioParams";
 import { InputParams } from "../controls/Input/InputParams";
 import { CheckboxParams } from "../controls/Checkbox/CheckboxParams";
 import { TextareaParams } from "../controls/Textarea/TextareaParams";
+import { TabParams } from "../controls/Tab/TabParams";
+import { PagerParams } from "../controls/Pager/PagerParams";
 
 export default {
     name: "layout-controls",
@@ -103,7 +105,9 @@ export default {
                 InputParams,
                 RadioParams,
                 CheckboxParams,
-                TextareaParams
+                TextareaParams,
+                TabParams,
+                PagerParams
             ];
         },
     },

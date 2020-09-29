@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 16:48:37
+ * @LastEditTime : 2020-09-29 09:21:29
  * @Description  : 
 -->
 <template>
@@ -23,21 +23,21 @@
                 </p>
             </div>
             <div class="box">
-                <span class="field">常态字体颜色{{color}}</span>
+                <span class="field">常态字体颜色</span>
                 <p class="group">
                     <el-color-picker v-model="color" color-format="hex"></el-color-picker>
                     <el-input v-model="color" placeholder="请选择色号"></el-input>
                 </p>
             </div>
             <div class="box">
-                <span class="field">常态图标颜色</span>
+                <span class="field">常态边框颜色</span>
                 <p class="group">
                     <el-color-picker v-model="iconColor" color-format="hex"></el-color-picker>
                     <el-input v-model="iconColor" placeholder="请选择色号"></el-input>
                 </p>
             </div>
             <div class="box">
-                <span class="field">图标效果颜色</span>
+                <span class="field">效果颜色</span>
                 <p class="group">
                     <el-color-picker v-model="iconHoverSelectColor" color-format="hex"></el-color-picker>
                     <el-input v-model="iconHoverSelectColor" placeholder="请选择色号"></el-input>

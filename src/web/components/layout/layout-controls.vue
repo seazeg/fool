@@ -73,6 +73,30 @@
                     </el-menu-item>
                 </draggable>
             </el-submenu>
+            <el-submenu index="2">
+                <template slot="title">
+                    <i class="el-icon-copy-document"></i>
+                    <span>复杂组件</span>
+                </template>
+                <draggable
+                    class="group"
+                    :list="components"
+                    :group="{ name: 'controls', pull: 'clone', put: false }"
+                    :clone="clone"
+                    :sort="false"
+                >
+                    <el-menu-item
+                        :index="'3-' + i"
+                        v-for="(ele, i) in components"
+                        :key="i"
+                    >
+                        <template slot="title">
+                            <i class="el-icon-copy-document"></i>
+                            {{ ele.name }}
+                        </template>
+                    </el-menu-item>
+                </draggable>
+            </el-submenu>
         </el-menu>
     </div>
 </template>
@@ -106,9 +130,10 @@ export default {
                 RadioParams,
                 CheckboxParams,
                 TextareaParams,
-                TabParams,
-                PagerParams
             ];
+        },
+        components() {
+            return [TabParams, PagerParams];
         },
     },
     methods: {

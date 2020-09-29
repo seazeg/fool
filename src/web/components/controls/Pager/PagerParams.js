@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-29 15:41:15
+ * @LastEditTime : 2020-09-29 15:58:39
  * @Description  :
  */
 export const PagerParams = {
@@ -34,9 +34,6 @@ export const PagerParams = {
         },
         ".hopeui-pager span:hover": {
             color: "#ff7400",
-        },
-        ".hopeui-pager .hopeui-pager-omit": {
-            color: "#6e6e6e",
         },
         ".hopeui-pager .hopeui-pager-jump": {
             height: "28px",

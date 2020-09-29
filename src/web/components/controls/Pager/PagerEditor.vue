@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-29 15:42:37
+ * @LastEditTime : 2020-09-29 16:08:30
  * @Description  : 
 -->
 <template>
@@ -62,18 +62,6 @@
                 </p>
             </div>
             <div class="box">
-                <span class="field">边框圆角大小</span>
-                <p>
-                    <el-slider
-                        v-model="borderRadius"
-                        :min="1"
-                        :max="20"
-                        show-input
-                        :step="1"
-                    ></el-slider>
-                </p>
-            </div>
-            <div class="box">
                 <span class="field">字体颜色</span>
                 <p class="group">
                     <el-color-picker
@@ -116,11 +104,11 @@
                 <span class="field">hover颜色</span>
                 <p class="group">
                     <el-color-picker
-                        v-model="hoverBorderColor"
+                        v-model="hoverColor"
                         color-format="hex"
                     ></el-color-picker>
                     <el-input
-                        v-model="hoverBorderColor"
+                        v-model="hoverColor"
                         placeholder="请选择色号"
                     ></el-input>
                 </p>

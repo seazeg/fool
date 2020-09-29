@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-29 16:01:28
+ * @LastEditTime : 2020-09-29 16:07:44
  * @Description  :
  */
 export const fields = {
@@ -88,6 +88,7 @@ export const fields = {
                     ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
                     ".hopeui-pager .hopeui-pager-jump input",
+                    ".hopeui-pager .hopeui-pager-count"
                 ],
                 isDiff: "px",
             });
@@ -95,7 +96,7 @@ export const fields = {
     },
     color: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-input"].color;
+            return this.$store.state.selected.styleSheet[".hopeui-pager > span"].color;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -105,6 +106,7 @@ export const fields = {
                     ".hopeui-pager .hopeui-pager-omit",
                     ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
+                    ".hopeui-pager .hopeui-pager-count"
                 ],
                 isDiff: "same",
             });

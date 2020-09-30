@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 10:55:56
+ * @LastEditTime : 2020-09-30 15:50:51
  * @Description  :
  */
 export default {
@@ -29,4 +29,20 @@ export default {
             color: "#ff7400",
         },
     },
+    script: `
+    let radio = hope.radio({
+        ele: "." + _this.ele.id,
+        on: {
+            change: function (e) {
+                console.log(e);
+            },
+        },
+    });
+    `,
+    html: `
+    <input type="radio" name="radio" value="男" title="男" class="ele.id" hope-verify="required" checked />
+    <input type="radio" name="radio" value="女" title="女" class="ele.id" hope-verify="required" />
+    <input type="radio" name="radio" value="什么玩意" title="什么玩意" class="ele.id" hope-verify="required"
+        disabled />
+    `,
 };

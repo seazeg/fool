@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 14:57:46
+ * @LastEditTime : 2020-09-30 15:51:21
  * @Description  :
  */
 export default {
@@ -52,6 +52,6 @@ export default {
         });
     `,
     html: `
-    <input type="checkbox" name="subject" value="音乐" hope-verify="required" :class="ele.id" /><input type="checkbox" name="subject" value="历史" hope-verify="required" :class="ele.id" /><input type="checkbox" name="subject" value="生物" hope-verify="required" :class="ele.id" disabled />
+    <input type="checkbox" name="subject" value="音乐" hope-verify="required" class="ele.id" /><input type="checkbox" name="subject" value="历史" hope-verify="required" class="ele.id" /><input type="checkbox" name="subject" value="生物" hope-verify="required" class="ele.id" disabled />
     `,
 };

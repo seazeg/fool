@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-28 15:56:36
+ * @LastEditTime : 2020-09-30 15:50:35
  * @Description  :
  */
 export default {
@@ -43,4 +43,23 @@ export default {
             color: " #555",
         }
     },
+    script: `
+    let textarea = hope.textarea({
+        ele: "#" + _this.ele.id,
+        on: {
+            blur: function (e) {
+                console.log(e);
+            },
+            focus: function (e) {
+                console.log(e);
+            },
+            input: function (e) {
+                console.log(e);
+            },
+        },
+    });
+    `,
+    html: `
+    <textarea name="textarea" class="hopeui-textarea" placeholder="请输入内容" id="ele.id"></textarea>
+    `,
 };

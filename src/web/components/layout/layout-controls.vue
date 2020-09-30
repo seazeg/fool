@@ -109,7 +109,6 @@ import RadioParams from "../controls/Radio/Params";
 import InputParams from "../controls/Input/Params";
 import CheckboxParams from "../controls/Checkbox/Params";
 import TextareaParams from "../controls/Textarea/Params";
-import TabParams from "../controls/Tab/Params";
 import PagerParams from "../controls/Pager/Params";
 
 export default {
@@ -133,7 +132,7 @@ export default {
             ];
         },
         components() {
-            return [TabParams, PagerParams];
+            return [PagerParams];
         },
     },
     methods: {

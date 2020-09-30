@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
- * @Date         : 2020-09-11 11:49:06
- * @LastEditTime : 2020-09-30 14:05:28
+ * @Date         : 2020-09-11 10:59:23
+ * @LastEditTime : 2020-09-30 15:40:34
  * @Description  : 
 -->
 <template>
@@ -12,22 +12,17 @@
                 class="controls_change hopeui-icon hopeui-icon-edit"
             ></div>
             <div v-html="style"></div>
-            <div class="code">
-                <textarea
-                    name="textarea"
-                    class="hopeui-textarea"
-                    placeholder="请输入内容"
-                    :id="ele.id"
-                ></textarea>
-            </div>
+            <div class="code" v-html="html"></div>
         </div>
     </div>
 </template>
 
 <script>
 import { utils } from "../../../utils/utils.js";
+import Params from "./Params.js";
+
 export default {
-    name: "hope_textarea",
+    name: Params.label,
     data() {
         return {
             isHover: false,
@@ -46,35 +41,19 @@ export default {
             });
             return `<style>${utils.json2css(res)}</style>`;
         },
+        html() {
+            return Params.html.replace(/ele.id/g, this.ele.id);
+        },
     },
     methods: {
         choose() {
             this.$emit("choose", this.ele);
         },
-        enter() {
-            this.isHover = true;
-        },
-        leave() {
-            this.isHover = false;
-        },
     },
     mounted() {
         let _this = this;
         _this.$nextTick(function() {
-            let textarea = hope.textarea({
-                ele: "#" + _this.ele.id,
-                on: {
-                    blur: function(e) {
-                        console.log(e);
-                    },
-                    focus: function(e) {
-                        console.log(e);
-                    },
-                    input: function(e) {
-                        console.log(e);
-                    },
-                },
-            });
+            Function("_this", Params.script)(_this);
         });
     },
 };

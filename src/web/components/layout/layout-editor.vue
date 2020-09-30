@@ -40,10 +40,10 @@
                         <i class="el-icon-cpu"></i>javascript</span
                     >
                     <div class="view-box js" v-highlight>
-                        <!-- <pre>
-                            <code v-html="workarea.js">
+                        <pre>
+                            <code v-html="source.js">
                             </code>
-                            </pre> -->
+                            </pre>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="htmlGenerator" :disabled="true">
@@ -393,6 +393,7 @@ export default {
         codeListener() {
             this.source.html = handle.reduceHTML(this.selectedControl);
             this.source.css = handle.getCSS(this.selectedControl);
+            this.source.js =  handle.getJS(this.selectedControl);
         },
     },
     watch: {

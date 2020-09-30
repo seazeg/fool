@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:51:03
+ * @LastEditTime : 2020-09-30 16:58:10
  * @Description  :
  */
 export default {
@@ -42,7 +42,6 @@ export default {
         ".hopeui-pager .hopeui-pager-jump": {
             height: "28px",
             "line-height": "26px",
-            "background-color": "#fff",
             color: "#2f2f2f",
             "font-size": "12px",
         },

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:52:01
+ * @LastEditTime : 2020-09-30 15:58:23
  * @Description  :
  */
 export default {
@@ -74,7 +74,7 @@ export default {
     });
     `,
     html: `
-    <select name="city" class="hopeui-hide" id="ele.id">
+    <select name="city" id="ele.id">
         <option value="">请选择一个选项</option>
         <option value="青岛">青岛</option>
         <option value="武汉">武汉</option>

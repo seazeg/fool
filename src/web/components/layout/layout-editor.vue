@@ -63,7 +63,6 @@
                             @click="drawer = true"
                             icon="el-icon-s-promotion"
                             size="mini"
-                            v-show="tabChecked == 'preview'"
                             >查看控件树</el-button
                         >
                         <el-button
@@ -140,7 +139,7 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></TextareaEditor>
-         <PagerEditor
+        <PagerEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
@@ -392,8 +391,8 @@ export default {
                 .catch(() => {});
         },
         codeListener() {
-            this.source.html = handle.reduceHTML(this.selectedControl)
-            // this.source.css = handle.getCSS(this.controls);
+            this.source.html = handle.reduceHTML(this.selectedControl);
+            this.source.css = handle.getCSS(this.selectedControl);
         },
     },
     watch: {
@@ -405,7 +404,7 @@ export default {
         },
     },
     updated() {
-        // this.codeListener();
+        this.codeListener();
     },
 };
 </script>

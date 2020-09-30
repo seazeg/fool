@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:50:51
+ * @LastEditTime : 2020-09-30 15:58:42
  * @Description  :
  */
 export default {
@@ -40,9 +40,8 @@ export default {
     });
     `,
     html: `
-    <input type="radio" name="radio" value="男" title="男" class="ele.id" hope-verify="required" checked />
-    <input type="radio" name="radio" value="女" title="女" class="ele.id" hope-verify="required" />
-    <input type="radio" name="radio" value="什么玩意" title="什么玩意" class="ele.id" hope-verify="required"
-        disabled />
+    <input type="radio" name="radio" value="男" title="男" class="ele.id" checked />
+    <input type="radio" name="radio" value="女" title="女" class="ele.id"  />
+    <input type="radio" name="radio" value="什么玩意" title="什么玩意" class="ele.id" disabled />
     `,
 };

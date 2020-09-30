@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:39:11
+ * @LastEditTime : 2020-09-30 16:06:07
  * @Description  :
  */
 export default {
@@ -62,6 +62,6 @@ export default {
     });
     `,
     html: `
-    <input name="text" type="text" placeholder="请输入文本" value="" class="hopeui-input input_normal" id="ele.id" />
+    <input name="text" type="text" placeholder="请输入文本" class="hopeui-input" id="ele.id" />
     `
 };

@@ -1,10 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-28 15:57:40
+ * @LastEditTime : 2020-09-30 15:39:11
  * @Description  :
  */
-export const InputParams = {
+export default {
     name: "文本框",
     label: "hope_input",
     icon: "icon-anniu",
@@ -45,4 +45,23 @@ export const InputParams = {
             "line-height":"38px"
         }
     },
+    script: `
+    let input = hope.input({
+        ele: "#" + _this.ele.id,
+        on: {
+            blur: function (e) {
+                console.log(e);
+            },
+            focus: function (e) {
+                console.log(e);
+            },
+            input: function (e) {
+                console.log(e);
+            },
+        },
+    });
+    `,
+    html: `
+    <input name="text" type="text" placeholder="请输入文本" value="" class="hopeui-input input_normal" id="ele.id" />
+    `
 };

@@ -1,4 +1,4 @@
-export const GridParams = {
+export default {
     g_2: {
         name: "双栏",
         label: "hope_grid",

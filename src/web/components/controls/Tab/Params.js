@@ -1,10 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-29 11:01:48
+ * @LastEditTime : 2020-09-30 14:58:10
  * @Description  :
  */
-export const TabParams = {
+export default {
     name: "选项卡",
     label: "hope_tab",
     icon: "icon-anniu",

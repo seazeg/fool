@@ -4,7 +4,7 @@
  * @LastEditTime : 2020-09-28 15:56:36
  * @Description  :
  */
-export const TextareaParams = {
+export default {
     name: "多行文本框",
     label: "hope_textarea",
     icon: "icon-anniu",

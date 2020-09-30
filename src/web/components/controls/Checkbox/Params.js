@@ -1,10 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 17:19:58
+ * @LastEditTime : 2020-09-30 14:57:46
  * @Description  :
  */
-export const CheckboxParams = {
+export default {
     name: "复选框",
     label: "hope_checkbox",
     icon: "icon-anniu",
@@ -41,4 +41,17 @@ export const CheckboxParams = {
             "line-height": "16px",
         },
     },
+    script: `
+        let checkbox = hope.checkbox({
+            ele: "." + _this.ele.id,
+            on: {
+                change: function (e) {
+                    console.log(e);
+                },
+            },
+        });
+    `,
+    html: `
+    <input type="checkbox" name="subject" value="音乐" hope-verify="required" :class="ele.id" /><input type="checkbox" name="subject" value="历史" hope-verify="required" :class="ele.id" /><input type="checkbox" name="subject" value="生物" hope-verify="required" :class="ele.id" disabled />
+    `,
 };

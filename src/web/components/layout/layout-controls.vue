@@ -103,14 +103,14 @@
 <script>
 import _ from "lodash";
 import { utils } from "../../utils/utils.js";
-import { SelectorParams } from "../controls/Selector/SelectorParams";
-import { GridParams } from "../controls/Grid/GridParams";
-import { RadioParams } from "../controls/Radio/RadioParams";
-import { InputParams } from "../controls/Input/InputParams";
-import { CheckboxParams } from "../controls/Checkbox/CheckboxParams";
-import { TextareaParams } from "../controls/Textarea/TextareaParams";
-import { TabParams } from "../controls/Tab/TabParams";
-import { PagerParams } from "../controls/Pager/PagerParams";
+import SelectorParams from "../controls/Selector/Params";
+import GridParams from "../controls/Grid/Params";
+import RadioParams from "../controls/Radio/Params";
+import InputParams from "../controls/Input/Params";
+import CheckboxParams from "../controls/Checkbox/Params";
+import TextareaParams from "../controls/Textarea/Params";
+import TabParams from "../controls/Tab/Params";
+import PagerParams from "../controls/Pager/Params";
 
 export default {
     name: "layout-controls",

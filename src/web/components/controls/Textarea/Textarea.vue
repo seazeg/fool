@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 11:49:06
- * @LastEditTime : 2020-09-28 15:19:33
+ * @LastEditTime : 2020-09-30 14:05:28
  * @Description  : 
 -->
 <template>
@@ -12,12 +12,14 @@
                 class="controls_change hopeui-icon hopeui-icon-edit"
             ></div>
             <div v-html="style"></div>
-            <textarea
-                name="textarea"
-                class="hopeui-textarea"
-                placeholder="请输入内容"
-                :id="ele.id"
-            ></textarea>
+            <div class="code">
+                <textarea
+                    name="textarea"
+                    class="hopeui-textarea"
+                    placeholder="请输入内容"
+                    :id="ele.id"
+                ></textarea>
+            </div>
         </div>
     </div>
 </template>

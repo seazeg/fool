@@ -1,10 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-23 09:47:26
+ * @LastEditTime : 2020-09-30 14:58:03
  * @Description  :
  */
-export const SelectorParams = {
+export default {
     name: "下拉框",
     label: "hope_selector",
     icon: "icon-anniu",
@@ -42,7 +42,8 @@ export const SelectorParams = {
             color: "#fff",
         },
         ".hopeui-form-select .hopeui-select-list .option:hover": {
-            "background-color": "#f2f2f2"
+            "background-color": "#f2f2f2",
+            color: "#fff",
         },
         ".hopeui-form-select .hopeui-select-list .groupTitle": {
             "font-size": "12px",

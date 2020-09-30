@@ -4,7 +4,7 @@
  * @LastEditTime : 2020-09-29 16:07:30
  * @Description  :
  */
-export const PagerParams = {
+export default {
     name: "分页器",
     label: "hope_pager",
     icon: "icon-anniu",

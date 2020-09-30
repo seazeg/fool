@@ -4,7 +4,7 @@
  * @LastEditTime : 2020-09-23 10:55:56
  * @Description  :
  */
-export const RadioParams = {
+export default {
     name: "单选框",
     label: "hope_radio",
     icon: "icon-anniu",

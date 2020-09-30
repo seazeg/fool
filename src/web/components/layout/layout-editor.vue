@@ -398,14 +398,14 @@ export default {
                 .catch(() => {});
         },
         codeListener() {
-            this.source.html = handle.reduceHTML(this.$refs.preview.innerHTML);
-            this.source.css = handle.getCSS(this.controls);
+            this.source.html = handle.reduceHTML(this.selectedControl)
+            // this.source.css = handle.getCSS(this.controls);
         },
     },
     watch: {
         selectedControl: {
             handler(n, o) {
-                // this.codeListener();
+                this.codeListener();
             },
             deep: true,
         },

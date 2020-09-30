@@ -1,41 +1,21 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-09-15 15:31:14
- * @Description  : 
+ * @LastEditTime : 2020-09-30 14:53:17
+ * @Description  :
  */
 import formatter from "./html-formatter";
 import { utils } from "./utils.js";
 
 export const handle = {
-    reduceHTML: (html) => {
+    reduceHTML: (ele) => {
         try {
-            const style = /style\s*?=\s*?([‘"])[\s\S]*?\1/g;
-            const datav = /data-v-([A-Za-z0-9]*)=""/g;
-            const draggable = /draggable="false"/g;
-            const customClass = /custom-class\s*?=\s*?([‘"])[\s\S]*?\1/g;
-            const effect = /data-effect\s*?=\s*?([‘"])[\s\S]*?\1/g;
-            const mycss = /data-css\s*?=\s*?([‘"])[\s\S]*?\1/g;
-            const label = /data-label\s*?=\s*?([‘"])[\s\S]*?\1/g;
-            html = html.replace(style, "");
-            html = html.replace(datav, "");
-            html = html.replace(draggable, "");
-            html = html.replace(" selected", "");
-            html = html.replace(customClass, "");
-            html = html.replace(effect, "");
-            html = html.replace(mycss, "");
-            html = html.replace(label, "");
-            html = html.replace(/ theme-border /g, " ");
-            let result = $(html)
-                .find(".draggable_box")
-                .each(function() {
-                    let _this = $(this);
-                    let _this_parent = _this.parent();
-                    let _this_child = _this.contents();
-                    _this.remove();
-                    _this_parent.append(_this_child);
-                });
-            return formatter.render(result.prevObject[0].innerHTML);
+            let html = ele.html,
+                id = ele.id;
+            html = html.replace(/:class/g, "class").replace(/ele.id/g, ele.id);
+            html = html.replace(/:id/g, "id").replace(/ele.id/g, ele.id);
+
+            return formatter.render(html);
         } catch (error) {}
     },
     getCSS: (controls) => {

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 11:49:06
- * @LastEditTime : 2020-09-29 15:07:10
+ * @LastEditTime : 2020-09-30 14:04:51
  * @Description  : 
 -->
 <template>
@@ -9,7 +9,7 @@
         <div class="controls_inner">
             <div @click.stop="choose" class="controls_change hopeui-icon hopeui-icon-edit"></div>
             <div v-html="style"></div>
-            <div>
+            <div class="code">
                 <div :id="ele.id + '_list'"></div>
                 <div :id="ele.id"></div>
             </div>

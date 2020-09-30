@@ -76,7 +76,7 @@
             <el-submenu index="2">
                 <template slot="title">
                     <i class="el-icon-copy-document"></i>
-                    <span>复杂组件</span>
+                    <span>复用组件</span>
                 </template>
                 <draggable
                     class="group"

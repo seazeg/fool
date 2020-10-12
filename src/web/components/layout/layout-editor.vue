@@ -88,7 +88,7 @@
             </el-tabs>
         </div>
 
-        <el-drawer title="空间树" :visible.sync="drawer" :with-header="false">
+        <el-drawer title="控件树" :visible.sync="drawer" :with-header="false">
             <el-tree
                 :data="controls"
                 node-key="controlsTree"
@@ -97,9 +97,15 @@
                 default-expand-all
                 :allow-drop="allowDrop"
                 draggable
+        
             >
                 <span class="custom-tree-node" slot-scope="{ node, data }">
-                    <span>{{ node.label }}</span>
+                    <span
+                        :class="{
+                            'theme-select': data.id == selectedControl.id,
+                        }"
+                        >{{ data.name }} - {{ data.label }}</span
+                    >
                     <span>
                         <el-button
                             type="text"

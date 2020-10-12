@@ -16,7 +16,9 @@
 </style>
 <template>
     <div class="layout-controls">
-        <span class="operate iconfont icon-youshuangjiantou"></span>
+        <div class="operate">
+           <i class="el-icon-sunrise-1"></i> HOPE
+        </div>
         <el-menu
             :default-openeds="openeds"
             @open="handleOpen"

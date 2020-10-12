@@ -17,33 +17,44 @@
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-notebook-2"></i>html</span
                     >
-                    <div class="view-box html" v-highlight>
-                        <pre>
-                            <code v-text="source.html">
-                            </code>
-                        </pre>
+                    <div class="view-box html">
+                        <prism-editor
+                            class="editor-code"
+                            v-model="source.html"
+                            :highlight="highHTML"
+                            line-numbers
+                            language="markup"
+                            readonly
+                        ></prism-editor>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="css">
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-magic-stick"></i>css</span
                     >
-                    <div class="view-box css" v-highlight>
-                        <pre>
-                            <code v-html="source.css">
-                            </code>
-                        </pre>
+                    <div class="view-box css">
+                        <prism-editor
+                            class="editor-code"
+                            v-model="source.css"
+                            :highlight="highCSS"
+                            line-numbers
+                            language="css"
+                            readonly
+                        ></prism-editor>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="javascript">
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-cpu"></i>javascript</span
                     >
-                    <div class="view-box js" v-highlight>
-                        <pre>
-                            <code v-html="source.js">
-                            </code>
-                            </pre>
+                    <div class="view-box js">
+                        <prism-editor
+                            class="editor-code"
+                            v-model="source.js"
+                            :highlight="highJS"
+                            line-numbers
+                            readonly
+                        ></prism-editor>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="htmlGenerator" :disabled="true">
@@ -148,6 +159,14 @@
     </div>
 </template>
 <script>
+import { PrismEditor } from "vue-prism-editor";
+import "vue-prism-editor/dist/prismeditor.min.css";
+import { highlight, languages } from "prismjs/components/prism-core";
+import "prismjs/components/prism-css";
+import "prismjs/components/prism-markup";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/themes/prism-coy.css"; //okaidia
 import { handle } from "../../utils/handle.js";
 export default {
     name: "layout-editor",
@@ -288,6 +307,9 @@ export default {
             ],
         };
     },
+    components: {
+        PrismEditor,
+    },
     computed: {
         controls: {
             get() {
@@ -302,6 +324,15 @@ export default {
         },
     },
     methods: {
+        highHTML(code) {
+            return highlight(code, languages.markup);
+        },
+        highCSS(code) {
+            return highlight(code, languages.css);
+        },
+        highJS(code) {
+            return highlight(code, languages.js);
+        },
         copy() {
             let source = "";
             switch (this.tabChecked) {
@@ -393,7 +424,7 @@ export default {
         codeListener() {
             this.source.html = handle.reduceHTML(this.selectedControl);
             this.source.css = handle.getCSS(this.selectedControl);
-            this.source.js =  handle.getJS(this.selectedControl);
+            this.source.js = handle.getJS(this.selectedControl);
         },
     },
     watch: {

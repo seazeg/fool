@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2020-09-23 10:20:00
+ * @LastEditTime : 2020-10-12 14:35:31
  * @Description  : 
  */
 import Vue from "vue";
@@ -15,8 +15,9 @@ import http from "./utils/request.js";
 import "./utils/directive";
 import "./registerServiceWorker";
 import ElementUI from "element-ui";
-// Navigation
+
 import VueClipboard from "vue-clipboard2";
+
 import $ from "jquery";
 import egu from "eg-utils";
 import draggable from "vuedraggable";

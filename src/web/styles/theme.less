@@ -1,12 +1,10 @@
 @charset "UTF-8";
 @import "theme.config.less";
-code {
-    overflow-x: hidden !important;
-}
 
-.el-tabs--border-card > .el-tabs__content {
+.el-tabs--border-card>.el-tabs__content {
     padding: 0;
 }
+
 .flexCol {
     flex-direction: column;
 }
@@ -60,7 +58,7 @@ code {
     -webkit-app-region: no-drag;
 }
 
-.layout-header .logo > img {
+.layout-header .logo>img {
     width: 20px;
     height: 20px;
 }
@@ -69,7 +67,7 @@ code {
     float: right;
 }
 
-.layout-header .tools > a {
+.layout-header .tools>a {
     display: block;
     padding: 10px 15px;
     border: 1px solid @shadow_color;
@@ -79,15 +77,15 @@ code {
     -webkit-app-region: no-drag;
 }
 
-.layout-header .tools > a:last-child {
+.layout-header .tools>a:last-child {
     background: @close_color;
 }
 
-.layout-header .tools > a:hover {
+.layout-header .tools>a:hover {
     background: @shadow_color;
 }
 
-.layout-header .tools > a:last-child:hover {
+.layout-header .tools>a:last-child:hover {
     background: @close_hover_color;
 }
 
@@ -131,7 +129,7 @@ code {
     -webkit-flex: 1;
     flex: 1;
     position: relative;
-    background: @work_color;
+    background: @main_color;
 }
 
 .layout-container .wrapper {
@@ -157,11 +155,10 @@ code {
 .layout-container .el-tab-pane {
     height: 100vh;
     overflow-y: auto;
-}
-.layout-container .el-tab-pane:first-child {
-    // background: url("../assets/images/background.png");
+    padding: 10px 0;
     background: #f1f1f1;
 }
+
 
 .layout-container .view-box.preview {
     height: 100%;
@@ -211,13 +208,14 @@ code {
 .layout-container .el-tree {
     background: @deputy_color;
 }
+
 .layout-container .custom-tree-node {
     color: @fontWhite;
     font-size: 16px;
 }
 
 .layout-container .el-tree-node__content:hover,
-.layout-container .el-tree-node:focus > .el-tree-node__content {
+.layout-container .el-tree-node:focus>.el-tree-node__content {
     background: @shadow_color;
 }
 
@@ -225,7 +223,7 @@ code {
     height: 40px;
 }
 
-.layout-container .view .lab-icon > i {
+.layout-container .view .lab-icon>i {
     color: @font_color;
     font-size: 16px;
     vertical-align: middle;
@@ -242,23 +240,28 @@ code {
     height: 100%;
     overflow-x: hidden;
     padding: 0 10px;
-    line-height: 25px;
-    border: 1px solid @work_color;
-    // user-select: auto;
+    color:@main_color;
 }
 
-.layout-container .view-box.css pre code,
-.layout-container .view-box.js pre code,
-.layout-container .view-box.html pre code {
-    background: @work_color;
-    font-family: "Monaco";
-    font-style: normal;
-    font-size: 16px;
-    // user-select: auto;
+.layout-container .editor-code {
+    // background: @work_color;
+    // color: #ccc;
+    font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+    font-size: 14px;
+    line-height: 1.75;
+    padding: 5px;
+}
+
+.prism-editor__textarea:focus {
+    outline: none;
+}
+
+.layout-container .prism-editor__textarea:focus {
+    outline: none;
 }
 
 
-.layout-container .el-button + .el-button {
+.layout-container .el-button+.el-button {
     margin-left: 5px;
 }
 
@@ -277,20 +280,17 @@ code {
     height: 100%;
 }
 
-.layout-container .el-tabs--border-card > .el-tabs__header {
+.layout-container .el-tabs--border-card>.el-tabs__header {
     background: @main_color;
     border-bottom: 1px solid @shadow_color;
     user-select: none;
 }
 
-.layout-container .el-tabs--border-card > .el-tabs__header .el-tabs__item {
-    color: @font_color!important;
+.layout-container .el-tabs--border-card>.el-tabs__header .el-tabs__item {
+    color: @font_color !important;
 }
 
-.layout-container
-    .el-tabs--border-card
-    > .el-tabs__header
-    .el-tabs__item.is-active {
+.layout-container .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
     background: @border_color;
     border-right-color: @shadow_color;
     border-left-color: @shadow_color;
@@ -323,7 +323,7 @@ code {
     padding: 17px;
     border: 1px dashed @shadow_color;
     margin-bottom: 10px;
-    background: #333;
+    background: @deputy_color;
 }
 
 .layout-container .edit .fixed {
@@ -362,11 +362,11 @@ code {
     color: #f2f2f2;
 }
 
-.layout-container .edit .box p.group > div {
+.layout-container .edit .box p.group>div {
     float: left;
 }
 
-.layout-container .edit .box p.group > div:last-child {
+.layout-container .edit .box p.group>div:last-child {
     width: 75%;
     margin-left: 4%;
 }
@@ -375,11 +375,9 @@ code {
     width: 40px;
     height: 40px;
     border: 4px double @font_color;
-    background-image: linear-gradient(
-        0,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background-image: linear-gradient(0,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 100%);
     border-radius: 5px;
     float: left;
     cursor: pointer;
@@ -392,10 +390,12 @@ code {
     text-align: center;
     background: @shadow_color;
 }
+
 .layout-container .edit .el-switch {
     position: relative;
     bottom: 1px;
 }
+
 .layout-container .edit .el-switch__label {
     color: @font_color;
 }
@@ -467,23 +467,23 @@ code {
     color: @tools_color;
 }
 
-.layout-container .file_list p > span {
+.layout-container .file_list p>span {
     display: inline-block;
 }
 
-.layout-container .file_list p > img.loading {
+.layout-container .file_list p>img.loading {
     width: 20px;
     vertical-align: middle;
 }
 
-.layout-container .file_list p > i.end,
-.layout-container .file_list p > i.ready {
+.layout-container .file_list p>i.end,
+.layout-container .file_list p>i.ready {
     font-size: 20px;
     vertical-align: middle;
     color: @shadow_color;
 }
 
-.layout-container .file_list p:hover > i {
+.layout-container .file_list p:hover>i {
     color: @tools_color;
 }
 
@@ -539,11 +539,7 @@ code {
     border-radius: 10px;
 }
 
-.ui-color-picker
-    .gradient-controls
-    .gradient-degrees-options
-    .gradient-degree-value
-    p {
+.ui-color-picker .gradient-controls .gradient-degrees-options .gradient-degree-value p {
     color: #111;
 }
 
@@ -561,6 +557,7 @@ code {
     position: absolute !important;
     font-size: 0 !important;
     overflow: hidden;
+
     i {
         font-size: 0 !important;
     }
@@ -583,11 +580,13 @@ code {
 
 .layout-container .controls_block {
     display: block;
+
     .controls_inner {
         position: relative;
-        padding: 20px 20px 20px 0;
+        padding: 0 20px 20px 10px;
         display: inline-block;
     }
+
     .controls_change {
         color: #666;
         position: absolute;
@@ -598,14 +597,21 @@ code {
         border-radius: 2px;
         display: none;
     }
+
+    .code {
+        font-size: 12px;
+        color: #333;
+    }
+
     &.selected {
         .controls_change {
             color: #ff7400;
-            display: block!important;
+            display: block !important;
         }
     }
-    &:hover{
-        .controls_change{
+
+    &:hover {
+        .controls_change {
             display: block;
         }
     }

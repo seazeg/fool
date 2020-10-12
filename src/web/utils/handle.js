@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-09-30 16:36:26
+ * @LastEditTime : 2020-10-12 15:53:24
  * @Description  :
  */
 import formatter from "./html-formatter";
@@ -27,6 +27,6 @@ export const handle = {
             js = js.replace('"." + _this.ele.id', `'.${id}'`);
             js = js.replace('"#" + _this.ele.id', `'#${id}'`);
         }
-        return js;
+        return js && js.trim();
     },
 };

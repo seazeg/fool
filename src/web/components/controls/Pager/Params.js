@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 16:58:10
+ * @LastEditTime : 2020-10-12 13:50:07
  * @Description  :
  */
 export default {
@@ -102,7 +102,9 @@ export default {
                     data[i].goodsStar +
                     "</p>";
             }
+
             $("#" + _this.ele.id + "_list").html(template);
+          
             return {
                 pageNo: res.pageNo,
                 pageSize: res.pageSize,

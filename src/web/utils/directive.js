@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import hljs from 'highlight.js'
-import 'highlight.js/styles/monokai-sublime.css' //样式文件
+import 'highlight.js/styles/monokai-sublime.css' //样式文件z
 Vue.directive('highlight', {
   inserted (el) {
     let blocks = el.querySelectorAll('pre code');

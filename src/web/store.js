@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2020-09-15 14:47:57
+ * @LastEditTime : 2020-10-13 18:01:31
  * @Description  :
  */
 import Vue from "vue";
@@ -14,6 +14,8 @@ export default new Vuex.Store({
     state: {
         controls: [],
         selected: {},
+        dialogFormVisible: false,
+        gridEle:{}
     },
     mutations: {
         "Hope/UpdateControlParams": (state, ele) => {
@@ -97,6 +99,12 @@ export default new Vuex.Store({
                     }
                 });
             })(state.controls, id, state);
+        },
+        "Hope/changeDialogFormVisible": (state, value) => {
+            state.dialogFormVisible = value
+        },
+        "Hope/setGridEle": (state, data) => {
+            state.gridEle = data
         },
         // "Hope/UpdateControlParams": (state, ele) => {
         //     if (Object.keys(ele)[0] == ele.container) {

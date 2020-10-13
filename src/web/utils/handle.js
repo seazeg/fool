@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-13 16:21:10
+ * @LastEditTime : 2020-10-13 17:25:24
  * @Description  :
  */
 import formatter from "./html-formatter";
@@ -16,9 +16,26 @@ export const handle = {
                 html = html.replace(/ele.id/g, ele.id);
                 return formatter.render(html);
             } else {
-                let $ele = $(`.${ele.id}`);
-                
-                return formatter.render($ele.html())
+                let html = $("#preview").html();
+                html = html.replace(/ hope_([A-Za-z0-9]*)/g, "");
+                html = html.replace(/ignoreEle/g, "");
+                html = html.replace(/ selected/g, "");
+                let result = $(html)
+                    .find(".draggable_box")
+                    .each(function() {
+                        let _this = $(this);
+                        let _this_parent = _this.parent();
+                        let _this_child = _this.contents();
+                        _this.remove();
+                        _this_parent.append(_this_child);
+                    });
+
+                return formatter.render(`
+                    <div class="hopeui-row">
+                    ${result.prevObject[0].innerHTML}
+                    </div>
+                `);
+                // return formatter.render($ele.html());
                 // return "<div>特么是个栅格啊</div>";
             }
         } catch (error) {}

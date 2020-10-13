@@ -147,7 +147,6 @@ export default {
                     }
                 }
             })([o]);
-
             return {
                 ..._.cloneDeep(o),
             };

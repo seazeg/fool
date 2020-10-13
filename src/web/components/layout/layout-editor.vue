@@ -7,7 +7,7 @@
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-edit-outline"></i>preview</span
                     >
-                    <div class="view-box preview" ref="preview">
+                    <div class="view-box preview" id="preview" ref="preview">
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
@@ -97,7 +97,6 @@
                 default-expand-all
                 :allow-drop="allowDrop"
                 draggable
-        
             >
                 <span class="custom-tree-node" slot-scope="{ node, data }">
                     <span
@@ -120,18 +119,30 @@
             </el-tree>
         </el-drawer>
 
+        <el-dialog title="收货地址" :visible.sync="dialogFormVisible" width="800px">
+            <el-form :model="form">
+                <el-form-item label="总列数" :label-width="formLabelWidth">
+                    <el-select v-model="form.region" placeholder="请选择总列数">
+                        <el-option label="共8列" value="8"></el-option>
+                        <el-option label="共12列" value="8"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="栅格数量" :label-width="formLabelWidth">
+                    <el-input v-model="form.name" autocomplete="off"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogClose()">取消</el-button>
+                <el-button type="primary" @click="dialogEnter()">确定</el-button>
+            </div>
+        </el-dialog>
+
         <SelectorEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></SelectorEditor>
-        <GridEditor
-            :animationOption="animationOption"
-            :borderStyleOption="borderStyleOption"
-            :fontStyleOption="fontStyleOption"
-            :generalStyleOption="generalStyleOption"
-        ></GridEditor>
         <InputEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
@@ -174,6 +185,7 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-coy.css"; //okaidia
 import { handle } from "../../utils/handle.js";
+import { utils } from "../../utils/utils.js";
 export default {
     name: "layout-editor",
     data() {
@@ -181,6 +193,17 @@ export default {
             tabChecked: "preview",
             drawer: false,
             copySource: "",
+            form: {
+                name: "4",
+                region: "",
+                date1: "",
+                date2: "",
+                delivery: false,
+                type: [],
+                resource: "",
+                desc: "",
+            },
+            formLabelWidth: "60px",
             source: {
                 html: "",
                 css: "",
@@ -328,8 +351,63 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
+        dialogFormVisible() {
+            return this.$store.state.dialogFormVisible;
+        },
     },
     methods: {
+        dialogClose() {
+            this.$store.commit("Hope/changeDialogFormVisible", false);
+        },
+        dialogEnter() {
+            let e = this.$store.state.gridEle;
+            if (e.added.element && e.added.element.isCustom) {
+                //自定义栅格列数
+                let col = parseInt(this.form.name);
+                let total = 12;
+                for (let i = 1; i <= col; i++) {
+                    e.added.element.children.push({
+                        name: "自定义",
+                        label: "hope_grid",
+                        className: `hopeui-col-xl-${total / col}-${total}`,
+                        icon: "icon-anniu",
+                        isCustom: true,
+                        isSelected: false,
+                        id: "hope_" + utils.getRandomName(6),
+                        children: [],
+                        styleSheet: {},
+                    });
+                }
+
+                console.log(e.added.element);
+                try {
+                    this.$store.commit("Hope/ResetControlSelected");
+                    this.$store.commit(
+                        "Hope/ControlsSelected",
+                        e.added.element
+                    );
+                    this.$store.commit(
+                        "Hope/ChooseControl",
+                        e.added.element.id
+                    );
+                } catch (error) {}
+            } else {
+                console.log(e.added.element);
+
+                try {
+                    this.$store.commit("Hope/ResetControlSelected");
+                    this.$store.commit(
+                        "Hope/ControlsSelected",
+                        e.added.element
+                    );
+                    this.$store.commit(
+                        "Hope/ChooseControl",
+                        e.added.element.id
+                    );
+                } catch (error) {}
+            }
+            this.dialogClose();
+        },
         highHTML(code) {
             return highlight(code, languages.markup);
         },

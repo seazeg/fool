@@ -34,6 +34,8 @@
 <script>
 import ChooseBox from "../../components/layout/layout-choosebox.vue";
 import grid from "../controls/Grid/Params";
+import { utils } from "../../utils/utils.js";
+
 export default {
     name: "layout-draggable",
     display: "Clone",
@@ -72,7 +74,7 @@ export default {
                                 icon: "icon-anniu",
                                 isCustom: true,
                                 isSelected: false,
-                                // id: $egu.guid(),
+                                id: "hope_" + utils.getRandomName(6),
                                 children: [],
                                 styleSheet: {},
                             });

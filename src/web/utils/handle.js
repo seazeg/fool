@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-12 15:53:24
+ * @LastEditTime : 2020-10-13 16:17:01
  * @Description  :
  */
 import formatter from "./html-formatter";
@@ -10,10 +10,16 @@ import { utils } from "./utils.js";
 export const handle = {
     reduceHTML: (ele) => {
         try {
-            let html = ele.html,
-                id = ele.id;
-            html = html.replace(/ele.id/g, ele.id);
-            return formatter.render(html);
+            if (!ele.label.includes("grid")) {
+                let html = ele.html,
+                    id = ele.id;
+                html = html.replace(/ele.id/g, ele.id);
+                return formatter.render(html);
+            } else {
+                let $ele = $(`.${ele.id}`);
+                return formatter.render($ele.html())
+                // return "<div>特么是个栅格啊</div>";
+            }
         } catch (error) {}
     },
     getCSS: (ele) => {

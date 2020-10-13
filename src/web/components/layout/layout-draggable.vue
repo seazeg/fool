@@ -33,6 +33,7 @@
 </template>
 <script>
 import ChooseBox from "../../components/layout/layout-choosebox.vue";
+import grid from "../controls/Grid/Params"
 export default {
     name: "layout-draggable",
     display: "Clone",

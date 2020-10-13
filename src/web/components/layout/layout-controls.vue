@@ -16,9 +16,7 @@
 </style>
 <template>
     <div class="layout-controls">
-        <div class="operate">
-           <i class="el-icon-sunrise-1"></i> HOPE
-        </div>
+        <div class="operate"><i class="el-icon-sunrise-1"></i> HOPE</div>
         <el-menu
             :default-openeds="openeds"
             @open="handleOpen"
@@ -122,7 +120,7 @@ export default {
     },
     computed: {
         layout() {
-            return [GridParams.g_2, GridParams.g_3, GridParams.g_custom];
+            return [GridParams];
         },
         controls() {
             return [

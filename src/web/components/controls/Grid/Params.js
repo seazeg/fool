@@ -1,23 +1,16 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-12 17:41:05
- * @Description  : 
+ * @LastEditTime : 2020-10-13 15:34:06
+ * @Description  :
  */
 export default {
     name: "自定义",
     label: "hope_grid",
+    className: "hopeui-row",
     icon: "icon-anniu",
     isCustom: true,
     isSelected: false,
-    spcConfig: {
-        isPer: {
-            width: true,
-            height: false,
-        },
-        isAutoLineHeight: false,
-    },
-    defaultClass: "",
     children: [],
-    styleSheet:{},
+    styleSheet: {},
 };

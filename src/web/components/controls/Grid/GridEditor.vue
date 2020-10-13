@@ -1,9 +1,15 @@
+<!--
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 10:59:23
+ * @LastEditTime : 2020-10-13 14:09:59
+ * @Description  : 
+-->
 <template>
     <div
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('grid')
+                selectedControl.label.includes('grid_______')
         "
     >
         <!-- 基础属性 -->
@@ -15,230 +21,119 @@
                 @click="visualNodeRemove()"
                 icon="el-icon-delete-solid"
                 size="mini"
-            ></el-button>
+            >
+            </el-button>
         </div>
         <div class="control_group">
             <div class="box">
-                <span class="field">按钮标题（buttonText）</span>
+                <span class="field">宽度</span>
                 <p>
-                    <el-input
-                        v-model="selectedControl.name"
-                        placeholder="请输入名称"
-                    ></el-input>
-                </p>
-            </div>
-            <div class="box">
-                <span class="field">自定义类名（customClass）</span>
-                <p>
-                    <el-input
-                        disabled
-                        v-model="selectedControl.customClass"
-                        placeholder="请输入类名"
-                    ></el-input>
-                </p>
-            </div>
-        </div>
-        <!-- 基础样式 -->
-        <div class="control_group_title">基础样式：</div>
-        <div class="control_group">
-            <div class="box">
-                <span class="field"
-                    >宽度（width）
-                    <el-switch
-                        class="fr"
-                        v-model="selectedControl.spcConfig.isPer.width"
-                        active-text="百分比"
-                        active-color="#13ce66"
-                    ></el-switch>
-                </span>
-                <p>
-                    <el-select
-                        v-model="width"
-                        placeholder="特殊选择项"
-                        class="fixed"
-                        clearable
-                    >
-                        <el-option
-                            v-for="item in generalStyleOption"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        >
-                        </el-option>
-                    </el-select>
                     <el-slider
                         v-model="width"
-                        :show-tooltip="false"
                         :min="1"
-                        :max="selectedControl.spcConfig.isPer.width ? 100 : 500"
+                        :max="500"
                         show-input
-                        :step="0.1"
-                        v-if="/\d/.test(width)"
+                        :step="1"
                     ></el-slider>
                 </p>
             </div>
             <div class="box">
-                <span class="field"
-                    >高度（height）
-                    <el-switch
-                        class="fr"
-                        v-model="selectedControl.spcConfig.isPer.height"
-                        active-text="百分比"
-                        active-color="#13ce66"
-                    ></el-switch>
-                </span>
+                <span class="field">高度</span>
                 <p>
-                    <el-select
-                        v-model="height"
-                        placeholder="特殊选择项"
-                        class="fixed"
-                        clearable
-                    >
-                        <el-option
-                            v-for="item in generalStyleOption"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        >
-                        </el-option>
-                    </el-select>
                     <el-slider
                         v-model="height"
                         :min="1"
-                        :max="selectedControl.spcConfig.isPer.height ? 100 : 500"
+                        :max="500"
                         show-input
-                        :step="0.1"
-                        v-if="/\d/.test(height)"
+                        :step="1"
                     ></el-slider>
                 </p>
             </div>
             <div class="box">
-                <span class="field">背景颜色（backgroundColor）</span>
+                <span class="field">字体大小</span>
+                <p>
+                    <el-slider
+                        v-model="fontSize"
+                        :min="1"
+                        :max="50"
+                        show-input
+                        :step="1"
+                    ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">边框圆角大小</span>
+                <p>
+                    <el-slider
+                        v-model="borderRadius"
+                        :min="1"
+                        :max="20"
+                        show-input
+                        :step="1"
+                    ></el-slider>
+                </p>
+            </div>
+            <div class="box">
+                <span class="field">字体颜色</span>
                 <p class="group">
                     <el-color-picker
-                        v-model="backgroundColor"
-                        color-format="rgb"
+                        v-model="color"
+                        color-format="hex"
                     ></el-color-picker>
                     <el-input
-                        v-model="backgroundColor"
+                        v-model="color"
                         placeholder="请选择色号"
                     ></el-input>
                 </p>
             </div>
-        </div>
-        <!-- 布局 -->
-        <div class="control_group_title">布局属性：</div>
-        <div class="control_group">
             <div class="box">
-                <div class="left">
-                    <span class="field">内间距-左（paddingLeft）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="paddingLeft"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
-                <div class="right">
-                    <span class="field">内间距-右（paddingRight）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="paddingRight"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
+                <span class="field">常态边框颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="borderColor"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="borderColor"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
             </div>
             <div class="box">
-                <div class="left">
-                    <span class="field">内间距-上（paddingTop）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="paddingTop"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
-                <div class="right">
-                    <span class="field">内间距-下（paddingBottom）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="paddingBottom"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
+                <span class="field">hover边框颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="hoverBorderColor"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="hoverBorderColor"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
             </div>
-            <div class="line"></div>
             <div class="box">
-                <div class="left">
-                    <span class="field">外间距-左（marginLeft）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="marginLeft"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
-                <div class="right">
-                    <span class="field">外间距-右（marginRight）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="marginRight"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="left">
-                    <span class="field">外间距-上（marginTop）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="marginTop"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
-                <div class="right">
-                    <span class="field">外间距-下（marginBottom）</span>
-                    <p>
-                        <el-slider
-                            :show-tooltip="false"
-                            v-model="marginBottom"
-                            :max="100"
-                            show-input
-                        ></el-slider>
-                    </p>
-                </div>
+                <span class="field">焦点边框颜色</span>
+                <p class="group">
+                    <el-color-picker
+                        v-model="focusBorderColor"
+                        color-format="hex"
+                    ></el-color-picker>
+                    <el-input
+                        v-model="focusBorderColor"
+                        placeholder="请选择色号"
+                    ></el-input>
+                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { fields } from "../../controls/fields.js";
-import GradientPicker from "../../plugins/gradientColorPicker.vue";
+import { fields } from "./fields.js";
+
 export default {
     name: "GridEditor",
-    components: {
-        GradientPicker,
-    },
     props: {
         borderStyleOption: [Array, Object],
         animationOption: [Array, Object],

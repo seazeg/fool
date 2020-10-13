@@ -1,6 +1,6 @@
 <style lang="less">
 .draggable_box {
-    min-height: 100%;
+    min-height: 500px;
 }
 </style>
 <template>
@@ -33,7 +33,7 @@
 </template>
 <script>
 import ChooseBox from "../../components/layout/layout-choosebox.vue";
-import grid from "../controls/Grid/Params"
+import grid from "../controls/Grid/Params";
 export default {
     name: "layout-draggable",
     display: "Clone",
@@ -52,7 +52,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         change(e) {
-            if (e.added.element.isCustom) {
+            if (e.added.element && e.added.element.isCustom) {
                 //自定义栅格列数
                 this.$prompt("请输入列数", "", {
                     confirmButtonText: "确定",
@@ -63,14 +63,21 @@ export default {
                     .then(({ value }) => {
                         let col = parseInt(value);
                         let total = 12;
-                         e.added.element.children.push({
-                                name: `hopeui-col-xl-${total/col}-${total}`,
+                        for (let i = 1; i <= col; i++) {
+                            e.added.element.children.push({
+                                name: "自定义",
                                 label: "hope_grid",
-                                id: $egu.guid(),
+                                className: `hopeui-col-xl-${total /
+                                    col}-${total}`,
                                 icon: "icon-anniu",
+                                isCustom: true,
                                 isSelected: false,
+                                // id: $egu.guid(),
                                 children: [],
+                                styleSheet: {},
                             });
+                        }
+
                         console.log(e.added.element);
                         try {
                             this.$store.commit("Hope/ResetControlSelected");

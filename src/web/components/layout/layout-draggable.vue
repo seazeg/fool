@@ -61,32 +61,16 @@ export default {
                     inputErrorMessage: "请输入数字，且最多输入两位",
                 })
                     .then(({ value }) => {
-                        let cols = parseInt(value);
-                        for (let i = 0; i < cols; i++) {
-                            e.added.element.children.push({
-                                name: `${cols}_${i + 1}`,
+                        let col = parseInt(value);
+                        let total = 12;
+                         e.added.element.children.push({
+                                name: `hopeui-col-xl-${total/col}-${total}`,
                                 label: "hope_grid",
                                 id: $egu.guid(),
                                 icon: "icon-anniu",
                                 isSelected: false,
-                                spcConfig: {
-                                    isPer: {
-                                        width: true,
-                                        height: false,
-                                    },
-                                    isAutoLineHeight: false,
-                                },
-                                event: "",
-                                defaultClass: "hope_grid",
-                                customClass: `g_${parseInt(100 / cols)}`,
-                                style: {
-                                    width: `${(100 / cols).toFixed(4)}%`,
-                                    height: "500px",
-                                },
-                                effect: {},
                                 children: [],
                             });
-                        }
                         console.log(e.added.element);
                         try {
                             this.$store.commit("Hope/ResetControlSelected");

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:40:34
+ * @LastEditTime : 2020-10-14 11:35:57
  * @Description  : 
 -->
 <template>
@@ -12,8 +12,9 @@
                 class="controls_change hopeui-icon hopeui-icon-edit"
             ></div>
             <div v-html="style"></div>
-            <div class="code" v-html="html"></div>
             <div class="htmlCache">{{ html }}</div>
+            <div class="jsCache">{{ js }}</div>
+            <div class="code" v-html="html"></div>
         </div>
     </div>
 </template>
@@ -44,6 +45,9 @@ export default {
         },
         html() {
             return Params.html.replace(/ele.id/g, this.ele.id);
+        },
+        js() {
+            return Params.script;
         },
     },
     methods: {

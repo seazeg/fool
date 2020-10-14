@@ -1,10 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 16:31:05
- * @LastEditTime : 2020-09-30 16:30:43
+ * @LastEditTime : 2020-10-14 11:42:12
  * @Description  :
  */
-import $egu from "eg-utils";
+
 export const utils = {
     cssFormat: function(s) {
         //格式化代码

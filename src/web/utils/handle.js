@@ -1,11 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-14 11:09:30
+ * @LastEditTime : 2020-10-14 11:56:36
  * @Description  :
  */
-import formatter from "./html-formatter";
+
 import { utils } from "./utils.js";
+import beautify from "js-beautify";
 
 export const handle = {
     reduceHTML: (ele) => {
@@ -14,7 +15,7 @@ export const handle = {
                 let html = ele.html,
                     id = ele.id;
                 html = html.replace(/ele.id/g, ele.id);
-                return formatter.render(html);
+                return beautify.html(html)
             } else {
                 let html = $("#preview").html();
                 html = html.replace(/ hope_([A-Za-z0-9]*)/g, "");
@@ -44,21 +45,48 @@ export const handle = {
                 let result = $('<div id="tmp"></div>').html(
                     controlProcess.prevObject[0]
                 );
-                return formatter.render(result.html());
+              
+                return beautify.html(result.html())
             }
         } catch (error) {}
     },
     getCSS: (ele) => {
-        let css = ele.styleSheet;
-        return utils.cssFormat(utils.json2css(css));
+        try {
+            if (!ele.label.includes("grid")) {
+                let css = ele.styleSheet;
+                return beautify.css(utils.json2css(css));
+            } else {
+                let result = "";
+                $("#preview")
+                    .find("style")
+                    .each(function() {
+                        result += $(this).text();
+                    });
+                result = result.replace(/.hope_([A-Za-z0-9]*)/g, "");
+                
+                return beautify.css(utils.json2css(result.trim()));
+            }
+        } catch (error) {}
     },
     getJS: (ele) => {
-        let js = ele.script,
-            id = ele.id;
-        if (js) {
-            js = js.replace('"." + _this.ele.id', `'.${id}'`);
-            js = js.replace('"#" + _this.ele.id', `'#${id}'`);
-        }
-        return js && js.trim();
+        try {
+            if (!ele.label.includes("grid")) {
+                let js = ele.script,
+                    id = ele.id;
+                if (js) {
+                    js = js.replace('"." + _this.ele.id', `'.${id}'`);
+                    js = js.replace('"#" + _this.ele.id', `'#${id}'`);
+                }
+                return beautify(js && js.trim());
+            } else {
+                let result = "";
+                $("#preview")
+                    .find(".jsCache")
+                    .each(function() {
+                        result += $(this).text();
+                    });
+                return beautify(result && result.trim());
+            }
+        } catch (error) {}
     },
 };

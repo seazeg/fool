@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-14 10:52:02
+ * @LastEditTime : 2020-10-14 11:09:30
  * @Description  :
  */
 import formatter from "./html-formatter";
@@ -30,7 +30,7 @@ export const handle = {
                         _this_parent.append(_this_child);
                     });
 
-                let result = $(filterData.prevObject[0].innerHTML)
+                let controlProcess = $(filterData.prevObject[0].innerHTML)
                     .find(".controls_block")
                     .each(function() {
                         let _this = $(this);
@@ -41,8 +41,10 @@ export const handle = {
                         _this.remove();
                         _this_parent.append(htmlCache);
                     });
-
-                return formatter.render(result.prevObject[0].innerHTML);
+                let result = $('<div id="tmp"></div>').html(
+                    controlProcess.prevObject[0]
+                );
+                return formatter.render(result.html());
             }
         } catch (error) {}
     },

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-14 11:56:36
+ * @LastEditTime : 2020-10-14 12:03:01
  * @Description  :
  */
 
@@ -15,7 +15,7 @@ export const handle = {
                 let html = ele.html,
                     id = ele.id;
                 html = html.replace(/ele.id/g, ele.id);
-                return beautify.html(html)
+                return beautify.html(html);
             } else {
                 let html = $("#preview").html();
                 html = html.replace(/ hope_([A-Za-z0-9]*)/g, "");
@@ -45,8 +45,8 @@ export const handle = {
                 let result = $('<div id="tmp"></div>').html(
                     controlProcess.prevObject[0]
                 );
-              
-                return beautify.html(result.html())
+
+                return beautify.html(result.html());
             }
         } catch (error) {}
     },
@@ -63,7 +63,7 @@ export const handle = {
                         result += $(this).text();
                     });
                 result = result.replace(/.hope_([A-Za-z0-9]*)/g, "");
-                
+
                 return beautify.css(utils.json2css(result.trim()));
             }
         } catch (error) {}
@@ -83,7 +83,16 @@ export const handle = {
                 $("#preview")
                     .find(".jsCache")
                     .each(function() {
-                        result += $(this).text();
+                        result += $(this)
+                            .text()
+                            .replace(
+                                '"." + _this.ele.id',
+                                `'.${$(this).attr("data-id")}'`
+                            )
+                            .replace(
+                                '"#" + _this.ele.id',
+                                `'#${$(this).attr("data-id")}'`
+                            );
                     });
                 return beautify(result && result.trim());
             }

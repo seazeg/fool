@@ -13,7 +13,7 @@
             ></div>
             <div v-html="style"></div>
             <div class="htmlCache">{{ html }}</div>
-            <div class="jsCache">{{ js }}</div>
+            <div class="jsCache" :data-id="ele.id">{{ js }}</div>
             <div class="code" v-html="html"></div>
         </div>
     </div>

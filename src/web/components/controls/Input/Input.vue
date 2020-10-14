@@ -13,6 +13,7 @@
             ></div>
             <div v-html="style"></div>
             <div class="code" v-html="html"></div>
+            <div class="htmlCache">{{ html }}</div>
         </div>
     </div>
 </template>

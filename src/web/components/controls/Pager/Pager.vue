@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:40:34
+ * @LastEditTime : 2020-10-14 10:17:12
  * @Description  : 
 -->
 <template>
@@ -13,6 +13,7 @@
             ></div>
             <div v-html="style"></div>
             <div class="code" v-html="html"></div>
+            <div class="htmlCache">{{ html }}</div>
         </div>
     </div>
 </template>

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:58:23
+ * @LastEditTime : 2020-10-14 16:21:19
  * @Description  :
  */
 export default {
@@ -30,7 +30,7 @@ export default {
         },
         ".hopeui-form-select .hopeui-select-list .option": {
             "line-height": "36px",
-            "font-size": "inherit",
+            "font-size": "14px",
             color: "#333",
         },
         ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this": {

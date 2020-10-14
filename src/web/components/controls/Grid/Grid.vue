@@ -1,12 +1,14 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-13 18:05:25
+ * @LastEditTime : 2020-10-14 18:08:34
  * @Description  : 
 -->
 <style lang="less">
-.draggable_box *[class*="hopeui-col-"] {
+.hopeui-row *[class*="hopeui-col-"] {
     outline: 1px solid #999;
+    background:#fff;
+    min-height:200px;
 }
 </style>
 <template>

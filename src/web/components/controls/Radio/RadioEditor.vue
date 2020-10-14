@@ -104,7 +104,7 @@ export default {
             })
                 .then(() => {
                     this.$store.commit(
-                        "Hope/removeControl",
+                        "Hope/RemoveControl",
                         this.selectedControl.id
                     );
                     this.$store.state.selected = {};

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2020-10-13 18:01:31
+ * @LastEditTime : 2020-10-14 16:09:18
  * @Description  :
  */
 import Vue from "vue";
@@ -85,9 +85,8 @@ export default new Vuex.Store({
                     }
                 }
             })(state.controls, id, state);
-            console.log(state.selected);
         },
-        "Hope/removeControl": (state, id) => {
+        "Hope/RemoveControl": (state, id) => {
             (function func(cls, id, state) {
                 cls.forEach(function(ele, i) {
                     if (ele.id == id) {
@@ -100,10 +99,10 @@ export default new Vuex.Store({
                 });
             })(state.controls, id, state);
         },
-        "Hope/changeDialogFormVisible": (state, value) => {
+        "Hope/ChangeDialogFormVisible": (state, value) => {
             state.dialogFormVisible = value
         },
-        "Hope/setGridEle": (state, data) => {
+        "Hope/SetGridEle": (state, data) => {
             state.gridEle = data
         },
         // "Hope/UpdateControlParams": (state, ele) => {

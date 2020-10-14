@@ -140,7 +140,7 @@
                     <el-select
                         v-model="form.colNum"
                         placeholder="请选择栅格数量"
-                         style="width:100%"
+                        style="width:100%"
                     >
                         <el-option
                             :label="opt.label"
@@ -386,35 +386,39 @@ export default {
             this.colOptions = tmp;
         },
         dialogClose() {
-            this.$store.commit("Hope/changeDialogFormVisible", false);
+            this.$store.commit("Hope/ChangeDialogFormVisible", false);
         },
         dialogEnter() {
             let e = this.$store.state.gridEle;
-
             //自定义栅格列数
             let col = parseInt(this.form.colNum);
             let total = parseInt(this.form.totalNum);
-            console.log(total);
-            console.log(col);
-            for (let i = 1; i <= col; i++) {
-                e.added.element.children.push({
-                    name: "自定义",
-                    label: "hope_grid",
-                    className: `hopeui-col-xl-${total / col}-${total}`,
-                    icon: "icon-anniu",
-                    isCustom: true,
-                    isSelected: false,
-                    id: "hope_" + utils.getRandomName(6),
-                    children: [],
-                    styleSheet: {},
-                });
+            if (col && total) {
+                for (let i = 1; i <= col; i++) {
+                    e.added.element.children.push({
+                        name: "自定义",
+                        label: "hope_grid",
+                        className: `hopeui-col-xl-${total / col}-${total}`,
+                        icon: "icon-anniu",
+                        isCustom: true,
+                        isSelected: false,
+                        id: "hope_" + utils.getRandomName(6),
+                        children: [],
+                        styleSheet: {},
+                    });
+                }
+                try {
+                    this.$store.commit("Hope/ResetControlSelected");
+                    this.$store.commit(
+                        "Hope/ControlsSelected",
+                        e.added.element
+                    );
+                    this.$store.commit(
+                        "Hope/ChooseControl",
+                        e.added.element.id
+                    );
+                } catch (error) {}
             }
-            try {
-                this.$store.commit("Hope/ResetControlSelected");
-                this.$store.commit("Hope/ControlsSelected", e.added.element);
-                this.$store.commit("Hope/ChooseControl", e.added.element.id);
-            } catch (error) {}
-
             this.dialogClose();
         },
         highHTML(code) {
@@ -510,7 +514,7 @@ export default {
                 type: "info",
             })
                 .then(() => {
-                    this.$store.commit("Hope/removeControl", e.id);
+                    this.$store.commit("Hope/RemoveControl", e.id);
                 })
                 .catch(() => {});
         },

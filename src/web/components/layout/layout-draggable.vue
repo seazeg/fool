@@ -53,8 +53,22 @@ export default {
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         change(e) {
-            this.$store.commit("Hope/setGridEle", e);
-            this.$store.commit("Hope/changeDialogFormVisible", true);
+            if (e.added.element && e.added.element.isCustom) {
+                this.$store.commit("Hope/setGridEle", e);
+                this.$store.commit("Hope/changeDialogFormVisible", true);
+            } else {
+                try {
+                    this.$store.commit("Hope/ResetControlSelected");
+                    this.$store.commit(
+                        "Hope/ControlsSelected",
+                        e.added.element
+                    );
+                    this.$store.commit(
+                        "Hope/ChooseControl",
+                        e.added.element.id
+                    );
+                } catch (error) {}
+            }
         },
         start(e) {
             $(e.item).addClass("draggingChoose");

@@ -119,21 +119,43 @@
             </el-tree>
         </el-drawer>
 
-        <el-dialog title="收货地址" :visible.sync="dialogFormVisible" width="800px">
+        <el-dialog
+            title="栅格参数配置"
+            :visible.sync="dialogFormVisible"
+            width="600px"
+        >
             <el-form :model="form">
                 <el-form-item label="总列数" :label-width="formLabelWidth">
-                    <el-select v-model="form.region" placeholder="请选择总列数">
+                    <el-select
+                        v-model="form.totalNum"
+                        placeholder="请选择总列数"
+                        @change="totalNumChange"
+                        style="width:100%"
+                    >
                         <el-option label="共8列" value="8"></el-option>
-                        <el-option label="共12列" value="8"></el-option>
+                        <el-option label="共12列" value="12"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="栅格数量" :label-width="formLabelWidth">
-                    <el-input v-model="form.name" autocomplete="off"></el-input>
+                    <el-select
+                        v-model="form.colNum"
+                        placeholder="请选择栅格数量"
+                         style="width:100%"
+                    >
+                        <el-option
+                            :label="opt.label"
+                            :value="opt.value"
+                            :key="opt.value"
+                            v-for="opt in colOptions"
+                        ></el-option>
+                    </el-select>
                 </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogClose()">取消</el-button>
-                <el-button type="primary" @click="dialogEnter()">确定</el-button>
+                <el-button type="primary" @click="dialogEnter()"
+                    >确定</el-button
+                >
             </div>
         </el-dialog>
 
@@ -194,21 +216,16 @@ export default {
             drawer: false,
             copySource: "",
             form: {
-                name: "4",
-                region: "",
-                date1: "",
-                date2: "",
-                delivery: false,
-                type: [],
-                resource: "",
-                desc: "",
+                totalNum: "",
+                colNum: "",
             },
-            formLabelWidth: "60px",
+            formLabelWidth: "80px",
             source: {
                 html: "",
                 css: "",
                 js: "",
             },
+            colOptions: [],
             animationOption: [
                 {
                     label: "基础动画",
@@ -356,56 +373,48 @@ export default {
         },
     },
     methods: {
+        totalNumChange(e) {
+            let tmp = [];
+            for (let i = 1; i <= e; i++) {
+                if (e % i == 0) {
+                    tmp.push({
+                        value: i,
+                        label: i + "列",
+                    });
+                }
+            }
+            this.colOptions = tmp;
+        },
         dialogClose() {
             this.$store.commit("Hope/changeDialogFormVisible", false);
         },
         dialogEnter() {
             let e = this.$store.state.gridEle;
-            if (e.added.element && e.added.element.isCustom) {
-                //自定义栅格列数
-                let col = parseInt(this.form.name);
-                let total = 12;
-                for (let i = 1; i <= col; i++) {
-                    e.added.element.children.push({
-                        name: "自定义",
-                        label: "hope_grid",
-                        className: `hopeui-col-xl-${total / col}-${total}`,
-                        icon: "icon-anniu",
-                        isCustom: true,
-                        isSelected: false,
-                        id: "hope_" + utils.getRandomName(6),
-                        children: [],
-                        styleSheet: {},
-                    });
-                }
 
-                console.log(e.added.element);
-                try {
-                    this.$store.commit("Hope/ResetControlSelected");
-                    this.$store.commit(
-                        "Hope/ControlsSelected",
-                        e.added.element
-                    );
-                    this.$store.commit(
-                        "Hope/ChooseControl",
-                        e.added.element.id
-                    );
-                } catch (error) {}
-            } else {
-                console.log(e.added.element);
-
-                try {
-                    this.$store.commit("Hope/ResetControlSelected");
-                    this.$store.commit(
-                        "Hope/ControlsSelected",
-                        e.added.element
-                    );
-                    this.$store.commit(
-                        "Hope/ChooseControl",
-                        e.added.element.id
-                    );
-                } catch (error) {}
+            //自定义栅格列数
+            let col = parseInt(this.form.colNum);
+            let total = parseInt(this.form.totalNum);
+            console.log(total);
+            console.log(col);
+            for (let i = 1; i <= col; i++) {
+                e.added.element.children.push({
+                    name: "自定义",
+                    label: "hope_grid",
+                    className: `hopeui-col-xl-${total / col}-${total}`,
+                    icon: "icon-anniu",
+                    isCustom: true,
+                    isSelected: false,
+                    id: "hope_" + utils.getRandomName(6),
+                    children: [],
+                    styleSheet: {},
+                });
             }
+            try {
+                this.$store.commit("Hope/ResetControlSelected");
+                this.$store.commit("Hope/ControlsSelected", e.added.element);
+                this.$store.commit("Hope/ChooseControl", e.added.element.id);
+            } catch (error) {}
+
             this.dialogClose();
         },
         highHTML(code) {

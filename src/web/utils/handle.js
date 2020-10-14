@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-13 17:25:24
+ * @LastEditTime : 2020-10-14 09:56:26
  * @Description  :
  */
 import formatter from "./html-formatter";
@@ -30,11 +30,12 @@ export const handle = {
                         _this_parent.append(_this_child);
                     });
 
-                return formatter.render(`
-                    <div class="hopeui-row">
-                    ${result.prevObject[0].innerHTML}
-                    </div>
-                `);
+                // return formatter.render(`
+                //     <div class="hopeui-row">
+                //     ${result.prevObject[0].innerHTML}
+                //     </div>
+                // `);
+                return formatter.render(result.prevObject[0].innerHTML);
                 // return formatter.render($ele.html());
                 // return "<div>特么是个栅格啊</div>";
             }

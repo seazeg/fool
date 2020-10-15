@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-14 12:03:01
+ * @LastEditTime : 2020-10-15 15:16:57
  * @Description  :
  */
 
@@ -14,7 +14,7 @@ export const handle = {
             if (!ele.label.includes("grid")) {
                 let html = ele.html,
                     id = ele.id;
-                html = html.replace(/ele.id/g, ele.id);
+                html = html.replace(/{this.ele.id}/g, `"${ele.id}"`);
                 return beautify.html(html);
             } else {
                 let html = $("#preview").html();

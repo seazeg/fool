@@ -396,8 +396,8 @@ export default {
             if (col && total) {
                 for (let i = 1; i <= col; i++) {
                     e.added.element.children.push({
-                        name: "自定义",
-                        label: "hope_grid",
+                        name: "hope_grid",
+                        label: "自定义",
                         className: `hopeui-col-xl-${total / col}-${total}`,
                         icon: "icon-anniu",
                         isCustom: true,

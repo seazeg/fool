@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-14 18:08:34
+ * @LastEditTime : 2020-10-15 16:00:01
  * @Description  : 
 -->
 <style lang="less">
@@ -22,7 +22,7 @@ import { utils } from "../../../utils/utils.js";
 import Params from "./Params.js";
 
 export default {
-    name: Params.label,
+    name: Params.name,
     data() {
         return {
             isHover: false,

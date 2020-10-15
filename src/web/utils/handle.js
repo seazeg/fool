@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-15 15:16:57
+ * @LastEditTime : 2020-10-15 15:46:16
  * @Description  :
  */
 
@@ -11,11 +11,8 @@ import beautify from "js-beautify";
 export const handle = {
     reduceHTML: (ele) => {
         try {
-            if (!ele.label.includes("grid")) {
-                let html = ele.html,
-                    id = ele.id;
-                html = html.replace(/{this.ele.id}/g, `"${ele.id}"`);
-                return beautify.html(html);
+            if (!ele.name.includes("grid")) {
+                return beautify.html(ele.html);
             } else {
                 let html = $("#preview").html();
                 html = html.replace(/ hope_([A-Za-z0-9]*)/g, "");
@@ -52,7 +49,7 @@ export const handle = {
     },
     getCSS: (ele) => {
         try {
-            if (!ele.label.includes("grid")) {
+            if (!ele.name.includes("grid")) {
                 let css = ele.styleSheet;
                 return beautify.css(utils.json2css(css));
             } else {
@@ -70,7 +67,7 @@ export const handle = {
     },
     getJS: (ele) => {
         try {
-            if (!ele.label.includes("grid")) {
+            if (!ele.name.includes("grid")) {
                 let js = ele.script,
                     id = ele.id;
                 if (js) {
@@ -87,7 +84,7 @@ export const handle = {
                             .text()
                             .replace(
                                 '"." + _this.ele.id',
-                                `'.${$(this).attr("data-id")}'`
+                                `'.${$(this).attr("data-id")}`
                             )
                             .replace(
                                 '"#" + _this.ele.id',

@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-12 13:50:07
+ * @LastEditTime : 2020-10-15 15:58:38
  * @Description  :
  */
 export default {
-    name: "分页器",
-    label: "hope_pager",
+    name: "hope_pager",
+    label: "分页器",
     icon: "icon-anniu",
     isSelected: false,
     defaultClass: "",
@@ -35,7 +35,7 @@ export default {
         ".hopeui-pager span:hover": {
             color: "#ff7400",
         },
-        ".hopeui-pager .hopeui-pager-count":{
+        ".hopeui-pager .hopeui-pager-count": {
             "font-size": "12px",
             color: "#2f2f2f",
         },
@@ -118,8 +118,15 @@ export default {
         },
     });
     `,
-    html: `
-    <div id="ele.id_list"></div>
-    <div id="ele.id"></div>
-    `,
+    props: {
+        ele: [Object, Array],
+    },
+    render() {
+        return (
+            <div>
+                <div id={this.ele.id + "_list"} />
+                <div id={this.ele.id} />
+            </div>
+        );
+    },
 };

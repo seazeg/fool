@@ -9,7 +9,7 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('radio')
+                selectedControl.name.includes('radio')
         "
     >
         <!-- 基础属性 -->

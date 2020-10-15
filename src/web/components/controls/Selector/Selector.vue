@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 15:16:17
+ * @LastEditTime : 2020-10-15 16:00:35
  * @Description  : 
 -->
 <template>
@@ -14,7 +14,7 @@
             <div v-html="style"></div>
             <div class="htmlCache">{{ html }}</div>
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
-            <div class="code">
+            <div class="code" ref="code">
                 <Params :ele="ele"></Params>
             </div>
         </div>
@@ -23,14 +23,14 @@
 
 <script>
 import { utils } from "../../../utils/utils.js";
-// import htmlCode from "./html.js";
 import Params from "./Params.js";
 
 export default {
-    name: Params.label,
+    name: Params.name,
     data() {
         return {
             isHover: false,
+            html: "",
         };
     },
     components: { Params },
@@ -47,9 +47,6 @@ export default {
             });
             return `<style>${utils.json2css(res)}</style>`;
         },
-        html() {
-            return Params.html.replace(/{this.ele.id}/g, `"${ele.id}"`);
-        },
         js() {
             return Params.script;
         },
@@ -62,6 +59,8 @@ export default {
     mounted() {
         let _this = this;
         _this.$nextTick(function() {
+            _this.html = _this.$refs.code.innerHTML;
+            _this.ele.html = _this.$refs.code.innerHTML;
             Function("_this", Params.script)(_this);
         });
     },

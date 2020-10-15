@@ -18,13 +18,12 @@
         @change="change"
         @start="start"
         @end="end"
-        @update="update"
     >
         <!-- <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele"> -->
         <component
             v-for="(ele, i) in controls"
             :key="i"
-            :is="ele.label"
+            :is="ele.name"
             :ele="ele"
             @choose="choose(ele)"
             :class="[{ selected: ele.isSelected }, ele.id]"
@@ -39,7 +38,6 @@
 </template>
 <script>
 import ChooseBox from "../../components/layout/layout-choosebox.vue";
-import grid from "../controls/Grid/Params";
 export default {
     name: "layout-draggable",
     props: {
@@ -78,19 +76,7 @@ export default {
         },
         end(e) {
             $(e.item).removeClass("draggingChoose");
-        },
-        update(e) {
-            console.log(this.controls);
-            // console.log(111);
-            // let _this = this;
-            // for (let ele of this.controls) {
-            //     let o = ele.script.replace('"." + _this.ele.id', `'.${ele.id}'`);
-            //     o = o.replace('"#" + _this.ele.id', `'#${ele.id}'`);
-            //     _this.$nextTick(function() {
-            //         Function("_this", o)(_this);
-            //     });
-            // }
-        },
+        }
     },
 };
 </script>

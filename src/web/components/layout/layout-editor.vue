@@ -462,7 +462,7 @@ export default {
             });
         },
         allowDrop(draggingNode, dropNode, type) {
-            if (!dropNode.data.label.includes("grid")) {
+            if (!dropNode.data.name.includes("grid")) {
                 return type !== "inner";
             } else {
                 return true;

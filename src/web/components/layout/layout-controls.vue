@@ -44,7 +44,7 @@
                     >
                         <template slot="title">
                             <i class="el-icon-c-scale-to-original"></i>
-                            {{ ele.name }}
+                            {{ ele.label }}
                         </template>
                     </el-menu-item>
                 </draggable>
@@ -68,7 +68,7 @@
                     >
                         <template slot="title">
                             <i class="el-icon-copy-document"></i>
-                            {{ ele.name }}
+                            {{ ele.label }}
                         </template>
                     </el-menu-item>
                 </draggable>
@@ -92,7 +92,7 @@
                     >
                         <template slot="title">
                             <i class="el-icon-copy-document"></i>
-                            {{ ele.name }}
+                            {{ ele.label }}
                         </template>
                     </el-menu-item>
                 </draggable>

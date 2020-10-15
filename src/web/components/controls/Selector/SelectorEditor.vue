@@ -3,7 +3,7 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('selector')
+                selectedControl.name.includes('selector')
         "
     >
         <!-- 基础属性 -->

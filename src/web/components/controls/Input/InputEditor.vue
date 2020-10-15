@@ -9,7 +9,7 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('input')
+                selectedControl.name.includes('input')
         "
     >
         <!-- 基础属性 -->

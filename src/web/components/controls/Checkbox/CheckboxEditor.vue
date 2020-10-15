@@ -7,7 +7,7 @@
 <template>
     <div class="edit" v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('checkbox')
+                selectedControl.name.includes('checkbox')
         ">
         <!-- 基础属性 -->
         <div class="control_group_title">

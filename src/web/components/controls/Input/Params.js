@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 16:06:07
+ * @LastEditTime : 2020-10-15 15:58:31
  * @Description  :
  */
 export default {
-    name: "文本框",
-    label: "hope_input",
+    name: "hope_input",
+    label: "文本框",
     icon: "icon-anniu",
     isSelected: false,
     defaultClass: "",
@@ -40,10 +40,10 @@ export default {
         "input::-ms-input-placeholder": {
             color: " #555",
         },
-        ".hopeui-placeholder":{
+        ".hopeui-placeholder": {
             color: " #555",
-            "line-height":"38px"
-        }
+            "line-height": "38px",
+        },
     },
     script: `
     let input = hope.input({
@@ -61,7 +61,18 @@ export default {
         },
     });
     `,
-    html: `
-    <input name="text" type="text" placeholder="请输入文本" class="hopeui-input" id="ele.id" />
-    `
+    props: {
+        ele: [Object, Array],
+    },
+    render() {
+        return (
+            <input
+                name="text"
+                type="text"
+                placeholder="请输入文本"
+                class="hopeui-input"
+                id={this.ele.id}
+            />
+        );
+    },
 };

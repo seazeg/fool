@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:58:42
+ * @LastEditTime : 2020-10-15 15:58:47
  * @Description  :
  */
 export default {
-    name: "单选框",
-    label: "hope_radio",
+    name: "hope_radio",
+    label: "单选框",
     icon: "icon-anniu",
     isSelected: false,
     defaultClass: "",
@@ -17,7 +17,7 @@ export default {
         },
         ".hopeui-form-radio i": {
             "font-size": "20px",
-            color: "#c2c2c2"
+            color: "#c2c2c2",
         },
         ".hopeui-form-radio.hopeui-form-radio": {
             color: "#666",
@@ -39,9 +39,36 @@ export default {
         },
     });
     `,
-    html: `
-    <input type="radio" name="radio" value="男" title="男" class="ele.id" checked />
-    <input type="radio" name="radio" value="女" title="女" class="ele.id"  />
-    <input type="radio" name="radio" value="什么玩意" title="什么玩意" class="ele.id" disabled />
-    `,
+    props: {
+        ele: [Object, Array],
+    },
+    render() {
+        return (
+            <div>
+                <input
+                    type="radio"
+                    name="radio"
+                    value="男"
+                    title="男"
+                    class={this.ele.id}
+                    checked
+                />
+                <input
+                    type="radio"
+                    name="radio"
+                    value="女"
+                    title="女"
+                    class={this.ele.id}
+                />
+                <input
+                    type="radio"
+                    name="radio"
+                    value="什么玩意"
+                    title="什么玩意"
+                    class={this.ele.id}
+                    disabled
+                />
+            </div>
+        );
+    },
 };

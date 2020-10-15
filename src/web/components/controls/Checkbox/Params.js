@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-30 15:59:16
+ * @LastEditTime : 2020-10-15 15:58:13
  * @Description  :
  */
 export default {
-    name: "复选框",
-    label: "hope_checkbox",
+    name: "hope_checkbox",
+    label: "复选框",
     icon: "icon-anniu",
     isSelected: false,
     defaultClass: "",
@@ -51,9 +51,32 @@ export default {
             },
         });
     `,
-    html: `
-    <input type="checkbox" name="subject" value="音乐" class="ele.id" />
-    <input type="checkbox" name="subject" value="历史" class="ele.id" />
-    <input type="checkbox" name="subject" value="生物" class="ele.id" disabled />
-    `,
+    props: {
+        ele: [Object, Array],
+    },
+    render() {
+        return (
+            <div>
+                <input
+                    type="checkbox"
+                    name="subject"
+                    value="音乐"
+                    class={this.ele.id}
+                />
+                <input
+                    type="checkbox"
+                    name="subject"
+                    value="历史"
+                    class={this.ele.id}
+                />
+                <input
+                    type="checkbox"
+                    name="subject"
+                    value="生物"
+                    class={this.ele.id}
+                    disabled
+                />
+            </div>
+        );
+    },
 };

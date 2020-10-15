@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-09-28 15:19:52
+ * @LastEditTime : 2020-10-15 15:57:58
  * @Description  : 
 -->
 <template>
@@ -9,7 +9,7 @@
         class="edit"
         v-if="
             Object.keys(selectedControl).length > 0 &&
-                selectedControl.label.includes('textarea')
+                selectedControl.name.includes('textarea')
         "
     >
         <!-- 基础属性 -->

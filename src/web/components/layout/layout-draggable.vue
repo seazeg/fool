@@ -19,7 +19,6 @@
         @start="start"
         @end="end"
     >
-        <!-- <ChooseBox v-for="(ele, i) in controls" :key="i" :element="ele"> -->
         <component
             v-for="(ele, i) in controls"
             :key="i"
@@ -33,21 +32,16 @@
                 :controls="ele.children"
             ></layout-draggable>
         </component>
-        <!-- </ChooseBox> -->
     </draggable>
 </template>
 <script>
-import ChooseBox from "../../components/layout/layout-choosebox.vue";
+
 export default {
     name: "layout-draggable",
     props: {
         controls: [Array, Object],
         dialogFormVisible: Boolean,
     },
-    components: {
-        ChooseBox,
-    },
-    computed: {},
     methods: {
         choose(e) {
             this.$store.commit("Hope/ResetControlSelected");

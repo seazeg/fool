@@ -103,13 +103,13 @@
 <script>
 import _ from "lodash";
 import { utils } from "../../utils/utils.js";
-import SelectorParams from "../controls/Selector/Params";
-import GridParams from "../controls/Grid/Params";
-import RadioParams from "../controls/Radio/Params";
-import InputParams from "../controls/Input/Params";
-import CheckboxParams from "../controls/Checkbox/Params";
-import TextareaParams from "../controls/Textarea/Params";
-import PagerParams from "../controls/Pager/Params";
+import SelectorMixins from "../controls/Selector/Mixins";
+import GridMixins from "../controls/Grid/Mixins";
+import RadioMixins from "../controls/Radio/Mixins";
+import InputMixins from "../controls/Input/Mixins";
+import CheckboxMixins from "../controls/Checkbox/Mixins";
+import TextareaMixins from "../controls/Textarea/Mixins";
+import PagerMixins from "../controls/Pager/Mixins";
 
 export default {
     name: "layout-controls",
@@ -120,19 +120,19 @@ export default {
     },
     computed: {
         layout() {
-            return [GridParams];
+            return [GridMixins];
         },
         controls() {
             return [
-                SelectorParams,
-                InputParams,
-                RadioParams,
-                CheckboxParams,
-                TextareaParams,
+                SelectorMixins,
+                InputMixins,
+                RadioMixins,
+                CheckboxMixins,
+                TextareaMixins,
             ];
         },
         components() {
-            return [PagerParams];
+            return [PagerMixins];
         },
     },
     methods: {

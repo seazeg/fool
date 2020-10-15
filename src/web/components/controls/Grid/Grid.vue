@@ -1,14 +1,14 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:00:01
+ * @LastEditTime : 2020-10-15 16:15:30
  * @Description  : 
 -->
 <style lang="less">
 .hopeui-row *[class*="hopeui-col-"] {
     outline: 1px solid #999;
-    background:#fff;
-    min-height:200px;
+    background: #fff;
+    min-height: 200px;
 }
 </style>
 <template>
@@ -19,10 +19,10 @@
 
 <script>
 import { utils } from "../../../utils/utils.js";
-import Params from "./Params.js";
+import Mixins from "./Mixins.js";
 
 export default {
-    name: Params.name,
+    name: Mixins.name,
     data() {
         return {
             isHover: false,

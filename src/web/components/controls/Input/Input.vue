@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:00:27
+ * @LastEditTime : 2020-10-15 16:14:44
  * @Description  : 
 -->
 <template>
@@ -15,7 +15,7 @@
             <div class="htmlCache">{{ html }}</div>
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
             <div class="code" ref="code">
-                <Params :ele="ele"></Params>
+                <Mixins :ele="ele"></Mixins>
             </div>
         </div>
     </div>
@@ -23,17 +23,17 @@
 
 <script>
 import { utils } from "../../../utils/utils.js";
-import Params from "./Params.js";
+import Mixins from "./Mixins.js";
 
 export default {
-    name: Params.name,
+    name: Mixins.name,
     data() {
         return {
             isHover: false,
             html: "",
         };
     },
-    components: { Params },
+    components: { Mixins },
     props: {
         ele: [Array, Object],
     },
@@ -48,7 +48,7 @@ export default {
             return `<style>${utils.json2css(res)}</style>`;
         },
         js() {
-            return Params.script;
+            return Mixins.script;
         },
     },
     methods: {
@@ -61,7 +61,7 @@ export default {
         _this.$nextTick(function() {
             _this.html = _this.$refs.code.innerHTML;
             _this.ele.html = _this.$refs.code.innerHTML;
-            Function("_this", Params.script)(_this);
+            Function("_this", Mixins.script)(_this);
         });
     },
 };

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:14:44
+ * @LastEditTime : 2020-10-15 16:54:09
  * @Description  : 
 -->
 <template>
@@ -60,7 +60,7 @@ export default {
         let _this = this;
         _this.$nextTick(function() {
             _this.html = _this.$refs.code.innerHTML;
-            _this.ele.html = _this.$refs.code.innerHTML;
+            _this.ele.html = $(_this.$refs.code).children().html();
             Function("_this", Mixins.script)(_this);
         });
     },

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:12:42
+ * @LastEditTime : 2020-10-15 16:59:11
  * @Description  :
  */
 export default {
@@ -64,12 +64,14 @@ export default {
     },
     render() {
         return (
-            <textarea
-                name="textarea"
-                class="hopeui-textarea"
-                placeholder="请输入内容"
-                id={this.ele.id}
-            />
+            <div>
+                <textarea
+                    name="textarea"
+                    class="hopeui-textarea"
+                    placeholder="请输入内容"
+                    id={this.ele.id}
+                />
+            </div>
         );
     },
 };

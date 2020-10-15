@@ -1,18 +1,19 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2020-10-15 16:45:08
+ * @LastEditTime : 2020-10-15 16:55:50
  * @Description  :
  */
 
 import { utils } from "./utils.js";
 import beautify from "js-beautify";
+import format from "./html-formatter"
 
 export const handle = {
     reduceHTML: (ele) => {
         try {
             if (!ele.name.includes("grid")) {
-                return beautify.html(ele.html);
+                return format.render(ele.html);
             } else {
                 let html = $("#preview").html();
                 html = html.replace(/ hope_([A-Za-z0-9]*)/g, "");

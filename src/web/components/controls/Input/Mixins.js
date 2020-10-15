@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 15:58:31
+ * @LastEditTime : 2020-10-15 16:58:36
  * @Description  :
  */
 export default {
@@ -66,13 +66,15 @@ export default {
     },
     render() {
         return (
-            <input
-                name="text"
-                type="text"
-                placeholder="请输入文本"
-                class="hopeui-input"
-                id={this.ele.id}
-            />
+            <div>
+                <input
+                    name="text"
+                    type="text"
+                    placeholder="请输入文本"
+                    class="hopeui-input"
+                    id={this.ele.id}
+                />
+            </div>
         );
     },
 };

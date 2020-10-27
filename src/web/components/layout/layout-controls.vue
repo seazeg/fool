@@ -110,6 +110,7 @@ import InputMixins from "../controls/Input/Mixins";
 import CheckboxMixins from "../controls/Checkbox/Mixins";
 import TextareaMixins from "../controls/Textarea/Mixins";
 import PagerMixins from "../controls/Pager/Mixins";
+import ButtonMixins from "../controls/Button/Mixins";
 
 export default {
     name: "layout-controls",
@@ -124,6 +125,7 @@ export default {
         },
         controls() {
             return [
+                ButtonMixins,
                 SelectorMixins,
                 InputMixins,
                 RadioMixins,

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 15:58:38
+ * @LastEditTime : 2020-10-23 14:47:35
  * @Description  :
  */
 export default {
@@ -123,7 +123,7 @@ export default {
     },
     render() {
         return (
-            <div>
+            <div class="page_list">
                 <div id={this.ele.id + "_list"} />
                 <div id={this.ele.id} />
             </div>

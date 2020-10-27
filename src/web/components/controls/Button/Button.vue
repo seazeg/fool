@@ -1,15 +1,9 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-23 14:48:12
+ * @LastEditTime : 2020-10-15 16:56:58
  * @Description  : 
 -->
-<style lang="less">
-.page_list{
-    font-size:12px;
-    color:#333;
-}
-</style>
 <template>
     <div class="controls_block">
         <div class="controls_inner">

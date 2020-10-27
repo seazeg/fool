@@ -195,6 +195,12 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></PagerEditor>
+        <ButtonEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></ButtonEditor>
     </div>
 </template>
 <script>

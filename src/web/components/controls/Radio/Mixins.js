@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 15:58:47
+ * @LastEditTime : 2020-11-05 16:01:50
  * @Description  :
  */
 export default {
@@ -33,6 +33,9 @@ export default {
     let radio = hope.radio({
         ele: "." + _this.ele.id,
         on: {
+            init:function(e){
+                console.log(e);
+            },
             change: function (e) {
                 console.log(e);
             },

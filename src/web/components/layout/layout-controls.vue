@@ -140,17 +140,17 @@ export default {
     methods: {
         clone(o) {
             let _this = this;
+            let oo = _.cloneDeep(o);
             (function func(cls) {
                 for (let ele of cls) {
-                    // _this.$set(ele, "id", $egu.guid());
                     _this.$set(ele, "id", "hope_" + utils.getRandomName(6));
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }
                 }
-            })([o]);
+            })([oo]);
             return {
-                ..._.cloneDeep(o),
+                ..._.cloneDeep(oo),
             };
         },
         // dragStart(e) {

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:54:09
+ * @LastEditTime : 2020-11-06 16:25:00
  * @Description  : 
 -->
 <template>
@@ -59,10 +59,12 @@ export default {
     mounted() {
         let _this = this;
         _this.$nextTick(function() {
-            _this.html = _this.$refs.code.innerHTML;
-            _this.ele.html = $(_this.$refs.code).children().html();
+            _this.html = $(_this.$refs.code)
+                .children()
+                .html();
+            _this.ele.html = _this.html;
             Function("_this", Mixins.script)(_this);
         });
-    },
+    }
 };
 </script>

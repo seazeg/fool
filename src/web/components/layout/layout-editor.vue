@@ -5,9 +5,12 @@
             <el-tabs v-model="tabChecked" type="border-card">
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-edit-outline"></i>preview</span
+                        <i class="el-icon-edit-outline"></i>preview
+                       
+                        </span
                     >
                     <div class="view-box preview" id="preview" ref="preview">
+                       
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
@@ -539,6 +542,7 @@ export default {
         },
     },
     updated() {
+        console.log('[列表]',this.$store.state.controls);
         this.codeListener();
     },
 };

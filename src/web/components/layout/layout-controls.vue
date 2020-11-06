@@ -28,7 +28,7 @@
             <el-submenu index="1">
                 <template slot="title">
                     <i class="el-icon-c-scale-to-original"></i>
-                    <span>栅格布局</span>
+                    <span>结构布局</span>
                 </template>
                 <draggable
                     class="group"
@@ -149,6 +149,7 @@ export default {
                     }
                 }
             })([oo]);
+
             return {
                 ..._.cloneDeep(oo),
             };

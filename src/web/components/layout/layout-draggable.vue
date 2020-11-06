@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2020-11-06 16:32:50
+ * @LastEditTime : 2020-11-06 17:31:14
  * @Description  : 
 -->
 <style lang="less">
@@ -10,14 +10,16 @@
 }
 
 .draggable_box {
-    height: 200px;
-    min-height: 100%;
+    min-height: 200px;
+}
+.draggable_root {
+    height: 100%;
 }
 </style>
 <template>
     <!-- ghost-class="draggingChoose" -->
     <draggable
-        class="draggable_box"
+        class="draggable_box draggable_root"
         :class="{ defaultHeight: controls.length <= 0 }"
         :list="controls"
         :group="{ name: 'controls' }"
@@ -55,18 +57,20 @@ export default {
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         change(e) {
-            if (e.added && e.added.element.isCustom) {
-                this.$store.commit("Hope/SetGridEle", e);
-                this.$store.commit("Hope/ChangeDialogFormVisible", true);
-            } else {
-                let ev = e.added;
-                if (e.moved) {
-                    ev = e.moved;
+            try {
+                if (e.added && e.added.element.isCustom) {
+                    this.$store.commit("Hope/SetGridEle", e);
+                    this.$store.commit("Hope/ChangeDialogFormVisible", true);
+                } else {
+                    let ev = e.added;
+                    if (e.moved) {
+                        ev = e.moved;
+                    }
+                    this.$store.commit("Hope/ResetControlSelected");
+                    this.$store.commit("Hope/ControlsSelected", ev.element);
+                    this.$store.commit("Hope/ChooseControl", ev.element.id);
                 }
-                this.$store.commit("Hope/ResetControlSelected");
-                this.$store.commit("Hope/ControlsSelected", ev.element);
-                this.$store.commit("Hope/ChooseControl", ev.element.id);
-            }
+            } catch (error) {}
         },
     },
 };

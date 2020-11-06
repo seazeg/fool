@@ -1,18 +1,14 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-06 16:42:06
+ * @LastEditTime : 2020-11-06 17:29:42
  * @Description  : 
 -->
 <style lang="less">
 .hopeui-row *[class*="hopeui-col-"] {
-    outline: 1px solid #999;
+    outline: 1px dotted #999;
     background: #fff;
     min-height: 200px;
-}
-.grid_open{
-    width: 100%;
-    height: 100%;
 }
 </style>
 <template>
@@ -44,6 +40,9 @@ export default {
         choose() {
             this.$emit("choose", this.ele);
         },
+    },
+    mounted() {
+        console.log(1222);
     },
 };
 </script>

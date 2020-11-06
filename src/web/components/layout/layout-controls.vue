@@ -153,12 +153,6 @@ export default {
                 ..._.cloneDeep(oo),
             };
         },
-        // dragStart(e) {
-        //     $(e.item).addClass("draggingList");
-        // },
-        // dragEnd(e) {
-        //     $(e.item).removeClass("draggingList");
-        // },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);
         },

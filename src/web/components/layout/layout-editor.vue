@@ -407,7 +407,7 @@ export default {
                     e.added.element.children.push({
                         name: "hope_grid",
                         label: "自定义",
-                        className: `hopeui-col-xl-${total / col}-${total}`,
+                        className: `hopeui-col-xl-${total / col}-${total} ignoreEle`,
                         icon: "icon-anniu",
                         isCustom: true,
                         isSelected: false,

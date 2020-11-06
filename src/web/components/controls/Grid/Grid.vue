@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:15:30
+ * @LastEditTime : 2020-11-06 16:42:06
  * @Description  : 
 -->
 <style lang="less">
@@ -10,9 +10,13 @@
     background: #fff;
     min-height: 200px;
 }
+.grid_open{
+    width: 100%;
+    height: 100%;
+}
 </style>
 <template>
-    <div :class="[ele.className, ignoreEle]">
+    <div :class="[ele.className]">
         <slot></slot>
     </div>
 </template>

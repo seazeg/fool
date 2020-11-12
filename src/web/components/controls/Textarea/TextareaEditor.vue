@@ -1,21 +1,13 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-06 17:45:22
+ * @LastEditTime : 2020-11-12 14:28:26
  * @Description  : 
 -->
 <template>
-    <div class="edit" v-if="
-            Object.keys(selectedControl).length > 0 &&
-                selectedControl.name.includes('textarea')
-        ">
-        <!-- 基础属性 -->
-        <div class="control_group_title">
-            基础属性：
-            <el-button type="danger" round @click="visualNodeRemove()" icon="el-icon-delete-solid" size="mini">
-            </el-button>
-        </div>
-        <div class="control_group">
+    <layout-editor :controlsName="'textarea'">
+        <template v-slot:base>
+             <div class="control_group">
             <div class="box">
                 <span class="field">宽度</span>
                 <p>
@@ -69,43 +61,26 @@
                 </p>
             </div>
         </div>
-    </div>
+        </template>
+        <template v-slot:layout> </template>
+    </layout-editor>
 </template>
 
 <script>
-    import {
-        fields
-    } from "./fields.js";
+import { fields } from "./fields.js";
 
-    export default {
-        name: "TextareaEditor",
-        props: {
-            borderStyleOption: [Array, Object],
-            animationOption: [Array, Object],
-            generalStyleOption: [Array, Object],
-        },
-        computed: {
-            selectedControl() {
-                return this.$store.state.selected;
-            },
-            ...fields,
-        },
-        methods: {
-            visualNodeRemove() {
-                this.$confirm("确定删除当前节点？", "提示", {
-                        confirmButtonText: "确定",
-                        cancelButtonText: "取消",
-                        type: "info",
-                    })
-                    .then(() => {
-                        this.$store.commit(
-                            "Hope/RemoveControl",
-                            this.selectedControl.id
-                        );
-                        this.$store.state.selected = {};
-                    })
-                    .catch(() => {});
-            },
-        },
-    };
+export default {
+    name: "TextareaEditor",
+    data() {
+        return {};
+    },
+    props: {
+        borderStyleOption: [Array, Object],
+        animationOption: [Array, Object],
+        generalStyleOption: [Array, Object],
+    },
+    computed: {
+        ...fields,
+    },
+};
 </script>

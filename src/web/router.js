@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2020-10-15 15:08:35
+ * @LastEditTime : 2020-11-12 13:47:42
  * @Description  : 
  */
 import Vue from 'vue'
@@ -12,7 +12,7 @@ Vue.use(Router)
 export const navInfo = [{
   path: '/editor',
   name: 'editor',
-  component: () => import( /* webpackChunkName: "button" */ './components/layout/layout-editor.vue'),
+  component: () => import( /* webpackChunkName: "button" */ './components/layout/layout-workspace.vue'),
 }
 // ,{
 //   path: '/demo',

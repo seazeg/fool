@@ -325,7 +325,7 @@
 }
 
 .layout-container .el-tabs--border-card {
-    background: @work_color;
+    background: @deputy_color;
     border: 1px solid @shadow_color;
     height: 100%;
 }
@@ -334,6 +334,7 @@
     background: @main_color;
     border-bottom: 1px solid @shadow_color;
     user-select: none;
+    margin:0;
 }
 
 .layout-container .el-tabs--border-card > .el-tabs__header .el-tabs__item {
@@ -344,11 +345,21 @@
     .el-tabs--border-card
     > .el-tabs__header
     .el-tabs__item.is-active {
-    background: @border_color;
-    border-right-color: @shadow_color;
-    border-left-color: @shadow_color;
+    background: @deputy_color;
+    // border-right-color: @shadow_color;
+    // border-left-color: @shadow_color;
     color: @tools_color;
     outline: none;
+}
+
+.layout-container .el-tabs--right.el-tabs--border-card .el-tabs__header.is-right{
+    border-left: 1px solid @main_color;
+}
+
+.layout-container .el-tabs--right.el-tabs--border-card .el-tabs__item.is-right.is-active
+,
+.layout-container .el-tabs--border-card>.el-tabs__header .el-tabs__item{
+    border:none;
 }
 
 .layout-container .edit {
@@ -379,7 +390,7 @@
 
 .layout-container .edit .control_group {
     padding: 17px;
-    border: 1px dashed @shadow_color;
+    // border: 1px dashed @shadow_color;
     margin-bottom: 10px;
     background: @deputy_color;
 }
@@ -611,6 +622,7 @@
 //     position: absolute !important;
 // }
 
+
 .draggingChoose {
     width: 10px !important;
     height: 10px !important;
@@ -643,7 +655,8 @@
 }
 
 .layout-container .controls_block {
-    display: block;
+    display: inline-block;
+    vertical-align:middle;
 
     .controls_inner {
         position: relative;

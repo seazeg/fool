@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-05 16:01:50
+ * @LastEditTime : 2020-11-12 18:00:38
  * @Description  :
  */
 export default {
@@ -55,6 +55,7 @@ export default {
                     title="男"
                     class={this.ele.id}
                     checked
+                    hope-verify="required"
                 />
                 <input
                     type="radio"
@@ -62,6 +63,7 @@ export default {
                     value="女"
                     title="女"
                     class={this.ele.id}
+                    hope-verify="required"
                 />
                 <input
                     type="radio"
@@ -70,6 +72,7 @@ export default {
                     title="什么玩意"
                     class={this.ele.id}
                     disabled
+                    hope-verify="required"
                 />
             </div>
         );

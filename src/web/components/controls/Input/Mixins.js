@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:58:36
+ * @LastEditTime : 2020-11-12 18:01:20
  * @Description  :
  */
 export default {
@@ -73,6 +73,7 @@ export default {
                     placeholder="请输入文本"
                     class="hopeui-input"
                     id={this.ele.id}
+                    hope-verify="required"
                 />
             </div>
         );

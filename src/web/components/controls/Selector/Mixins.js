@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:58:58
+ * @LastEditTime : 2020-11-12 18:00:25
  * @Description  :
  */
 export default {
@@ -79,7 +79,7 @@ export default {
     render() {
         return (
             <div>
-                <select name="city" id={this.ele.id}>
+                <select name="city" id={this.ele.id} hope-verify="required">
                     <option value="">请选择一个选项</option>
                     <option value="青岛">青岛</option>
                     <option value="武汉">武汉</option>

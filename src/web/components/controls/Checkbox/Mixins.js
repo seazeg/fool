@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 15:58:13
+ * @LastEditTime : 2020-11-12 18:01:02
  * @Description  :
  */
 export default {
@@ -62,12 +62,14 @@ export default {
                     name="subject"
                     value="音乐"
                     class={this.ele.id}
+                    hope-verify="required"
                 />
                 <input
                     type="checkbox"
                     name="subject"
                     value="历史"
                     class={this.ele.id}
+                    hope-verify="required"
                 />
                 <input
                     type="checkbox"
@@ -75,6 +77,7 @@ export default {
                     value="生物"
                     class={this.ele.id}
                     disabled
+                    hope-verify="required"
                 />
             </div>
         );

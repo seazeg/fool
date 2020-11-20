@@ -10,62 +10,113 @@
                         <meta name="renderer" content="webkit">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                         <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
-                        <link rel="stylesheet" href="base.css" />
-                        <link rel="stylesheet" href="hope.css" />
+                        <link rel="stylesheet" href="hopeui/hopeui.min.css" />
                         <style>
-                            .hope_button {
-	width:150px;
-	height:50px;
-	line-height:50px;
-	transition-delay:0s;
-	transition-duration:0.5s;
-	transition-property:all;
-	transition-timing-function:ease;
-	background-color:rgba(65,184,131,1);
-	color:rgba(255,255,255,1);
-	border-style:solid;
-	border-width:0px;
-	border-color:rgba(65,184,131,1);
-	border-radius:10px;
-	font-size:14px;
-	background-image:linear-gradient(90deg,rgba(65,184,131,1) 0%,rgba(165,184,131,1) 51%,rgba(65,184,131,1) 100%);
-	background-size:200% auto;
-}
-.hope_button:hover {
-	animation-duration:0.5s;
-	background-position:right center
-}
-.hope_button {
-	width:150px;
-	height:50px;
-	line-height:50px;
-	transition-delay:0s;
-	transition-duration:0.5s;
-	transition-property:all;
-	transition-timing-function:ease;
-	background-color:rgb(44,52,49);
-	color:rgba(255,255,255,1);
-	border-style:solid;
-	border-width:0px;
-	border-color:rgba(65,184,131,1);
-	border-radius:10px;
-	font-size:14px;
-	background-size:200% auto;
-}
-.hope_button:hover {
-	animation-duration:0.5s;
-	animation-name:;
-	background-color:rgb(224,9,141);
-	background-position:right center
+                            .hopeui-input {
+    display: block;
+    width: 300px;
+    padding: 0 10px;
+    height: 38px;
+    line-height: 36px;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e6e6e6;
+    font-size: 14px;
+    color: #333333
 }
 
+.hopeui-input:focus {
+    border-color: #c9c9c9
+}
+
+.hopeui-input:hover {
+    border-color: #d2d2d2
+}
+
+input::-webkit-input-placeholder {
+    color: #555
+}
+
+input::-moz-placeholder {
+    color: #555
+}
+
+input::-ms-input-placeholder {
+    color: #555
+}
+
+.hopeui-placeholder {
+    color: #555;
+    line-height: 36px
+}
+
+.hopeui-suggest {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d2d2d2;
+    background-color: #fff;
+    border-radius: 2px;
+    top: 1px
+}
+
+.hopeui-suggest .option {
+    line-height: 36px;
+    color: #333;
+    font-size: 14px
+}
+
+.hopeui-suggest .option.hopeui-suggest-this {
+    background-color: #ff7400 !important;
+    color: #fff !important
+}
+
+.hopeui-suggest .option.hopeui-suggest-tips {
+    color: #666
+}
+
+.hopeui-suggest .option:hover {
+    background-color: #f2f2f2
+}
                         </style>
                     </head>
 
                     <body>
-                        <div class="hope_button">按钮</div>
-<div class="hope_button">按钮q</div>
-                    </body>
+                        <div class="hopeui-row">
+    <div class="hopeui-col-xl-3-12">
+        <div><input name="text" type="text" value="" id="hope_QSI948" placeholder="请输入" autoprompt="true" class="hopeui-input"></div>
+    </div>
+    <div class="hopeui-col-xl-3-12"></div>
+    <div class="hopeui-col-xl-3-12"></div>
+    <div class="hopeui-col-xl-3-12"></div>
+</div>
+                        <script src="hopeui/hopeui.min.js"></script>
 
-                </html>
-           
+                        <script>
+                        let suggest = hope.suggest({
+    ele: '#hope_QSI948',
+    options: {
+        noMatchName: '-- 没有匹配的内容 --'
+    },
+    params: {
+        url: '/assets/page/list1.json',
+        dataType: "json",
+        type: 'get',
+        searchField: 'searchword'
+    },
+    reader: function(res) {
+        var list = res.data;
+        var tmp = [];
+        for (var i = 0; i < list.length; i++) {
+            tmp.push(list[i].goodsName)
+        }
+        return tmp
+    },
+    on: {
+        input: function(e) {
+            console.log(e);
+        }
+    }
+})
+                        </script></body></html>
+                

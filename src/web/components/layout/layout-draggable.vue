@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2020-11-06 17:31:14
+ * @LastEditTime : 2020-11-17 14:30:24
  * @Description  : 
 -->
 <style lang="less">
@@ -49,7 +49,7 @@ export default {
     name: "layout-draggable",
     props: {
         controls: [Array, Object],
-        dialogFormVisible: Boolean,
+        dialogGridVisible: Boolean,
     },
     methods: {
         choose(e) {
@@ -58,9 +58,13 @@ export default {
         },
         change(e) {
             try {
-                if (e.added && e.added.element.isCustom) {
+                if (
+                    e.added &&
+                    e.added.element.isCustom &&
+                    e.added.element.name.includes("grid")
+                ) {
                     this.$store.commit("Hope/SetGridEle", e);
-                    this.$store.commit("Hope/ChangeDialogFormVisible", true);
+                    this.$store.commit("Hope/ChangeDialogGridVisible", true);
                 } else {
                     let ev = e.added;
                     if (e.moved) {

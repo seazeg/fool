@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2020-10-14 16:09:18
+ * @LastEditTime : 2020-11-17 14:23:44
  * @Description  :
  */
 import Vue from "vue";
@@ -14,7 +14,7 @@ export default new Vuex.Store({
     state: {
         controls: [],
         selected: {},
-        dialogFormVisible: false,
+        dialogGridVisible: false,
         gridEle:{}
     },
     mutations: {
@@ -99,8 +99,8 @@ export default new Vuex.Store({
                 });
             })(state.controls, id, state);
         },
-        "Hope/ChangeDialogFormVisible": (state, value) => {
-            state.dialogFormVisible = value
+        "Hope/ChangeDialogGridVisible": (state, value) => {
+            state.dialogGridVisible = value
         },
         "Hope/SetGridEle": (state, data) => {
             state.gridEle = data

@@ -105,8 +105,10 @@ import _ from "lodash";
 import { utils } from "../../utils/utils.js";
 import SelectorMixins from "../controls/Selector/Mixins";
 import GridMixins from "../controls/Grid/Mixins";
+import FormMixins from "../controls/Form/Mixins";
 import RadioMixins from "../controls/Radio/Mixins";
 import InputMixins from "../controls/Input/Mixins";
+import SuggestMixins from "../controls/Suggest/Mixins";
 import CheckboxMixins from "../controls/Checkbox/Mixins";
 import TextareaMixins from "../controls/Textarea/Mixins";
 import PagerMixins from "../controls/Pager/Mixins";
@@ -131,6 +133,7 @@ export default {
                 RadioMixins,
                 CheckboxMixins,
                 TextareaMixins,
+                SuggestMixins
             ];
         },
         components() {

@@ -6,11 +6,8 @@
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-edit-outline"></i>preview
-                       
-                        </span
-                    >
+                    </span>
                     <div class="view-box preview" id="preview" ref="preview">
-                       
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
@@ -124,13 +121,13 @@
 
         <el-dialog
             title="栅格参数配置"
-            :visible.sync="dialogFormVisible"
+            :visible.sync="dialogGridVisible"
             width="600px"
         >
-            <el-form :model="form">
+            <el-form :model="grid_config">
                 <el-form-item label="总列数" :label-width="formLabelWidth">
                     <el-select
-                        v-model="form.totalNum"
+                        v-model="grid_config.totalNum"
                         placeholder="请选择总列数"
                         @change="totalNumChange"
                         style="width:100%"
@@ -141,7 +138,7 @@
                 </el-form-item>
                 <el-form-item label="栅格数量" :label-width="formLabelWidth">
                     <el-select
-                        v-model="form.colNum"
+                        v-model="grid_config.colNum"
                         placeholder="请选择栅格数量"
                         style="width:100%"
                     >
@@ -204,6 +201,12 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></ButtonEditor>
+        <SuggestEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></SuggestEditor>
     </div>
 </template>
 <script>
@@ -224,7 +227,7 @@ export default {
             tabChecked: "preview",
             drawer: false,
             copySource: "",
-            form: {
+            grid_config: {
                 totalNum: "",
                 colNum: "",
             },
@@ -377,8 +380,8 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
-        dialogFormVisible() {
-            return this.$store.state.dialogFormVisible;
+        dialogGridVisible() {
+            return this.$store.state.dialogGridVisible;
         },
     },
     methods: {
@@ -395,19 +398,20 @@ export default {
             this.colOptions = tmp;
         },
         dialogClose() {
-            this.$store.commit("Hope/ChangeDialogFormVisible", false);
+            this.$store.commit("Hope/ChangeDialogGridVisible", false);
         },
         dialogEnter() {
             let e = this.$store.state.gridEle;
             //自定义栅格列数
-            let col = parseInt(this.form.colNum);
-            let total = parseInt(this.form.totalNum);
+            let col = parseInt(this.grid_config.colNum);
+            let total = parseInt(this.grid_config.totalNum);
             if (col && total) {
                 for (let i = 1; i <= col; i++) {
                     e.added.element.children.push({
                         name: "hope_grid",
                         label: "自定义",
-                        className: `hopeui-col-xl-${total / col}-${total} ignoreEle`,
+                        className: `hopeui-col-xl-${total /
+                            col}-${total} ignoreEle`,
                         icon: "icon-anniu",
                         isCustom: true,
                         isSelected: false,
@@ -490,8 +494,7 @@ export default {
                         <meta name="renderer" content="webkit">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                         <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
-                        <link rel="stylesheet" href="base.css" />
-                        <link rel="stylesheet" href="hope.css" />
+                        <link rel="stylesheet" href="hopeui\/hopeui.min.css" />
                         <style>
                             ${this.source.css}
                         </style>
@@ -499,10 +502,12 @@ export default {
 
                     <body>
                         ${this.source.html}
-                    </body>
+                        <script src="hopeui\/hopeui.min.js"><\/script>
 
-                </html>
-           `;
+                        <script>
+                        ${this.source.js}
+                        <\/script><\/body><\/html>
+                `;
 
             $http
                 .post("http://localhost:2599/generateHTML", {
@@ -542,7 +547,7 @@ export default {
         },
     },
     updated() {
-        console.log('[列表]',this.$store.state.controls);
+        console.log("[列表]", this.$store.state.controls);
         this.codeListener();
     },
 };

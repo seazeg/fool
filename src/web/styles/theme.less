@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import "theme.config.less";
 
+
+
 .el-tabs--border-card > .el-tabs__content {
     padding: 0;
 }
@@ -10,12 +12,13 @@
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 0;
+    height: 0;
     background-color: @tools_color;
     -webkit-border-radius: 2px;
     border-radius: 2px;
 }
+
 
 ::-webkit-scrollbar-thumb {
     background: @border_color;
@@ -207,6 +210,22 @@
     color: #fff;
 }
 
+.layout-container .edit .el-tabs--right .el-tabs__nav-wrap.is-right {
+    position: fixed;
+    right: 4px;
+    top: 4px;
+    z-index: 22;
+    background: @main_color;
+}
+
+.layout-container .edit .el-tabs--border-card {
+    overflow: auto;
+}
+
+.layout-container .edit .el-tabs--border-card > .el-tabs__content {
+    width: 83%;
+}
+
 .layout-container .view-box.preview {
     height: 100%;
     padding: 10px;
@@ -334,7 +353,7 @@
     background: @main_color;
     border-bottom: 1px solid @shadow_color;
     user-select: none;
-    margin:0;
+    margin: 0;
 }
 
 .layout-container .el-tabs--border-card > .el-tabs__header .el-tabs__item {
@@ -352,14 +371,17 @@
     outline: none;
 }
 
-.layout-container .el-tabs--right.el-tabs--border-card .el-tabs__header.is-right{
+.layout-container
+    .el-tabs--right.el-tabs--border-card
+    .el-tabs__header.is-right {
     border-left: 1px solid @main_color;
 }
 
-.layout-container .el-tabs--right.el-tabs--border-card .el-tabs__item.is-right.is-active
-,
-.layout-container .el-tabs--border-card>.el-tabs__header .el-tabs__item{
-    border:none;
+.layout-container
+    .el-tabs--right.el-tabs--border-card
+    .el-tabs__item.is-right.is-active,
+.layout-container .el-tabs--border-card > .el-tabs__header .el-tabs__item {
+    border: none;
 }
 
 .layout-container .edit {
@@ -622,7 +644,6 @@
 //     position: absolute !important;
 // }
 
-
 .draggingChoose {
     width: 10px !important;
     height: 10px !important;
@@ -656,7 +677,7 @@
 
 .layout-container .controls_block {
     display: inline-block;
-    vertical-align:middle;
+    vertical-align: middle;
 
     .controls_inner {
         position: relative;

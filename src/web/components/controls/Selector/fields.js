@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-15 15:11:34
+ * @LastEditTime : 2020-12-24 14:16:18
  * @Description  :
  */
 export const fields = {
@@ -44,7 +44,7 @@ export const fields = {
                 isDiff: "px",
             });
             this.$store.commit("Hope/UpdateControlParams", {
-                'line-height': value - 2,
+                "line-height": value - 2,
                 key: [".hopeui-form-select .hopeui-select-list .option"],
                 isDiff: "px",
             });
@@ -98,7 +98,10 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 color: value,
-                key: [".hopeui-form-select .hopeui-select-list .option:hover"],
+                key: [
+                    ".hopeui-form-select .hopeui-select-list .option:hover",
+                    ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this:hover",
+                ],
                 isDiff: "same",
             });
         },
@@ -112,7 +115,10 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "background-color": value,
-                key: [".hopeui-form-select .hopeui-select-list .option:hover"],
+                key: [
+                    ".hopeui-form-select .hopeui-select-list .option:hover",
+                    ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this:hover",
+                ],
                 isDiff: "same",
             });
         },
@@ -128,7 +134,6 @@ export const fields = {
                 color: value,
                 key: [
                     ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this",
-                    ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this:hover",
                 ],
                 isDiff: "same",
             });
@@ -145,7 +150,6 @@ export const fields = {
                 "background-color": value,
                 key: [
                     ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this",
-                    ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this:hover",
                 ],
                 isDiff: "same",
             });

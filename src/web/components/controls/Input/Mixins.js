@@ -1,9 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-12-15 10:41:57
+ * @LastEditTime : 2020-12-28 14:42:33
  * @Description  :
  */
+import styleSheet from "../../stylesheet/input.json";
 export default {
     name: "hope_input",
     label: "文本框",
@@ -11,40 +12,7 @@ export default {
     isSelected: false,
     defaultClass: "",
     customClass: "",
-    styleSheet: {
-        ".hopeui-input": {
-            display: "block",
-            width: "300px",
-            padding: "0 10px",
-            height: "38px",
-            "line-height": "38px",
-            "border-radius": "2px",
-            "border-width": "1px",
-            "border-style": "solid",
-            "border-color": "#e6e6e6",
-            "font-size": "14px",
-            color: "#333333",
-        },
-        ".hopeui-input:focus": {
-            "border-color": "#c9c9c9",
-        },
-        ".hopeui-input:hover": {
-            "border-color": "#d2d2d2",
-        },
-        "input::-webkit-input-placeholder": {
-            color: "#555",
-        },
-        "input::-moz-placeholder": {
-            color: "#555",
-        },
-        "input::-ms-input-placeholder": {
-            color: " #555",
-        },
-        ".hopeui-placeholder": {
-            color: " #555",
-            "line-height": "38px",
-        },
-    },
+    styleSheet: { ...styleSheet },
     script: `
     let input = hope.input({
         ele: "#" + _this.ele.id,

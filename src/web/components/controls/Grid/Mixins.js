@@ -1,9 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-06 16:51:28
+ * @LastEditTime : 2020-12-28 14:44:33
  * @Description  :
  */
+import styleSheet from "../../stylesheet/grid.json";
 export default {
     name: "hope_grid",
     label: "栅格",
@@ -12,5 +13,5 @@ export default {
     isCustom: true,
     isSelected: false,
     children: [],
-    styleSheet: {},
+    styleSheet: {...styleSheet},
 };

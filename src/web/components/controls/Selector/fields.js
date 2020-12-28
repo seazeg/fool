@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-12-24 14:16:18
+ * @LastEditTime : 2020-12-28 16:20:32
  * @Description  :
  */
 export const fields = {
@@ -17,10 +17,9 @@ export const fields = {
                 width: value,
                 key: [
                     ".hopeui-form-select",
-                    ".hopeui-form-select .hopeui-input",
                     ".hopeui-form-select .hopeui-select-list",
                 ],
-                isDiff: "px",
+                isDiff: "per",
             });
         },
     },
@@ -29,7 +28,7 @@ export const fields = {
             return parseFloat(
                 this.$store.state.selected.styleSheet[
                     ".hopeui-form-select .hopeui-input"
-                ].height
+                ].height || 38
             );
         },
         set(value) {
@@ -55,7 +54,7 @@ export const fields = {
             return parseInt(
                 this.$store.state.selected.styleSheet[
                     ".hopeui-form-select .hopeui-input"
-                ]["font-size"]
+                ]["font-size"] || "14px"
             );
         },
         set(value) {
@@ -71,9 +70,11 @@ export const fields = {
     },
     color: {
         get() {
-            return this.$store.state.selected.styleSheet[
-                ".hopeui-form-select .hopeui-input"
-            ].color;
+            return (
+                this.$store.state.selected.styleSheet[
+                    ".hopeui-form-select .hopeui-input"
+                ].color
+            );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -91,9 +92,11 @@ export const fields = {
     },
     hoverColor: {
         get() {
-            return this.$store.state.selected.styleSheet[
-                ".hopeui-form-select .hopeui-select-list .option:hover"
-            ].color;
+            return (
+                this.$store.state.selected.styleSheet[
+                    ".hopeui-form-select .hopeui-select-list .option:hover"
+                ].color
+            );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {

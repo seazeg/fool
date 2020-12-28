@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-28 15:58:15
+ * @LastEditTime : 2020-12-28 15:25:05
  * @Description  :
  */
 export const fields = {
@@ -15,7 +15,7 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
                 key: [".hopeui-input"],
-                isDiff: "px",
+                isDiff: "per",
             });
         },
     },

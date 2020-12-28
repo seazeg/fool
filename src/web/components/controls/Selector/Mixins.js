@@ -1,10 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-12-28 14:43:36
+ * @LastEditTime : 2020-12-28 15:08:23
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
+
 export default {
     name: "hope_selector",
     label: "下拉框",
@@ -12,7 +13,7 @@ export default {
     isSelected: false,
     defaultClass: "",
     customClass: "",
-    styleSheet: { ...styleSheet },
+    styleSheet: { ...styleSheet},
     script: `
     let select = hope.selector({
         ele: "#" + _this.ele.id,

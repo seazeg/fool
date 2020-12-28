@@ -1,10 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-12-28 14:43:46
+ * @LastEditTime : 2020-12-28 15:37:21
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
+import styleSheet_ext from "../../stylesheet/input.json";
 export default {
     name: "hope_suggest",
     label: "联想提示框",
@@ -12,7 +13,7 @@ export default {
     isSelected: false,
     defaultClass: "",
     customClass: "",
-    styleSheet: {...styleSheet},
+    styleSheet: { ...styleSheet, ...styleSheet_ext },
     script: `
     let suggest = hope.suggest({
         ele: "#" + _this.ele.id,

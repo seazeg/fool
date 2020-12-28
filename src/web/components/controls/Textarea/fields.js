@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-11-06 17:59:04
+ * @LastEditTime : 2020-12-28 15:34:27
  * @Description  :
  */
 export const fields = {
@@ -15,19 +15,19 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
                 key: [".hopeui-textarea"],
-                isDiff: "px",
+                isDiff: "per",
             });
         },
     },
     height: {
         get() {
             return parseFloat(
-                this.$store.state.selected.styleSheet[".hopeui-textarea"].height
+                this.$store.state.selected.styleSheet[".hopeui-textarea"]['min-height']
             );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
+                'min-height': value,
                 key: [".hopeui-textarea"],
                 isDiff: "px",
             });

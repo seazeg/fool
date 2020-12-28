@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2020-11-17 14:23:44
+ * @LastEditTime : 2020-12-28 16:20:01
  * @Description  :
  */
 import Vue from "vue";
@@ -15,7 +15,7 @@ export default new Vuex.Store({
         controls: [],
         selected: {},
         dialogGridVisible: false,
-        gridEle:{}
+        gridEle: {},
     },
     mutations: {
         "Hope/UpdateControlParams": (state, ele) => {
@@ -30,6 +30,12 @@ export default new Vuex.Store({
                                 if (line == Object.keys(ele)[0]) {
                                     styleSheet[key][line] =
                                         ele[Object.keys(ele)[0]] + isDiff;
+                                } else {
+                                    Vue.set(
+                                        styleSheet[key],
+                                        Object.keys(ele)[0],
+                                        ele[Object.keys(ele)[0]] + isDiff
+                                    );
                                 }
                             });
                         }
@@ -100,10 +106,10 @@ export default new Vuex.Store({
             })(state.controls, id, state);
         },
         "Hope/ChangeDialogGridVisible": (state, value) => {
-            state.dialogGridVisible = value
+            state.dialogGridVisible = value;
         },
         "Hope/SetGridEle": (state, data) => {
-            state.gridEle = data
+            state.gridEle = data;
         },
         // "Hope/UpdateControlParams": (state, ele) => {
         //     if (Object.keys(ele)[0] == ele.container) {

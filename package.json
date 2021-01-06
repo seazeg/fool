@@ -16,7 +16,7 @@
   "dependencies": {
     "@koa/multer": "^3.0.0",
     "animate.css": "^4.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^2.6.9",
     "eg-utils": "^1.1.61",
     "electron": "^8.2.5",

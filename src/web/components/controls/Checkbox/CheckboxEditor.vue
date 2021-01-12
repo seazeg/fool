@@ -1,13 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:23:21
- * @Description  : 
--->
-<!--
- * @Author       : Evan.G
- * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:21:41
+ * @LastEditTime : 2021-01-05 14:13:48
  * @Description  : 
 -->
 <template>
@@ -73,26 +67,6 @@
 
 <script>
 import { fields } from "./fields.js";
-
-export default {
-    name: "ButtonEditor",
-    data() {
-        return {};
-    },
-    props: {
-        borderStyleOption: [Array, Object],
-        animationOption: [Array, Object],
-        generalStyleOption: [Array, Object],
-    },
-    computed: {
-        ...fields,
-    },
-};
-</script>
-
-<script>
-import { fields } from "./fields.js";
-
 export default {
     name: "CheckboxEditor",
     props: {

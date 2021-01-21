@@ -1,21 +1,29 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-10-15 16:56:58
+ * @LastEditTime : 2021-01-21 15:53:08
  * @Description  : 
 -->
 <template>
     <div class="controls_block">
         <div class="controls_inner">
-            <div
+            <!-- <div
                 @click.stop="choose"
                 class="controls_change hopeui-icon hopeui-icon-edit"
-            ></div>
+            ></div> -->
             <div v-html="style"></div>
             <div class="htmlCache">{{ html }}</div>
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
-            <div class="code" ref="code">
+            <div class="code" ref="code" @contextmenu="showMenu">
                 <Mixins :ele="ele"></Mixins>
+                <vue-context-menu
+                    :contextMenuData="contextMenuData"
+                    @selectThis="selectThis"
+                    @htmlView="htmlView"
+                    @cssView="cssView"
+                    @jsView="jsView"
+                    @delThis="delThis"
+                ></vue-context-menu>
             </div>
         </div>
     </div>
@@ -31,6 +39,7 @@ export default {
         return {
             isHover: false,
             html: "",
+            contextMenuData: Mixins.contextMenuData,
         };
     },
     components: { Mixins },
@@ -52,15 +61,15 @@ export default {
         },
     },
     methods: {
-        choose() {
-            this.$emit("choose", this.ele);
-        },
+        ...Mixins.methods,
     },
     mounted() {
         let _this = this;
         _this.$nextTick(function() {
             _this.html = _this.$refs.code.innerHTML;
-            _this.ele.html = $(_this.$refs.code).children().html();
+            _this.ele.html = $(_this.$refs.code)
+                .children()
+                .html();
             Function("_this", Mixins.script)(_this);
         });
     },

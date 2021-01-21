@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2020-10-12 14:35:31
+ * @LastEditTime : 2021-01-21 15:55:16
  * @Description  : 
  */
 import Vue from "vue";
@@ -18,19 +18,22 @@ import ElementUI from "element-ui";
 
 import VueClipboard from "vue-clipboard2";
 
+import VueContextMenu from './components/plugins/contextMenu/main'
+
 import $ from "jquery";
 import egu from "eg-utils";
 import draggable from "vuedraggable";
 
 import "vue-color-gradient-picker/dist/index.css";
 import "./styles/reset.less";
-import "./styles/base.less";
 import "animate.css";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/icons/fonts/iconfont.css";
 import "./assets/icons/fonts/hopeui/hopefont.css";
 import "./styles/theme.less";
-import "./styles/controls.less";
+
+
+
 
 Vue.use(ElementUI);
 // Vue.use(Navigation, {
@@ -38,6 +41,7 @@ Vue.use(ElementUI);
 //     store,
 // });
 Vue.use(VueClipboard);
+Vue.use(VueContextMenu)
 Vue.component(draggable.name, draggable);
 
 window.$egu = egu;

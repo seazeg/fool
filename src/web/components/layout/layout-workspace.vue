@@ -5,7 +5,7 @@
             <el-tabs v-model="tabChecked" type="border-card">
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-edit-outline"></i>preview
+                        <i class="el-icon-edit-outline"></i>视图
                     </span>
                     <div class="view-box preview" id="preview" ref="preview">
                         <layout-draggable
@@ -13,22 +13,48 @@
                         ></layout-draggable>
                     </div>
                 </el-tab-pane>
-                <el-tab-pane name="html">
+                <el-tab-pane name="tree">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-notebook-2"></i>html</span
+                        <i class="el-icon-notebook-2"></i>控件树</span
                     >
-                    <div class="view-box html">
-                        <prism-editor
-                            class="editor-code"
-                            v-model="source.html"
-                            :highlight="highHTML"
-                            line-numbers
-                            language="markup"
-                            readonly
-                        ></prism-editor>
+                    <div class="view-box tree">
+                        <el-tree
+                            :data="controls"
+                            node-key="controlsTree"
+                            @node-click="treeNodeClick"
+                            :expand-on-click-node="false"
+                            default-expand-all
+                            :allow-drop="allowDrop"
+                            draggable
+                        >
+                            <span
+                                class="custom-tree-node"
+                                slot-scope="{ node, data }"
+                            >
+                                <span
+                                    :class="{
+                                        'theme-select':
+                                            data.id == selectedControl.id,
+                                    }"
+                                    >{{ data.name }} - {{ data.label }}</span
+                                >
+                                <span>
+                                    <el-button
+                                        type="text"
+                                        icon="el-icon-delete"
+                                        circle
+                                        size="mini"
+                                        @click="
+                                            () => treeNodeRemove(node, data)
+                                        "
+                                    >
+                                    </el-button>
+                                </span>
+                            </span>
+                        </el-tree>
                     </div>
                 </el-tab-pane>
-                <el-tab-pane name="css">
+                <!-- <<el-tab-pane name="css">
                     <span slot="label" class="lab-icon">
                         <i class="el-icon-magic-stick"></i>css</span
                     >
@@ -56,68 +82,36 @@
                             readonly
                         ></prism-editor>
                     </div>
-                </el-tab-pane>
+                </el-tab-pane> -->
                 <el-tab-pane name="htmlGenerator" :disabled="true">
                     <span slot="label" class="lab-icon">
-                        <el-button
-                            plain
-                            icon="el-icon-s-open"
-                            size="mini"
-                            v-clipboard:copy="copy()"
-                            v-clipboard:success="onCopy"
-                            v-clipboard:error="onError"
-                            v-show="tabChecked != 'preview'"
-                            >代码复制</el-button
-                        >
-                        <el-button
-                            plain
-                            @click="drawer = true"
-                            icon="el-icon-s-promotion"
-                            size="mini"
-                            >查看控件树</el-button
-                        >
                         <el-button
                             type="success"
                             @click="htmlGenerator"
                             icon="el-icon-s-help"
                             size="mini"
-                            >生成预览</el-button
-                        >
+                            >生成预览
+                        </el-button>
                     </span>
                 </el-tab-pane>
             </el-tabs>
         </div>
 
-        <el-drawer title="控件树" :visible.sync="drawer" :with-header="false">
-            <el-tree
-                :data="controls"
-                node-key="controlsTree"
-                @node-click="treeNodeClick"
-                :expand-on-click-node="false"
-                default-expand-all
-                :allow-drop="allowDrop"
-                draggable
-            >
+        <!-- <el-drawer title="控件树" :visible.sync="drawer" :with-header="false">
+            <el-tree :data="controls" node-key="controlsTree" @node-click="treeNodeClick" :expand-on-click-node="false"
+                default-expand-all :allow-drop="allowDrop" draggable>
                 <span class="custom-tree-node" slot-scope="{ node, data }">
-                    <span
-                        :class="{
+                    <span :class="{
                             'theme-select': data.id == selectedControl.id,
-                        }"
-                        >{{ data.name }} - {{ data.label }}</span
-                    >
+                        }">{{ data.name }} - {{ data.label }}</span>
                     <span>
-                        <el-button
-                            type="text"
-                            icon="el-icon-delete"
-                            circle
-                            size="mini"
-                            @click="() => treeNodeRemove(node, data)"
-                        >
+                        <el-button type="text" icon="el-icon-delete" circle size="mini"
+                            @click="() => treeNodeRemove(node, data)">
                         </el-button>
                     </span>
                 </span>
             </el-tree>
-        </el-drawer>
+        </el-drawer> -->
 
         <el-dialog
             title="栅格参数配置"
@@ -147,7 +141,8 @@
                             :value="opt.value"
                             :key="opt.value"
                             v-for="opt in colOptions"
-                        ></el-option>
+                        >
+                        </el-option>
                     </el-select>
                 </el-form-item>
             </el-form>
@@ -210,14 +205,6 @@
     </div>
 </template>
 <script>
-import { PrismEditor } from "vue-prism-editor";
-import "vue-prism-editor/dist/prismeditor.min.css";
-import { highlight, languages } from "prismjs/components/prism-core";
-import "prismjs/components/prism-css";
-import "prismjs/components/prism-markup";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism-coy.css"; //okaidia
 import { handle } from "../../utils/handle.js";
 import { utils } from "../../utils/utils.js";
 export default {
@@ -226,17 +213,11 @@ export default {
         return {
             tabChecked: "preview",
             drawer: false,
-            copySource: "",
             grid_config: {
                 totalNum: "",
                 colNum: "",
             },
             formLabelWidth: "80px",
-            source: {
-                html: "",
-                css: "",
-                js: "",
-            },
             colOptions: [],
             animationOption: [
                 {
@@ -365,9 +346,6 @@ export default {
             ],
         };
     },
-    components: {
-        PrismEditor,
-    },
     computed: {
         controls: {
             get() {
@@ -434,46 +412,6 @@ export default {
             }
             this.dialogClose();
         },
-        highHTML(code) {
-            return highlight(code, languages.markup);
-        },
-        highCSS(code) {
-            return highlight(code, languages.css);
-        },
-        highJS(code) {
-            return highlight(code, languages.js);
-        },
-        copy() {
-            let source = "";
-            switch (this.tabChecked) {
-                case "html":
-                    source = this.source.html;
-                    break;
-                case "css":
-                    source = this.source.css;
-                    break;
-                case "javascript":
-                    source = this.source.js;
-                    break;
-                default:
-                    break;
-            }
-            return source;
-        },
-        onCopy(e) {
-            this.$message({
-                message: "复制成功",
-                type: "success",
-                duration: 500,
-            });
-        },
-        onError(e) {
-            this.$message({
-                message: "复制失败",
-                type: "error",
-                duration: 500,
-            });
-        },
         allowDrop(draggingNode, dropNode, type) {
             if (!dropNode.data.name.includes("grid")) {
                 return type !== "inner";
@@ -522,7 +460,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         treeNodeRemove(node, e) {
-            this.$confirm("确定删除当前节点？", "提示", {
+            this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
                 type: "info",
@@ -532,23 +470,23 @@ export default {
                 })
                 .catch(() => {});
         },
-        codeListener() {
-            this.source.html = handle.reduceHTML(this.selectedControl);
-            this.source.css = handle.getCSS(this.selectedControl);
-            this.source.js = handle.getJS(this.selectedControl);
-        },
+        // codeListener() {
+        //     this.source.html = handle.reduceHTML(this.selectedControl);
+        //     this.source.css = handle.getCSS(this.selectedControl);
+        //     this.source.js = handle.getJS(this.selectedControl);
+        // },
     },
-    watch: {
-        selectedControl: {
-            handler(n, o) {
-                this.codeListener();
-            },
-            deep: true,
-        },
-    },
-    updated() {
-        console.log("[列表]", this.$store.state.controls);
-        this.codeListener();
-    },
+    // watch: {
+    //     selectedControl: {
+    //         handler(n, o) {
+    //             this.codeListener();
+    //         },
+    //         deep: true,
+    //     },
+    // },
+    // updated() {
+    //     console.log("[列表]", this.$store.state.controls);
+    //     this.codeListener();
+    // },
 };
 </script>

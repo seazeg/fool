@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-21 15:53:38
+ * @LastEditTime : 2021-01-21 17:42:01
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -16,6 +16,9 @@ export default {
     script: "",
     props: {
         ele: [Object, Array],
+        htmlVisible: Boolean,
+        cssVisible: Boolean,
+        jsVisible: Boolean,
     },
     render() {
         return (
@@ -77,16 +80,28 @@ export default {
             this.$emit("choose", this.ele);
         },
         delThis() {
-            // this.$emit("choose", this.ele);
+            this.$confirm("确定删除当前组件？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "info",
+            })
+                .then(() => {
+                    this.$store.commit(
+                        "Hope/RemoveControl",
+                        this.ele.id
+                    );
+                    this.$store.state.selected = {};
+                })
+                .catch(() => {});
         },
         jsView() {
-            console.log("newdata!");
+            this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            console.log("newdata!");
+            this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            console.log("newdata!");
+            this.htmlVisible = !this.htmlVisible;
         },
     },
 };

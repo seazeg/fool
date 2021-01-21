@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-05 14:13:48
+ * @LastEditTime : 2021-01-21 17:42:36
  * @Description  : 
 -->
 <template>
@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         visualNodeRemove() {
-            this.$confirm("确定删除当前节点？", "提示", {
+            this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
                 type: "info",

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 09:20:29
+ * @LastEditTime : 2021-01-22 16:58:30
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -14,7 +14,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-    let textarea = hope.textarea({
+    var textarea = hope.textarea({
         ele: "#" + _this.ele.id,
         on: {
             blur: function (e) {

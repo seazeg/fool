@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 11:48:55
+ * @LastEditTime : 2021-01-22 16:34:32
  * @Description  : 
 -->
 <template>
@@ -206,7 +206,7 @@ export default {
                 type: "error",
                 duration: 500,
             });
-        }
+        },
     },
     mounted() {
         let _this = this;

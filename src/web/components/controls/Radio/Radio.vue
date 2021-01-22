@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 09:19:19
+ * @LastEditTime : 2021-01-22 16:40:37
  * @Description  : 
 -->
 <template>
@@ -14,7 +14,11 @@
             <div v-html="style"></div>
             <div class="htmlCache">{{ thishtml }}</div>
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
-            <div class="code" ref="code" @contextmenu="showMenu">
+            <div
+                class="code"
+                ref="code"
+                @contextmenu="showMenu(ele.id, $event)"
+            >
                 <Mixins
                     :ele="ele"
                     :htmlVisible="htmlVisible"
@@ -29,6 +33,7 @@
                 @cssView="cssView"
                 @jsView="jsView"
                 @delThis="delThis"
+                :id="ele.id"
             ></vue-context-menu>
             <el-dialog
                 title="html代码"

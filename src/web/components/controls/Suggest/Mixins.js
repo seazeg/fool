@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 11:52:34
+ * @LastEditTime : 2021-01-22 16:58:23
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -15,7 +15,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet, ...styleSheet_ext },
     script: `
-    let suggest = hope.suggest({
+    var suggest = hope.suggest({
         ele: "#" + _this.ele.id,
         options: {
             noMatchName: '-- 没有匹配的内容 --'

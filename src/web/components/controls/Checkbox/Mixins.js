@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 11:52:03
+ * @LastEditTime : 2021-01-22 16:57:55
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -14,7 +14,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-        let checkbox = hope.checkbox({
+        var checkbox = hope.checkbox({
             ele: "." + _this.ele.id,
             on: {
                 change: function (e) {

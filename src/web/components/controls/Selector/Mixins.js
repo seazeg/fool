@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 09:20:16
+ * @LastEditTime : 2021-01-22 16:58:16
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -15,7 +15,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-    let select = hope.selector({
+    var select = hope.selector({
         ele: "#" + _this.ele.id,
         on: {
             change: function (e) {
@@ -85,7 +85,7 @@ export default {
         ],
     },
     methods: {
-        showMenu(event) {
+        showMenu(id, event) {
             event.preventDefault();
             let x = event.clientX;
             let y = event.clientY;
@@ -93,6 +93,7 @@ export default {
             this.contextMenuData.axis = {
                 x,
                 y,
+                id
             };
         },
         selectThis() {

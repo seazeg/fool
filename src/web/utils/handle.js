@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2021-01-21 17:00:24
+ * @LastEditTime : 2021-01-22 16:57:16
  * @Description  :
  */
 
@@ -12,8 +12,8 @@ import format from "./html-formatter";
 export const handle = {
     reduceHTML: (html) => {
         try {
-            console.log(html);
-            return beautify.html(html);
+            let result = $(html).html();
+            return format.render(result);
         } catch (error) {}
 
         // try {

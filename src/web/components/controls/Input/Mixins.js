@@ -14,7 +14,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-    let input = hope.input({
+    var input = hope.input({
         ele: "#" + _this.ele.id,
         on: {
             blur: function (e) {

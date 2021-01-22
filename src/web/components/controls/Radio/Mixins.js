@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-12-28 14:43:26
+ * @LastEditTime : 2021-01-22 16:40:03
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -14,7 +14,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-    let radio = hope.radio({
+    var radio = hope.radio({
         ele: "." + _this.ele.id,
         on: {
             init:function(e){

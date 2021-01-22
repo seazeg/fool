@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 11:52:20
+ * @LastEditTime : 2021-01-22 16:58:05
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -14,7 +14,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-    let pager = hope.pager({
+    var pager = hope.pager({
         ele: "#" + _this.ele.id,
         options: {
             omit: 5, //最多保留多少按钮,必须奇数

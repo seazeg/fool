@@ -2,7 +2,7 @@
     <ul
         class="vue-contextmenu-listWrapper"
         @contextmenu.stop=""
-        :class="'vue-contextmenuName-' + contextMenuData.menuName"
+        :class="'vue-contextmenuName-' + id"
     >
         <li
             v-for="item in contextMenuData.menulists"
@@ -87,6 +87,7 @@ export default {
             type: Number,
             default: 0,
         },
+        id: [String, Number],
     },
     watch: {
         "contextMenuData.axis"(val) {
@@ -96,8 +97,7 @@ export default {
             var innerHeight = window.innerHeight;
             var _this = this;
             var index = _this.transferIndex;
-            var menuName =
-                "vue-contextmenuName-" + _this.contextMenuData.menuName;
+            var menuName = "vue-contextmenuName-" + val.id;
             var menu = document.getElementsByClassName(menuName)[index];
             menu.style.display = "block";
             var menuHeight = this.contextMenuData.menulists.length * 30;
@@ -164,6 +164,7 @@ export default {
     font-family: "Courier New", Courier, monospace;
     font-size: 12px;
 }
+
 .vue-contextmenu-listWrapper .context-menu-list {
     position: relative;
     background: #ffffff;
@@ -171,6 +172,7 @@ export default {
     list-style: none;
     margin: 3px 0;
 }
+
 .context-menu-list:hover {
     background: #ff7400;
     color: #fff;
@@ -180,6 +182,7 @@ export default {
 .context-menu-list:hover i {
     color: #fff;
 }
+
 .context-menu-list .has-child {
     position: relative;
     cursor: pointer;
@@ -189,6 +192,7 @@ export default {
 .context-menu-list:hover > .has-child > .child-ul-wrapper {
     display: block;
 }
+
 .parent-name .icon {
     position: absolute;
     display: block;
@@ -199,15 +203,18 @@ export default {
     border-bottom: 4px solid transparent;
     border-right: 4px solid transparent;
 }
+
 .no-child-btn {
     padding: 10px;
     cursor: pointer;
 }
+
 .nav-icon-fontawe {
     position: absolute;
     left: 12px;
     top: 11px;
 }
+
 .nav-name-right {
     margin: 0 20px;
     height: 16px;

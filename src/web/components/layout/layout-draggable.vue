@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2020-11-17 14:30:24
+ * @LastEditTime : 2021-01-22 10:16:31
  * @Description  : 
 -->
 <style lang="less">
@@ -34,7 +34,6 @@
             :key="ele.id"
             :is="ele.name"
             :ele="ele"
-            @choose="choose(ele)"
             :class="[{ selected: ele.isSelected }, ele.id]"
         >
             <layout-draggable
@@ -52,10 +51,10 @@ export default {
         dialogGridVisible: Boolean,
     },
     methods: {
-        choose(e) {
-            this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ChooseControl", e.id);
-        },
+        // choose(e) {
+        //     this.$store.commit("Hope/ResetControlSelected");
+        //     this.$store.commit("Hope/ChooseControl", e.id);
+        // },
         change(e) {
             try {
                 if (

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-12-28 15:08:23
+ * @LastEditTime : 2021-01-22 09:20:16
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -13,7 +13,7 @@ export default {
     isSelected: false,
     defaultClass: "",
     customClass: "",
-    styleSheet: { ...styleSheet},
+    styleSheet: { ...styleSheet },
     script: `
     let select = hope.selector({
         ele: "#" + _this.ele.id,
@@ -47,5 +47,77 @@ export default {
                 </select>
             </div>
         );
+    },
+    contextMenuData: {
+        menuName: "rightMenu",
+        // The coordinates of the display(菜单显示的位置)
+        axis: {
+            x: null,
+            y: null,
+        },
+        // Menu options (菜单选项)
+        menulists: [
+            {
+                fnHandler: "selectThis", // Binding events(绑定事件)
+                icoName: "el-icon-tickets", // icon (icon图标 )
+                btnName: "选中组件", // The name of the menu option (菜单名称)
+            },
+            {
+                fnHandler: "htmlView",
+                icoName: "el-icon-tickets",
+                btnName: "html代码",
+            },
+            {
+                fnHandler: "cssView",
+                icoName: "el-icon-tickets",
+                btnName: "css代码",
+            },
+            {
+                fnHandler: "jsView",
+                icoName: "el-icon-tickets",
+                btnName: "javascript代码",
+            },
+            {
+                fnHandler: "delThis",
+                icoName: "el-icon-tickets",
+                btnName: "移除组件",
+            },
+        ],
+    },
+    methods: {
+        showMenu(event) {
+            event.preventDefault();
+            let x = event.clientX;
+            let y = event.clientY;
+            // Get the current location
+            this.contextMenuData.axis = {
+                x,
+                y,
+            };
+        },
+        selectThis() {
+            this.$emit("choose", this.ele);
+        },
+        delThis() {
+            this.$confirm("确定删除当前组件？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "info",
+            })
+                .then(() => {
+                    this.$store.commit("Hope/RemoveControl", this.ele.id);
+                    this.$store.state.selected = {};
+                })
+                .catch(() => {});
+        },
+        jsView() {
+            this.jsVisible = !this.jsVisible;
+        },
+        cssView() {
+            this.cssVisible = !this.cssVisible;
+        },
+        htmlView() {
+            this.htmlVisible = !this.htmlVisible;
+        },
     },
 };

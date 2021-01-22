@@ -103,7 +103,7 @@ li {
 
 .nav-icon-fontawe {
     position: absolute;
-    left:15px;
+    left: 15px;
 }
 .nav-name-right {
     white-space: nowrap;
@@ -112,6 +112,6 @@ li {
 }
 .btn-wrapper-simple {
     position: relative;
-    color:#111;
+    color: #111;
 }
 </style>

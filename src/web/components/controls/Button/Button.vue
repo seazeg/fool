@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-21 17:28:11
+ * @LastEditTime : 2021-01-22 11:48:55
  * @Description  : 
 -->
 <template>
@@ -14,7 +14,11 @@
             <div v-html="style"></div>
             <div class="htmlCache">{{ thishtml }}</div>
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
-            <div class="code" ref="code" @contextmenu="showMenu">
+            <div
+                class="code"
+                ref="code"
+                @contextmenu="showMenu(ele.id, $event)"
+            >
                 <Mixins
                     :ele="ele"
                     :htmlVisible="htmlVisible"
@@ -29,8 +33,13 @@
                 @cssView="cssView"
                 @jsView="jsView"
                 @delThis="delThis"
+                :id="ele.id"
             ></vue-context-menu>
-            <el-dialog title="html代码" :visible.sync="htmlVisible" custom-class="sourceStyle">
+            <el-dialog
+                title="html代码"
+                :visible.sync="htmlVisible"
+                custom-class="sourceStyle"
+            >
                 <el-button
                     plain
                     icon="el-icon-s-open"
@@ -50,7 +59,11 @@
                     readonly
                 ></prism-editor>
             </el-dialog>
-            <el-dialog title="css代码" :visible.sync="cssVisible" custom-class="sourceStyle">
+            <el-dialog
+                title="css代码"
+                :visible.sync="cssVisible"
+                custom-class="sourceStyle"
+            >
                 <el-button
                     plain
                     icon="el-icon-s-open"
@@ -58,7 +71,7 @@
                     v-clipboard:copy="copy('css')"
                     v-clipboard:success="onCopy"
                     v-clipboard:error="onError"
-                     class="codeCopy"
+                    class="codeCopy"
                     >代码复制
                 </el-button>
                 <prism-editor
@@ -70,7 +83,11 @@
                     readonly
                 ></prism-editor>
             </el-dialog>
-            <el-dialog title="JavaScript代码" :visible.sync="jsVisible" custom-class="sourceStyle">
+            <el-dialog
+                title="JavaScript代码"
+                :visible.sync="jsVisible"
+                custom-class="sourceStyle"
+            >
                 <el-button
                     plain
                     icon="el-icon-s-open"
@@ -78,7 +95,7 @@
                     v-clipboard:copy="copy('js')"
                     v-clipboard:success="onCopy"
                     v-clipboard:error="onError"
-                     class="codeCopy"
+                    class="codeCopy"
                     >代码复制
                 </el-button>
                 <prism-editor
@@ -189,7 +206,7 @@ export default {
                 type: "error",
                 duration: 500,
             });
-        },
+        }
     },
     mounted() {
         let _this = this;

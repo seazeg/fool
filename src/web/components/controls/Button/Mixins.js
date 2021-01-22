@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-21 17:42:01
+ * @LastEditTime : 2021-01-22 11:55:15
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -30,8 +30,6 @@ export default {
         );
     },
     contextMenuData: {
-        menuName: "rightMenu",
-        // The coordinates of the display(菜单显示的位置)
         axis: {
             x: null,
             y: null,
@@ -66,7 +64,7 @@ export default {
         ],
     },
     methods: {
-        showMenu(event) {
+        showMenu(id, event) {
             event.preventDefault();
             let x = event.clientX;
             let y = event.clientY;
@@ -74,10 +72,12 @@ export default {
             this.contextMenuData.axis = {
                 x,
                 y,
+                id,
             };
         },
-        selectThis() {
-            this.$emit("choose", this.ele);
+        selectThis(ele) {
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
             this.$confirm("确定删除当前组件？", "提示", {
@@ -86,10 +86,7 @@ export default {
                 type: "info",
             })
                 .then(() => {
-                    this.$store.commit(
-                        "Hope/RemoveControl",
-                        this.ele.id
-                    );
+                    this.$store.commit("Hope/RemoveControl", this.ele.id);
                     this.$store.state.selected = {};
                 })
                 .catch(() => {});

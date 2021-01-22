@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 16:58:16
+ * @LastEditTime : 2021-01-22 17:28:33
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -49,8 +49,6 @@ export default {
         );
     },
     contextMenuData: {
-        menuName: "rightMenu",
-        // The coordinates of the display(菜单显示的位置)
         axis: {
             x: null,
             y: null,
@@ -93,11 +91,12 @@ export default {
             this.contextMenuData.axis = {
                 x,
                 y,
-                id
+                id,
             };
         },
-        selectThis() {
-            this.$emit("choose", this.ele);
+        selectThis(ele) {
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
             this.$confirm("确定删除当前组件？", "提示", {
@@ -120,5 +119,5 @@ export default {
         htmlView() {
             this.htmlVisible = !this.htmlVisible;
         },
-    },
+    }
 };

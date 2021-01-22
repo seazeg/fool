@@ -16,6 +16,7 @@
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
             <div
                 class="code"
+                :class="{ selected: ele.isSelected }"
                 ref="code"
                 @contextmenu="showMenu(ele.id, $event)"
             >

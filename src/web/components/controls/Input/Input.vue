@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 11:48:55
+ * @LastEditTime : 2021-01-22 17:33:51
  * @Description  : 
 -->
 <template>
@@ -16,6 +16,7 @@
             <div class="jsCache" :data-id="ele.id">{{ js }}</div>
             <div
                 class="code"
+                :class="{ selected: ele.isSelected }"
                 ref="code"
                 @contextmenu="showMenu(ele.id, $event)"
             >

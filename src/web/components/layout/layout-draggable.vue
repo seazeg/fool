@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-01-22 10:16:31
+ * @LastEditTime : 2021-01-22 17:31:43
  * @Description  : 
 -->
 <style lang="less">
@@ -34,7 +34,7 @@
             :key="ele.id"
             :is="ele.name"
             :ele="ele"
-            :class="[{ selected: ele.isSelected }, ele.id]"
+            :class="ele.id"
         >
             <layout-draggable
                 v-if="ele.children"

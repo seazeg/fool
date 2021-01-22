@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 11:55:15
+ * @LastEditTime : 2021-01-22 17:04:26
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -37,9 +37,9 @@ export default {
         // Menu options (菜单选项)
         menulists: [
             {
-                fnHandler: "selectThis", // Binding events(绑定事件)
-                icoName: "el-icon-tickets", // icon (icon图标 )
-                btnName: "选中组件", // The name of the menu option (菜单名称)
+                fnHandler: "selectThis",
+                icoName: "el-icon-tickets",
+                btnName: "选中组件",
             },
             {
                 fnHandler: "htmlView",

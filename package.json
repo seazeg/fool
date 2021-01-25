@@ -37,6 +37,7 @@
     "vue": "^2.6.10",
     "vue-clipboard2": "^0.3.1",
     "vue-color-gradient-picker": "^0.1.2",
+    "vue-draggable-resizable": "^2.3.0",
     "vue-prism-editor": "^1.2.2",
     "vue-router": "^3.0.3",
     "vuedraggable": "^2.23.2",

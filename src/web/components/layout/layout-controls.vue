@@ -25,7 +25,7 @@
             text-color="#e7e7e7"
             active-text-color="#e7e7e7"
         >
-            <el-submenu index="1">
+            <!-- <el-submenu index="1">
                 <template slot="title">
                     <i class="el-icon-c-scale-to-original"></i>
                     <span>结构布局</span>
@@ -48,7 +48,7 @@
                         </template>
                     </el-menu-item>
                 </draggable>
-            </el-submenu>
+            </el-submenu> -->
             <el-submenu index="2">
                 <template slot="title">
                     <i class="el-icon-copy-document"></i>

@@ -36,7 +36,7 @@
                                         'theme-select':
                                             data.id == selectedControl.id,
                                     }"
-                                    >{{ data.name }} - {{ data.label }}</span
+                                    >{{ data.label }} - {{ data.id }}</span
                                 >
                                 <span>
                                     <el-button
@@ -358,8 +358,13 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
-        dialogGridVisible() {
-            return this.$store.state.dialogGridVisible;
+        dialogGridVisible: {
+            get() {
+                return this.$store.state.dialogGridVisible;
+            },
+            set(value) {
+                this.$store.commit("Hope/ChangeDialogGridVisible", value);
+            },
         },
     },
     methods: {

@@ -113,6 +113,7 @@ import CheckboxMixins from "../controls/Checkbox/Mixins";
 import TextareaMixins from "../controls/Textarea/Mixins";
 import PagerMixins from "../controls/Pager/Mixins";
 import ButtonMixins from "../controls/Button/Mixins";
+import CarouselMixins from "../controls/Carousel/Mixins";
 
 export default {
     name: "layout-controls",
@@ -133,11 +134,11 @@ export default {
                 RadioMixins,
                 CheckboxMixins,
                 TextareaMixins,
-                SuggestMixins
+                SuggestMixins,
             ];
         },
         components() {
-            return [PagerMixins];
+            return [PagerMixins, CarouselMixins];
         },
     },
     methods: {

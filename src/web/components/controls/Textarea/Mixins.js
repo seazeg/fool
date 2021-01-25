@@ -31,6 +31,9 @@ export default {
     `,
     props: {
         ele: [Object, Array],
+        htmlVisible: Boolean,
+        cssVisible: Boolean,
+        jsVisible: Boolean,
     },
     render() {
         return (

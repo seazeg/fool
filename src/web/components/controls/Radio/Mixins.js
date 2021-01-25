@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 16:40:03
+ * @LastEditTime : 2021-01-25 14:12:38
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -28,6 +28,9 @@ export default {
     `,
     props: {
         ele: [Object, Array],
+        htmlVisible: Boolean,
+        cssVisible: Boolean,
+        jsVisible: Boolean,
     },
     render() {
         return (

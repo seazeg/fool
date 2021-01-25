@@ -1,27 +1,39 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 14:11:59
+ * @LastEditTime : 2021-01-25 15:49:51
  * @Description  :
  */
-import styleSheet from "../../stylesheet/checkbox.json";
+import styleSheet from "../../stylesheet/carousel.json";
 export default {
-    name: "hope_checkbox",
-    label: "复选框",
+    name: "hope_carousel",
+    label: "轮播图",
     icon: "icon-anniu",
     isSelected: false,
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
     script: `
-        var checkbox = hope.checkbox({
-            ele: "." + _this.ele.id,
-            on: {
-                change: function (e) {
-                    console.log(e);
-                },
+    var carousel = hope.carousel({
+        ele: "#" + _this.ele.id,
+        options: {
+            pagination: "#" + _this.ele.id + " .hope-pagination",
+            paginationClickable: true,
+            slidesPerView: 3,
+            calculateHeight: true,
+            resizeReInit: true,
+            roundLengths: true,
+            loop: true,
+        },
+        on:{
+            onFirstInit: function (e) {
+                console.log(e);
             },
-        });
+            onSlideChangeStart: function (e) {
+                console.log(e);
+            }
+        }
+    })
     `,
     props: {
         ele: [Object, Array],
@@ -32,28 +44,20 @@ export default {
     render() {
         return (
             <div>
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="音乐"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="历史"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="生物"
-                    class={this.ele.id}
-                    disabled
-                    hope-verify="required"
-                />
+                <div class="hope-container" id={this.ele.id} style="width:500px;height:300px">
+                    <div class="hope-wrapper">
+                        <div class="hope-slide">
+                            <div class="title" style="width:500px;height:300px;background:red">Slide 1</div>
+                        </div>
+                        <div class="hope-slide">
+                            <div class="title" style="width:500px;height:300px;background:green">Slide 2</div>
+                        </div>
+                        <div class="hope-slide">
+                            <div class="title" style="width:500px;height:300px;background:blue">Slide 3</div>
+                        </div>
+                    </div>
+                    <div class="hope-pagination" />
+                </div>
             </div>
         );
     },
@@ -65,9 +69,9 @@ export default {
         // Menu options (菜单选项)
         menulists: [
             {
-                fnHandler: "selectThis", // Binding events(绑定事件)
-                icoName: "el-icon-tickets", // icon (icon图标 )
-                btnName: "选中组件", // The name of the menu option (菜单名称)
+                fnHandler: "selectThis",
+                icoName: "el-icon-tickets",
+                btnName: "选中组件",
             },
             {
                 fnHandler: "htmlView",
@@ -128,5 +132,5 @@ export default {
         htmlView() {
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

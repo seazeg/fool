@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 13:48:48
+ * @LastEditTime : 2021-01-26 14:34:45
  * @Description  : 
 -->
 <template>
@@ -13,7 +13,6 @@
             ></div> -->
             <div v-html="style"></div>
             <div class="htmlCache">{{ thishtml }}</div>
-            <div class="jsCache" :data-id="ele.id">{{ js }}</div>
             <div
                 class="code"
                 :class="{ selected: ele.isSelected }"
@@ -207,17 +206,16 @@ export default {
                 type: "error",
                 duration: 500,
             });
-        },
+        }
     },
     mounted() {
-        let _this = this;
+      let _this = this;
         _this.$nextTick(function() {
             _this.thishtml = _this.$refs.code.innerHTML;
-            console.log(_this.html);
             _this.ele.html = $(_this.$refs.code)
                 .children()
                 .html();
-            Function("_this", Mixins.script)(_this);
+            Function("_this", Mixins.script(_this.ele))(_this);
         });
     },
 };

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 14:16:38
+ * @LastEditTime : 2021-01-26 14:36:58
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -14,6 +14,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     scriptParams: {
+        // pagination: ".banner .hope-pagination",
         paginationClickable: true,
         slidesPerView: 3,
         calculateHeight: true,
@@ -25,7 +26,7 @@ export default {
         return `
         window.carousel = hope.carousel({
             ele: '#${ele.id}',
-            options:${JSON.stringify(ele.scriptParams)},
+            options: ${JSON.stringify(ele.scriptParams)},
             on:{
                 onFirstInit: function (e) {
                     console.log(e);

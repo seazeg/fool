@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 14:12:27
+ * @LastEditTime : 2021-01-26 14:31:49
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -13,53 +13,56 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
-    var pager = hope.pager({
-        ele: "#" + _this.ele.id,
-        options: {
-            omit: 5, //最多保留多少按钮,必须奇数
-            prevName: "prev",
-            nextName: "next",
-            hideNum: true,
-            pageMapping: "pageNo", //当前页码字段的映射，默认pageNo
-            extend: true,
-        },
-        params: {
-            url: "/assets/page/list1.json",
-            dataType: "json",
-            type: "get",
-            data: {
-                pageNo: 1,
-                pageSize: 20,
+    scriptParams: {},
+    script(ele) {
+        return `
+        var pager = hope.pager({
+            ele: "#${ele.id}",
+            options: {
+                omit: 5, //最多保留多少按钮,必须奇数
+                prevName: "prev",
+                nextName: "next",
+                hideNum: true,
+                pageMapping: "pageNo", //当前页码字段的映射，默认pageNo
+                extend: true,
             },
-        },
-        reader: function (res) {
-            var data = res.data;
-            var template = "";
-            for (var i = 0; i < data.length; i++) {
-                template +=
-                    "<p>" +
-                    data[i].goodsName +
-                    "|" +
-                    data[i].goodsStar +
-                    "</p>";
-            }
-
-            $("#" + _this.ele.id + "_list").html(template);
-          
-            return {
-                pageNo: res.pageNo,
-                pageSize: res.pageSize,
-                totalNumber: res.totalNumber,
-            };
-        },
-        on: {
-            jumpOver: function (e) {
-                console.log(e);
+            params: {
+                url: "/assets/page/list1.json",
+                dataType: "json",
+                type: "get",
+                data: {
+                    pageNo: 1,
+                    pageSize: 20,
+                },
             },
-        },
-    });
-    `,
+            reader: function (res) {
+                var data = res.data;
+                var template = "";
+                for (var i = 0; i < data.length; i++) {
+                    template +=
+                        "<p>" +
+                        data[i].goodsName +
+                        "|" +
+                        data[i].goodsStar +
+                        "</p>";
+                }
+    
+                $("#" + _this.ele.id + "_list").html(template);
+              
+                return {
+                    pageNo: res.pageNo,
+                    pageSize: res.pageSize,
+                    totalNumber: res.totalNumber,
+                };
+            },
+            on: {
+                jumpOver: function (e) {
+                    console.log(e);
+                },
+            },
+        });
+        `
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,

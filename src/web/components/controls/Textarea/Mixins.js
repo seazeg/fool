@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 16:58:30
+ * @LastEditTime : 2021-01-26 14:33:59
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -13,22 +13,25 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
-    var textarea = hope.textarea({
-        ele: "#" + _this.ele.id,
-        on: {
-            blur: function (e) {
-                console.log(e);
+    scriptParams: {},
+    script(ele) {
+        return `
+        var textarea = hope.textarea({
+            ele: "#${ele.id}",
+            on: {
+                blur: function (e) {
+                    console.log(e);
+                },
+                focus: function (e) {
+                    console.log(e);
+                },
+                input: function (e) {
+                    console.log(e);
+                },
             },
-            focus: function (e) {
-                console.log(e);
-            },
-            input: function (e) {
-                console.log(e);
-            },
-        },
-    });
-    `,
+        });
+        `
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:56:39
+ * @LastEditTime : 2021-01-26 14:54:59
  * @Description  : 
 -->
 <template>
@@ -110,7 +110,29 @@
                 </div>
             </div>
         </template>
-        <template v-slot:layout></template>
+        <template v-slot:options>
+            <div class="control_group">
+                <div class="box">
+                    <span class="field">扩展内容</span>
+                    <el-input
+                        type="textarea"
+                        v-model="extendContent"
+                        placeholder="请输入扩展内容"
+                    ></el-input>
+                </div>
+                <div class="box">
+                    <span class="field">扩展内容位置</span>
+                    <div>
+                        <el-radio v-model="extendContentLocation" label="left"
+                            >居左</el-radio
+                        >
+                        <el-radio v-model="extendContentLocation" label="right"
+                            >居右</el-radio
+                        >
+                    </div>
+                </div>
+            </div>
+        </template>
     </layout-editor>
 </template>
 

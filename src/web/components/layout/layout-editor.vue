@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 15:27:15
+ * @LastEditTime : 2021-01-26 14:37:36
  * @Description  : 
 -->
 <template>
@@ -28,8 +28,8 @@
             <el-tab-pane label="效果" name="third">
                 <slot name="effect"></slot>
             </el-tab-pane>
-            <el-tab-pane label="其他" name="four">
-                <slot name="other"></slot>
+            <el-tab-pane label="配置" name="four">
+                <slot name="options"></slot>
             </el-tab-pane>
         </el-tabs>
     </div>

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2021-01-22 16:57:16
+ * @LastEditTime : 2021-01-26 14:27:16
  * @Description  :
  */
 
@@ -73,32 +73,8 @@ export const handle = {
     },
     getJS: (ele) => {
         try {
-            if (!ele.name.includes("grid")) {
-                let js = ele.script,
-                    id = ele.id;
-                if (js) {
-                    js = js.replace('"." + _this.ele.id', `'.${id}'`);
-                    js = js.replace('"#" + _this.ele.id', `'#${id}'`);
-                }
-                return beautify(js && js.trim());
-            } else {
-                let result = "";
-                $("#preview")
-                    .find(".jsCache")
-                    .each(function() {
-                        result += $(this)
-                            .text()
-                            .replace(
-                                '"." + _this.ele.id',
-                                `'.${$(this).attr("data-id")}`
-                            )
-                            .replace(
-                                '"#" + _this.ele.id',
-                                `'#${$(this).attr("data-id")}'`
-                            );
-                    });
-                return beautify(result && result.trim());
-            }
+            let result = ele.script(ele);
+            return beautify(result && result.trim());
         } catch (error) {}
     },
 };

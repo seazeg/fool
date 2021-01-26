@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 14:12:48
+ * @LastEditTime : 2021-01-26 14:33:36
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -14,33 +14,36 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet, ...styleSheet_ext },
-    script: `
-    var suggest = hope.suggest({
-        ele: "#" + _this.ele.id,
-        options: {
-            noMatchName: '-- 没有匹配的内容 --'
-        },
-        params: {
-            url: '/assets/page/list1.json',
-            dataType: "json",
-            type: 'get',
-            searchField: 'searchword'
-        },
-        reader: function (res) {
-            var list = res.data;
-            var tmp = [];
-            for (var i = 0; i < list.length; i++) {
-                tmp.push(list[i].goodsName)
+    scriptParams: {},
+    script(ele) {
+        return `
+        var suggest = hope.suggest({
+            ele: "#${ele.id}",
+            options: {
+                noMatchName: '-- 没有匹配的内容 --'
+            },
+            params: {
+                url: '/assets/page/list1.json',
+                dataType: "json",
+                type: 'get',
+                searchField: 'searchword'
+            },
+            reader: function (res) {
+                var list = res.data;
+                var tmp = [];
+                for (var i = 0; i < list.length; i++) {
+                    tmp.push(list[i].goodsName)
+                }
+                return tmp
+            },
+            on: {
+                input: function (e) {
+                    console.log(e);
+                }
             }
-            return tmp
-        },
-        on: {
-            input: function (e) {
-                console.log(e);
-            }
-        }
-    })
-    `,
+        })
+        `
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 14:12:16
+ * @LastEditTime : 2021-01-26 14:48:17
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -13,22 +13,26 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
-    var input = hope.input({
-        ele: "#" + _this.ele.id,
-        on: {
-            blur: function (e) {
-                console.log(e);
+    scriptParams: { extendContent: "", extendContentLocation: "left" },
+    script(ele) {
+        return `
+        var input = hope.input({
+            ele: "#${ele.id}",
+            options: ${JSON.stringify(ele.scriptParams)},
+            on: {
+                blur: function (e) {
+                    console.log(e);
+                },
+                focus: function (e) {
+                    console.log(e);
+                },
+                input: function (e) {
+                    console.log(e);
+                },
             },
-            focus: function (e) {
-                console.log(e);
-            },
-            input: function (e) {
-                console.log(e);
-            },
-        },
-    });
-    `,
+        });
+        `;
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,
@@ -120,5 +124,5 @@ export default {
         htmlView() {
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

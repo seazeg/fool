@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 17:04:26
+ * @LastEditTime : 2021-01-26 14:34:34
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -13,7 +13,10 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: "",
+    scriptParams: {},
+    script(ele) {
+        return ``;
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,

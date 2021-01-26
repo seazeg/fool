@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-22 17:28:33
+ * @LastEditTime : 2021-01-26 14:33:10
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -14,19 +14,21 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
-    var select = hope.selector({
-        ele: "#" + _this.ele.id,
-        on: {
-            change: function (e) {
-                console.log(e);
+    scriptParams: {},
+    script(ele) {
+        return ` 
+        var select = hope.selector({
+            ele: "#${ele.id}",
+            on: {
+                change: function (e) {
+                    console.log(e);
+                },
+                toggle: function (e) {
+                    console.log(e);
+                },
             },
-            toggle: function (e) {
-                console.log(e);
-            },
-        },
-    });
-    `,
+        });`
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,
@@ -122,5 +124,5 @@ export default {
         htmlView() {
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

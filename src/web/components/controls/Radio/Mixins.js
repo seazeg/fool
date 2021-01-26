@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 14:12:38
+ * @LastEditTime : 2021-01-26 14:32:34
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -13,19 +13,22 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
-    var radio = hope.radio({
-        ele: "." + _this.ele.id,
-        on: {
-            init:function(e){
-                console.log(e);
+    scriptParams: {},
+    script(ele) {
+        return `
+        var radio = hope.radio({
+            ele: ".${ele.id}",
+            on: {
+                init:function(e){
+                    console.log(e);
+                },
+                change: function (e) {
+                    console.log(e);
+                },
             },
-            change: function (e) {
-                console.log(e);
-            },
-        },
-    });
-    `,
+        });
+        `;
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,
@@ -135,5 +138,5 @@ export default {
         htmlView() {
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

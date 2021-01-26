@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 14:11:59
+ * @LastEditTime : 2021-01-26 14:24:15
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -13,16 +13,19 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
+    scriptParams: {},
+    script(ele){
+        return `
         var checkbox = hope.checkbox({
-            ele: "." + _this.ele.id,
+            ele: '.${ele.id}',
             on: {
                 change: function (e) {
                     console.log(e);
                 },
             },
         });
-    `,
+    `
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,

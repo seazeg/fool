@@ -202,6 +202,12 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></SuggestEditor>
+        <CarouselEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></CarouselEditor>
     </div>
 </template>
 <script>

@@ -1,12 +1,13 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2020-12-28 16:20:01
+ * @LastEditTime : 2021-01-26 14:17:23
  * @Description  :
  */
 import Vue from "vue";
 import Vuex from "vuex";
 import _ from "lodash";
+import { stat } from "fs";
 
 Vue.use(Vuex);
 
@@ -58,6 +59,16 @@ export default new Vuex.Store({
                 default:
                     break;
             }
+        },
+        "Hope/UpdateControlJsParams": (state, ele) => {
+
+            state.selected.scriptParams[ele.key[0]] = ele[ele.key[0]];
+
+
+            carousel.destroy(); 
+            Function(state.selected.script(state.selected))();
+
+           
         },
         "Hope/ResetControlSelected": (state, eles) => {
             (function func(cls, state) {

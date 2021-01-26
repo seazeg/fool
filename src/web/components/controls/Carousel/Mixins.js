@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 15:49:51
+ * @LastEditTime : 2021-01-26 14:16:38
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -13,28 +13,30 @@ export default {
     defaultClass: "",
     customClass: "",
     styleSheet: { ...styleSheet },
-    script: `
-    var carousel = hope.carousel({
-        ele: "#" + _this.ele.id,
-        options: {
-            pagination: "#" + _this.ele.id + " .hope-pagination",
-            paginationClickable: true,
-            slidesPerView: 3,
-            calculateHeight: true,
-            resizeReInit: true,
-            roundLengths: true,
-            loop: true,
-        },
-        on:{
-            onFirstInit: function (e) {
-                console.log(e);
-            },
-            onSlideChangeStart: function (e) {
-                console.log(e);
+    scriptParams: {
+        paginationClickable: true,
+        slidesPerView: 3,
+        calculateHeight: true,
+        resizeReInit: true,
+        roundLengths: true,
+        loop: true,
+    },
+    script(ele) {
+        return `
+        window.carousel = hope.carousel({
+            ele: '#${ele.id}',
+            options:${JSON.stringify(ele.scriptParams)},
+            on:{
+                onFirstInit: function (e) {
+                    console.log(e);
+                },
+                onSlideChangeStart: function (e) {
+                    console.log(e);
+                }
             }
-        }
-    })
-    `,
+        })
+        `;
+    },
     props: {
         ele: [Object, Array],
         htmlVisible: Boolean,
@@ -44,16 +46,35 @@ export default {
     render() {
         return (
             <div>
-                <div class="hope-container" id={this.ele.id} style="width:500px;height:300px">
+                <div
+                    class="hope-container"
+                    id={this.ele.id}
+                    style="width:500px;height:300px"
+                >
                     <div class="hope-wrapper">
                         <div class="hope-slide">
-                            <div class="title" style="width:500px;height:300px;background:red">Slide 1</div>
+                            <div
+                                class="title"
+                                style="width:500px;height:300px;background:red"
+                            >
+                                Slide 1
+                            </div>
                         </div>
                         <div class="hope-slide">
-                            <div class="title" style="width:500px;height:300px;background:green">Slide 2</div>
+                            <div
+                                class="title"
+                                style="width:500px;height:300px;background:green"
+                            >
+                                Slide 2
+                            </div>
                         </div>
                         <div class="hope-slide">
-                            <div class="title" style="width:500px;height:300px;background:blue">Slide 3</div>
+                            <div
+                                class="title"
+                                style="width:500px;height:300px;background:blue"
+                            >
+                                Slide 3
+                            </div>
                         </div>
                     </div>
                     <div class="hope-pagination" />

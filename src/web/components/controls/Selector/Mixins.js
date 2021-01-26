@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 14:33:10
+ * @LastEditTime : 2021-01-26 15:59:36
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -99,11 +99,12 @@ export default {
                 id,
             };
         },
-        selectThis(ele) {
+        selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
+            this.selectThis()
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -116,12 +117,15 @@ export default {
                 .catch(() => {});
         },
         jsView() {
+            this.selectThis()
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
+            this.selectThis()
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
+            this.selectThis()
             this.htmlVisible = !this.htmlVisible;
         },
     },

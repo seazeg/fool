@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-01-25 16:19:49
+ * @LastEditTime : 2021-01-26 15:23:04
  * @Description  : 
 -->
 <style lang="less">
@@ -75,7 +75,7 @@ export default {
                     this.$store.commit("Hope/ChooseControl", ev.element.id);
                 }
             } catch (error) {}
-            console.log(this.$store.state.selected);
+
         },
     },
 };

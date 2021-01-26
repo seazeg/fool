@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 14:48:17
+ * @LastEditTime : 2021-01-26 15:59:16
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -99,7 +99,7 @@ export default {
                 id,
             };
         },
-        selectThis(ele) {
+        selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },

@@ -1,12 +1,12 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-25 16:16:20
+ * @LastEditTime : 2021-01-26 15:36:17
  * @Description  : 
 -->
 <template>
     <layout-editor :controlsName="'carousel'">
-        <template v-slot:effect> 
+        <template v-slot:options> 
                <div class="control_group">
                 <div class="box">
                     <span class="field">数量</span>
@@ -19,6 +19,28 @@
                             :step="1"
                         ></el-slider>
                     </p>
+                </div>
+                <div class="box">
+                    <span class="field">滑动方向</span>
+                    <div>
+                        <el-radio v-model="mode" label="horizontal"
+                            >横向</el-radio
+                        >
+                        <el-radio v-model="mode" label="vertical"
+                            >纵向</el-radio
+                        >
+                    </div>
+                </div>
+                <div class="box">
+                    <span class="field">循环滚动</span>
+                    <div>
+                        <el-radio v-model="loop" :label=true
+                            >开启</el-radio
+                        >
+                        <el-radio v-model="loop" :label=false
+                            >关闭</el-radio
+                        >
+                    </div>
                 </div>
             </div>
         </template>

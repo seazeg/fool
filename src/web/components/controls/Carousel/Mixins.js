@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 16:01:31
+ * @LastEditTime : 2021-01-28 09:59:39
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -20,8 +20,11 @@ export default {
         calculateHeight: true,
         resizeReInit: true,
         roundLengths: true,
-        loop: true,
-        mode: 'vertical'
+        loop: false,
+        mode: "horizontal",
+        freeMode: false,
+        freeModeFluid: true,
+        centeredSlides:false,
     },
     script(ele) {
         return `
@@ -55,28 +58,52 @@ export default {
                     style="width:500px;height:300px"
                 >
                     <div class="hope-wrapper">
-                        <div class="hope-slide">
+                        <div class="hope-slide" style="width:500px;background:red;font-size:16px;color:#fff">
                             <div
                                 class="title"
-                                style="width:500px;height:300px;background:red"
+                                style="height:300px;"
                             >
                                 Slide 1
                             </div>
                         </div>
-                        <div class="hope-slide">
+                        <div class="hope-slide" style="width:500px;background:green;font-size:16px;color:#fff">
                             <div
                                 class="title"
-                                style="width:500px;height:300px;background:green"
+                                style="height:300px;"
                             >
                                 Slide 2
                             </div>
                         </div>
-                        <div class="hope-slide">
+                        <div class="hope-slide" style="width:500px;background:blue;font-size:16px;color:#fff">
                             <div
                                 class="title"
-                                style="width:500px;height:300px;background:blue"
+                                style="height:300px;"
                             >
                                 Slide 3
+                            </div>
+                        </div>
+                        <div class="hope-slide" style="width:500px;background:red;font-size:16px;color:#fff">
+                            <div
+                                class="title"
+                                style="height:300px;"
+                            >
+                                Slide 4
+                            </div>
+                        </div>
+                        <div class="hope-slide" style="width:500px;background:green;font-size:16px;color:#fff">
+                            <div
+                                class="title"
+                                style="height:300px;"
+                            >
+                                Slide 5
+                            </div>
+                        </div>
+                        <div class="hope-slide" style="width:500px;background:blue;font-size:16px;color:#fff">
+                            <div
+                                class="title"
+                                style="height:300px;"
+                            >
+                                Slide 6
                             </div>
                         </div>
                     </div>
@@ -136,7 +163,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
-            this.selectThis()
+            this.selectThis();
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -149,15 +176,15 @@ export default {
                 .catch(() => {});
         },
         jsView() {
-            this.selectThis()
+            this.selectThis();
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            this.selectThis()
+            this.selectThis();
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            this.selectThis()
+            this.selectThis();
             this.htmlVisible = !this.htmlVisible;
         },
     },

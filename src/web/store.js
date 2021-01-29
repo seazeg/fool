@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-01-26 15:30:32
+ * @LastEditTime : 2021-01-26 17:11:05
  * @Description  :
  */
 import Vue from "vue";
@@ -66,9 +66,10 @@ export default new Vuex.Store({
                 value = ele.value;
 
                 
-                selectedControl.scriptParams[key] = value;
-
+                selectedControl.scriptParams[key] = value;        
+                selectedControl.controlObject.reInit();
                 selectedControl.controlObject.destroy();
+             
                 selectedControl.controlObject = Function(selectedControl.script(selectedControl))();
  
            

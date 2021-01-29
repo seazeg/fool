@@ -1,13 +1,13 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 15:36:17
+ * @LastEditTime : 2021-01-26 16:53:03
  * @Description  : 
 -->
 <template>
     <layout-editor :controlsName="'carousel'">
-        <template v-slot:options> 
-               <div class="control_group">
+        <template v-slot:options>
+            <div class="control_group">
                 <div class="box">
                     <span class="field">数量</span>
                     <p>
@@ -32,12 +32,23 @@
                     </div>
                 </div>
                 <div class="box">
-                    <span class="field">循环滚动</span>
+                    <span class="field">自由模式</span>
                     <div>
-                        <el-radio v-model="loop" :label=true
+                        <el-radio v-model="freeMode" :label="true"
                             >开启</el-radio
                         >
-                        <el-radio v-model="loop" :label=false
+                        <el-radio v-model="freeMode" :label="false"
+                            >关闭</el-radio
+                        >
+                    </div>
+                </div>
+                <div class="box" v-if="mode=='horizontal'">
+                    <span class="field">活动块居中</span>
+                    <div>
+                        <el-radio v-model="centeredSlides" :label="true"
+                            >开启</el-radio
+                        >
+                        <el-radio v-model="centeredSlides" :label="false"
                             >关闭</el-radio
                         >
                     </div>

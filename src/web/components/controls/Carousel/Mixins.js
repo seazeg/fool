@@ -1,10 +1,22 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-07 16:15:23
+ * @LastEditTime : 2021-02-07 17:19:27
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
+function getRandomColor() {
+    return (
+        "#" +
+        (function(color) {
+            return (color += "0123456789abcdef"[
+                Math.floor(Math.random() * 16)
+            ]) && color.length == 6
+                ? color
+                : arguments.callee(color);
+        })("")
+    );
+}
 export default {
     name: "hope_carousel",
     label: "轮播图",
@@ -14,7 +26,7 @@ export default {
     customClass: "",
     styleSheet: { ...styleSheet },
     scriptParams: {
-        // pagination: ".banner .hope-pagination",
+        pagination: "",
         paginationClickable: true,
         slidesPerView: 3,
         slidesPerGroup: 1,
@@ -37,25 +49,31 @@ export default {
         moveStartThreshold: 5,
         hopeToPrev: true,
         hopeToNext: true,
-        keyboardControl:false,
-        mousewheelControl:false
+        keyboardControl: false,
+        mousewheelControl: false,
     },
     script(ele) {
-        return `
-        var carousel = hope.carousel({
-            ele: '#${ele.id}',
-            options: ${JSON.stringify(ele.scriptParams)},
-            on:{
-                onFirstInit: function (e) {
-                    //console.log(e);
-                },
-                onSlideChangeStart: function (e) {
-                    //console.log(e);
-                }
+        try {
+            if (ele.scriptParams.pagination) {
+                ele.scriptParams.pagination =
+                    "#" + ele.id + " .hope-pagination";
             }
-        })
-        return carousel
-        `;
+            return `
+            var carousel = hope.carousel({
+                ele: '#${ele.id}',
+                options: ${JSON.stringify(ele.scriptParams)},
+                on:{
+                    onFirstInit: function (e) {
+                        //console.log(e);
+                    },
+                    onSlideChangeStart: function (e) {
+                        //console.log(e);
+                    }
+                }
+            })
+            return carousel
+            `;
+        } catch (error) {}
     },
     props: {
         ele: [Object, Array],
@@ -69,54 +87,90 @@ export default {
                 <div
                     class="hope-container"
                     id={this.ele.id}
-                    style="width:500px;height:300px"
+                    style="width:600px;height:300px"
                 >
                     <div class="hope-wrapper">
-                        <div
-                            class="hope-slide"
-                            style="width:500px;background:red;font-size:16px;color:#fff"
-                        >
-                            <div class="title" style="height:300px;">
+                        <div class="hope-slide">
+                            <div
+                                class="title"
+                                style={
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
+                                    "#" +
+                                    Math.floor(
+                                        Math.random() * 0xffffff
+                                    ).toString(16)
+                                }
+                            >
                                 Slide 1
                             </div>
                         </div>
-                        <div
-                            class="hope-slide"
-                            style="width:500px;background:green;font-size:16px;color:#fff"
-                        >
-                            <div class="title" style="height:300px;">
+                        <div class="hope-slide">
+                            <div
+                                class="title"
+                                style={
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
+                                    "#" +
+                                    Math.floor(
+                                        Math.random() * 0xffffff
+                                    ).toString(16)
+                                }
+                            >
                                 Slide 2
                             </div>
                         </div>
-                        <div
-                            class="hope-slide"
-                            style="width:500px;background:blue;font-size:16px;color:#fff"
-                        >
-                            <div class="title" style="height:300px;">
+                        <div class="hope-slide">
+                            <div
+                                class="title"
+                                style={
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
+                                    "#" +
+                                    Math.floor(
+                                        Math.random() * 0xffffff
+                                    ).toString(16)
+                                }
+                            >
                                 Slide 3
                             </div>
                         </div>
-                        <div
-                            class="hope-slide"
-                            style="width:500px;background:red;font-size:16px;color:#fff"
-                        >
-                            <div class="title" style="height:300px;">
+                        <div class="hope-slide">
+                            <div
+                                class="title"
+                                style={
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
+                                    "#" +
+                                    Math.floor(
+                                        Math.random() * 0xffffff
+                                    ).toString(16)
+                                }
+                            >
                                 Slide 4
                             </div>
                         </div>
-                        <div
-                            class="hope-slide"
-                            style="width:500px;background:green;font-size:16px;color:#fff"
-                        >
-                            <div class="title" style="height:300px;">
+                        <div class="hope-slide">
+                            <div
+                                class="title"
+                                style={
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
+                                    "#" +
+                                    Math.floor(
+                                        Math.random() * 0xffffff
+                                    ).toString(16)
+                                }
+                            >
                                 Slide 5
                             </div>
                         </div>
-                        <div
-                            class="hope-slide"
-                            style="width:500px;background:blue;font-size:16px;color:#fff"
-                        >
-                            <div class="title" style="height:300px;">
+                        <div class="hope-slide">
+                            <div
+                                class="title"
+                                style={
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
+                                    "#" +
+                                    Math.floor(
+                                        Math.random() * 0xffffff
+                                    ).toString(16)
+                                }
+                            >
                                 Slide 6
                             </div>
                         </div>

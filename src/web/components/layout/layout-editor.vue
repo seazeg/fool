@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-07 15:46:19
+ * @LastEditTime : 2021-02-07 17:25:30
  * @Description  : 
 -->
 <template>
@@ -14,9 +14,9 @@
             <el-tab-pane label="基础" name="first">
                 <slot name="base"></slot>
             </el-tab-pane>
-            <el-tab-pane label="布局" name="second">
+            <!-- <el-tab-pane label="布局" name="second">
                 <slot name="layout"></slot>
-            </el-tab-pane>
+            </el-tab-pane> -->
             <el-tab-pane label="效果" name="third">
                 <slot name="effect"></slot>
             </el-tab-pane>

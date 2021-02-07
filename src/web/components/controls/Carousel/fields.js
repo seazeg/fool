@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-07 16:19:56
+ * @LastEditTime : 2021-02-07 17:20:24
  * @Description  :
  */
 export const fields = {
@@ -93,6 +93,34 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlJsOptions", {
                 key: "autoplay",
+                value: value,
+            });
+        },
+    },
+    pagination: {
+        get() {
+            return !!this.$store.state.selected.scriptParams.pagination;
+        },
+        set(value) {
+            if (!value) {
+                value = "";
+            } else {
+                value =
+                    "#" + this.$store.state.selected.id + " .hope-pagination";
+            }
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "pagination",
+                value: value,
+            });
+        },
+    },
+    paginationClickable:{
+        get() {
+            return this.$store.state.selected.scriptParams.paginationClickable;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "paginationClickable",
                 value: value,
             });
         },

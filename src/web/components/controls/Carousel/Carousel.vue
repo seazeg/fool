@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-07 14:38:55
+ * @LastEditTime : 2021-02-07 17:10:39
  * @Description  : 
 -->
 <template>
@@ -202,7 +202,7 @@ export default {
                 type: "error",
                 duration: 500,
             });
-        }
+        },
     },
     mounted() {
         let _this = this;
@@ -211,6 +211,7 @@ export default {
             _this.ele.html = $(_this.$refs.code)
                 .children()
                 .html();
+            console.log(_this.ele.script());
             _this.ele.controlObject = Function(
                 "_this",
                 Mixins.script(_this.ele)

@@ -80,6 +80,10 @@
     // user-select: none;
 }
 
+.layout-container .layout-lineBlock {
+    display: inline-block !important;
+}
+
 //标题
 .layout-header {
     -webkit-app-region: drag;
@@ -453,9 +457,9 @@
 }
 
 .layout-container .edit .box {
-    min-height: 80px;
+    clear: both;
+    padding:5px;
 }
-
 .layout-container .edit .box p {
     position: relative;
 }
@@ -516,7 +520,13 @@
 
 .layout-container .edit .el-switch {
     position: relative;
-    bottom: 1px;
+    float: right;
+    top: 3px;
+}
+
+.layout-container .edit .radio_box {
+    float: right;
+    margin: 5px 0;
 }
 
 .layout-container .edit .el-switch__label {

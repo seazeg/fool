@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-28 09:59:39
+ * @LastEditTime : 2021-02-07 16:15:23
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -17,14 +17,28 @@ export default {
         // pagination: ".banner .hope-pagination",
         paginationClickable: true,
         slidesPerView: 3,
+        slidesPerGroup: 1,
         calculateHeight: true,
         resizeReInit: true,
         roundLengths: true,
-        loop: false,
+        loop: true,
         mode: "horizontal",
         freeMode: false,
         freeModeFluid: true,
-        centeredSlides:false,
+        centeredSlides: false,
+        autoplay: 0,
+        autoplayDisableOnInteraction: false,
+        speed: 300,
+        autoResize: true,
+        resizeReInit: false,
+        preventLinks: true,
+        initialSlide: 0,
+        touchRatio: 1,
+        moveStartThreshold: 5,
+        hopeToPrev: true,
+        hopeToNext: true,
+        keyboardControl:false,
+        mousewheelControl:false
     },
     script(ele) {
         return `
@@ -58,51 +72,51 @@ export default {
                     style="width:500px;height:300px"
                 >
                     <div class="hope-wrapper">
-                        <div class="hope-slide" style="width:500px;background:red;font-size:16px;color:#fff">
-                            <div
-                                class="title"
-                                style="height:300px;"
-                            >
+                        <div
+                            class="hope-slide"
+                            style="width:500px;background:red;font-size:16px;color:#fff"
+                        >
+                            <div class="title" style="height:300px;">
                                 Slide 1
                             </div>
                         </div>
-                        <div class="hope-slide" style="width:500px;background:green;font-size:16px;color:#fff">
-                            <div
-                                class="title"
-                                style="height:300px;"
-                            >
+                        <div
+                            class="hope-slide"
+                            style="width:500px;background:green;font-size:16px;color:#fff"
+                        >
+                            <div class="title" style="height:300px;">
                                 Slide 2
                             </div>
                         </div>
-                        <div class="hope-slide" style="width:500px;background:blue;font-size:16px;color:#fff">
-                            <div
-                                class="title"
-                                style="height:300px;"
-                            >
+                        <div
+                            class="hope-slide"
+                            style="width:500px;background:blue;font-size:16px;color:#fff"
+                        >
+                            <div class="title" style="height:300px;">
                                 Slide 3
                             </div>
                         </div>
-                        <div class="hope-slide" style="width:500px;background:red;font-size:16px;color:#fff">
-                            <div
-                                class="title"
-                                style="height:300px;"
-                            >
+                        <div
+                            class="hope-slide"
+                            style="width:500px;background:red;font-size:16px;color:#fff"
+                        >
+                            <div class="title" style="height:300px;">
                                 Slide 4
                             </div>
                         </div>
-                        <div class="hope-slide" style="width:500px;background:green;font-size:16px;color:#fff">
-                            <div
-                                class="title"
-                                style="height:300px;"
-                            >
+                        <div
+                            class="hope-slide"
+                            style="width:500px;background:green;font-size:16px;color:#fff"
+                        >
+                            <div class="title" style="height:300px;">
                                 Slide 5
                             </div>
                         </div>
-                        <div class="hope-slide" style="width:500px;background:blue;font-size:16px;color:#fff">
-                            <div
-                                class="title"
-                                style="height:300px;"
-                            >
+                        <div
+                            class="hope-slide"
+                            style="width:500px;background:blue;font-size:16px;color:#fff"
+                        >
+                            <div class="title" style="height:300px;">
                                 Slide 6
                             </div>
                         </div>

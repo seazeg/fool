@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 16:01:22
+ * @LastEditTime : 2021-02-08 14:33:58
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -10,8 +10,7 @@ export default {
     label: "复选框",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele){

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:25:23
+ * @LastEditTime : 2021-02-08 11:59:59
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -12,7 +12,10 @@ export default {
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
-    scriptParams: { extendContent: "", extendContentLocation: "left" },
+    scriptParams: {
+        extendContent: ``,
+        extendContentLocation: "right",
+    },
     script(ele) {
         return `
         var input = hope.input({

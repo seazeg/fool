@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:50:36
+ * @LastEditTime : 2021-02-08 14:40:51
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -12,11 +12,12 @@ export default {
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
-    scriptParams: {},
+    scriptParams: { remainingWords: false },
     script(ele) {
         return `
         var textarea = hope.textarea({
             ele: "#${ele.id}",
+            options: ${JSON.stringify(ele.scriptParams)},
             on: {
                 blur: function (e) {
                     console.log(e);
@@ -29,7 +30,8 @@ export default {
                 },
             },
         });
-        `
+        return textarea;
+        `;
     },
     props: {
         ele: [Object, Array],
@@ -46,6 +48,7 @@ export default {
                     placeholder="请输入内容"
                     id={this.ele.id}
                     hope-verify="required"
+                    maxlength="500"
                 />
             </div>
         );
@@ -101,7 +104,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
-            this.selectThis()
+            this.selectThis();
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -114,16 +117,16 @@ export default {
                 .catch(() => {});
         },
         jsView() {
-            this.selectThis()
+            this.selectThis();
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            this.selectThis()
+            this.selectThis();
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            this.selectThis()
+            this.selectThis();
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

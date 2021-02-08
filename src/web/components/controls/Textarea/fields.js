@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-12-28 15:34:27
+ * @LastEditTime : 2021-02-08 14:41:27
  * @Description  :
  */
 export const fields = {
@@ -127,4 +127,15 @@ export const fields = {
             });
         },
     },
+    remainingWords:{
+        get() {
+            return this.$store.state.selected.scriptParams.remainingWords;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "remainingWords",
+                value: value,
+            });
+        },
+    }
 };

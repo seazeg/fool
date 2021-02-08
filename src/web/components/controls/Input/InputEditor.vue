@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 14:54:59
+ * @LastEditTime : 2021-02-08 12:01:45
  * @Description  : 
 -->
 <template>
@@ -113,14 +113,6 @@
         <template v-slot:options>
             <div class="control_group">
                 <div class="box">
-                    <span class="field">扩展内容</span>
-                    <el-input
-                        type="textarea"
-                        v-model="extendContent"
-                        placeholder="请输入扩展内容"
-                    ></el-input>
-                </div>
-                <div class="box">
                     <span class="field">扩展内容位置</span>
                     <div>
                         <el-radio v-model="extendContentLocation" label="left"
@@ -130,6 +122,14 @@
                             >居右</el-radio
                         >
                     </div>
+                </div>
+                <div class="box">
+                    <span class="field">扩展内容</span>
+                    <el-input
+                        type="textarea"
+                        v-model="extendContent"
+                        placeholder="请输入扩展内容(HTML)"
+                    ></el-input>
                 </div>
             </div>
         </template>

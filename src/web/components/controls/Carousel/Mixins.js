@@ -1,22 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:29:22
+ * @LastEditTime : 2021-02-08 11:56:12
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
-function getRandomColor() {
-    return (
-        "#" +
-        (function(color) {
-            return (color += "0123456789abcdef"[
-                Math.floor(Math.random() * 16)
-            ]) && color.length == 6
-                ? color
-                : arguments.callee(color);
-        })("")
-    );
-}
 export default {
     name: "hope_carousel",
     label: "轮播图",

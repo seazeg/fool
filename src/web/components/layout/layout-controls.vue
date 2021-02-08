@@ -1,3 +1,4 @@
+
 <style lang="less">
 @import "../../styles/theme.config.less";
 .el-menu {
@@ -16,7 +17,7 @@
 </style>
 <template>
     <div class="layout-controls">
-        <div class="operate"><i class="el-icon-sunrise-1"></i> HOPE</div>
+        <div class="operate"><img src="../../assets/logo.svg" /></div>
         <el-menu
             :default-openeds="openeds"
             @open="handleOpen"

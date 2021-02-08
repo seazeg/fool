@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-01-26 15:23:04
+ * @LastEditTime : 2021-02-08 17:26:17
  * @Description  : 
 -->
 <style lang="less">
@@ -13,7 +13,7 @@
     min-height: 200px;
 }
 .draggable_root {
-    height: 100%;
+    min-height: 100%;
 }
 </style>
 <template>

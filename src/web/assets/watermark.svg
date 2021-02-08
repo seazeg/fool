@@ -2,10 +2,10 @@
     width="100%" height="100%" viewBox="0 0 240.000000 80.000000" preserveAspectRatio="xMidYMid meet"
     color-interpolation-filters="sRGB" class="el-tooltip" style="margin: auto;">
     <g data-v-1e121de1="" fill="#6b6b6b" class="icon-text-wrapper icon-svg-group iconsvg" transform="translate(30,20)">
-        <!-- <g class="iconsvg-imagesvg" transform="translate(0,0)">
-            <rect fill="#ffffff" fill-opacity="0" stroke-width="2" x="0" y="0" width="60" height="54.58957887223352"
-                class="image-rect"></rect> <svg filter="url(#colors6529391102)" x="0" y="-5" width="60"
-                height="54.58957887223352" filtersec="colorsf4677853082" class="image-svg-svg primary"><svg
+        <g class="iconsvg-imagesvg" transform="translate(0,0)">
+            <rect fill="#6b6b6b" fill-opacity="0" stroke-width="2" x="0" y="-5" width="60" height="54.58957887223352"
+                class="image-rect"></rect> <svg filter="url(#colors7680352844)" x="0" y="-5" width="60"
+                height="54.58957887223352" filtersec="colorsf5507371167" class="image-svg-svg primary"><svg
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.06 76.48">
                     <g>
                         <g fill="#f8b500">
@@ -16,23 +16,22 @@
                     </g>
                 </svg></svg>
             <defs>
-                <filter id="colors6529391102">
+                <filter id="colors7680352844">
+                    <feColorMatrix type="matrix"
+                        values="0 0 0 0 0.41796875  0 0 0 0 0.41796875  0 0 0 0 0.41796875  0 0 0 1 0"
+                        class="icon-fecolormatrix"></feColorMatrix>
+                </filter>
+                <filter id="colorsf5507371167">
                     <feColorMatrix type="matrix"
                         values="0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 1 0"
                         class="icon-fecolormatrix"></feColorMatrix>
                 </filter>
-                <filter id="colorsf4677853082">
-                    <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 1 0"
-                        class="icon-fecolormatrix"></feColorMatrix>
-                </filter>
-                <filter id="colorsb2354068665">
+                <filter id="colorsb8889246787">
                     <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
                         class="icon-fecolormatrix"></feColorMatrix>
                 </filter>
             </defs>
-        </g> -->
-        <g class="iconsvg-imagesvg" transform="translate(0,0)"><rect fill="#6b6b6b" fill-opacity="0" stroke-width="2" x="0" y="0" width="60" height="54.58957887223352" class="image-rect"></rect> <svg filter="url(#colors7680352844)" x="0" y="0" width="60" height="54.58957887223352" filtersec="colorsf5507371167" class="image-svg-svg primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.06 76.48"><g><g fill="#f8b500"><path d="M56 70.84c-3.43.62-14.93 1-18.75-10.41S40 41.68 44.87 41 57 42.72 57.72 47.58s-3.82 9 .69 8.68S71.95 52.79 69.52 42 53.9 21.89 39 27.45s-20.13 17-18.4 26.73S28.91 72.92 38.28 75s14.92 2.44 21.52-2.08c2.78-1.74 0-2.78-3.82-2.08M11.55 66c-2.43 1.39-4.17 5.9-2.43 8s5.2-.35 8.33-3.47 3.12-7.29 0-6.6a29 29 0 0 0-5.9 2.07M4.61 50c-3.47.35-6.25-3.12-3.47-5.55s5.9-1.74 9-1 7.29 1.73 7.64 3.47-2.08 3.47-4.86 3.47S4.61 50 4.61 50M11.89 28.49c-3.47-2.43-7.29-5.9-5.21-7.64s3.82-1.39 6.94 1.39a63.55 63.55 0 0 1 6.94 7.29c1.74 2.08 0 5.55-3.12 3.12s-5.55-4.17-5.55-4.17M29.25 8.36C27.86 5.23 26.82.37 32 0s6.62 3.15 7 7 1.39 6.94.7 10.07-5.55 5.21-7.64.35a43.87 43.87 0 0 1-2.78-9M61.53 11.13c1.74-4.17 5.56-6.25 8-3.82s2.78 5.9.35 9.37a57.42 57.42 0 0 1-6.6 8c-2.08 2.08-8.68.69-5.9-4.51a78.12 78.12 0 0 0 4.16-9M77.85 28.14c3.47-2.08 8.33 1.74 5.21 4.86s-7.64 3.82-9.72 4.17-5.9-2.78-1.39-5.9 5.9-3.12 5.9-3.12"></path></g></g></svg></svg> <defs><filter id="colors7680352844"><feColorMatrix type="matrix" values="0 0 0 0 0.41796875  0 0 0 0 0.41796875  0 0 0 0 0.41796875  0 0 0 1 0" class="icon-fecolormatrix"></feColorMatrix></filter> <filter id="colorsf5507371167"><feColorMatrix type="matrix" values="0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 1 0" class="icon-fecolormatrix"></feColorMatrix></filter> <filter id="colorsb8889246787"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" class="icon-fecolormatrix"></feColorMatrix></filter></defs></g>
+        </g>
         <g transform="translate(67.00054931640625,3.6952896118164062)"
             mask="url(#fd446e38-6808-4e13-8772-d723e8527efc)">
             <g fill-rule="" class="tp-name iconsvg-namesvg" transform="translate(0,0)">

@@ -8,7 +8,7 @@ import styleSheet from "../../stylesheet/radio.json";
 export default {
     name: "hope_radio",
     label: "单选框",
-    icon: "icon-anniu",
+    icon: "icon-danxuankuangzu",
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

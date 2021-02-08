@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:32:42
+ * @LastEditTime : 2021-02-08 15:44:10
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -9,7 +9,7 @@ import styleSheet from "../../stylesheet/selector.json";
 export default {
     name: "hope_selector",
     label: "下拉框",
-    icon: "icon-anniu",
+    icon: "icon-biaodanzujian-xialakuang",
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

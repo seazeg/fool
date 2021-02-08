@@ -1,14 +1,14 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 14:33:58
+ * @LastEditTime : 2021-02-08 15:42:41
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
 export default {
     name: "hope_checkbox",
     label: "复选框",
-    icon: "icon-anniu",
+    icon: "icon-kongjianyixuan",
     isSelected: false,
     includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },

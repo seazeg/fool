@@ -1,14 +1,14 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:56:12
+ * @LastEditTime : 2021-02-08 15:42:29
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
 export default {
     name: "hope_carousel",
     label: "轮播图",
-    icon: "icon-anniu",
+    icon: "icon-shuffling-banner",
     isSelected: false,
     includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },

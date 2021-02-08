@@ -52,7 +52,7 @@
             </el-submenu> -->
             <el-submenu index="2">
                 <template slot="title">
-                    <i class="el-icon-copy-document"></i>
+                    <i class="iconfont icon-zujian"></i>
                     <span>基础控件</span>
                 </template>
                 <draggable
@@ -68,7 +68,7 @@
                         :key="i"
                     >
                         <template slot="title">
-                            <i class="el-icon-copy-document"></i>
+                            <i :class="'iconfont ' + ele.icon"></i>
                             {{ ele.label }}
                         </template>
                     </el-menu-item>
@@ -76,7 +76,7 @@
             </el-submenu>
             <el-submenu index="2">
                 <template slot="title">
-                    <i class="el-icon-copy-document"></i>
+                    <i class="iconfont icon-Structuresquarescontrol"></i>
                     <span>复用组件</span>
                 </template>
                 <draggable
@@ -92,7 +92,7 @@
                         :key="i"
                     >
                         <template slot="title">
-                            <i class="el-icon-copy-document"></i>
+                            <i :class="'iconfont ' + ele.icon"></i>
                             {{ ele.label }}
                         </template>
                     </el-menu-item>

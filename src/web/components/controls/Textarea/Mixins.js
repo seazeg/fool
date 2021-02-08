@@ -8,7 +8,7 @@ import styleSheet from "../../stylesheet/textarea.json";
 export default {
     name: "hope_textarea",
     label: "多行文本框",
-    icon: "icon-anniu",
+    icon: "icon-textarea",
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

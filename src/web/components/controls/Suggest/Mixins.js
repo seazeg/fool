@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:28:14
+ * @LastEditTime : 2021-02-08 15:55:10
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -9,7 +9,7 @@ import styleSheet_ext from "../../stylesheet/input.json";
 export default {
     name: "hope_suggest",
     label: "联想提示框",
-    icon: "icon-anniu",
+    icon: "icon-wenbenkuang",
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },

@@ -1,14 +1,14 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:37:42
+ * @LastEditTime : 2021-02-08 15:43:53
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
 export default {
     name: "hope_pager",
     label: "分页器",
-    icon: "icon-anniu",
+    icon: "icon-fenyeqi",
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

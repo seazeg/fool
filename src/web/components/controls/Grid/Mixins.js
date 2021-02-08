@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-12-28 14:44:33
+ * @LastEditTime : 2021-02-08 15:43:24
  * @Description  :
  */
 import styleSheet from "../../stylesheet/grid.json";
@@ -9,7 +9,7 @@ export default {
     name: "hope_grid",
     label: "栅格",
     className: "hopeui-row",
-    icon: "icon-anniu",
+    icon: "icon-35zhage",
     isCustom: true,
     isSelected: false,
     children: [],

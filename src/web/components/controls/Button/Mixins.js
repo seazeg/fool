@@ -1,14 +1,14 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:49:52
+ * @LastEditTime : 2021-02-08 15:41:55
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
 export default {
     name: "hope_button",
     label: "按钮",
-    icon: "icon-anniu",
+    icon: "icon-biaodanzujian-anniu",
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

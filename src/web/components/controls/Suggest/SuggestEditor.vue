@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-17 15:56:56
+ * @LastEditTime : 2021-02-08 15:18:13
  * @Description  : 
 -->
 <template>
@@ -110,7 +110,19 @@
                 </div>
             </div>
         </template>
-        <template v-slot:layout></template>
+        <template v-slot:options>
+              <div class="control_group">
+                    <div class="box">
+                    <span class="field layout-lineBlock"
+                        >无匹配时描述</span
+                    >
+                    <el-input
+                        v-model="noMatchName"
+                        placeholder="请输入无匹配时描述"
+                    ></el-input>
+                </div>
+              </div>
+        </template>
     </layout-editor>
 </template>
 

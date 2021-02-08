@@ -1,14 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:26:26
- * @Description  : 
--->
-
-<!--
- * @Author       : Evan.G
- * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:25:19
+ * @LastEditTime : 2021-02-08 15:27:20
  * @Description  : 
 -->
 <template>
@@ -105,7 +98,45 @@
                 </div>
             </div>
         </template>
-        <template v-slot:layout> </template>
+        <template v-slot:options>
+            <div class="control_group">
+                <div class="box">
+                    <span class="field">保留按钮数</span>
+                    <p>
+                        <el-slider
+                            v-model="omit"
+                            :min="1"
+                            :max="12"
+                            show-input
+                            :step="1"
+                        ></el-slider>
+                    </p>
+                </div>
+
+                <div class="box">
+                    <span class="field layout-lineBlock"
+                        >上翻页描述</span
+                    >
+                    <el-input
+                        v-model="prevName"
+                        placeholder="请输入上翻页描述"
+                    ></el-input>
+                </div>
+                <div class="box">
+                    <span class="field layout-lineBlock"
+                        >下翻页描述</span
+                    >
+                    <el-input
+                        v-model="nextName"
+                        placeholder="请输入下翻页描述"
+                    ></el-input>
+                </div>
+                <div class="box">
+                    <span class="field layout-lineBlock">是否完整模式</span>
+                    <el-switch v-model="extend"> </el-switch>
+                </div>
+            </div>
+        </template>
     </layout-editor>
 </template>
 

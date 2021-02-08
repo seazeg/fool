@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-12-28 15:37:40
+ * @LastEditTime : 2021-02-08 15:18:35
  * @Description  :
  */
 export const fields = {
@@ -102,9 +102,7 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "border-color": value,
-                key: [
-                    ".hopeui-input"
-                ],
+                key: [".hopeui-input"],
                 isDiff: "same",
             });
         },
@@ -134,6 +132,17 @@ export const fields = {
                 "border-color": value,
                 key: [".hopeui-input:focus"],
                 isDiff: "same",
+            });
+        },
+    },
+    noMatchName: {
+        get() {
+            return this.$store.state.selected.scriptParams.noMatchName;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "noMatchName",
+                value: value,
             });
         },
     },

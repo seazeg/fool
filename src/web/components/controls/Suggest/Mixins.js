@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 16:01:02
+ * @LastEditTime : 2021-02-08 15:28:14
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -13,16 +13,14 @@ export default {
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },
-    scriptParams: {},
+    scriptParams: { noMatchName: "-- 没有匹配的内容 --" },
     script(ele) {
         return `
         var suggest = hope.suggest({
             ele: "#${ele.id}",
-            options: {
-                noMatchName: '-- 没有匹配的内容 --'
-            },
+            options: ${JSON.stringify(ele.scriptParams)},
             params: {
-                url: '/assets/page/list1.json',
+                url: '/assets/page/list111.json',
                 dataType: "json",
                 type: 'get',
                 searchField: 'searchword'
@@ -41,7 +39,8 @@ export default {
                 }
             }
         })
-        `
+        return suggest
+        `;
     },
     props: {
         ele: [Object, Array],
@@ -115,7 +114,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
-            this.selectThis()
+            this.selectThis();
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -128,16 +127,16 @@ export default {
                 .catch(() => {});
         },
         jsView() {
-            this.selectThis()
+            this.selectThis();
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            this.selectThis()
+            this.selectThis();
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            this.selectThis()
+            this.selectThis();
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

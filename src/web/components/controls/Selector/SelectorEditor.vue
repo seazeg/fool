@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 15:29:09
+ * @LastEditTime : 2021-02-08 15:14:46
  * @Description  : 
 -->
 <template>
@@ -111,7 +111,31 @@
                 </div>
             </div>
         </template>
-        <template v-slot:layout> </template>
+        <template v-slot:options>
+            <div class="control_group">
+                <div class="box">
+                    <span class="field layout-lineBlock"
+                        >是否自动显示隐藏滚动条
+                    </span>
+                    <el-switch v-model="autoHideBar"> </el-switch>
+                </div>
+                <div class="box">
+                    <span class="field layout-lineBlock"
+                        >搜索下拉模式(桌面端)</span
+                    >
+                    <el-switch v-model="searchMode"> </el-switch>
+                </div>
+                <div class="box">
+                    <span class="field layout-lineBlock"
+                        >自定义下拉字体图标</span
+                    >
+                    <el-input
+                        v-model="switchIcon"
+                        placeholder="请输入图标类名(Class)"
+                    ></el-input>
+                </div>
+            </div>
+        </template>
     </layout-editor>
 </template>
 

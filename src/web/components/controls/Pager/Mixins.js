@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:50:17
+ * @LastEditTime : 2021-02-08 15:37:42
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -12,19 +12,17 @@ export default {
     isSelected: false,
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
-    scriptParams: {},
+    scriptParams: {
+        omit: 5,
+        prevName: "prev",
+        nextName: "next",
+        extend: true,
+    },
     script(ele) {
         return `
         var pager = hope.pager({
             ele: "#${ele.id}",
-            options: {
-                omit: 5, //最多保留多少按钮,必须奇数
-                prevName: "prev",
-                nextName: "next",
-                hideNum: true,
-                pageMapping: "pageNo", //当前页码字段的映射，默认pageNo
-                extend: true,
-            },
+            options: ${JSON.stringify(ele.scriptParams)},
             params: {
                 url: "/assets/page/list1.json",
                 dataType: "json",
@@ -60,6 +58,7 @@ export default {
                 },
             },
         });
+        return pager
         `
     },
     props: {

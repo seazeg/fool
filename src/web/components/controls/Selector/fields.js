@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-01-21 15:12:22
+ * @LastEditTime : 2021-02-08 14:55:24
  * @Description  :
  */
 export const fields = {
@@ -15,9 +15,7 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                key: [
-                    ".hopeui-form-select"
-                ],
+                key: [".hopeui-form-select"],
                 isDiff: "per",
             });
         },
@@ -69,11 +67,9 @@ export const fields = {
     },
     color: {
         get() {
-            return (
-                this.$store.state.selected.styleSheet[
-                    ".hopeui-form-select .hopeui-input"
-                ].color
-            );
+            return this.$store.state.selected.styleSheet[
+                ".hopeui-form-select .hopeui-input"
+            ].color;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -91,11 +87,9 @@ export const fields = {
     },
     hoverColor: {
         get() {
-            return (
-                this.$store.state.selected.styleSheet[
-                    ".hopeui-form-select .hopeui-select-list .option:hover"
-                ].color
-            );
+            return this.$store.state.selected.styleSheet[
+                ".hopeui-form-select .hopeui-select-list .option:hover"
+            ].color;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -154,6 +148,39 @@ export const fields = {
                     ".hopeui-form-select .hopeui-select-list .option.hopeui-select-this",
                 ],
                 isDiff: "same",
+            });
+        },
+    },
+    autoHideBar: {
+        get() {
+            return this.$store.state.selected.scriptParams.autoHideBar;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "autoHideBar",
+                value: value,
+            });
+        },
+    },
+    searchMode: {
+        get() {
+            return this.$store.state.selected.scriptParams.searchMode;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "searchMode",
+                value: value,
+            });
+        },
+    },
+    switchIcon: {
+        get() {
+            return this.$store.state.selected.scriptParams.switchIcon;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "switchIcon",
+                value: value,
             });
         },
     },

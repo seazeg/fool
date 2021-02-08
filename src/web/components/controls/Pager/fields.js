@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-09-29 16:07:44
+ * @LastEditTime : 2021-02-08 15:23:34
  * @Description  :
  */
 export const fields = {
@@ -164,4 +164,48 @@ export const fields = {
             });
         },
     },
+    omit: {
+        get() {
+            return this.$store.state.selected.scriptParams.omit;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "omit",
+                value: value,
+            });
+        },
+    },
+    prevName: {
+        get() {
+            return this.$store.state.selected.scriptParams.prevName;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "prevName",
+                value: value,
+            });
+        },
+    },
+    nextName: {
+        get() {
+            return this.$store.state.selected.scriptParams.nextName;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "nextName",
+                value: value,
+            });
+        },
+    },
+    extend: {
+        get() {
+            return this.$store.state.selected.scriptParams.extend;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "extend",
+                value: value,
+            });
+        },
+    }    
 };

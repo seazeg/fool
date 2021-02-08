@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 16:00:54
+ * @LastEditTime : 2021-02-08 11:50:17
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -10,8 +10,7 @@ export default {
     label: "分页器",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

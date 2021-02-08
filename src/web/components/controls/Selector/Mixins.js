@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 15:59:36
+ * @LastEditTime : 2021-02-08 11:50:26
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -11,8 +11,7 @@ export default {
     label: "下拉框",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

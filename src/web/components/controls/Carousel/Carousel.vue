@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-07 17:10:39
+ * @LastEditTime : 2021-02-08 11:45:36
  * @Description  : 
 -->
 <template>
@@ -207,15 +207,17 @@ export default {
     mounted() {
         let _this = this;
         _this.$nextTick(function() {
-            _this.thishtml = _this.$refs.code.innerHTML;
-            _this.ele.html = $(_this.$refs.code)
-                .children()
-                .html();
-            console.log(_this.ele.script());
-            _this.ele.controlObject = Function(
-                "_this",
-                Mixins.script(_this.ele)
-            )(_this);
+            try {
+                _this.thishtml = _this.$refs.code.innerHTML;
+                _this.ele.html = $(_this.$refs.code)
+                    .children()
+                    .html();
+
+                _this.ele.controlObject = Function(
+                    "_this",
+                    Mixins.script(_this.ele)
+                )(_this);
+            } catch (error) {}
         });
     },
 };

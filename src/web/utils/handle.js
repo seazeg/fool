@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2021-01-26 14:27:16
+ * @LastEditTime : 2021-02-08 10:47:59
  * @Description  :
  */
 
@@ -74,6 +74,7 @@ export const handle = {
     getJS: (ele) => {
         try {
             let result = ele.script(ele);
+            result = result.replace(/return [A-Za-z0-9 | ;]*/gi, "");
             return beautify(result && result.trim());
         } catch (error) {}
     },

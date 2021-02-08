@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 15:59:16
+ * @LastEditTime : 2021-02-08 11:25:23
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -10,8 +10,7 @@ export default {
     label: "文本框",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: { extendContent: "", extendContentLocation: "left" },
     script(ele) {
@@ -31,6 +30,7 @@ export default {
                 },
             },
         });
+        return input
         `;
     },
     props: {

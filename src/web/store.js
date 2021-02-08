@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-02-07 17:13:21
+ * @LastEditTime : 2021-02-08 11:03:47
  * @Description  :
  */
 import Vue from "vue";
@@ -65,9 +65,8 @@ export default new Vuex.Store({
                 let selectedControl = state.selected,
                     key = ele.key,
                     value = ele.value;
-
                 selectedControl.scriptParams[key] = value;
-                selectedControl.controlObject.destroy(false);
+                // selectedControl.controlObject.destroy(false);
                 selectedControl.id = "hope_" + utils.getRandomName(6);
                 selectedControl.controlObject = Function(
                     selectedControl.script(selectedControl)

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-07 17:19:27
+ * @LastEditTime : 2021-02-08 11:29:22
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -22,8 +22,7 @@ export default {
     label: "轮播图",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {
         pagination: "",

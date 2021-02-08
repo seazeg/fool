@@ -1,12 +1,12 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-07 17:27:12
+ * @LastEditTime : 2021-02-08 11:18:49
  * @Description  : 
 -->
 <template>
     <layout-editor :controlsName="'carousel'">
-        <template v-slot:base>
+        <template v-slot:options>
             <div class="control_group">
                 <div class="box">
                     <span class="field">滑动块显示数量</span>
@@ -41,6 +41,18 @@
                             :max="12"
                             show-input
                             :step="1"
+                        ></el-slider>
+                    </p>
+                </div>
+                <div class="box">
+                    <span class="field">滑动速度</span>
+                    <p>
+                        <el-slider
+                            v-model="speed"
+                            :min="100"
+                            :max="2000"
+                            show-input
+                            :step="100"
                         ></el-slider>
                     </p>
                 </div>
@@ -123,22 +135,6 @@
                 <div class="box">
                     <span class="field layout-lineBlock">是否鼠标滑轮控制</span>
                     <el-switch v-model="mousewheelControl"> </el-switch>
-                </div>
-            </div>
-        </template>
-        <template v-slot:effect>
-            <div class="control_group">
-                <div class="box">
-                    <span class="field">滑动速度</span>
-                    <p>
-                        <el-slider
-                            v-model="speed"
-                            :min="100"
-                            :max="2000"
-                            show-input
-                            :step="100"
-                        ></el-slider>
-                    </p>
                 </div>
                 <div class="box">
                     <span class="field">触摸距离与滑块滑动距离的比率</span>

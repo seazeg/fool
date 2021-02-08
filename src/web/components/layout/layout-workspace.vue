@@ -83,7 +83,7 @@
                         ></prism-editor>
                     </div>
                 </el-tab-pane> -->
-                <el-tab-pane name="htmlGenerator" :disabled="true">
+                <!-- <el-tab-pane name="htmlGenerator" :disabled="true">
                     <span slot="label" class="lab-icon">
                         <el-button
                             type="success"
@@ -93,7 +93,7 @@
                             >生成预览
                         </el-button>
                     </span>
-                </el-tab-pane>
+                </el-tab-pane> -->
             </el-tabs>
         </div>
 

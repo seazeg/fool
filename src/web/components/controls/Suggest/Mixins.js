@@ -11,8 +11,7 @@ export default {
     label: "联想提示框",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },
     scriptParams: {},
     script(ele) {

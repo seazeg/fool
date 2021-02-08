@@ -10,8 +10,7 @@ export default {
     label: "单选框",
     icon: "icon-anniu",
     isSelected: false,
-    defaultClass: "",
-    customClass: "",
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

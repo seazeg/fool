@@ -174,7 +174,7 @@ export default {
 }
 
 .context-menu-list:hover {
-    background: #ff7400;
+    background: #2DB4EE;
     color: #fff;
 }
 

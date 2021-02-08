@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-01-25 13:41:50
+ * @LastEditTime : 2021-02-08 10:03:13
  * @Description  : 
  */
 import Vue from "vue";
@@ -27,7 +27,7 @@ import draggable from "vuedraggable";
 import "vue-color-gradient-picker/dist/index.css";
 import "./styles/reset.less";
 import "animate.css";
-import "element-ui/lib/theme-chalk/index.css";
+import "./styles/global/theme/index.css";
 import "./assets/icons/fonts/iconfont.css";
 import "./assets/icons/fonts/hopeui/hopefont.css";
 import "./styles/theme.less";

@@ -98,7 +98,7 @@ li {
 }
 .context-menu-list:hover,
 .child-li-wrapper:hover {
-    background: #ff7400;
+    background: #2DB4EE;
 }
 
 .nav-icon-fontawe {

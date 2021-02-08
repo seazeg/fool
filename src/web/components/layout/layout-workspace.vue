@@ -11,6 +11,7 @@
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
+                        <img class="watermark" src="../../assets/watermark.svg" alt="">
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="tree">

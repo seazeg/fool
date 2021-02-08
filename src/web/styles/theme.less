@@ -229,6 +229,8 @@
     height: 100vh;
     overflow-y: auto;
     background: #f1f1f1;
+    // background:url('../assets/images/background_b.png');
+
 }
 
 .layout-container .edit .el-tabs__item {
@@ -264,6 +266,23 @@
     padding: 10px;
     font-size: 0;
     font-family: "Microsoft YaHei", Arial;
+    position: relative;
+}
+
+.layout-container .view-box .draggable_box{
+    position: relative;
+    z-index: 1;
+}
+
+.layout-container .view-box .watermark {
+   position:absolute;
+   top:0;
+   z-index: 0;
+   opacity: 0.1;
+   width:400px;
+   height:200px;top:50%;left:50%;
+   margin-left:-200px;
+   margin-top:-140px;
 }
 
 .layout-container .view .lab-icon {
@@ -802,4 +821,12 @@
 .el-radio,
 .el-radio__label {
     font-size: 12px;
+}
+
+.layout-container .edit .no-config {
+    font-size: 14px;
+    color: #999999;
+    display: block;
+    text-align: center;
+    margin-top: 50%;
 }

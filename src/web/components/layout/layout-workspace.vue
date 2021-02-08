@@ -16,7 +16,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="tree">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-notebook-2"></i>控件树</span
+                        <i class="el-icon-notebook-2"></i>组件树</span
                     >
                     <div class="view-box tree">
                         <el-tree
@@ -98,7 +98,7 @@
             </el-tabs>
         </div>
 
-        <!-- <el-drawer title="控件树" :visible.sync="drawer" :with-header="false">
+        <!-- <el-drawer title="组件树" :visible.sync="drawer" :with-header="false">
             <el-tree :data="controls" node-key="controlsTree" @node-click="treeNodeClick" :expand-on-click-node="false"
                 default-expand-all :allow-drop="allowDrop" draggable>
                 <span class="custom-tree-node" slot-scope="{ node, data }">

@@ -37,7 +37,7 @@
                                         'theme-select':
                                             data.id == selectedControl.id,
                                     }"
-                                    >{{ data.label }} - {{ data.id }}</span
+                                    ><i class="iconfont" :class="data.icon"></i>{{ data.label }} - {{ data.id }}</span
                                 >
                                 <span>
                                     <el-button

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-18 14:59:04
+ * @LastEditTime : 2021-02-18 16:17:14
  * @Description  :
  */
 export const fields = {
@@ -26,7 +26,7 @@ export const fields = {
                     ".hope-datepicker .time-list .group .return",
                     ".hope-datepicker .year-month span",
                     ".hope-datepicker .action span.selectTime",
-                    ".hope-datepicker .action button"
+                    ".hope-datepicker .action button",
                 ],
                 isDiff: "px",
             });
@@ -34,12 +34,14 @@ export const fields = {
     },
     color: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-btn"].color;
+            return this.$store.state.selected.styleSheet[
+                ".hope-datepicker .day ul li.active"
+            ].color;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 color: value,
-                key: [".hopeui-btn"],
+                key: [".hope-datepicker .day ul li.active", ".hope-datepicker .month-list ul li:hover", ".hope-datepicker .month-list ul li.active", ".hope-datepicker .year-list ul li:hover",".hope-datepicker .year-list ul li.active",".hope-datepicker .time-list .warp .item:hover",".hope-datepicker .time-list .warp .item.active",".hope-datepicker .time-list .group .return:hover",".hope-datepicker .year-month span:hover",".hope-datepicker .year-month span.active",".hope-datepicker .action span.selectTime:hover"],
                 isDiff: "same",
             });
         },

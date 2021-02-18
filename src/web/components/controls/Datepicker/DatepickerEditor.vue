@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 14:58:15
+ * @LastEditTime : 2021-02-18 16:18:40
  * @Description  : 
 -->
 <template>
@@ -20,6 +20,32 @@
                         ></el-slider>
                     </p>
                 </div>
+                <!-- <div class="box">
+                    <span class="field">主要字体颜色</span>
+                    <p class="group">
+                        <el-color-picker
+                            v-model="color"
+                            color-format="hex"
+                        ></el-color-picker>
+                        <el-input
+                            v-model="color"
+                            placeholder="请选择色号"
+                        ></el-input>
+                    </p>
+                </div>
+                <div class="box">
+                    <span class="field">主要背景颜色</span>
+                    <p class="group">
+                        <el-color-picker
+                            v-model="bgColor"
+                            color-format="hex"
+                        ></el-color-picker>
+                        <el-input
+                            v-model="color"
+                            placeholder="请选择色号"
+                        ></el-input>
+                    </p>
+                </div> -->
                 <!-- <div class="box">
                     <span class="field">选中字体颜色</span>
                     <p class="group">

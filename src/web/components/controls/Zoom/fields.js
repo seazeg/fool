@@ -1,76 +1,36 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-18 13:57:56
+ * @LastEditTime : 2021-02-18 16:36:42
  * @Description  :
  */
 export const fields = {
-    height: {
+    bgColor: {
         get() {
-            return parseInt(
-                this.$store.state.selected.styleSheet[".hopeui-btn"].height
-            );
+            return this.$store.state.selected.styleSheet[".hopeui-zoom-lens"][
+                "background"
+            ];
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
-                key: [".hopeui-btn"],
-                isDiff: "px",
+                background: value,
+                key: [".hopeui-zoom-lens"],
+                isDiff: "same",
             });
         },
     },
-    fontSize: {
+    bgOpacity: {
         get() {
-            return parseInt(
-                this.$store.state.selected.styleSheet[".hopeui-btn"][
-                    "font-size"
+            return parseFloat(
+                this.$store.state.selected.styleSheet[".hopeui-zoom-lens"][
+                    "opacity"
                 ]
             );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
-                "font-size": value,
-                key: [".hopeui-btn"],
-                isDiff: "px",
-            });
-        },
-    },
-    color: {
-        get() {
-            return this.$store.state.selected.styleSheet[".hopeui-btn"].color;
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                color: value,
-                key: [".hopeui-btn"],
-                isDiff: "same",
-            });
-        },
-    },
-    bgColor: {
-        get() {
-            return this.$store.state.selected.styleSheet[".hopeui-btn"][
-                "background-color"
-            ];
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                "background-color": value,
-                key: [".hopeui-btn"],
-                isDiff: "same",
-            });
-        },
-    },
-    hoverColor: {
-        get() {
-            return this.$store.state.selected.styleSheet[".hopeui-btn:hover"][
-                "color"
-            ];
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                color: value,
-                key: [".hopeui-btn:hover"],
+                opacity: value,
+                key: [".hopeui-zoom-lens"],
                 isDiff: "same",
             });
         },

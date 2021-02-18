@@ -1,10 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 14:39:15
+ * @LastEditTime : 2021-02-18 16:26:15
  * @Description  :
  */
-import styleSheet from "../../stylesheet/datepicker.json";
+import styleSheet from "../../stylesheet/zoom.json";
 import { utils } from "../../../utils/utils.js";
 
 export default {

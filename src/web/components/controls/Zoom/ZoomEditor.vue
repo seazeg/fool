@@ -1,11 +1,40 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 13:59:31
+ * @LastEditTime : 2021-02-18 16:29:59
  * @Description  : 
 -->
 <template>
     <layout-editor :controlsName="'zoom'">
+        <template v-slot:base>
+            <div class="control_group">
+                <div class="box">
+                    <span class="field">选择区域的颜色</span>
+                    <p class="group">
+                        <el-color-picker
+                            v-model="bgColor"
+                            color-format="hex"
+                        ></el-color-picker>
+                        <el-input
+                            v-model="bgColor"
+                            placeholder="请选择色号"
+                        ></el-input>
+                    </p>
+                </div>
+                 <div class="box">
+                    <span class="field">选择区域的透明度</span>
+                    <p class="group">
+                        <el-slider
+                            v-model="bgOpacity"
+                            :min="0"
+                            :max="1"
+                            show-input
+                            :step="0.1"
+                        ></el-slider>
+                    </p>
+                </div>
+            </div>
+        </template>
         <template v-slot:options>
             <div class="control_group">
                 <div class="box">

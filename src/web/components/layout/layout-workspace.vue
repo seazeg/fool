@@ -5,7 +5,7 @@
             <el-tabs v-model="tabChecked" type="border-card">
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-edit-outline"></i>视图
+                        <i class="iconfont icon-yulan"></i>视图
                     </span>
                     <div class="view-box preview" id="preview" ref="preview">
                         <layout-draggable
@@ -16,7 +16,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="tree">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-notebook-2"></i>组件树</span
+                        <i class="iconfont icon-tree"></i>组件树</span
                     >
                     <div class="view-box tree">
                         <el-tree

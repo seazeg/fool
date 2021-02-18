@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:21:23
+ * @LastEditTime : 2021-02-18 17:47:13
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -13,7 +13,7 @@ export default {
     label: "按钮",
     icon: "icon-biaodanzujian-anniu",
     isSelected: false,
-    includes: { base: true, effect: true, options: true },
+    includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

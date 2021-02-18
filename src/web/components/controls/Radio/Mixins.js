@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-01-26 16:01:09
+ * @LastEditTime : 2021-02-18 17:47:53
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -13,7 +13,7 @@ export default {
     label: "单选框",
     icon: "icon-danxuankuangzu",
     isSelected: false,
-    includes: { base: true, effect: true, options: true },
+    includes: { base: true},
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

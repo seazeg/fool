@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 16:26:23
+ * @LastEditTime : 2021-02-18 17:46:11
  * @Description  :
  */
 import styleSheet from "../../stylesheet/loadmore.json";
@@ -13,7 +13,7 @@ export default {
     label: "流加载",
     icon: "icon-jiazai",
     isSelected: false,
-    includes: { base: true, effect: false, options: true },
+    includes: { options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {
         loadBtnName: "加载更多",

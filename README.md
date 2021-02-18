@@ -65,7 +65,7 @@ button,select,radio,checkbox,pager,layer,input,table,form
 1.Button √
 2.Carousel √
 3.Checkbox √
-4.Datepicker 参数|样式
+4.Datepicker √
 5.From 主体|参数|样式
 6.Grid 主体|参数|样式
 7.Input √
@@ -75,6 +75,6 @@ button,select,radio,checkbox,pager,layer,input,table,form
 11.Suggest √
 12.Tab 主体|参数|样式
 13.Textarea √
-14.Zoom 参数|样式
-15.Loadmore 参数|样式
+14.Zoom √
+15.Loadmore √
 16.Layer 主体|参数|样式

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 15:03:04
+ * @LastEditTime : 2021-02-18 17:56:03
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -13,7 +13,7 @@ export default {
     label: "轮播图",
     icon: "icon-shuffling-banner",
     isSelected: false,
-    includes: { base: true, effect: false, options: true },
+    includes: { options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {
         pagination: "",

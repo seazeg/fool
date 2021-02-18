@@ -1,16 +1,18 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 11:22:26
+ * @LastEditTime : 2021-02-18 15:15:12
  * @Description  :
  */
 import styleSheet from "../../stylesheet/datepicker.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_datepicker",
     label: "日期时间选择",
     icon: "icon-date",
     isSelected: false,
-    includes: { base: true, effect: true, options: true },
+    includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {
         format: "yyyy-MM-dd HH:mm:ss",
@@ -23,7 +25,7 @@ export default {
             options: ${JSON.stringify(ele.scriptParams)},
             on:{
                 init: function (e){
-                    console.log(e);
+                    console.log('初始化',e);
                 },
                 change: function (e){
                     console.log(e);
@@ -56,6 +58,17 @@ export default {
                 />
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`#datepicker_${root}${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

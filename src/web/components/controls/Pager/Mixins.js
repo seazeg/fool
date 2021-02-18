@@ -1,10 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 12:00:44
+ * @LastEditTime : 2021-02-18 15:32:06
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_pager",
     label: "分页器",
@@ -44,7 +46,7 @@ export default {
                         "</p>";
                 }
     
-                $("#" + _this.ele.id + "_list").html(template);
+                $("#${ele.id}_list").html(template);
               
                 return {
                     pageNo: res.pageNo,
@@ -74,6 +76,17 @@ export default {
                 <div id={this.ele.id} />
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

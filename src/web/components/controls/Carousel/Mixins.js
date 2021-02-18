@@ -1,10 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:42:29
+ * @LastEditTime : 2021-02-18 15:03:04
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_carousel",
     label: "轮播图",
@@ -166,6 +168,17 @@ export default {
                 </div>
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

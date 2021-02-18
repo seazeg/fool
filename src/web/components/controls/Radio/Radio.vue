@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:46:35
+ * @LastEditTime : 2021-02-18 16:08:06
  * @Description  : 
 -->
 <template>
@@ -145,15 +145,7 @@ export default {
         ele: [Array, Object],
     },
     computed: {
-        style() {
-            let styleSheet = this.ele.styleSheet;
-            let root = this.ele.id;
-            let res = {};
-            Object.keys(styleSheet).forEach(function(line) {
-                res[`.${root} ${line}`] = styleSheet[line];
-            });
-            return `<style>${utils.json2css(res)}</style>`;
-        },
+        ...Mixins.computed,
         js() {
             return Mixins.script;
         },

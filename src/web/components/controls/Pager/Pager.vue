@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 11:46:28
+ * @LastEditTime : 2021-02-18 16:04:25
  * @Description  : 
 -->
 <template>
@@ -122,7 +122,6 @@ import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-coy.css"; //okaidia
 
 import { handle } from "../../../utils/handle";
-import { utils } from "../../../utils/utils.js";
 import Mixins from "./Mixins.js";
 
 export default {
@@ -145,15 +144,7 @@ export default {
         ele: [Array, Object],
     },
     computed: {
-        style() {
-            let styleSheet = this.ele.styleSheet;
-            let root = this.ele.id;
-            let res = {};
-            Object.keys(styleSheet).forEach(function(line) {
-                res[`.${root} ${line}`] = styleSheet[line];
-            });
-            return `<style>${utils.json2css(res)}</style>`;
-        },
+        ...Mixins.computed,
         js() {
             return Mixins.script;
         },

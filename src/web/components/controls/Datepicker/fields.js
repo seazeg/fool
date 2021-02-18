@@ -1,36 +1,33 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-18 13:50:45
+ * @LastEditTime : 2021-02-18 14:59:04
  * @Description  :
  */
 export const fields = {
-    height: {
-        get() {
-            return parseInt(
-                this.$store.state.selected.styleSheet[".hopeui-btn"].height
-            );
-        },
-        set(value) {
-            this.$store.commit("Hope/UpdateControlParams", {
-                height: value,
-                key: [".hopeui-btn"],
-                isDiff: "px",
-            });
-        },
-    },
     fontSize: {
         get() {
             return parseInt(
-                this.$store.state.selected.styleSheet[".hopeui-btn"][
-                    "font-size"
-                ]
+                this.$store.state.selected.styleSheet[
+                    ".hope-datepicker .day ul li"
+                ]["font-size"]
             );
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 "font-size": value,
-                key: [".hopeui-btn"],
+                key: [
+                    ".hope-datepicker .day ul li",
+                    ".hope-datepicker .year-month .year span",
+                    ".hope-datepicker .month-list ul li",
+                    ".hope-datepicker .year-list ul li",
+                    ".hope-datepicker .time-list .warp p",
+                    ".hope-datepicker .time-list .warp .item",
+                    ".hope-datepicker .time-list .group .return",
+                    ".hope-datepicker .year-month span",
+                    ".hope-datepicker .action span.selectTime",
+                    ".hope-datepicker .action button"
+                ],
                 isDiff: "px",
             });
         },

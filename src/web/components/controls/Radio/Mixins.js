@@ -5,6 +5,8 @@
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_radio",
     label: "单选框",
@@ -65,6 +67,17 @@ export default {
                 />
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

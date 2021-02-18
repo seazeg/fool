@@ -1,10 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 11:22:06
+ * @LastEditTime : 2021-02-18 15:03:13
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_checkbox",
     label: "复选框",
@@ -59,6 +61,17 @@ export default {
                 />
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

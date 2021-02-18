@@ -1,16 +1,18 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 12:02:52
+ * @LastEditTime : 2021-02-18 14:39:08
  * @Description  :
  */
 import styleSheet from "../../stylesheet/datepicker.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_loadmore",
     label: "流加载",
     icon: "icon-jiazai",
     isSelected: false,
-    includes: { base: true, effect: true, options: true },
+    includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {
         loadBtnName: "加载更多",
@@ -67,6 +69,17 @@ export default {
                 </div>
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

@@ -5,6 +5,8 @@
  * @Description  :
  */
 import styleSheet from "../../stylesheet/grid.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_grid",
     label: "栅格",

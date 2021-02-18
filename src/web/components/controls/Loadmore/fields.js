@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2020-10-23 15:39:24
+ * @LastEditTime : 2021-02-18 14:32:41
  * @Description  :
  */
 export const fields = {
@@ -72,6 +72,39 @@ export const fields = {
                 color: value,
                 key: [".hopeui-btn:hover"],
                 isDiff: "same",
+            });
+        },
+    },
+    loadBtnName: {
+        get() {
+            return this.$store.state.selected.scriptParams.loadBtnName;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "loadBtnName",
+                value: value,
+            });
+        },
+    },
+    offset: {
+        get() {
+            return this.$store.state.selected.scriptParams.offset;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "offset",
+                value: value,
+            });
+        },
+    },
+    autoLoad: {
+        get() {
+            return this.$store.state.selected.scriptParams.autoLoad;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlJsOptions", {
+                key: "autoLoad",
+                value: value,
             });
         },
     },

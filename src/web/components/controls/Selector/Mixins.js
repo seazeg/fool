@@ -1,10 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:44:10
+ * @LastEditTime : 2021-02-18 15:03:50
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
+import { utils } from "../../../utils/utils.js";
 
 export default {
     name: "hope_selector",
@@ -54,6 +55,17 @@ export default {
                 </select>
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

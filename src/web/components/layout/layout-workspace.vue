@@ -11,7 +11,7 @@
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
-                        <img class="watermark" src="../../assets/watermark.svg" alt="">
+                        <img class="theme-watermark" src="../../assets/watermark.svg" alt="">
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="tree">
@@ -53,7 +53,9 @@
                                 </span>
                             </span>
                         </el-tree>
+                          <img class="theme-watermark" src="../../assets/watermark.svg" alt="">
                     </div>
+                   
                 </el-tab-pane>
                 <!-- <<el-tab-pane name="css">
                     <span slot="label" class="lab-icon">

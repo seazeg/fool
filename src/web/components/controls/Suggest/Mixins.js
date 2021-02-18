@@ -6,6 +6,8 @@
  */
 import styleSheet from "../../stylesheet/suggest.json";
 import styleSheet_ext from "../../stylesheet/input.json";
+import { utils } from "../../../utils/utils.js";
+
 export default {
     name: "hope_suggest",
     label: "联想提示框",
@@ -62,6 +64,17 @@ export default {
                 />
             </div>
         );
+    },
+    computed: {
+        style() {
+            let styleSheet = this.ele.styleSheet;
+            let root = this.ele.id;
+            let res = {};
+            Object.keys(styleSheet).forEach(function(line) {
+                res[`.${root} ${line}`] = styleSheet[line];
+            });
+            return `<style>${utils.json2css(res)}</style>`;
+        },
     },
     contextMenuData: {
         axis: {

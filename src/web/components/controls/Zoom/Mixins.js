@@ -1,11 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 16:26:15
+ * @LastEditTime : 2021-02-18 17:20:57
  * @Description  :
  */
 import styleSheet from "../../stylesheet/zoom.json";
 import { utils } from "../../../utils/utils.js";
+import rightMenu from '../../plugins/contextMenu/menu.json'
 
 export default {
     name: "hope_zoom",
@@ -79,40 +80,7 @@ export default {
             return `<style>${utils.json2css(res)}</style>`;
         },
     },
-    contextMenuData: {
-        axis: {
-            x: null,
-            y: null,
-        },
-        // Menu options (菜单选项)
-        menulists: [
-            {
-                fnHandler: "selectThis",
-                icoName: "el-icon-tickets",
-                btnName: "选中组件",
-            },
-            {
-                fnHandler: "htmlView",
-                icoName: "el-icon-tickets",
-                btnName: "html代码",
-            },
-            {
-                fnHandler: "cssView",
-                icoName: "el-icon-tickets",
-                btnName: "css代码",
-            },
-            {
-                fnHandler: "jsView",
-                icoName: "el-icon-tickets",
-                btnName: "javascript代码",
-            },
-            {
-                fnHandler: "delThis",
-                icoName: "el-icon-tickets",
-                btnName: "移除组件",
-            },
-        ],
-    },
+    contextMenuData: rightMenu,
     methods: {
         showMenu(id, event) {
             event.preventDefault();

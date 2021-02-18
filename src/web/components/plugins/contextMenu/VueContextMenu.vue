@@ -212,11 +212,11 @@ export default {
 .nav-icon-fontawe {
     position: absolute;
     left: 12px;
-    top: 11px;
+    top: 9px;
 }
 
 .nav-name-right {
-    margin: 0 20px;
+    margin: 0 25px;
     height: 16px;
     line-height: 16px;
     display: block;

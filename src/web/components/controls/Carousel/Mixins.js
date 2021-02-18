@@ -6,6 +6,7 @@
  */
 import styleSheet from "../../stylesheet/carousel.json";
 import { utils } from "../../../utils/utils.js";
+import rightMenu from '../../plugins/contextMenu/menu.json'
 
 export default {
     name: "hope_carousel",

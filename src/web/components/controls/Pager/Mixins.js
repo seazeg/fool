@@ -1,11 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 15:32:06
+ * @LastEditTime : 2021-02-18 17:22:00
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
 import { utils } from "../../../utils/utils.js";
+import rightMenu from '../../plugins/contextMenu/menu.json'
 
 export default {
     name: "hope_pager",
@@ -88,40 +89,7 @@ export default {
             return `<style>${utils.json2css(res)}</style>`;
         },
     },
-    contextMenuData: {
-        axis: {
-            x: null,
-            y: null,
-        },
-        // Menu options (菜单选项)
-        menulists: [
-            {
-                fnHandler: "selectThis", // Binding events(绑定事件)
-                icoName: "el-icon-tickets", // icon (icon图标 )
-                btnName: "选中组件", // The name of the menu option (菜单名称)
-            },
-            {
-                fnHandler: "htmlView",
-                icoName: "el-icon-tickets",
-                btnName: "html代码",
-            },
-            {
-                fnHandler: "cssView",
-                icoName: "el-icon-tickets",
-                btnName: "css代码",
-            },
-            {
-                fnHandler: "jsView",
-                icoName: "el-icon-tickets",
-                btnName: "javascript代码",
-            },
-            {
-                fnHandler: "delThis",
-                icoName: "el-icon-tickets",
-                btnName: "移除组件",
-            },
-        ],
-    },
+    contextMenuData: rightMenu,
     methods: {
         showMenu(id, event) {
             event.preventDefault();

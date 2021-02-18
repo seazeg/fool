@@ -1,14 +1,14 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 16:07:14
+ * @LastEditTime : 2021-02-18 22:46:58
  * @Description  : 
 -->
 <template>
     <div class="controls_block">
         <div class="controls_inner">
-            <div v-html="style"></div>
-            <div class="htmlCache">{{ thishtml }}</div>
+            <pre v-html="style"></pre>
+            <pre class="htmlCache">{{ thishtml }}</pre>
             <div
                 class="code"
                 :class="{ selected: ele.isSelected }"

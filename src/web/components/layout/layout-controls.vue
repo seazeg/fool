@@ -52,7 +52,7 @@
                     </el-menu-item>
                 </draggable>
             </el-submenu> -->
-            <el-submenu index="2">
+            <el-submenu index="1">
                 <template slot="title">
                     <i class="iconfont icon-zujian"></i>
                     <span>基础控件</span>

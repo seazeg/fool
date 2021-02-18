@@ -1,18 +1,14 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 16:07:59
+ * @LastEditTime : 2021-02-18 22:46:58
  * @Description  : 
 -->
 <template>
     <div class="controls_block">
         <div class="controls_inner">
-            <!-- <div
-                @click.stop="choose"
-                class="controls_change hopeui-icon hopeui-icon-edit"
-            ></div> -->
-            <div v-html="style"></div>
-            <div class="htmlCache">{{ thishtml }}</div>
+            <pre v-html="style"></pre>
+            <pre class="htmlCache">{{ thishtml }}</pre>
             <div
                 class="code"
                 :class="{ selected: ele.isSelected }"
@@ -144,6 +140,7 @@ export default {
         ele: [Array, Object],
     },
     computed: {
+        ...Mixins.computed,
         js() {
             return Mixins.script;
         },
@@ -196,7 +193,7 @@ export default {
                 type: "error",
                 duration: 500,
             });
-        }
+        },
     },
     mounted() {
         let _this = this;

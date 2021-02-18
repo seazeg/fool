@@ -52,7 +52,7 @@
         },
         methods: {
             visualNodeRemove() {
-                this.$confirm("确定删除当前节点？", "提示", {
+                this.$confirm("确定移除当前节点？", "提示", {
                         confirmButtonText: "确定",
                         cancelButtonText: "取消",
                         type: "info",

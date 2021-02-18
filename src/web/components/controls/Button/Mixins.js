@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:47:13
+ * @LastEditTime : 2021-02-18 22:54:22
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -97,7 +97,7 @@ export default {
         },
         delThis() {
             this.selectThis();
-            this.$confirm("确定删除当前组件？", "提示", {
+            this.$confirm("确定移除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
                 type: "info",

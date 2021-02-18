@@ -491,7 +491,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", e.id);
         },
         treeNodeRemove(node, e) {
-            this.$confirm("确定删除当前组件？", "提示", {
+            this.$confirm("确定移除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
                 type: "info",

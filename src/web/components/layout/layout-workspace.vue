@@ -209,10 +209,27 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></CarouselEditor>
+         <DatepickerEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></DatepickerEditor>
+         <ZoomEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></ZoomEditor>
+          <LoadmoreEditor
+            :animationOption="animationOption"
+            :borderStyleOption="borderStyleOption"
+            :fontStyleOption="fontStyleOption"
+            :generalStyleOption="generalStyleOption"
+        ></LoadmoreEditor>
     </div>
 </template>
 <script>
-import { handle } from "../../utils/handle.js";
 import { utils } from "../../utils/utils.js";
 export default {
     name: "layout-workspace",

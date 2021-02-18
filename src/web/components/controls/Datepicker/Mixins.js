@@ -1,30 +1,40 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 11:22:06
+ * @LastEditTime : 2021-02-18 11:22:26
  * @Description  :
  */
-import styleSheet from "../../stylesheet/checkbox.json";
+import styleSheet from "../../stylesheet/datepicker.json";
 export default {
-    name: "hope_checkbox",
-    label: "复选框",
-    icon: "icon-kongjianyixuan",
+    name: "hope_datepicker",
+    label: "日期时间选择",
+    icon: "icon-date",
     isSelected: false,
-    includes: { base: true, effect: false, options: true },
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
-    scriptParams: {},
-    script(ele){
+    scriptParams: {
+        format: "yyyy-MM-dd HH:mm:ss",
+        type: "datetime", //date：日期，datetime:日期+时间
+    },
+    script(ele) {
         return `
-        var checkbox = hope.checkbox({
-            ele: '.${ele.id}',
-            on: {
-                change: function (e) {
+        var datepicker = hope.datepicker({
+            ele: '#${ele.id}',
+            options: ${JSON.stringify(ele.scriptParams)},
+            on:{
+                init: function (e){
                     console.log(e);
                 },
-            },
-        });
-        return checkbox
-    `
+                change: function (e){
+                    console.log(e);
+                },
+                clear: function (e){
+                    console.log(e);
+                }
+            }
+        })
+        return datepicker
+        `;
     },
     props: {
         ele: [Object, Array],
@@ -36,26 +46,13 @@ export default {
         return (
             <div>
                 <input
-                    type="checkbox"
-                    name="subject"
-                    value="音乐"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="历史"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="生物"
-                    class={this.ele.id}
-                    disabled
-                    hope-verify="required"
+                    name="date"
+                    type="text"
+                    value=""
+                    id={this.ele.id}
+                    class="hopeui-input"
+                    placeholder="请选择日期"
+                    readonly
                 />
             </div>
         );
@@ -68,9 +65,9 @@ export default {
         // Menu options (菜单选项)
         menulists: [
             {
-                fnHandler: "selectThis", // Binding events(绑定事件)
-                icoName: "el-icon-tickets", // icon (icon图标 )
-                btnName: "选中组件", // The name of the menu option (菜单名称)
+                fnHandler: "selectThis",
+                icoName: "el-icon-tickets",
+                btnName: "选中组件",
             },
             {
                 fnHandler: "htmlView",
@@ -111,7 +108,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
-            this.selectThis()
+            this.selectThis();
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -124,16 +121,16 @@ export default {
                 .catch(() => {});
         },
         jsView() {
-            this.selectThis()
+            this.selectThis();
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            this.selectThis()
+            this.selectThis();
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            this.selectThis()
+            this.selectThis();
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

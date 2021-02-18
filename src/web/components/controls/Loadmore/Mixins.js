@@ -1,30 +1,57 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 11:22:06
+ * @LastEditTime : 2021-02-18 12:02:52
  * @Description  :
  */
-import styleSheet from "../../stylesheet/checkbox.json";
+import styleSheet from "../../stylesheet/datepicker.json";
 export default {
-    name: "hope_checkbox",
-    label: "复选框",
-    icon: "icon-kongjianyixuan",
+    name: "hope_loadmore",
+    label: "流加载",
+    icon: "icon-jiazai",
     isSelected: false,
-    includes: { base: true, effect: false, options: true },
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
-    scriptParams: {},
-    script(ele){
+    scriptParams: {
+        loadBtnName: "加载更多",
+        autoLoad: true,
+        offset: 30,
+    },
+    script(ele) {
         return `
-        var checkbox = hope.checkbox({
-            ele: '.${ele.id}',
-            on: {
-                change: function (e) {
-                    console.log(e);
-                },
+        var loadmore = hope.loadmore({
+            ele: '#${ele.id}',
+            options: ${JSON.stringify(ele.scriptParams)},
+            params: {
+                url: "/assets/page/list1.json",
+                dataType: "json",
+                type: 'get',
+                data: {
+                    pageNo: 1,
+                    pageSize: 20
+                }
             },
-        });
-        return checkbox
-    `
+            reader: function (res) {
+                var data = res.data;
+                var template = '';
+                for (var i = 0; i < data.length; i++) {
+                    template += "<p>" + data[i].goodsName + "|" + data[i].goodsStar + "</p>"
+                }
+                $('#${ele.id}_list').append(template);
+                return {
+                    pageNo: res.pageNo,
+                    pageSize: res.pageSize,
+                    totalNumber: res.totalNumber
+                }
+            },
+            on: {
+                loaded: function (e) {
+                    console.log(e);
+                }
+            }
+        })
+        return loadmore;     
+        `;
     },
     props: {
         ele: [Object, Array],
@@ -35,28 +62,9 @@ export default {
     render() {
         return (
             <div>
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="音乐"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="历史"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="生物"
-                    class={this.ele.id}
-                    disabled
-                    hope-verify="required"
-                />
+                <div id={this.ele.id}>
+                    <div id={this.ele.id + "_list"} style="font-size:14px;color:#333;"></div>
+                </div>
             </div>
         );
     },
@@ -68,9 +76,9 @@ export default {
         // Menu options (菜单选项)
         menulists: [
             {
-                fnHandler: "selectThis", // Binding events(绑定事件)
-                icoName: "el-icon-tickets", // icon (icon图标 )
-                btnName: "选中组件", // The name of the menu option (菜单名称)
+                fnHandler: "selectThis",
+                icoName: "el-icon-tickets",
+                btnName: "选中组件",
             },
             {
                 fnHandler: "htmlView",
@@ -111,7 +119,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
-            this.selectThis()
+            this.selectThis();
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -124,16 +132,16 @@ export default {
                 .catch(() => {});
         },
         jsView() {
-            this.selectThis()
+            this.selectThis();
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            this.selectThis()
+            this.selectThis();
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            this.selectThis()
+            this.selectThis();
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

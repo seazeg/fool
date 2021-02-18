@@ -1,30 +1,40 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 11:22:06
+ * @LastEditTime : 2021-02-18 11:56:59
  * @Description  :
  */
-import styleSheet from "../../stylesheet/checkbox.json";
+import styleSheet from "../../stylesheet/datepicker.json";
 export default {
-    name: "hope_checkbox",
-    label: "复选框",
-    icon: "icon-kongjianyixuan",
+    name: "hope_zoom",
+    label: "图片放大镜",
+    icon: "icon-49",
     isSelected: false,
-    includes: { base: true, effect: false, options: true },
+    includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
-    scriptParams: {},
-    script(ele){
+    scriptParams: {
+        largeWrapper: "preview",
+        mode: "outside",
+        zoom: 2,
+        zoomable: true,
+    },
+    script(ele) {
+        if (ele.scriptParams.largeWrapper) {
+            ele.scriptParams.largeWrapper = ele.id + "-preview";
+        }
         return `
-        var checkbox = hope.checkbox({
-            ele: '.${ele.id}',
-            on: {
-                change: function (e) {
-                    console.log(e);
-                },
-            },
-        });
-        return checkbox
-    `
+        var zoom = hope.zoom({
+            ele: '#${ele.id}',
+            options: ${JSON.stringify(ele.scriptParams)},
+            on:{
+                enter: function (e) {},
+                move: function (e) {},
+                leave: function (e) {},
+                scale: function (e) {},
+            }
+        });   
+        return zoom;     
+        `;
     },
     props: {
         ele: [Object, Array],
@@ -35,28 +45,24 @@ export default {
     render() {
         return (
             <div>
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="音乐"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="历史"
-                    class={this.ele.id}
-                    hope-verify="required"
-                />
-                <input
-                    type="checkbox"
-                    name="subject"
-                    value="生物"
-                    class={this.ele.id}
-                    disabled
-                    hope-verify="required"
-                />
+                <div
+                    class="hopeui-zoom-thumb-wrapper"
+                    style="width:300px;height:300px;display: inline-block"
+                >
+                    <img
+                        id={this.ele.id}
+                        src="http://test.haier.com/frontDEMO/ProgressiveJPEG/ProgressiveJPEG.jpg"
+                        hope-large-img-url="http://test.haier.com/frontDEMO/ProgressiveJPEG/ProgressiveJPEG.jpg"
+                        hope-large-img-wrapper="preview"
+                    />
+                </div>
+                <div
+                    class="hopeui-zoom-preview"
+                    id={this.ele.id + "-preview"}
+                    style="width: 300px; height: 300px;display: inline-block;vertical-align: top;background:rgba(0,0,0,0.1);"
+                >
+                    局部显示区域
+                </div>
             </div>
         );
     },
@@ -68,9 +74,9 @@ export default {
         // Menu options (菜单选项)
         menulists: [
             {
-                fnHandler: "selectThis", // Binding events(绑定事件)
-                icoName: "el-icon-tickets", // icon (icon图标 )
-                btnName: "选中组件", // The name of the menu option (菜单名称)
+                fnHandler: "selectThis",
+                icoName: "el-icon-tickets",
+                btnName: "选中组件",
             },
             {
                 fnHandler: "htmlView",
@@ -111,7 +117,7 @@ export default {
             this.$store.commit("Hope/ChooseControl", this.ele.id);
         },
         delThis() {
-            this.selectThis()
+            this.selectThis();
             this.$confirm("确定删除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -124,16 +130,16 @@ export default {
                 .catch(() => {});
         },
         jsView() {
-            this.selectThis()
+            this.selectThis();
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
-            this.selectThis()
+            this.selectThis();
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
-            this.selectThis()
+            this.selectThis();
             this.htmlVisible = !this.htmlVisible;
         },
-    }
+    },
 };

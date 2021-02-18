@@ -1,8 +1,10 @@
-
 <style lang="less">
 @import "../../styles/theme.config.less";
 .el-menu {
     border-right: none !important;
+}
+.el-submenu {
+    overflow: hidden;
 }
 .el-menu-item {
     background-color: @deputy_color!important;
@@ -115,6 +117,9 @@ import TextareaMixins from "../controls/Textarea/Mixins";
 import PagerMixins from "../controls/Pager/Mixins";
 import ButtonMixins from "../controls/Button/Mixins";
 import CarouselMixins from "../controls/Carousel/Mixins";
+import DatapickerMixins from "../controls/Datepicker/Mixins";
+import ZoomMixins from "../controls/Zoom/Mixins";
+import LoadmoreMixins from "../controls/Loadmore/Mixins";
 
 export default {
     name: "layout-controls",
@@ -139,7 +144,13 @@ export default {
             ];
         },
         components() {
-            return [PagerMixins, CarouselMixins];
+            return [
+                PagerMixins,
+                CarouselMixins,
+                DatapickerMixins,
+                ZoomMixins,
+                LoadmoreMixins,
+            ];
         },
     },
     methods: {

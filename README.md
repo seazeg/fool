@@ -58,3 +58,23 @@ button,select,radio,checkbox,pager,layer,input,table,form
 生成器= nodejs(fs，shell,request)
 
 
+
+
+
+改造后控件初版完成度
+1.Button √
+2.Carousel √
+3.Checkbox √
+4.Datepicker 参数|样式
+5.From 主体|参数|样式
+6.Grid 主体|参数|样式
+7.Input √
+8.Pager √
+9.Radio √
+10.Selector √
+11.Suggest √
+12.Tab 主体|参数|样式
+13.Textarea √
+14.Zoom 参数|样式
+15.Loadmore 参数|样式
+16.Layer 主体|参数|样式

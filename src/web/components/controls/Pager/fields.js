@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-08 15:23:34
+ * @LastEditTime : 2021-02-19 13:58:03
  * @Description  :
  */
 export const fields = {
@@ -59,7 +59,7 @@ export const fields = {
                 isDiff: "px",
             });
             this.$store.commit("Hope/UpdateControlParams", {
-                "line-height": value - 2,
+                "line-height": value - this.borderWidth * 2,
                 key: [
                     ".hopeui-pager > span",
                     ".hopeui-pager .hopeui-pager-omit",
@@ -88,7 +88,7 @@ export const fields = {
                     ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
                     ".hopeui-pager .hopeui-pager-jump input",
-                    ".hopeui-pager .hopeui-pager-count"
+                    ".hopeui-pager .hopeui-pager-count",
                 ],
                 isDiff: "px",
             });
@@ -96,7 +96,8 @@ export const fields = {
     },
     color: {
         get() {
-            return this.$store.state.selected.styleSheet[".hopeui-pager > span"].color;
+            return this.$store.state.selected.styleSheet[".hopeui-pager > span"]
+                .color;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
@@ -106,7 +107,7 @@ export const fields = {
                     ".hopeui-pager .hopeui-pager-omit",
                     ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
-                    ".hopeui-pager .hopeui-pager-count"
+                    ".hopeui-pager .hopeui-pager-count",
                 ],
                 isDiff: "same",
             });
@@ -131,6 +132,20 @@ export const fields = {
             });
         },
     },
+    hoverSelectColor: {
+        get() {
+            return this.$store.state.selected.styleSheet[
+                ".hopeui-pager .hopeui-pager-cur:hover"
+            ].color;
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                color: value,
+                key: [".hopeui-pager .hopeui-pager-cur:hover"],
+                isDiff: "same",
+            });
+        },
+    },
     hoverColor: {
         get() {
             return this.$store.state.selected.styleSheet[
@@ -149,6 +164,20 @@ export const fields = {
         get() {
             return this.$store.state.selected.styleSheet[
                 ".hopeui-pager .hopeui-pager-cur"
+            ]["color"];
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                color: value,
+                key: [".hopeui-pager .hopeui-pager-cur"],
+                isDiff: "same",
+            });
+        },
+    },
+    selectBg: {
+        get() {
+            return this.$store.state.selected.styleSheet[
+                ".hopeui-pager .hopeui-pager-cur"
             ]["background-color"];
         },
         set(value) {
@@ -160,6 +189,76 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 "border-color": value,
                 key: [".hopeui-pager .hopeui-pager-cur"],
+                isDiff: "same",
+            });
+        },
+    },
+    borderWidth: {
+        get() {
+            return parseFloat(
+                this.$store.state.selected.styleSheet[".hopeui-pager > span"][
+                    "border-width"
+                ] || 0
+            );
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                "border-width": value,
+                key: [
+                    ".hopeui-pager > span",
+                    ".hopeui-pager .hopeui-pager-omit",
+                    ".hopeui-pager .hopeui-pager-cur",
+                ],
+                isDiff: "px",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                "line-height": this.height - value * 2,
+                key: [
+                    ".hopeui-pager > span",
+                    ".hopeui-pager .hopeui-pager-omit",
+                    ".hopeui-pager .hopeui-pager-jump",
+                    ".hopeui-pager .hopeui-pager-jump button",
+                    ".hopeui-pager .hopeui-pager-jump input",
+                ],
+                isDiff: "px",
+            });
+        },
+    },
+    borderStyle: {
+        get() {
+            return (
+                this.$store.state.selected.styleSheet[".hopeui-pager > span"][
+                    "border-style"
+                ] || ""
+            );
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                "border-style": value,
+                key: [
+                    ".hopeui-pager > span",
+                    ".hopeui-pager .hopeui-pager-omit",
+                    "hopeui-pager .hopeui-pager-cur",
+                ],
+                isDiff: "same",
+            });
+        },
+    },
+    borderColor: {
+        get() {
+            return (
+                this.$store.state.selected.styleSheet[".hopeui-pager > span"][
+                    "border-color"
+                ] || ""
+            );
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                "border-color": value,
+                key: [
+                    ".hopeui-pager > span",
+                    ".hopeui-pager .hopeui-pager-omit",
+                ],
                 isDiff: "same",
             });
         },
@@ -207,5 +306,5 @@ export const fields = {
                 value: value,
             });
         },
-    }    
+    },
 };

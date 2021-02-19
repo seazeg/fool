@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:55:10
+ * @LastEditTime : 2021-02-19 11:44:59
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -14,6 +14,7 @@ export default {
     label: "联想提示框",
     icon: "icon-wenbenkuang",
     isSelected: false,
+    unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },
     scriptParams: { noMatchName: "-- 没有匹配的内容 --" },

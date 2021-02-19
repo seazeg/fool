@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:21:50
+ * @LastEditTime : 2021-02-19 11:18:15
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -13,6 +13,7 @@ export default {
     label: "文本框",
     icon: "icon-biaodanzujian-shurukuang",
     isSelected: false,
+    unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {

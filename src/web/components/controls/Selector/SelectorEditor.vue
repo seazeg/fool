@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 09:51:21
+ * @LastEditTime : 2021-02-19 11:26:07
  * @Description  : 
 -->
 <template>
@@ -48,8 +48,8 @@
                     <p>
                         <el-slider
                             v-model="height"
-                            :min="1"
-                            :max="500"
+                            :min="20"
+                            :max="100"
                             show-input
                             :step="1"
                         ></el-slider>
@@ -60,8 +60,8 @@
                     <p>
                         <el-slider
                             v-model="fontSize"
-                            :min="1"
-                            :max="50"
+                            :min="12"
+                            :max="30"
                             show-input
                             :step="1"
                         ></el-slider>
@@ -107,7 +107,7 @@
                     </p>
                 </div>
                 <div class="box">
-                    <span class="field">hover背景颜色</span>
+                    <span class="field">悬浮背景颜色</span>
                     <p class="group">
                         <el-color-picker
                             v-model="hoverBg"
@@ -120,7 +120,7 @@
                     </p>
                 </div>
                 <div class="box">
-                    <span class="field">hover字体颜色</span>
+                    <span class="field">悬浮字体颜色</span>
                     <p class="group">
                         <el-color-picker
                             v-model="hoverColor"

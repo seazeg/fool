@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:27:13
+ * @LastEditTime : 2021-02-19 11:23:18
  * @Description  : 
 -->
 <template>
@@ -13,8 +13,8 @@
                     <p>
                         <el-slider
                             v-model="fontSize"
-                            :min="1"
-                            :max="50"
+                            :min="12"
+                            :max="30"
                             show-input
                             :step="1"
                         ></el-slider>

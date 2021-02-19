@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-02-08 11:56:50
+ * @LastEditTime : 2021-02-19 15:23:40
  * @Description  :
  */
 import Vue from "vue";
@@ -23,6 +23,7 @@ export default new Vuex.Store({
             let styleSheet = state.selected.styleSheet;
             let handler = (ele, isDiff) => {
                 Object.keys(styleSheet).forEach(function(key) {
+                    
                     ele.key.forEach(function(item) {
                         if (key == item) {
                             Object.keys(styleSheet[key]).forEach(function(

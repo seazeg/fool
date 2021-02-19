@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:22:54
+ * @LastEditTime : 2021-02-19 11:29:41
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -13,6 +13,7 @@ export default {
     label: "多行文本框",
     icon: "icon-textarea",
     isSelected: false,
+    unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: { remainingWords: false },

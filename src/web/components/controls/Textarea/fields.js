@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-08 14:41:27
+ * @LastEditTime : 2021-02-19 11:33:42
  * @Description  :
  */
 export const fields = {
@@ -16,6 +16,20 @@ export const fields = {
                 width: value,
                 key: [".hopeui-textarea"],
                 isDiff: "per",
+            });
+        },
+    },
+    width_px: {
+        get() {
+            return parseFloat(
+                this.$store.state.selected.styleSheet[".hopeui-textarea"].width
+            );
+        },
+        set(value) {
+            this.$store.commit("Hope/UpdateControlParams", {
+                width: value,
+                key: [".hopeui-textarea"],
+                isDiff: "px",
             });
         },
     },

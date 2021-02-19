@@ -1,13 +1,48 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-12 14:25:12
+ * @LastEditTime : 2021-02-19 10:00:38
  * @Description  : 
 -->
 <template>
     <layout-editor :controlsName="'button'">
         <template v-slot:base>
             <div class="control_group">
+                <div class="box">
+                    <span class="field"
+                        >宽度
+                        <el-tooltip
+                            :content="'当前单位：' + unitSwitch.width + ''"
+                            placement="right"
+                        >
+                            <el-switch
+                                class="unit"
+                                v-model="unitSwitch.width"
+                                active-value="%"
+                                inactive-value="px"
+                            >
+                            </el-switch>
+                        </el-tooltip>
+                    </span>
+                    <p v-if="unitSwitch.width == '%'">
+                        <el-slider
+                            v-model="width"
+                            :min="1"
+                            :max="100"
+                            show-input
+                            :step="1"
+                        ></el-slider>
+                    </p>
+                    <p v-if="unitSwitch.width == 'px'">
+                        <el-slider
+                            v-model="width_px"
+                            :min="50"
+                            :max="500"
+                            show-input
+                            :step="1"
+                        ></el-slider>
+                    </p>
+                </div>
                 <div class="box">
                     <span class="field">高度</span>
                     <p>
@@ -92,6 +127,9 @@ export default {
     },
     computed: {
         ...fields,
+        unitSwitch() {
+            return this.$store.state.selected.unitSwitch;
+        },
     },
 };
 </script>

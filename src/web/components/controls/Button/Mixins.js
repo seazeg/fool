@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 22:54:22
+ * @LastEditTime : 2021-02-19 10:04:45
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -13,6 +13,7 @@ export default {
     label: "按钮",
     icon: "icon-biaodanzujian-anniu",
     isSelected: false,
+    unitSwitch: { width: "px" },
     includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
@@ -45,40 +46,7 @@ export default {
             return `<style>${utils.json2css(res)}</style>`;
         },
     },
-    contextMenuData: {
-        axis: {
-            x: null,
-            y: null,
-        },
-        // Menu options (菜单选项)
-        menulists: [
-            {
-                fnHandler: "selectThis",
-                icoName: "el-icon-tickets",
-                btnName: "选中组件",
-            },
-            {
-                fnHandler: "htmlView",
-                icoName: "el-icon-tickets",
-                btnName: "html代码",
-            },
-            {
-                fnHandler: "cssView",
-                icoName: "el-icon-tickets",
-                btnName: "css代码",
-            },
-            {
-                fnHandler: "jsView",
-                icoName: "el-icon-tickets",
-                btnName: "javascript代码",
-            },
-            {
-                fnHandler: "delThis",
-                icoName: "el-icon-tickets",
-                btnName: "移除组件",
-            },
-        ],
-    },
+    contextMenuData: rightMenu,
     methods: {
         showMenu(id, event) {
             event.preventDefault();

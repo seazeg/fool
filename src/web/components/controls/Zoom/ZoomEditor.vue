@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 16:29:59
+ * @LastEditTime : 2021-02-18 23:04:08
  * @Description  : 
 -->
 <template>
@@ -23,7 +23,7 @@
                 </div>
                  <div class="box">
                     <span class="field">选择区域的透明度</span>
-                    <p class="group">
+                    <p>
                         <el-slider
                             v-model="bgOpacity"
                             :min="0"

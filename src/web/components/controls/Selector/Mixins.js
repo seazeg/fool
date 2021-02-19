@@ -1,18 +1,19 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:22:08
+ * @LastEditTime : 2021-02-19 09:46:53
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
 import { utils } from "../../../utils/utils.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_selector",
     label: "下拉框",
     icon: "icon-biaodanzujian-xialakuang",
     isSelected: false,
+    unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: { autoHideBar: false, switchIcon: "", searchMode: false },

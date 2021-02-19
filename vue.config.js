@@ -89,7 +89,7 @@ module.exports = {
                     createDesktopShortcut: true,
                     createStartMenuShortcut: true,
                 },
-            },
+            }
         },
     },
     chainWebpack(config) {

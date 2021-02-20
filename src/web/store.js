@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-02-19 15:23:40
+ * @LastEditTime : 2021-02-20 16:20:15
  * @Description  :
  */
 import Vue from "vue";
@@ -67,11 +67,10 @@ export default new Vuex.Store({
                     key = ele.key,
                     value = ele.value;
                 selectedControl.scriptParams[key] = value;
-                // selectedControl.controlObject.destroy(false);
-                selectedControl.id = "hope_" + utils.getRandomName(6);
+                selectedControl.key = "key_" + utils.getRandomName(6);
                 selectedControl.controlObject = Function(
                     selectedControl.script(selectedControl)
-                )();
+                )();               
             } catch (error) {}
         },
         "Hope/ResetControlSelected": (state, eles) => {
@@ -125,35 +124,6 @@ export default new Vuex.Store({
         },
         "Hope/SetGridEle": (state, data) => {
             state.gridEle = data;
-        },
-        // "Hope/UpdateControlParams": (state, ele) => {
-        //     if (Object.keys(ele)[0] == ele.container) {
-        //         state.selected[ele.container] = ele[Object.keys(ele)[0]];
-        //     } else {
-        //         switch (ele.isDiff) {
-        //             case "px":
-        //                 state.selected[ele.container][Object.keys(ele)[0]] =
-        //                     ele[Object.keys(ele)[0]] + "px";
-        //                 break;
-        //             case "time":
-        //                 state.selected[ele.container][Object.keys(ele)[0]] =
-        //                     ele[Object.keys(ele)[0]] + "s";
-        //                 break;
-        //             case "per":
-        //                 state.selected[ele.container][Object.keys(ele)[0]] =
-        //                     ele[Object.keys(ele)[0]] + "%";
-        //                 break;
-        //             case "same":
-        //                 state.selected[ele.container][Object.keys(ele)[0]] =
-        //                     ele[Object.keys(ele)[0]];
-        //                 break;
-        //             default:
-        //                 break;
-        //         }
-        //     }
-        //     state.selected[ele.container] = _.cloneDeep(
-        //         state.selected[ele.container]
-        //     );
-        // },
-    },
+        }
+    }
 });

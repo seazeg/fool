@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 14:29:40
+ * @LastEditTime : 2021-02-20 16:22:36
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -196,10 +196,10 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", this.ele.id);
             this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {
-            this.selectThis();
             this.$confirm("确定移除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
@@ -221,9 +221,7 @@ export default {
         },
         htmlView() {
             this.selectThis();
-            this.htmlVisible = !this.htmlVisible;
-           
-     
+            this.htmlVisible = !this.htmlVisible;     
         },
     },
 };

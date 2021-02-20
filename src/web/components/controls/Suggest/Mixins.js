@@ -93,10 +93,10 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", this.ele.id);
             this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {
-            this.selectThis();
             this.$confirm("确定移除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",

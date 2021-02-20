@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-02-18 11:31:09
+ * @LastEditTime : 2021-02-20 16:24:35
  * @Description  : 
 -->
 <style lang="less">
@@ -31,7 +31,7 @@
     >
         <component
             v-for="(ele, i) in controls"
-            :key="ele.id"
+            :key="ele.key"
             :is="ele.name"
             :ele="ele"
             :class="ele.id"
@@ -51,12 +51,7 @@ export default {
         dialogGridVisible: Boolean,
     },
     methods: {
-        // choose(e) {
-        //     this.$store.commit("Hope/ResetControlSelected");
-        //     this.$store.commit("Hope/ChooseControl", e.id);
-        // },
         change(e) {
-            
             try {
                 if (
                     e.added &&

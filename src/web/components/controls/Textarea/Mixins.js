@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 11:29:41
+ * @LastEditTime : 2021-02-20 16:23:25
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -83,10 +83,10 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", this.ele.id);
             this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {
-            this.selectThis();
             this.$confirm("确定移除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",

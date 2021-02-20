@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 11:18:15
+ * @LastEditTime : 2021-02-20 17:23:51
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -102,12 +102,15 @@ export default {
                 .catch(() => {});
         },
         jsView() {
+            this.selectThis()
             this.jsVisible = !this.jsVisible;
         },
         cssView() {
+            this.selectThis()
             this.cssVisible = !this.cssVisible;
         },
         htmlView() {
+            this.selectThis()
             this.htmlVisible = !this.htmlVisible;
         },
     },

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:45:04
+ * @LastEditTime : 2021-02-20 17:00:43
  * @Description  : 
 -->
 <template>
@@ -10,7 +10,7 @@
                 selectedControl.name.includes(controlsName)
         ">
         <!-- 基础属性 -->
-        <el-tabs :tab-position="'right'" type="border-card" v-model="Object.keys(this.$store.state.selected.includes)[0]">
+        <el-tabs :tab-position="'right'" type="border-card" v-model="Object.keys(selectedControl.includes)[0]">
             <el-tab-pane label="样式" name="base" v-if="selectedControl.includes.base">
                 <slot name="base">
                     <span class="no-config">

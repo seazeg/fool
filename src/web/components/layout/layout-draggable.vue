@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-02-20 16:24:35
+ * @LastEditTime : 2021-02-20 17:18:01
  * @Description  : 
 -->
 <style lang="less">
@@ -31,7 +31,7 @@
     >
         <component
             v-for="(ele, i) in controls"
-            :key="ele.key"
+            :key="ele.id"
             :is="ele.name"
             :ele="ele"
             :class="ele.id"

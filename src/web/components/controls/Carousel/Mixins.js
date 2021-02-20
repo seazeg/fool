@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:56:03
+ * @LastEditTime : 2021-02-20 14:29:40
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
 import { utils } from "../../../utils/utils.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_carousel",
@@ -175,7 +175,7 @@ export default {
             let styleSheet = this.ele.styleSheet;
             let root = this.ele.id;
             let res = {};
-            Object.keys(styleSheet).forEach(function(line) {
+            Object.keys(styleSheet).forEach(function (line) {
                 res[`.${root} ${line}`] = styleSheet[line];
             });
             return `<style>${utils.json2css(res)}</style>`;
@@ -196,7 +196,7 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ChooseControl", this.ele.id);
+            this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {
             this.selectThis();
@@ -222,6 +222,8 @@ export default {
         htmlView() {
             this.selectThis();
             this.htmlVisible = !this.htmlVisible;
+           
+     
         },
     },
 };

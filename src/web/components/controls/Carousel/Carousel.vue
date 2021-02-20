@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 22:46:58
+ * @LastEditTime : 2021-02-20 14:24:11
  * @Description  : 
 -->
 <template>
@@ -197,12 +197,10 @@ export default {
     },
     mounted() {
         let _this = this;
-        _this.$nextTick(function() {
+        _this.$nextTick(function () {
             try {
                 _this.thishtml = _this.$refs.code.innerHTML;
-                _this.ele.html = $(_this.$refs.code)
-                    .children()
-                    .html();
+                _this.ele.html = $(_this.$refs.code).children().html();
 
                 _this.ele.controlObject = Function(
                     "_this",

@@ -1,3 +1,9 @@
+/*
+ * @Author       : Evan.G
+ * @Date         : 2020-05-13 09:30:38
+ * @LastEditTime : 2021-02-20 11:38:36
+ * @Description  : 
+ */
 "use strict";
 
 import { app, protocol, BrowserWindow } from "electron";
@@ -33,7 +39,7 @@ function createWindow() {
             nodeIntegration: true,
         },
     });
-
+    win.setMenu(null);    
     win.maximize()
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {

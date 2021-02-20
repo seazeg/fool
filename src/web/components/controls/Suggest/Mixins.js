@@ -93,7 +93,7 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ChooseControl", this.ele.id);
+            this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {
             this.selectThis();

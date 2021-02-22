@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-07 17:20:24
+ * @LastEditTime : 2021-02-22 09:35:04
  * @Description  :
  */
 export const fields = {
@@ -114,7 +114,7 @@ export const fields = {
             });
         },
     },
-    paginationClickable:{
+    paginationClickable: {
         get() {
             return this.$store.state.selected.scriptParams.paginationClickable;
         },
@@ -275,7 +275,7 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlJsOptions", {
                 key: "moveStartThreshold",
-                value: value,
+                value: value
             });
         },
     },

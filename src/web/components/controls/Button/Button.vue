@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:18:47
+ * @LastEditTime : 2021-02-22 13:56:20
  * @Description  : 
 -->
 <template>
@@ -35,6 +35,7 @@
                 title="html代码"
                 :visible.sync="htmlVisible"
                 custom-class="sourceStyle"
+                @opened="dialogOpened"
             >
                 <el-button
                     plain
@@ -59,6 +60,7 @@
                 title="css代码"
                 :visible.sync="cssVisible"
                 custom-class="sourceStyle"
+                @opened="dialogOpened"
             >
                 <el-button
                     plain
@@ -83,6 +85,7 @@
                 title="JavaScript代码"
                 :visible.sync="jsVisible"
                 custom-class="sourceStyle"
+                @opened="dialogOpened"
             >
                 <el-button
                     plain
@@ -154,6 +157,9 @@ export default {
     },
     methods: {
         ...Mixins.methods,
+        dialogOpened() {
+            this.$store.commit("Hope/SetResetFlag", true);
+        },
         highHTML(code) {
             return highlight(code, languages.markup);
         },

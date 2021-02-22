@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:22:36
+ * @LastEditTime : 2021-02-22 14:36:14
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -196,7 +196,10 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ChooseControl", this.ele.id);
+            this.$store.commit("Hope/ChooseControl", {
+                id: this.ele.id,
+                type: true,
+            });
             this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {
@@ -221,7 +224,7 @@ export default {
         },
         htmlView() {
             this.selectThis();
-            this.htmlVisible = !this.htmlVisible;     
+            this.htmlVisible = !this.htmlVisible;
         },
     },
 };

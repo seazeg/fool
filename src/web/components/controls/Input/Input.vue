@@ -35,6 +35,7 @@
                 title="html代码"
                 :visible.sync="htmlVisible"
                 custom-class="sourceStyle"
+                @opened="dialogOpened"
             >
                 <el-button
                     plain
@@ -59,6 +60,7 @@
                 title="css代码"
                 :visible.sync="cssVisible"
                 custom-class="sourceStyle"
+                @opened="dialogOpened"
             >
                 <el-button
                     plain
@@ -83,6 +85,7 @@
                 title="JavaScript代码"
                 :visible.sync="jsVisible"
                 custom-class="sourceStyle"
+                @opened="dialogOpened"
             >
                 <el-button
                     plain
@@ -154,6 +157,9 @@ export default {
     },
     methods: {
         ...Mixins.methods,
+        dialogOpened() {
+            this.$store.commit("Hope/SetResetFlag", true);
+        },
         highHTML(code) {
             return highlight(code, languages.markup);
         },
@@ -197,12 +203,10 @@ export default {
     },
     mounted() {
         let _this = this;
-        _this.$nextTick(function() {
+        _this.$nextTick(function () {
             try {
                 _this.thishtml = _this.$refs.code.innerHTML;
-                _this.ele.html = $(_this.$refs.code)
-                    .children()
-                    .html();
+                _this.ele.html = $(_this.$refs.code).children().html();
 
                 _this.ele.controlObject = Function(
                     "_this",

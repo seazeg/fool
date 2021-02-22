@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-02-20 17:12:45
+ * @LastEditTime : 2021-02-22 14:33:59
  * @Description  :
  */
 import Vue from "vue";
@@ -17,16 +17,16 @@ export default new Vuex.Store({
         selected: {},
         dialogGridVisible: false,
         gridEle: {},
+        resetFlag: true,
     },
     mutations: {
         "Hope/UpdateControlParams": (state, ele) => {
             let styleSheet = state.selected.styleSheet;
             let handler = (ele, isDiff) => {
-                Object.keys(styleSheet).forEach(function(key) {
-                    
-                    ele.key.forEach(function(item) {
+                Object.keys(styleSheet).forEach(function (key) {
+                    ele.key.forEach(function (item) {
                         if (key == item) {
-                            Object.keys(styleSheet[key]).forEach(function(
+                            Object.keys(styleSheet[key]).forEach(function (
                                 line
                             ) {
                                 if (line == Object.keys(ele)[0]) {
@@ -67,11 +67,13 @@ export default new Vuex.Store({
                     key = ele.key,
                     value = ele.value;
                 selectedControl.scriptParams[key] = value;
-                selectedControl.id = "hope_" + utils.getRandomName(6);
+                if (state.resetFlag) {
+                    selectedControl.id = "hope_" + utils.getRandomName(6);
+                }
                 // selectedControl.key = "key_" + utils.getRandomName(6);
                 selectedControl.controlObject = Function(
                     selectedControl.script(selectedControl)
-                )();               
+                )();
             } catch (error) {}
         },
         "Hope/ResetControlSelected": (state, eles) => {
@@ -93,23 +95,24 @@ export default new Vuex.Store({
         "Hope/UpdateControls": (state, eles) => {
             state.eles = eles;
         },
-        "Hope/ChooseControl": (state, id) => {
-            (function func(cls, id, state) {
+        "Hope/ChooseControl": (state, data) => {
+            (function func(cls, data, state) {
                 for (let ele of cls) {
-                    if (ele.id == id) {
+                    if (ele.id == data.id) {
                         state.selected = ele;
                         ele.isSelected = true;
+                        data.type?state.resetFlag = false:state.resetFlag = true
                     } else {
                         if (ele.children) {
-                            func(ele.children, id, state);
+                            func(ele.children, data, state);
                         }
                     }
                 }
-            })(state.controls, id, state);
+            })(state.controls, data, state);
         },
         "Hope/RemoveControl": (state, id) => {
             (function func(cls, id, state) {
-                cls.forEach(function(ele, i) {
+                cls.forEach(function (ele, i) {
                     if (ele.id == id) {
                         cls.splice(i, 1);
                     } else {
@@ -125,6 +128,9 @@ export default new Vuex.Store({
         },
         "Hope/SetGridEle": (state, data) => {
             state.gridEle = data;
-        }
-    }
+        },
+        "Hope/SetResetFlag": (state, data) => {
+            state.resetFlag = data;
+        },
+    },
 });

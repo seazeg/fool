@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-02-20 17:18:01
+ * @LastEditTime : 2021-02-22 14:36:34
  * @Description  : 
 -->
 <style lang="less">
@@ -67,10 +67,12 @@ export default {
                     }
                     this.$store.commit("Hope/ResetControlSelected");
                     this.$store.commit("Hope/ControlsSelected", ev.element);
-                    this.$store.commit("Hope/ChooseControl", ev.element.id);
+                    this.$store.commit("Hope/ChooseControl", {
+                        id: ev.element.id,
+                        type: false,
+                    });
                 }
             } catch (error) {}
-
         },
     },
 };

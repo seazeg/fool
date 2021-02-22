@@ -11,7 +11,11 @@
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
-                        <img class="theme-watermark" src="../../assets/watermark.svg" alt="">
+                        <img
+                            class="theme-watermark"
+                            src="../../assets/watermark.svg"
+                            alt=""
+                        />
                     </div>
                 </el-tab-pane>
                 <el-tab-pane name="tree">
@@ -37,7 +41,8 @@
                                         'theme-select':
                                             data.id == selectedControl.id,
                                     }"
-                                    ><i class="iconfont" :class="data.icon"></i>{{ data.label }} - {{ data.id }}</span
+                                    ><i class="iconfont" :class="data.icon"></i
+                                    >{{ data.label }} - {{ data.id }}</span
                                 >
                                 <span>
                                     <el-button
@@ -53,9 +58,12 @@
                                 </span>
                             </span>
                         </el-tree>
-                          <img class="theme-watermark" src="../../assets/watermark.svg" alt="">
+                        <img
+                            class="theme-watermark"
+                            src="../../assets/watermark.svg"
+                            alt=""
+                        />
                     </div>
-                   
                 </el-tab-pane>
                 <!-- <<el-tab-pane name="css">
                     <span slot="label" class="lab-icon">
@@ -127,7 +135,7 @@
                         v-model="grid_config.totalNum"
                         placeholder="请选择总列数"
                         @change="totalNumChange"
-                        style="width:100%"
+                        style="width: 100%"
                     >
                         <el-option label="共8列" value="8"></el-option>
                         <el-option label="共12列" value="12"></el-option>
@@ -137,7 +145,7 @@
                     <el-select
                         v-model="grid_config.colNum"
                         placeholder="请选择栅格数量"
-                        style="width:100%"
+                        style="width: 100%"
                     >
                         <el-option
                             :label="opt.label"
@@ -211,19 +219,19 @@
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></CarouselEditor>
-         <DatepickerEditor
+        <DatepickerEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></DatepickerEditor>
-         <ZoomEditor
+        <ZoomEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
             :generalStyleOption="generalStyleOption"
         ></ZoomEditor>
-          <LoadmoreEditor
+        <LoadmoreEditor
             :animationOption="animationOption"
             :borderStyleOption="borderStyleOption"
             :fontStyleOption="fontStyleOption"
@@ -419,8 +427,9 @@ export default {
                     e.added.element.children.push({
                         name: "hope_grid",
                         label: "自定义",
-                        className: `hopeui-col-xl-${total /
-                            col}-${total} ignoreEle`,
+                        className: `hopeui-col-xl-${
+                            total / col
+                        }-${total} ignoreEle`,
                         icon: "icon-anniu",
                         isCustom: true,
                         isSelected: false,
@@ -435,10 +444,10 @@ export default {
                         "Hope/ControlsSelected",
                         e.added.element
                     );
-                    this.$store.commit(
-                        "Hope/ChooseControl",
-                        e.added.element.id
-                    );
+                    this.$store.commit("Hope/ChooseControl", {
+                        id: e.added.element.id,
+                        type: false,
+                    });
                 } catch (error) {}
             }
             this.dialogClose();
@@ -482,7 +491,7 @@ export default {
                 .post("http://localhost:2599/generateHTML", {
                     html: defaultHTML,
                 })
-                .then(function(res) {
+                .then(function (res) {
                     window.open("http://localhost:2599/preview.html");
                 });
         },

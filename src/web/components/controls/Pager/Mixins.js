@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:22:11
+ * @LastEditTime : 2021-02-22 14:35:56
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -104,7 +104,10 @@ export default {
         },
         selectThis() {
             this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ChooseControl", this.ele.id);
+            this.$store.commit("Hope/ChooseControl", {
+                id: this.ele.id,
+                type: true,
+            });
             this.$store.commit("Hope/ControlsSelected", this.ele);
         },
         delThis() {

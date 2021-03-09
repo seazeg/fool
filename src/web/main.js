@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-02-08 10:03:13
+ * @LastEditTime : 2021-03-09 16:48:38
  * @Description  : 
  */
 import Vue from "vue";
@@ -35,8 +35,6 @@ import "./styles/theme.less";
 
 
 import VueDraggableResizable from 'vue-draggable-resizable'
-
-// optionally import default styles
 import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 Vue.component('vue-draggable-resizable', VueDraggableResizable)

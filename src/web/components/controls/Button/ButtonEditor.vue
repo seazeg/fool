@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 17:33:27
+ * @LastEditTime : 2021-03-10 18:02:42
  * @Description  : 
 -->
 <template>
@@ -28,7 +28,7 @@
                         <el-slider
                             v-model="width"
                             :min="1"
-                            :max="5000"
+                            :max="maxWidth"
                             show-input
                             :step="10"
                         ></el-slider>
@@ -37,7 +37,7 @@
                         <el-slider
                             v-model="width_px"
                             :min="10"
-                           :max="5000"
+                            :max="maxWidth"
                             show-input
                             :step="10"
                         ></el-slider>
@@ -49,7 +49,7 @@
                         <el-slider
                             v-model="height"
                             :min="10"
-                            :max="5000"
+                            :max="maxHeight"
                             show-input
                             :step="10"
                         ></el-slider>
@@ -207,6 +207,6 @@ export default {
         unitSwitch() {
             return this.$store.state.selected.unitSwitch;
         },
-    }
+    },
 };
 </script>

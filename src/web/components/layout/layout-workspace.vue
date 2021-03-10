@@ -515,7 +515,7 @@ export default {
         //     this.source.css = handle.getCSS(this.selectedControl);
         //     this.source.js = handle.getJS(this.selectedControl);
         // },
-    },
+    }
     // watch: {
     //     selectedControl: {
     //         handler(n, o) {

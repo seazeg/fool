@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-10 11:16:14
+ * @LastEditTime : 2021-03-10 18:02:27
  * @Description  : 
  */
 import Vue from "vue";
@@ -53,8 +53,13 @@ window.$ = $;
 window.$http = http;
 window._ = _;
 
+Vue.prototype.maxWidth = 1000;
+Vue.prototype.maxHeight = 500;
+
 window.vm = new Vue({
     router,
     store,
     render: (h) => h(App),
 }).$mount("#app");
+
+

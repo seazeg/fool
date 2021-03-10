@@ -1,13 +1,15 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 17:38:58
+ * @LastEditTime : 2021-03-10 18:01:22
  * @Description  : 
 -->
 <template>
     <vdr
         :w="ele.zoomParams.width"
         :h="ele.zoomParams.height"
+        :max-width="maxWidth"
+        :max-height="maxHeight"
         :parent="true"
         :debug="false"
         :isConflictCheck="false"

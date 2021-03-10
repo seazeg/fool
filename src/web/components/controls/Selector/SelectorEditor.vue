@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 11:26:07
+ * @LastEditTime : 2021-03-10 17:53:04
  * @Description  : 
 -->
 <template>
@@ -28,7 +28,7 @@
                         <el-slider
                             v-model="width"
                             :min="1"
-                            :max="100"
+                            :max="maxWidth"
                             show-input
                             :step="1"
                         ></el-slider>
@@ -37,7 +37,7 @@
                         <el-slider
                             v-model="width_px"
                             :min="50"
-                            :max="500"
+                            :max="maxWidth"
                             show-input
                             :step="1"
                         ></el-slider>
@@ -49,7 +49,7 @@
                         <el-slider
                             v-model="height"
                             :min="20"
-                            :max="100"
+                            :max="maxHeight"
                             show-input
                             :step="1"
                         ></el-slider>

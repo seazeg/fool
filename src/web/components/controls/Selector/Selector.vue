@@ -1,23 +1,29 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 11:19:02
+ * @LastEditTime : 2021-03-10 18:02:54
  * @Description  : 
 -->
 <template>
     <vdr
-        :w="200"
-        :h="200"
+        :w="ele.zoomParams.width"
+        :h="ele.zoomParams.height"
+        :max-width="maxWidth"
+        :max-height="maxHeight"
         :parent="true"
         :debug="false"
-        :isConflictCheck="true"
+        :isConflictCheck="false"
         :snap="true"
         :snapTolerance="20"
-        @contextmenu="showMenu(ele.id, $event)"
         class="code"
         ref="code"
+        :grid="[10, 10]"
+        :x="10"
+        :y="10"
         @refLineParams="getRefLineParams"
-        :grid="[20, 20]"
+        @resizing="onResizing"
+        @activated="onActivated"
+        @contextmenu="showMenu(ele.id, $event)"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -28,7 +34,6 @@
             :cssVisible="cssVisible"
             :jsVisible="jsVisible"
         ></Mixins>
-
         <vue-context-menu
             :contextMenuData="contextMenuData"
             @selectThis="selectThis"
@@ -38,7 +43,7 @@
             @delThis="delThis"
             :id="ele.id"
         ></vue-context-menu>
-        <el-dialog
+        <!-- <el-dialog
             title="html代码"
             :visible.sync="htmlVisible"
             custom-class="sourceStyle"
@@ -112,9 +117,7 @@
                 language="markup"
                 readonly
             ></prism-editor>
-        </el-dialog>
-
-       
+        </el-dialog> -->
     </vdr>
 </template>
 
@@ -130,6 +133,7 @@ import "prismjs/themes/prism-coy.css"; //okaidia
 
 import { handle } from "../../../utils/handle";
 import Mixins from "./Mixins.js";
+import { fields } from "./fields.js";
 
 export default {
     name: Mixins.name,
@@ -148,9 +152,10 @@ export default {
         PrismEditor,
     },
     props: {
-        ele: [Array, Object]
+        ele: [Array, Object],
     },
     computed: {
+        ...fields,
         ...Mixins.computed,
         js() {
             return Mixins.script;
@@ -208,9 +213,16 @@ export default {
                 duration: 500,
             });
         },
-        getRefLineParams(params){
-            this.$emit('refLineParams', params)
-        }
+        onResizing(x, y, w, h) {
+            this.width = w;
+            this.height = h;
+        },
+        onActivated() {
+            this.selectThis();
+        },
+        getRefLineParams(params) {
+            this.$emit("refLineParams", params);
+        },
     },
     mounted() {
         let _this = this;

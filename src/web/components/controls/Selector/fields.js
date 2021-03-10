@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-19 09:51:56
+ * @LastEditTime : 2021-03-10 17:48:11
  * @Description  :
  */
 export const fields = {
@@ -18,6 +18,7 @@ export const fields = {
                 key: [".hopeui-form-select"],
                 isDiff: "per",
             });
+            this.$store.state.selected.zoomParams.width = value;
         },
     },
     width_px: {
@@ -33,6 +34,7 @@ export const fields = {
                 key: [".hopeui-form-select"],
                 isDiff: "px",
             });
+            this.$store.state.selected.zoomParams.width = value;
         },
     },
     height: {
@@ -59,6 +61,7 @@ export const fields = {
                 key: [".hopeui-form-select .hopeui-select-list .option"],
                 isDiff: "px",
             });
+            this.$store.state.selected.zoomParams.height = value;
         },
     },
     fontSize: {

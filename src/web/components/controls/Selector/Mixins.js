@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:23:12
+ * @LastEditTime : 2021-03-10 17:48:46
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -14,6 +14,10 @@ export default {
     icon: "icon-biaodanzujian-xialakuang",
     isSelected: false,
     unitSwitch: { width: "%" },
+    zoomParams: {
+        width: parseFloat(styleSheet[".hopeui-form-select"].width),
+        height: parseFloat(styleSheet[".hopeui-form-select"].height),
+    },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: { autoHideBar: false, switchIcon: "", searchMode: false },

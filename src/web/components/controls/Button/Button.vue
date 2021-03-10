@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 18:01:22
+ * @LastEditTime : 2021-03-10 18:07:23
  * @Description  : 
 -->
 <template>
@@ -18,8 +18,8 @@
         class="code"
         ref="code"
         :grid="[10, 10]"
-        :x="10"
-        :y="10"
+        :x="ele.zoomParams.x"
+        :y="ele.zoomParams.y"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"

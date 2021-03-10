@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-10 17:17:32
+ * @LastEditTime : 2021-03-10 18:10:58
  * @Description  : 
 -->
 <style lang="less">
@@ -69,7 +69,10 @@ export default {
     methods: {
         drop(e) {
             e.preventDefault();
+            console.log(e);
             let element = JSON.parse(e.dataTransfer.getData("element"));
+            element.zoomParams.x = e.offsetX;
+            element.zoomParams.y = e.offsetY;
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ControlsAddContainer", element);
             this.$store.commit("Hope/ChooseControl", {

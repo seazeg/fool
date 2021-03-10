@@ -1,40 +1,38 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 15:01:11
+ * @LastEditTime : 2021-03-10 17:38:58
  * @Description  : 
 -->
 <template>
-        <vdr
-            :w="width"
-            :h="height"
-            :parent="true"
-            :debug="false"
-            :isConflictCheck="true"
-            :snap="true"
-            :snapTolerance="20"
-            class="code"
-            ref="code"
-            :grid="[10, 10]"
-            :x="10"
-            :y="10"
-            @refLineParams="getRefLineParams"
-            @resizing="onResizing"
-            @contextmenu="showMenu(ele.id, $event)"
-        >
-            <pre v-html="style"></pre>
-            <pre class="htmlCache">{{ thishtml }}</pre>
+    <vdr
+        :w="ele.zoomParams.width"
+        :h="ele.zoomParams.height"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="false"
+        :snap="true"
+        :snapTolerance="20"
+        class="code"
+        ref="code"
+        :grid="[10, 10]"
+        :x="10"
+        :y="10"
+        @refLineParams="getRefLineParams"
+        @resizing="onResizing"
+        @activated="onActivated"
+        @contextmenu="showMenu(ele.id, $event)"
+    >
+        <pre v-html="style"></pre>
+        <pre class="htmlCache">{{ thishtml }}</pre>
 
-            <Mixins
-                :ele="ele"
-                :htmlVisible="htmlVisible"
-                :cssVisible="cssVisible"
-                :jsVisible="jsVisible"
-            ></Mixins>
-
-
-
-            <vue-context-menu
+        <Mixins
+            :ele="ele"
+            :htmlVisible="htmlVisible"
+            :cssVisible="cssVisible"
+            :jsVisible="jsVisible"
+        ></Mixins>
+        <vue-context-menu
             :contextMenuData="contextMenuData"
             @selectThis="selectThis"
             @htmlView="htmlView"
@@ -118,11 +116,7 @@
                 readonly
             ></prism-editor>
         </el-dialog> -->
-        
-        </vdr>
-
-        
-
+    </vdr>
 </template>
 
 <script>
@@ -220,6 +214,9 @@ export default {
         onResizing(x, y, w, h) {
             this.width = w;
             this.height = h;
+        },
+        onActivated() {
+            this.selectThis();
         },
         getRefLineParams(params) {
             this.$emit("refLineParams", params);

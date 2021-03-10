@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-19 10:36:56
+ * @LastEditTime : 2021-03-10 17:36:46
  * @Description  :
  */
 export const fields = {
@@ -17,6 +17,7 @@ export const fields = {
                 key: [".hopeui-btn"],
                 isDiff: "px",
             });
+            this.$store.state.selected.zoomParams.width = value;
         },
     },
     width_px: {
@@ -31,6 +32,7 @@ export const fields = {
                 key: [".hopeui-btn"],
                 isDiff: "px",
             });
+            this.$store.state.selected.zoomParams.width = value;
         },
     },
     height: {
@@ -50,6 +52,8 @@ export const fields = {
                 key: [".hopeui-btn"],
                 isDiff: "px",
             });
+
+            this.$store.state.selected.zoomParams.height = value;
         },
     },
     fontSize: {

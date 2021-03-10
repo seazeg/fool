@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 16:38:09
+ * @LastEditTime : 2021-03-10 17:33:27
  * @Description  : 
 -->
 <template>
@@ -28,18 +28,18 @@
                         <el-slider
                             v-model="width"
                             :min="1"
-                            :max="100"
+                            :max="5000"
                             show-input
-                            :step="1"
+                            :step="10"
                         ></el-slider>
                     </p>
                     <p v-if="unitSwitch.width == 'px'">
                         <el-slider
                             v-model="width_px"
-                            :min="50"
-                            :max="500"
+                            :min="10"
+                           :max="5000"
                             show-input
-                            :step="1"
+                            :step="10"
                         ></el-slider>
                     </p>
                 </div>
@@ -48,10 +48,10 @@
                     <p>
                         <el-slider
                             v-model="height"
-                            :min="20"
-                            :max="100"
+                            :min="10"
+                            :max="5000"
                             show-input
-                            :step="1"
+                            :step="10"
                         ></el-slider>
                     </p>
                 </div>
@@ -207,6 +207,6 @@ export default {
         unitSwitch() {
             return this.$store.state.selected.unitSwitch;
         },
-    },
+    }
 };
 </script>

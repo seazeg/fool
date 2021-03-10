@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-10 13:41:33
+ * @LastEditTime : 2021-03-10 17:17:32
  * @Description  : 
 -->
 <style lang="less">
@@ -72,11 +72,11 @@ export default {
             let element = JSON.parse(e.dataTransfer.getData("element"));
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ControlsAddContainer", element);
-            this.$store.commit("Hope/ControlsSelected", element);
             this.$store.commit("Hope/ChooseControl", {
                 id: element.id,
                 type: false,
             });
+            this.$store.commit("Hope/ControlsSelected", element);
         },
         dragover(e) {
             e.preventDefault();

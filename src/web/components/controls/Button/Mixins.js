@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 14:40:40
+ * @LastEditTime : 2021-03-10 17:26:43
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
 import { utils } from "../../../utils/utils.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_button",
@@ -14,6 +14,10 @@ export default {
     icon: "icon-biaodanzujian-anniu",
     isSelected: false,
     unitSwitch: { width: "px" },
+    zoomParams: {
+        width: parseFloat(styleSheet[".hopeui-btn"].width),
+        height: parseFloat(styleSheet[".hopeui-btn"].height),
+    },
     includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
@@ -40,7 +44,7 @@ export default {
             let styleSheet = this.ele.styleSheet;
             let root = this.ele.id;
             let res = {};
-            Object.keys(styleSheet).forEach(function(line) {
+            Object.keys(styleSheet).forEach(function (line) {
                 res[`.${root} ${line}`] = styleSheet[line];
             });
             return `<style>${utils.json2css(res)}</style>`;

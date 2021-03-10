@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-02-22 14:33:59
+ * @LastEditTime : 2021-03-10 16:43:38
  * @Description  :
  */
 import Vue from "vue";
@@ -95,13 +95,18 @@ export default new Vuex.Store({
         "Hope/UpdateControls": (state, eles) => {
             state.eles = eles;
         },
+        "Hope/ControlsAddContainer": (state, eles) => {
+            state.controls.push(eles);
+        },
         "Hope/ChooseControl": (state, data) => {
             (function func(cls, data, state) {
                 for (let ele of cls) {
                     if (ele.id == data.id) {
                         state.selected = ele;
                         ele.isSelected = true;
-                        data.type?state.resetFlag = false:state.resetFlag = true
+                        data.type
+                            ? (state.resetFlag = false)
+                            : (state.resetFlag = true);
                     } else {
                         if (ele.children) {
                             func(ele.children, data, state);
@@ -123,14 +128,24 @@ export default new Vuex.Store({
                 });
             })(state.controls, id, state);
         },
-        "Hope/ChangeDialogGridVisible": (state, value) => {
-            state.dialogGridVisible = value;
-        },
-        "Hope/SetGridEle": (state, data) => {
-            state.gridEle = data;
-        },
-        "Hope/SetResetFlag": (state, data) => {
-            state.resetFlag = data;
+        // "Hope/ChangeDialogGridVisible": (state, value) => {
+        //     state.dialogGridVisible = value;
+        // },
+        // "Hope/SetGridEle": (state, data) => {
+        //     state.gridEle = data;
+        // },
+        // "Hope/SetResetFlag": (state, data) => {
+        //     state.resetFlag = data;
+        // },
+    },
+    getters: {
+        selectInControlsList: (state) => {
+            let controls = state.controls;
+            for (let i = 0; i < controls.length; i++) {
+                if (controls[i].id == state.selected.id) {
+                    return controls[i];
+                }
+            }
         },
     },
 });

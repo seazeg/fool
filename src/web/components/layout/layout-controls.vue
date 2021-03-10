@@ -28,77 +28,35 @@
             text-color="#e7e7e7"
             active-text-color="#e7e7e7"
         >
-            <!-- <el-submenu index="1">
-                <template slot="title">
-                    <i class="el-icon-c-scale-to-original"></i>
-                    <span>结构布局</span>
-                </template>
-                <draggable
-                    class="group"
-                    :list="layout"
-                    :group="{ name: 'controls', pull: 'clone', put: false }"
-                    :clone="clone"
-                    :sort="false"
-                >
-                    <el-menu-item
-                        :index="'1-' + i"
-                        v-for="(ele, i) in layout"
-                        :key="i"
-                    >
-                        <template slot="title">
-                            <i class="el-icon-c-scale-to-original"></i>
-                            {{ ele.label }}
-                        </template>
-                    </el-menu-item>
-                </draggable>
-            </el-submenu> -->
             <el-submenu index="1">
                 <template slot="title">
                     <i class="iconfont icon-zujian"></i>
                     <span>基础控件</span>
                 </template>
-                <draggable
-                    class="group"
-                    :list="controls"
-                    :group="{ name: 'controls', pull: 'clone', put: false }"
-                    :clone="clone"
-                    :sort="false"
+                <el-menu-item
+                    :index="'2-' + i"
+                    v-for="(ele, i) in controls"
+                    :key="i"
                 >
-                    <el-menu-item
-                        :index="'2-' + i"
-                        v-for="(ele, i) in controls"
-                        :key="i"
-                    >
-                        <template slot="title">
-                            <i :class="'iconfont ' + ele.icon"></i>
-                            {{ ele.label }}
-                        </template>
-                    </el-menu-item>
-                </draggable>
+                    <div @dragstart="dragstart(ele, $event)" draggable="true">
+                        <i :class="'iconfont ' + ele.icon"></i> {{ ele.label }}
+                    </div>
+                </el-menu-item>
             </el-submenu>
             <el-submenu index="2">
                 <template slot="title">
                     <i class="iconfont icon-Structuresquarescontrol"></i>
                     <span>复用组件</span>
                 </template>
-                <draggable
-                    class="group"
-                    :list="components"
-                    :group="{ name: 'controls', pull: 'clone', put: false }"
-                    :clone="clone"
-                    :sort="false"
+                <el-menu-item
+                    :index="'3-' + i"
+                    v-for="(ele, i) in components"
+                    :key="i"
                 >
-                    <el-menu-item
-                        :index="'3-' + i"
-                        v-for="(ele, i) in components"
-                        :key="i"
-                    >
-                        <template slot="title">
-                            <i :class="'iconfont ' + ele.icon"></i>
-                            {{ ele.label }}
-                        </template>
-                    </el-menu-item>
-                </draggable>
+                    <div @dragstart="dragstart(ele, $event)" draggable="true">
+                        <i :class="'iconfont ' + ele.icon"></i> {{ ele.label }}
+                    </div>
+                </el-menu-item>
             </el-submenu>
         </el-menu>
     </div>
@@ -154,9 +112,9 @@ export default {
         },
     },
     methods: {
-        clone(o) {
+        dragstart(ele, e) {
             let _this = this;
-            let oo = _.cloneDeep(o);
+            let oo = _.cloneDeep(ele);
             (function func(cls) {
                 for (let ele of cls) {
                     _this.$set(ele, "id", "hope_" + utils.getRandomName(6));
@@ -165,9 +123,7 @@ export default {
                     }
                 }
             })([oo]);
-            return {
-                ..._.cloneDeep(oo),
-            };
+            e.dataTransfer.setData("element", JSON.stringify(oo));
         },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);

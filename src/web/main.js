@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-09 16:48:38
+ * @LastEditTime : 2021-03-10 11:16:14
  * @Description  : 
  */
 import Vue from "vue";
@@ -34,10 +34,9 @@ import "./styles/theme.less";
 
 
 
-import VueDraggableResizable from 'vue-draggable-resizable'
-import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
-
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
+import vdr from './components/plugins/vue-draggable-resizable-gorkys'
+import './components/plugins/vue-draggable-resizable-gorkys/components/vue-draggable-resizable.css'
+Vue.component('vdr', vdr)
 
 
 Vue.use(ElementUI);

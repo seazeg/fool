@@ -1,113 +1,121 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 22:46:58
+ * @LastEditTime : 2021-03-10 11:19:02
  * @Description  : 
 -->
 <template>
-    <div class="controls_block">
-        <div class="controls_inner">
-            <pre v-html="style"></pre>
-            <pre class="htmlCache">{{ thishtml }}</pre>
-            <div
-                class="code"
-                :class="{ selected: ele.isSelected }"
-                ref="code"
-                @contextmenu="showMenu(ele.id, $event)"
-            >
-                <Mixins
-                    :ele="ele"
-                    :htmlVisible="htmlVisible"
-                    :cssVisible="cssVisible"
-                    :jsVisible="jsVisible"
-                ></Mixins>
-            </div>
-            <vue-context-menu
-                :contextMenuData="contextMenuData"
-                @selectThis="selectThis"
-                @htmlView="htmlView"
-                @cssView="cssView"
-                @jsView="jsView"
-                @delThis="delThis"
-                :id="ele.id"
-            ></vue-context-menu>
-            <el-dialog
-                title="html代码"
-                :visible.sync="htmlVisible"
-                custom-class="sourceStyle"
-                @opened="dialogOpened"
-            >
-                <el-button
-                    plain
-                    icon="el-icon-s-open"
-                    size="mini"
-                    v-clipboard:copy="copy('html')"
-                    v-clipboard:success="onCopy"
-                    v-clipboard:error="onError"
-                    class="codeCopy"
-                    >代码复制
-                </el-button>
-                <prism-editor
-                    class="editor-code"
-                    v-model="source.html"
-                    :highlight="highHTML"
-                    line-numbers
-                    language="markup"
-                    readonly
-                ></prism-editor>
-            </el-dialog>
-            <el-dialog
-                title="css代码"
-                :visible.sync="cssVisible"
-                custom-class="sourceStyle"
-                @opened="dialogOpened"
-            >
-                <el-button
-                    plain
-                    icon="el-icon-s-open"
-                    size="mini"
-                    v-clipboard:copy="copy('css')"
-                    v-clipboard:success="onCopy"
-                    v-clipboard:error="onError"
-                    class="codeCopy"
-                    >代码复制
-                </el-button>
-                <prism-editor
-                    class="editor-code"
-                    v-model="source.css"
-                    :highlight="highCSS"
-                    line-numbers
-                    language="markup"
-                    readonly
-                ></prism-editor>
-            </el-dialog>
-            <el-dialog
-                title="JavaScript代码"
-                :visible.sync="jsVisible"
-                custom-class="sourceStyle"
-                @opened="dialogOpened"
-            >
-                <el-button
-                    plain
-                    icon="el-icon-s-open"
-                    size="mini"
-                    v-clipboard:copy="copy('js')"
-                    v-clipboard:success="onCopy"
-                    v-clipboard:error="onError"
-                    class="codeCopy"
-                    >代码复制
-                </el-button>
-                <prism-editor
-                    class="editor-code"
-                    v-model="source.js"
-                    :highlight="highJS"
-                    line-numbers
-                    language="markup"
-                    readonly
-                ></prism-editor>
-            </el-dialog>
-        </div>
-    </div>
+    <vdr
+        :w="200"
+        :h="200"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="true"
+        :snap="true"
+        :snapTolerance="20"
+        @contextmenu="showMenu(ele.id, $event)"
+        class="code"
+        ref="code"
+        @refLineParams="getRefLineParams"
+        :grid="[20, 20]"
+    >
+        <pre v-html="style"></pre>
+        <pre class="htmlCache">{{ thishtml }}</pre>
+
+        <Mixins
+            :ele="ele"
+            :htmlVisible="htmlVisible"
+            :cssVisible="cssVisible"
+            :jsVisible="jsVisible"
+        ></Mixins>
+
+        <vue-context-menu
+            :contextMenuData="contextMenuData"
+            @selectThis="selectThis"
+            @htmlView="htmlView"
+            @cssView="cssView"
+            @jsView="jsView"
+            @delThis="delThis"
+            :id="ele.id"
+        ></vue-context-menu>
+        <el-dialog
+            title="html代码"
+            :visible.sync="htmlVisible"
+            custom-class="sourceStyle"
+            @opened="dialogOpened"
+        >
+            <el-button
+                plain
+                icon="el-icon-s-open"
+                size="mini"
+                v-clipboard:copy="copy('html')"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+                class="codeCopy"
+                >代码复制
+            </el-button>
+            <prism-editor
+                class="editor-code"
+                v-model="source.html"
+                :highlight="highHTML"
+                line-numbers
+                language="markup"
+                readonly
+            ></prism-editor>
+        </el-dialog>
+        <el-dialog
+            title="css代码"
+            :visible.sync="cssVisible"
+            custom-class="sourceStyle"
+            @opened="dialogOpened"
+        >
+            <el-button
+                plain
+                icon="el-icon-s-open"
+                size="mini"
+                v-clipboard:copy="copy('css')"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+                class="codeCopy"
+                >代码复制
+            </el-button>
+            <prism-editor
+                class="editor-code"
+                v-model="source.css"
+                :highlight="highCSS"
+                line-numbers
+                language="markup"
+                readonly
+            ></prism-editor>
+        </el-dialog>
+        <el-dialog
+            title="JavaScript代码"
+            :visible.sync="jsVisible"
+            custom-class="sourceStyle"
+            @opened="dialogOpened"
+        >
+            <el-button
+                plain
+                icon="el-icon-s-open"
+                size="mini"
+                v-clipboard:copy="copy('js')"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError"
+                class="codeCopy"
+                >代码复制
+            </el-button>
+            <prism-editor
+                class="editor-code"
+                v-model="source.js"
+                :highlight="highJS"
+                line-numbers
+                language="markup"
+                readonly
+            ></prism-editor>
+        </el-dialog>
+
+       
+    </vdr>
 </template>
 
 <script>
@@ -140,7 +148,7 @@ export default {
         PrismEditor,
     },
     props: {
-        ele: [Array, Object],
+        ele: [Array, Object]
     },
     computed: {
         ...Mixins.computed,
@@ -200,6 +208,9 @@ export default {
                 duration: 500,
             });
         },
+        getRefLineParams(params){
+            this.$emit('refLineParams', params)
+        }
     },
     mounted() {
         let _this = this;

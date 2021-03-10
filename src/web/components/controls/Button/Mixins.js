@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:22:28
+ * @LastEditTime : 2021-03-10 14:40:40
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -50,9 +50,8 @@ export default {
     methods: {
         showMenu(id, event) {
             event.preventDefault();
-            let x = event.clientX;
-            let y = event.clientY;
-            // Get the current location
+            let x = event.offsetX;
+            let y = event.offsetY;
             this.contextMenuData.axis = {
                 x,
                 y,

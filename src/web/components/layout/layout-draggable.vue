@@ -1,33 +1,20 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-02-22 14:36:34
+ * @LastEditTime : 2021-03-10 13:41:33
  * @Description  : 
 -->
 <style lang="less">
-.defaultHeight {
-    min-height: 200px;
-}
-
-.draggable_box {
-    min-height: 200px;
-}
-.draggable_root {
+.dragContainer {
     min-height: 100%;
 }
 </style>
 <template>
-    <!-- ghost-class="draggingChoose" -->
-    <draggable
-        class="draggable_box draggable_root"
-        :class="{ defaultHeight: controls.length <= 0 }"
-        :list="controls"
-        :group="{ name: 'controls' }"
-        :animation="300"
-        filter=".ignoreEle"
-        @change="change"
-        @start="drag = true"
-        @end="drag = false"
+    <div
+        class="dragContainer"
+        @drop="drop"
+        @dragover="dragover"
+        style="background: linear-gradient(-90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px, linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px;"
     >
         <component
             v-for="(ele, i) in controls"
@@ -35,44 +22,69 @@
             :is="ele.name"
             :ele="ele"
             :class="ele.id"
+            v-on:refLineParams="getRefLineParams"
         >
             <layout-draggable
                 v-if="ele.children"
                 :controls="ele.children"
             ></layout-draggable>
         </component>
-    </draggable>
+                <!--辅助线-->
+        <span
+            class="ref-line v-line"
+            v-for="item in vLine"
+            v-show="item.display"
+            :style="{
+                left: item.position,
+                top: item.origin,
+                height: item.lineLength,
+            }"
+        />
+        <span
+            class="ref-line h-line"
+            v-for="item in hLine"
+            v-show="item.display"
+            :style="{
+                top: item.position,
+                left: item.origin,
+                width: item.lineLength,
+            }"
+        />
+        <!--辅助线END-->
+    </div>
 </template>
 <script>
 export default {
     name: "layout-draggable",
+    data() {
+        return {
+            vLine: [],
+            hLine: [],
+        };
+    },
     props: {
         controls: [Array, Object],
         dialogGridVisible: Boolean,
     },
     methods: {
-        change(e) {
-            try {
-                if (
-                    e.added &&
-                    e.added.element.isCustom &&
-                    e.added.element.name.includes("grid")
-                ) {
-                    this.$store.commit("Hope/SetGridEle", e);
-                    this.$store.commit("Hope/ChangeDialogGridVisible", true);
-                } else {
-                    let ev = e.added;
-                    if (e.moved) {
-                        ev = e.moved;
-                    }
-                    this.$store.commit("Hope/ResetControlSelected");
-                    this.$store.commit("Hope/ControlsSelected", ev.element);
-                    this.$store.commit("Hope/ChooseControl", {
-                        id: ev.element.id,
-                        type: false,
-                    });
-                }
-            } catch (error) {}
+        drop(e) {
+            e.preventDefault();
+            let element = JSON.parse(e.dataTransfer.getData("element"));
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ControlsAddContainer", element);
+            this.$store.commit("Hope/ControlsSelected", element);
+            this.$store.commit("Hope/ChooseControl", {
+                id: element.id,
+                type: false,
+            });
+        },
+        dragover(e) {
+            e.preventDefault();
+        },
+        getRefLineParams(params) {
+            const { vLine, hLine } = params;
+            this.vLine = vLine;
+            this.hLine = hLine;
         },
     },
 };

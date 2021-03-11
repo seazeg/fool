@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-10 18:02:42
+ * @LastEditTime : 2021-03-11 14:45:16
  * @Description  : 
 -->
 <template>
@@ -28,7 +28,7 @@
                         <el-slider
                             v-model="width"
                             :min="1"
-                            :max="maxWidth"
+                            :max="100"
                             show-input
                             :step="10"
                         ></el-slider>

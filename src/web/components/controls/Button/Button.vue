@@ -1,13 +1,13 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 14:04:50
+ * @LastEditTime : 2021-03-11 14:34:01
  * @Description  : 
 -->
 <template>
     <vdr
-        :w="ele.zoomParams.width"
-        :h="ele.zoomParams.height"
+        :w="ele.zoomParams.width || 200"
+        :h="ele.zoomParams.height || 200"
         :max-width="maxWidth"
         :max-height="maxHeight"
         :parent="true"
@@ -16,8 +16,8 @@
         :snap="true"
         :snapTolerance="20"
         :grid="[10, 10]"
-        :x="ele.zoomParams.x"
-        :y="ele.zoomParams.y"
+        :x="ele.zoomParams.x || 0"
+        :y="ele.zoomParams.y || 0"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"

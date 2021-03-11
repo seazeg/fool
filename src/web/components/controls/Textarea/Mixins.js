@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:23:25
+ * @LastEditTime : 2021-03-11 14:37:05
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -13,6 +13,12 @@ export default {
     label: "多行文本框",
     icon: "icon-textarea",
     isSelected: false,
+    zoomParams: {
+        width: parseFloat(styleSheet[".hopeui-textarea"].width),
+        height: parseFloat(styleSheet[".hopeui-textarea"].height),
+        x: 10,
+        y: 10,
+    },
     unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

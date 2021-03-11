@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 16:22:43
+ * @LastEditTime : 2021-03-11 14:34:59
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -13,6 +13,12 @@ export default {
     label: "复选框",
     icon: "icon-kongjianyixuan",
     isSelected: false,
+    zoomParams: {
+        width: null,
+        height: null,
+        x: 10,
+        y: 10,
+    },
     includes: { base: true},
     styleSheet: { ...styleSheet },
     scriptParams: {},

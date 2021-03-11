@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 11:26:00
+ * @LastEditTime : 2021-03-11 14:45:40
  * @Description  : 
 -->
 <template>
@@ -19,13 +19,13 @@
                         <el-slider v-model="width" :min="1" :max="100" show-input :step="1"></el-slider>
                     </p>
                     <p v-if="unitSwitch.width == 'px'">
-                        <el-slider v-model="width_px" :min="50" :max="500" show-input :step="1"></el-slider>
+                        <el-slider v-model="width_px" :min="50" :max="maxWidth" show-input :step="1"></el-slider>
                     </p>
                 </div>
                 <div class="box">
                     <span class="field">高度</span>
                     <p>
-                        <el-slider v-model="height" :min="20" :max="100" show-input :step="1"></el-slider>
+                        <el-slider v-model="height" :min="20" :max="maxHeight" show-input :step="1"></el-slider>
                     </p>
                 </div>
                 <div class="box">

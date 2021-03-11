@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 11:44:59
+ * @LastEditTime : 2021-03-11 14:37:34
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -15,6 +15,12 @@ export default {
     icon: "icon-wenbenkuang",
     isSelected: false,
     unitSwitch: { width: "%" },
+    zoomParams: {
+        width: parseFloat(styleSheet[".hopeui-suggest"].width),
+        height: parseFloat(styleSheet[".hopeui-suggest"].height),
+        x: 10,
+        y: 10,
+    },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },
     scriptParams: { noMatchName: "-- 没有匹配的内容 --" },

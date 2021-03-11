@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 17:23:51
+ * @LastEditTime : 2021-03-11 14:29:57
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -14,6 +14,12 @@ export default {
     icon: "icon-biaodanzujian-shurukuang",
     isSelected: false,
     unitSwitch: { width: "%" },
+    zoomParams: {
+        width: parseFloat(styleSheet[".hopeui-input"].width),
+        height: parseFloat(styleSheet[".hopeui-input"].height),
+        x: 10,
+        y: 10,
+    },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {

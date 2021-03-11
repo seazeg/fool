@@ -279,6 +279,7 @@
     font-family: "Microsoft YaHei", Arial;
     position: relative;
     overflow-y: auto;
+    background: #464646;
 }
 
 .layout-container .view-box > button {
@@ -398,13 +399,10 @@
 }
 
 .layout-container .editor-code {
-    // background: @work_color;
-    // color: #ccc;
-    // font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
     font-family: "Courier New", Courier, monospace;
     font-size: 12px;
     line-height: 1.75;
-    padding: 5px;
+    padding: 10px 5px;
 }
 
 .prism-editor__textarea:focus {
@@ -855,4 +853,8 @@
 
 .prism-editor-wrapper .prism-editor__line-numbers {
     height: auto;
+}
+.vdr .noevent {
+    pointer-events: none;
+    cursor: move;
 }

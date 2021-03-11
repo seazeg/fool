@@ -110,6 +110,14 @@ export default {
                 LoadmoreMixins,
             ];
         },
+        controlsTree: {
+            get() {
+                return this.$store.state.controls;
+            },
+            set(value) {
+                this.$store.commit("Hope/UpdateControls", value);
+            },
+        },
     },
     methods: {
         dragstart(ele, e) {

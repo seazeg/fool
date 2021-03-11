@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 10:50:38
+ * @LastEditTime : 2021-03-11 11:09:20
  * @Description  : 
 -->
 <template>
@@ -21,12 +21,18 @@
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"
+        @dragging="onDragging"
+        @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
 
-        <Mixins :id="ele.id" :ele="ele"></Mixins>
+        <Mixins
+            :id="ele.id"
+            :class="{ noevent: isDraging }"
+            :ele="ele"
+        ></Mixins>
         <vue-context-menu
             :contextMenuData="contextMenuData"
             @selectThis="selectThis"
@@ -45,6 +51,7 @@ export default {
     data() {
         return {
             isHover: false,
+            isDraging: false,
             thishtml: "",
             contextMenuData: Mixins.contextMenuData,
         };
@@ -70,6 +77,12 @@ export default {
         },
         onActivated() {
             this.selectThis();
+        },
+        onDragging(x, y) {
+            this.isDraging = true;
+        },
+        onDragstop(x, y) {
+            this.isDraging = false;
         },
         getRefLineParams(params) {
             this.$emit("refLineParams", params);

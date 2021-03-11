@@ -3,6 +3,7 @@
   position: absolute;
   box-sizing: border-box;
   outline: 1px dashed #3a3a3a;
+  cursor:move;
 }
 .handle {
   box-sizing: border-box;

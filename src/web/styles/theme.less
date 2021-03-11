@@ -291,6 +291,7 @@
     position: absolute;
     right: 5px;
     top: 5px;
+    z-index: 10;
 }
 .layout-container .theme-watermark {
     position: absolute;
@@ -405,9 +406,15 @@
 
 .layout-container .editor-code {
     font-family: "Courier New", Courier, monospace;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.75;
     padding: 10px 5px;
+}
+
+.layout-container  .token.comment{
+    font-size:14px;
+    line-height:1.75;
+
 }
 
 .prism-editor__textarea:focus {
@@ -860,6 +867,6 @@
     height: auto;
 }
 .vdr .noevent {
-    pointer-events: none;
+    // pointer-events: none;
     cursor: move;
 }

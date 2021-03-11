@@ -1,11 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-02-19 13:58:03
+ * @LastEditTime : 2021-03-11 15:09:36
  * @Description  :
  */
 export const fields = {
-    width: {
+    padding: {
         get() {
             return parseFloat(
                 this.$store.state.selected.styleSheet[".hopeui-pager > span"][
@@ -39,7 +39,7 @@ export const fields = {
             });
         },
     },
-    height: {
+    btnHeight: {
         get() {
             return parseFloat(
                 this.$store.state.selected.styleSheet[".hopeui-pager > span"]
@@ -212,7 +212,7 @@ export const fields = {
                 isDiff: "px",
             });
             this.$store.commit("Hope/UpdateControlParams", {
-                "line-height": this.height - value * 2,
+                "line-height": this.btnHeight - value * 2,
                 key: [
                     ".hopeui-pager > span",
                     ".hopeui-pager .hopeui-pager-omit",

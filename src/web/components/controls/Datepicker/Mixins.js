@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 15:11:22
+ * @LastEditTime : 2021-03-11 15:01:32
  * @Description  :
  */
 import styleSheet from "../../stylesheet/datepicker.json";
@@ -13,6 +13,12 @@ export default {
     label: "日期时间选择",
     icon: "icon-date",
     isSelected: false,
+    zoomParams: {
+        width: null,
+        height: null,
+        x: 10,
+        y: 10,
+    },
     includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {

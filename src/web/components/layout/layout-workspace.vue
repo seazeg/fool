@@ -2,7 +2,11 @@
     <div class="wrapper">
         <!-- 视图 -->
         <div class="view">
-            <el-tabs v-model="tabChecked" type="border-card">
+            <el-tabs
+                v-model="tabChecked"
+                type="border-card"
+                @tab-click="tabClick"
+            >
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-yulan"></i>视图
@@ -506,6 +510,21 @@ export default {
                 })
                 .catch(() => {});
         },
+        tabClick(e) {
+            switch (e.name) {
+                case "html":
+                    this.source.html = handle.reduceHTML(this.selectedControl);
+                    break;
+                case "css":
+                    this.source.css = handle.getCSS(this.selectedControl);
+                    break;
+                case "js":
+                    this.source.js = handle.getJS(this.selectedControl);
+                    break;
+                default:
+                    break;
+            }
+        },
         codeListener() {
             this.source.html = handle.reduceHTML(this.selectedControl);
             this.source.css = handle.getCSS(this.selectedControl);
@@ -521,7 +540,7 @@ export default {
         },
     },
     updated() {
-        this.codeListener();
+        // this.codeListener();
     },
 };
 </script>

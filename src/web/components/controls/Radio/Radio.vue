@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 14:34:09
+ * @LastEditTime : 2021-03-11 15:13:51
  * @Description  : 
 -->
 <template>
@@ -29,7 +29,7 @@
         <pre class="htmlCache">{{ thishtml }}</pre>
 
         <Mixins
-            :id="ele.id"
+            :id="ele.id + '_container'"
             :class="{ noevent: isDraging }"
             :ele="ele"
         ></Mixins>
@@ -88,7 +88,7 @@ export default {
         let _this = this;
         _this.$nextTick(function () {
             try {
-                _this.thishtml = _this.ele.html = $(`#${_this.ele.id}`).html();
+                _this.thishtml = _this.ele.html = $(`#${_this.ele.id}_container`).html();
                 _this.ele.controlObject = Function(
                     "_this",
                     Mixins.script(_this.ele)

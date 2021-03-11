@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-22 14:35:56
+ * @LastEditTime : 2021-03-11 15:01:50
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -13,6 +13,12 @@ export default {
     label: "分页器",
     icon: "icon-fenyeqi",
     isSelected: false,
+    zoomParams: {
+        width: null,
+        height: null,
+        x: 10,
+        y: 10,
+    },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {

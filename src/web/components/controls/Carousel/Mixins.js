@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-22 14:36:14
+ * @LastEditTime : 2021-03-11 15:01:20
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -13,6 +13,12 @@ export default {
     label: "轮播图",
     icon: "icon-shuffling-banner",
     isSelected: false,
+    zoomParams: {
+        width: null,
+        height: null,
+        x: 10,
+        y: 10,
+    },
     includes: { options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-19 13:56:33
+ * @LastEditTime : 2021-03-11 15:04:45
  * @Description  : 
 -->
 <template>
@@ -11,13 +11,13 @@
                 <div class="box">
                     <span class="field">内间距</span>
                     <p>
-                        <el-slider v-model="width" :min="1" :max="50" show-input :step="1"></el-slider>
+                        <el-slider v-model="padding" :min="1" :max="50" show-input :step="1"></el-slider>
                     </p>
                 </div>
                 <div class="box">
                     <span class="field">高度</span>
                     <p>
-                        <el-slider v-model="height" :min="30" :max="50" show-input :step="1"></el-slider>
+                        <el-slider v-model="btnHeight" :min="30" :max="50" show-input :step="1"></el-slider>
                     </p>
                 </div>
                 <div class="box">

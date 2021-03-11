@@ -1,11 +1,12 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:34:04
+ * @LastEditTime : 2021-03-11 16:01:47
  * @Description  : 
 -->
 <template>
     <vdr
+        class-name-handle="my-handle-class"
         :w="ele.zoomParams.width || 200"
         :h="ele.zoomParams.height || 200"
         :max-width="maxWidth"

@@ -1,11 +1,12 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:21:13
+ * @LastEditTime : 2021-03-11 16:02:06
  * @Description  : 
 -->
 <template>
     <vdr
+        class-name-handle="my-handle-class"
         :w="ele.zoomParams.width || 200"
         :h="ele.zoomParams.height || 200"
         :max-width="maxWidth"
@@ -18,7 +19,6 @@
         :grid="[10, 10]"
         :x="ele.zoomParams.x || 0"
         :y="ele.zoomParams.y || 0"
-        :resizable="ele.zoomParams.resizable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"

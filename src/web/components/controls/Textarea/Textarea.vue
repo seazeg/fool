@@ -1,11 +1,12 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:13:51
+ * @LastEditTime : 2021-03-11 15:58:23
  * @Description  : 
 -->
 <template>
     <vdr
+        class-name-handle="my-handle-class"
         :w="ele.zoomParams.width || 200"
         :h="ele.zoomParams.height || 200"
         :max-width="maxWidth"
@@ -98,3 +99,4 @@ export default {
     },
 };
 </script>
+

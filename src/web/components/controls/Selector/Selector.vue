@@ -6,7 +6,7 @@
 -->
 <template>
     <vdr
-        class-name-handle="my-handle-class"
+        class-name-handle="drag-handle-class"
         :w="ele.zoomParams.width || 200"
         :h="ele.zoomParams.height || 200"
         :max-width="maxWidth"

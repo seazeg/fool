@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:01:50
+ * @LastEditTime : 2021-03-11 15:29:32
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -14,10 +14,11 @@ export default {
     icon: "icon-fenyeqi",
     isSelected: false,
     zoomParams: {
-        width: null,
-        height: null,
-        x: 10,
-        y: 10,
+        width: "auto",
+        height: "auto",
+        x: 0,
+        y: 0,
+        resizable:false,
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-18 17:46:11
+ * @LastEditTime : 2021-03-11 15:17:38
  * @Description  :
  */
 import styleSheet from "../../stylesheet/loadmore.json";
@@ -13,6 +13,13 @@ export default {
     label: "流加载",
     icon: "icon-jiazai",
     isSelected: false,
+    zoomParams: {
+        width: "auto",
+        height: "auto",
+        x: 0,
+        y: 0,
+        resizable:true
+    },
     includes: { options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {

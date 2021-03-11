@@ -14,10 +14,11 @@ export default {
     icon: "icon-kongjianyixuan",
     isSelected: false,
     zoomParams: {
-        width: null,
-        height: null,
-        x: 10,
-        y: 10,
+        width: "auto",
+        height: "auto",
+        x: 0,
+        y: 0,
+        resizable:true
     },
     includes: { base: true},
     styleSheet: { ...styleSheet },

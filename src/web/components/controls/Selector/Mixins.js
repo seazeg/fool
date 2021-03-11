@@ -19,8 +19,9 @@ export default {
         height: parseFloat(
             styleSheet[".hopeui-form-select .hopeui-input"].height
         ),
-        x: 10,
-        y: 10,
+        x: 0,
+        y: 0,
+        resizable:true
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

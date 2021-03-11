@@ -17,8 +17,9 @@ export default {
     zoomParams: {
         width: parseFloat(styleSheet[".hopeui-input"].width),
         height: parseFloat(styleSheet[".hopeui-input"].height),
-        x: 10,
-        y: 10,
+        x: 0,
+        y: 0,
+        resizable:true
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

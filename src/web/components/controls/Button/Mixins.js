@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 13:53:48
+ * @LastEditTime : 2021-03-11 15:32:51
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -17,8 +17,9 @@ export default {
     zoomParams: {
         width: parseFloat(styleSheet[".hopeui-btn"].width),
         height: parseFloat(styleSheet[".hopeui-btn"].height),
-        x: 10,
-        y: 10,
+        x: 0,
+        y: 0,
+        resizable:true
     },
     includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },

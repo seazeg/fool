@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 14:37:34
+ * @LastEditTime : 2021-03-11 15:22:08
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -18,8 +18,9 @@ export default {
     zoomParams: {
         width: parseFloat(styleSheet[".hopeui-suggest"].width),
         height: parseFloat(styleSheet[".hopeui-suggest"].height),
-        x: 10,
-        y: 10,
+        x: 0,
+        y: 0,
+        resizable:true
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },

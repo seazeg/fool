@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:01:20
+ * @LastEditTime : 2021-03-11 15:21:38
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -14,10 +14,11 @@ export default {
     icon: "icon-shuffling-banner",
     isSelected: false,
     zoomParams: {
-        width: null,
-        height: null,
-        x: 10,
-        y: 10,
+        width: "auto",
+        height: "auto",
+        x: 0,
+        y: 0,
+        resizable:true
     },
     includes: { options: true },
     styleSheet: { ...styleSheet },

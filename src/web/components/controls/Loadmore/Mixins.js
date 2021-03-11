@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:17:38
+ * @LastEditTime : 2021-03-11 17:58:05
  * @Description  :
  */
 import styleSheet from "../../stylesheet/loadmore.json";
@@ -18,7 +18,7 @@ export default {
         height: "auto",
         x: 0,
         y: 0,
-        resizable:true
+        resizable: false
     },
     includes: { options: true },
     styleSheet: { ...styleSheet },

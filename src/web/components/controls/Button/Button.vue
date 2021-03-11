@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 16:01:47
+ * @LastEditTime : 2021-03-11 16:47:36
  * @Description  : 
 -->
 <template>
@@ -11,17 +11,23 @@
         :h="ele.zoomParams.height || 200"
         :max-width="maxWidth"
         :max-height="maxHeight"
+        :min-width="minWidth"
+        :min-height="minHeight"
         :parent="true"
         :debug="false"
         :isConflictCheck="false"
         :snap="true"
         :snapTolerance="20"
         :grid="[10, 10]"
+        :active.sync="ele.isSelected"
         :x="ele.zoomParams.x || 0"
         :y="ele.zoomParams.y || 0"
+        :disable-user-select="true"
+        :prevent-deactivation="true"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"
+        @deactivated="onDeactivated"
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
@@ -64,7 +70,7 @@ export default {
     },
     computed: {
         ...fields,
-        ...Mixins.computed
+        ...Mixins.computed,
     },
     methods: {
         ...Mixins.methods,
@@ -75,6 +81,7 @@ export default {
         onActivated() {
             this.selectThis();
         },
+        onDeactivated() {},
         onDragging(x, y) {
             this.isDraging = true;
         },
@@ -89,7 +96,9 @@ export default {
         let _this = this;
         _this.$nextTick(function () {
             try {
-                _this.thishtml = _this.ele.html = $(`#${_this.ele.id}_container`).html();
+                _this.thishtml = _this.ele.html = $(
+                    `#${_this.ele.id}_container`
+                ).html();
                 _this.ele.controlObject = Function(
                     "_this",
                     Mixins.script(_this.ele)

@@ -9,7 +9,7 @@
             >
                 <el-tab-pane name="preview">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-yulan"></i>视图
+                        <i class="iconfont icon-yulan"></i><b>视图</b>
                     </span>
                     <div class="view-box preview" id="preview" ref="preview">
                         <layout-draggable
@@ -24,7 +24,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="html">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-yulan"></i>HTML
+                        <i class="iconfont icon-HTML"></i><b>HTML</b>
                     </span>
                     <div class="view-box html">
                         <el-button
@@ -54,7 +54,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="css">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-yulan"></i>CSS
+                        <i class="iconfont icon-css"></i><b>CSS</b>
                     </span>
                     <div class="view-box css">
                         <el-button
@@ -84,7 +84,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="javascript">
                     <span slot="label" class="lab-icon">
-                        <i class="el-icon-cpu"></i>javascript</span
+                        <i class="iconfont icon-js"></i><b>javascript</b></span
                     >
                     <div class="view-box js">
                         <el-button
@@ -115,7 +115,7 @@
                 </el-tab-pane>
                 <el-tab-pane name="tree">
                     <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-tree"></i>组件树</span
+                        <i class="iconfont icon-tree"></i><b>组件树</b></span
                     >
                     <div class="view-box tree">
                         <el-tree
@@ -496,8 +496,9 @@ export default {
             }
         },
         treeNodeClick(e) {
+            console.log(e);
             this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ChooseControl", e.id);
+            this.$store.commit("Hope/ChooseControl", e);
         },
         treeNodeRemove(node, e) {
             this.$confirm("确定移除当前组件？", "提示", {

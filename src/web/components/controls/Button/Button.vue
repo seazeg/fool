@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 17:50:03
+ * @LastEditTime : 2021-03-11 18:08:03
  * @Description  : 
 -->
 <template>
@@ -17,7 +17,7 @@
         :debug="false"
         :isConflictCheck="false"
         :snap="true"
-        :snapTolerance="20"
+        :snapTolerance="0"
         :grid="[10, 10]"
         :active.sync="ele.isSelected"
         :x="ele.zoomParams.x || 0"

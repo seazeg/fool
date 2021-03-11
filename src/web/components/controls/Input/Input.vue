@@ -17,7 +17,7 @@
         :debug="false"
         :isConflictCheck="false"
         :snap="true"
-        :snapTolerance="20"
+        :snapTolerance="0"
         :grid="[10, 10]"
         :active.sync="ele.isSelected"
         :x="ele.zoomParams.x || 0"

@@ -47,9 +47,12 @@
     padding-left: 25px !important;
 }
 .el-menu-item {
-   padding: 0 !important;
+    padding: 0 !important;
 }
-.el-menu-item > div{padding-left:40px;line-height:40px;}
+.el-menu-item > div {
+    padding-left: 40px;
+    line-height: 40px;
+}
 
 .el-submenu [class^="el-icon-"] {
     position: relative;
@@ -261,7 +264,7 @@
     width: 83%;
 }
 
-.layout-container .view-box.preview {
+.layout-container .view-box {
     height: calc(100vh - 62px);
     font-size: 0;
     font-family: "Microsoft YaHei", Arial;
@@ -278,12 +281,11 @@
     overflow-y: auto;
 }
 
-.layout-container .view-box .draggable_box {
-    // position: relative;
-    // z-index: 1;
-    padding: 10px;
+.layout-container .view-box > button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }
-
 .layout-container .theme-watermark {
     position: absolute;
     top: 0;
@@ -849,4 +851,8 @@
 
 .layout-container .edit .el-radio {
     color: #dcdfe6;
+}
+
+.prism-editor-wrapper .prism-editor__line-numbers {
+    height: auto;
 }

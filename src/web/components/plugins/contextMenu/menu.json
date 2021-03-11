@@ -9,21 +9,6 @@
             "btnName": "选中组件"
         },
         {
-            "fnHandler": "htmlView",
-            "icoName": "iconfont icon-HTML",
-            "btnName": "html代码"
-        },
-        {
-            "fnHandler": "cssView",
-            "icoName": "iconfont icon-css",
-            "btnName": "css代码"
-        },
-        {
-            "fnHandler": "jsView",
-            "icoName": "iconfont icon-js",
-            "btnName": "javascript代码"
-        },
-        {
             "fnHandler": "delThis",
             "icoName": "iconfont icon-changyonggoupiaorenshanchu",
             "btnName": "移除组件"

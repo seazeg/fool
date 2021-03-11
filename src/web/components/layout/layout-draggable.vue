@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-10 18:10:58
+ * @LastEditTime : 2021-03-11 10:09:26
  * @Description  : 
 -->
 <style lang="less">
@@ -69,8 +69,7 @@ export default {
     methods: {
         drop(e) {
             e.preventDefault();
-            console.log(e);
-            let element = JSON.parse(e.dataTransfer.getData("element"));
+            let element = this.$store.getters.getStagingDragElement;
             element.zoomParams.x = e.offsetX;
             element.zoomParams.y = e.offsetY;
             this.$store.commit("Hope/ResetControlSelected");

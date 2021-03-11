@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-10 16:43:38
+ * @LastEditTime : 2021-03-11 10:08:47
  * @Description  :
  */
 import Vue from "vue";
@@ -13,6 +13,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
+        dragElement: {},
         controls: [],
         selected: {},
         dialogGridVisible: false,
@@ -128,24 +129,13 @@ export default new Vuex.Store({
                 });
             })(state.controls, id, state);
         },
-        // "Hope/ChangeDialogGridVisible": (state, value) => {
-        //     state.dialogGridVisible = value;
-        // },
-        // "Hope/SetGridEle": (state, data) => {
-        //     state.gridEle = data;
-        // },
-        // "Hope/SetResetFlag": (state, data) => {
-        //     state.resetFlag = data;
-        // },
+        "Hope/stagingDragElement": (state, ele) => {
+            state.dragElement = ele;
+        },
     },
     getters: {
-        selectInControlsList: (state) => {
-            let controls = state.controls;
-            for (let i = 0; i < controls.length; i++) {
-                if (controls[i].id == state.selected.id) {
-                    return controls[i];
-                }
-            }
+        getStagingDragElement: (state) => {
+            return state.dragElement;
         },
     },
 });

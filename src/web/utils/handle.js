@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2021-02-20 15:38:06
+ * @LastEditTime : 2021-03-11 10:32:32
  * @Description  :
  */
 
@@ -10,9 +10,9 @@ import beautify from "js-beautify";
 import format from "./html-formatter";
 
 export const handle = {
-    reduceHTML: (html) => {
+    reduceHTML: (ele) => {
         try {
-            let result = $(html).html();
+            let result = $(`.${ele.id}`).find('.htmlCache').text();
             return format.render(result);
         } catch (error) {}
 

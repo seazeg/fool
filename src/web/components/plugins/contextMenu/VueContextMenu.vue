@@ -171,6 +171,7 @@ export default {
     text-decoration: none;
     list-style: none;
     margin: 3px 0;
+    min-width:120px;
 }
 
 .context-menu-list:hover {

@@ -123,7 +123,7 @@ export default {
                     }
                 }
             })([oo]);
-            e.dataTransfer.setData("element", JSON.stringify(oo));
+            this.$store.commit("Hope/stagingDragElement", oo);
         },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);

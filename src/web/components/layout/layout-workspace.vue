@@ -18,6 +18,97 @@
                         />
                     </div>
                 </el-tab-pane>
+                <el-tab-pane name="html">
+                    <span slot="label" class="lab-icon">
+                        <i class="iconfont icon-yulan"></i>HTML
+                    </span>
+                    <div class="view-box html">
+                        <el-button
+                            plain
+                            icon="el-icon-s-open"
+                            size="mini"
+                            v-clipboard:copy="copy('html')"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                            class="codeCopy"
+                            >代码复制
+                        </el-button>
+                        <prism-editor
+                            class="editor-code"
+                            v-model="source.html"
+                            :highlight="highHTML"
+                            line-numbers
+                            language="html"
+                            readonly
+                        ></prism-editor>
+                        <img
+                            class="theme-watermark"
+                            src="../../assets/watermark.svg"
+                            alt=""
+                        />
+                    </div>
+                </el-tab-pane>
+                <el-tab-pane name="css">
+                    <span slot="label" class="lab-icon">
+                        <i class="iconfont icon-yulan"></i>CSS
+                    </span>
+                    <div class="view-box css">
+                        <el-button
+                            plain
+                            icon="el-icon-s-open"
+                            size="mini"
+                            v-clipboard:copy="copy('html')"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                            class="codeCopy"
+                            >代码复制
+                        </el-button>
+                        <prism-editor
+                            class="editor-code"
+                            v-model="source.css"
+                            :highlight="highCSS"
+                            line-numbers
+                            language="css"
+                            readonly
+                        ></prism-editor>
+                        <img
+                            class="theme-watermark"
+                            src="../../assets/watermark.svg"
+                            alt=""
+                        />
+                    </div>
+                </el-tab-pane>
+                <el-tab-pane name="javascript">
+                    <span slot="label" class="lab-icon">
+                        <i class="el-icon-cpu"></i>javascript</span
+                    >
+                    <div class="view-box js">
+                        <el-button
+                            plain
+                            icon="el-icon-s-open"
+                            size="mini"
+                            v-clipboard:copy="copy('html')"
+                            v-clipboard:success="onCopy"
+                            v-clipboard:error="onError"
+                            class="codeCopy"
+                            >代码复制
+                        </el-button>
+                        <prism-editor
+                            class="editor-code"
+                            v-model="source.js"
+                            :highlight="highJS"
+                            line-numbers
+                            language="js"
+                            readonly
+                        >
+                        </prism-editor>
+                        <img
+                            class="theme-watermark"
+                            src="../../assets/watermark.svg"
+                            alt=""
+                        />
+                    </div>
+                </el-tab-pane>
                 <el-tab-pane name="tree">
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-tree"></i>组件树</span
@@ -65,105 +156,8 @@
                         />
                     </div>
                 </el-tab-pane>
-                <!-- <<el-tab-pane name="css">
-                    <span slot="label" class="lab-icon">
-                        <i class="el-icon-magic-stick"></i>css</span
-                    >
-                    <div class="view-box css">
-                        <prism-editor
-                            class="editor-code"
-                            v-model="source.css"
-                            :highlight="highCSS"
-                            line-numbers
-                            language="css"
-                            readonly
-                        ></prism-editor>
-                    </div>
-                </el-tab-pane>
-                <el-tab-pane name="javascript">
-                    <span slot="label" class="lab-icon">
-                        <i class="el-icon-cpu"></i>javascript</span
-                    >
-                    <div class="view-box js">
-                        <prism-editor
-                            class="editor-code"
-                            v-model="source.js"
-                            :highlight="highJS"
-                            line-numbers
-                            readonly
-                        ></prism-editor>
-                    </div>
-                </el-tab-pane> -->
-                <!-- <el-tab-pane name="htmlGenerator" :disabled="true">
-                    <span slot="label" class="lab-icon">
-                        <el-button
-                            type="success"
-                            @click="htmlGenerator"
-                            icon="el-icon-s-help"
-                            size="mini"
-                            >生成预览
-                        </el-button>
-                    </span>
-                </el-tab-pane> -->
             </el-tabs>
         </div>
-
-        <!-- <el-drawer title="组件树" :visible.sync="drawer" :with-header="false">
-            <el-tree :data="controls" node-key="controlsTree" @node-click="treeNodeClick" :expand-on-click-node="false"
-                default-expand-all :allow-drop="allowDrop" draggable>
-                <span class="custom-tree-node" slot-scope="{ node, data }">
-                    <span :class="{
-                            'theme-select': data.id == selectedControl.id,
-                        }">{{ data.name }} - {{ data.label }}</span>
-                    <span>
-                        <el-button type="text" icon="el-icon-delete" circle size="mini"
-                            @click="() => treeNodeRemove(node, data)">
-                        </el-button>
-                    </span>
-                </span>
-            </el-tree>
-        </el-drawer> -->
-
-        <el-dialog
-            title="栅格参数配置"
-            :visible.sync="dialogGridVisible"
-            width="600px"
-        >
-            <el-form :model="grid_config">
-                <el-form-item label="总列数" :label-width="formLabelWidth">
-                    <el-select
-                        v-model="grid_config.totalNum"
-                        placeholder="请选择总列数"
-                        @change="totalNumChange"
-                        style="width: 100%"
-                    >
-                        <el-option label="共8列" value="8"></el-option>
-                        <el-option label="共12列" value="12"></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="栅格数量" :label-width="formLabelWidth">
-                    <el-select
-                        v-model="grid_config.colNum"
-                        placeholder="请选择栅格数量"
-                        style="width: 100%"
-                    >
-                        <el-option
-                            :label="opt.label"
-                            :value="opt.value"
-                            :key="opt.value"
-                            v-for="opt in colOptions"
-                        >
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogClose()">取消</el-button>
-                <el-button type="primary" @click="dialogEnter()"
-                    >确定</el-button
-                >
-            </div>
-        </el-dialog>
 
         <SelectorEditor
             :animationOption="animationOption"
@@ -240,19 +234,28 @@
     </div>
 </template>
 <script>
+import { PrismEditor } from "vue-prism-editor";
+import { highlight, languages } from "prismjs/components/prism-core";
+import "vue-prism-editor/dist/prismeditor.min.css";
+import "prismjs/components/prism-css";
+import "prismjs/components/prism-markup";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import "prismjs/themes/prism-coy.css"; //okaidia
+
 import { utils } from "../../utils/utils.js";
+import { handle } from "../../utils/handle";
+
 export default {
     name: "layout-workspace",
     data() {
         return {
             tabChecked: "preview",
-            drawer: false,
-            grid_config: {
-                totalNum: "",
-                colNum: "",
+            source: {
+                html: "",
+                css: "",
+                js: "",
             },
-            formLabelWidth: "80px",
-            colOptions: [],
             animationOption: [
                 {
                     label: "基础动画",
@@ -380,6 +383,9 @@ export default {
             ],
         };
     },
+    components: {
+        PrismEditor,
+    },
     computed: {
         controls: {
             get() {
@@ -402,62 +408,45 @@ export default {
         },
     },
     methods: {
-        totalNumChange(e) {
-            let tmp = [];
-            for (let i = 1; i <= e; i++) {
-                if (e % i == 0) {
-                    tmp.push({
-                        value: i,
-                        label: i + "列",
-                    });
-                }
-            }
-            this.colOptions = tmp;
+        highHTML(code) {
+            return highlight(code, languages.markup);
         },
-        dialogClose() {
-            this.$store.commit("Hope/ChangeDialogGridVisible", false);
+        highCSS(code) {
+            return highlight(code, languages.css);
         },
-        dialogEnter() {
-            let e = this.$store.state.gridEle;
-            //自定义栅格列数
-            let col = parseInt(this.grid_config.colNum);
-            let total = parseInt(this.grid_config.totalNum);
-            if (col && total) {
-                for (let i = 1; i <= col; i++) {
-                    e.added.element.children.push({
-                        name: "hope_grid",
-                        label: "自定义",
-                        className: `hopeui-col-xl-${
-                            total / col
-                        }-${total} ignoreEle`,
-                        icon: "icon-anniu",
-                        isCustom: true,
-                        isSelected: false,
-                        id: "hope_" + utils.getRandomName(6),
-                        children: [],
-                        styleSheet: {},
-                    });
-                }
-                try {
-                    this.$store.commit("Hope/ResetControlSelected");
-                    this.$store.commit(
-                        "Hope/ControlsSelected",
-                        e.added.element
-                    );
-                    this.$store.commit("Hope/ChooseControl", {
-                        id: e.added.element.id,
-                        type: false,
-                    });
-                } catch (error) {}
-            }
-            this.dialogClose();
+        highJS(code) {
+            return highlight(code, languages.js);
         },
-        allowDrop(draggingNode, dropNode, type) {
-            if (!dropNode.data.name.includes("grid")) {
-                return type !== "inner";
-            } else {
-                return true;
+        copy(type) {
+            let source = "";
+            switch (type) {
+                case "html":
+                    source = this.source.html;
+                    break;
+                case "css":
+                    source = this.source.css;
+                    break;
+                case "javascript":
+                    source = this.source.js;
+                    break;
+                default:
+                    break;
             }
+            return source;
+        },
+        onCopy(e) {
+            this.$message({
+                message: "复制成功",
+                type: "success",
+                duration: 500,
+            });
+        },
+        onError(e) {
+            this.$message({
+                message: "复制失败",
+                type: "error",
+                duration: 500,
+            });
         },
         htmlGenerator() {
             let defaultHTML = `
@@ -495,6 +484,13 @@ export default {
                     window.open("http://localhost:2599/preview.html");
                 });
         },
+        allowDrop(draggingNode, dropNode, type) {
+            if (!dropNode.data.name.includes("grid")) {
+                return type !== "inner";
+            } else {
+                return true;
+            }
+        },
         treeNodeClick(e) {
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ChooseControl", e.id);
@@ -510,23 +506,22 @@ export default {
                 })
                 .catch(() => {});
         },
-        // codeListener() {
-        //     this.source.html = handle.reduceHTML(this.selectedControl);
-        //     this.source.css = handle.getCSS(this.selectedControl);
-        //     this.source.js = handle.getJS(this.selectedControl);
-        // },
-    }
-    // watch: {
-    //     selectedControl: {
-    //         handler(n, o) {
-    //             this.codeListener();
-    //         },
-    //         deep: true,
-    //     },
-    // },
-    // updated() {
-    //     console.log("[列表]", this.$store.state.controls);
-    //     this.codeListener();
-    // },
+        codeListener() {
+            this.source.html = handle.reduceHTML(this.selectedControl);
+            this.source.css = handle.getCSS(this.selectedControl);
+            this.source.js = handle.getJS(this.selectedControl);
+        },
+    },
+    watch: {
+        selectedControl: {
+            handler(n, o) {
+                this.codeListener();
+            },
+            deep: true,
+        },
+    },
+    updated() {
+        this.codeListener();
+    },
 };
 </script>

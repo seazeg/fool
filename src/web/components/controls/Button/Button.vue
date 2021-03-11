@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 16:50:33
+ * @LastEditTime : 2021-03-11 17:14:03
  * @Description  : 
 -->
 <template>
@@ -24,6 +24,7 @@
         :y="ele.zoomParams.y || 0"
         :disable-user-select="true"
         :prevent-deactivation="true"
+        :resizable="ele.zoomParams.resizable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 16:33:00
+ * @LastEditTime : 2021-03-11 17:13:15
  * @Description  : 
 -->
 <template>
@@ -23,6 +23,8 @@
         :x="ele.zoomParams.x || 0"
         :y="ele.zoomParams.y || 0"
         :disable-user-select="true"
+        :prevent-deactivation="true"
+        :resizable="ele.zoomParams.resizable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @activated="onActivated"
@@ -69,7 +71,7 @@ export default {
     },
     computed: {
         ...fields,
-        ...Mixins.computed
+        ...Mixins.computed,
     },
     methods: {
         ...Mixins.methods,
@@ -80,8 +82,7 @@ export default {
         onActivated() {
             this.selectThis();
         },
-        onDeactivated() {
-        },
+        onDeactivated() {},
         onDragging(x, y) {
             this.isDraging = true;
         },
@@ -108,4 +109,3 @@ export default {
     },
 };
 </script>
-

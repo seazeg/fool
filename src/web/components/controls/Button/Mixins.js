@@ -1,10 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 11:50:07
+ * @LastEditTime : 2021-03-11 13:53:48
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
+import { methods, computed } from "../public.js";
 import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {

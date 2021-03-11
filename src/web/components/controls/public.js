@@ -1,9 +1,10 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-11 11:50:44
+ * @LastEditTime : 2021-03-11 13:54:56
  * @Description  : 公用函数
  */
+import { utils } from "../../utils/utils.js";
 
 export const methods = {
     showMenu(id, event) {
@@ -38,7 +39,6 @@ export const methods = {
     },
 };
 
-
 export const computed = {
     style() {
         let styleSheet = this.ele.styleSheet;
@@ -49,4 +49,4 @@ export const computed = {
         });
         return `<style>${utils.json2css(res)}</style>`;
     },
-}
+};

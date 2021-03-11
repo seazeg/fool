@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 11:12:47
+ * @LastEditTime : 2021-03-11 14:04:50
  * @Description  : 
 -->
 <template>
@@ -50,7 +50,6 @@ export default {
     name: Mixins.name,
     data() {
         return {
-            isHover: false,
             isDraging: false,
             thishtml: "",
             contextMenuData: Mixins.contextMenuData,
@@ -64,10 +63,7 @@ export default {
     },
     computed: {
         ...fields,
-        ...Mixins.computed,
-        js() {
-            return Mixins.script;
-        },
+        ...Mixins.computed
     },
     methods: {
         ...Mixins.methods,

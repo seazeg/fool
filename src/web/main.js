@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-11 17:11:27
+ * @LastEditTime : 2021-03-11 17:20:55
  * @Description  : 
  */
 import Vue from "vue";
@@ -55,8 +55,8 @@ window._ = _;
 
 Vue.prototype.maxWidth = 1000;
 Vue.prototype.maxHeight = 500;
-Vue.prototype.minWidth = 20;
-Vue.prototype.minHeight = 20;
+Vue.prototype.minWidth = 50;
+Vue.prototype.minHeight = 50;
 
 window.vm = new Vue({
     router,

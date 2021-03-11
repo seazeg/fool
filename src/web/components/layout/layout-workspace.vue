@@ -1,3 +1,8 @@
+<style lang="less">
+#tab-tree {
+    float: right;
+}
+</style>
 <template>
     <div class="wrapper">
         <!-- 视图 -->

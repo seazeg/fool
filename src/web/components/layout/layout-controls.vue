@@ -1,20 +1,25 @@
 <style lang="less">
 @import "../../styles/theme.config.less";
+
 .el-menu {
     border-right: none !important;
 }
+
 .el-submenu {
     overflow: hidden;
 }
+
 .el-menu-item {
-    background-color: @deputy_color!important;
+    background-color: @deputy_color !important;
     display: inline-block;
 }
+
 .el-menu-item:hover {
-    background-color: @shadow_color!important;
+    background-color: @shadow_color !important;
 }
+
 .el-submenu__title {
-    background-color: @main_color!important;
+    background-color: @main_color !important;
 }
 </style>
 <template>
@@ -131,6 +136,11 @@ export default {
                     }
                 }
             })([oo]);
+            console.log({ x: e.offsetX, y: e.offsetY });
+            e.dataTransfer.setData(
+                "offset",
+                JSON.stringify({ x: e.offsetX, y: e.offsetY })
+            );
             this.$store.commit("Hope/stagingDragElement", oo);
         },
         handleOpen(key, keyPath) {

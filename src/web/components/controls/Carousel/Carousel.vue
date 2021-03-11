@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 17:27:58
+ * @LastEditTime : 2021-03-11 17:49:23
  * @Description  : 
 -->
 <template>
@@ -27,8 +27,8 @@
         :resizable="ele.zoomParams.resizable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
+        @resizestop="onResizstop"
         @activated="onActivated"
-        @deactivated="onDeactivated"
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
@@ -38,7 +38,7 @@
 
         <Mixins
             :id="ele.id + '_container'"
-            :class="{ noevent: isDraging }"
+            :class="{ noevent: isDraging, noanimate: isAnimate }"
             :ele="ele"
         ></Mixins>
         <vue-context-menu
@@ -59,6 +59,7 @@ export default {
     data() {
         return {
             isDraging: false,
+            isAnimate: false,
             thishtml: "",
             contextMenuData: Mixins.contextMenuData,
         };
@@ -78,11 +79,14 @@ export default {
         onResizing(x, y, w, h) {
             this.width = w;
             this.height = h;
+            this.isAnimate = true;
         },
         onActivated() {
             this.selectThis();
         },
-        onDeactivated() {},
+        onResizstop(){
+            this.isAnimate = false;
+        },
         onDragging(x, y) {
             this.isDraging = true;
         },

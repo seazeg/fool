@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-11 10:09:26
+ * @LastEditTime : 2021-03-11 17:43:47
  * @Description  : 
 -->
 <style lang="less">
@@ -69,9 +69,10 @@ export default {
     methods: {
         drop(e) {
             e.preventDefault();
-            let element = this.$store.getters.getStagingDragElement;
-            element.zoomParams.x = e.offsetX;
-            element.zoomParams.y = e.offsetY;
+            let element = this.$store.getters.getStagingDragElement,
+            {x,y} = JSON.parse(e.dataTransfer.getData('offset'));
+            element.zoomParams.x = e.offsetX - x;
+            element.zoomParams.y = e.offsetY - y;
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ControlsAddContainer", element);
             this.$store.commit("Hope/ChooseControl", {

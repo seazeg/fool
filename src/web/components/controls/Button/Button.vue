@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 18:08:03
+ * @LastEditTime : 2021-03-12 17:06:45
  * @Description  : 
 -->
 <template>
@@ -32,6 +32,7 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
+        @del="delThis"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>

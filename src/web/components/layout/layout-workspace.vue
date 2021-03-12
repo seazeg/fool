@@ -406,15 +406,7 @@ export default {
         },
         selectedControl() {
             return this.$store.state.selected;
-        },
-        dialogGridVisible: {
-            get() {
-                return this.$store.state.dialogGridVisible;
-            },
-            set(value) {
-                this.$store.commit("Hope/ChangeDialogGridVisible", value);
-            },
-        },
+        }
     },
     methods: {
         highHTML(code) {

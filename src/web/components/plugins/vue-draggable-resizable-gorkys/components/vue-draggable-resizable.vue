@@ -11,6 +11,7 @@
     @mousedown="elementMouseDown"
     @touchstart="elementTouchDown"
     @contextmenu="contextmenu"
+    @keyup.delete="del"
   >
     <div
       v-for="handle in actualHandles"
@@ -329,8 +330,10 @@ export default {
 
   methods: {
     contextmenu(e){
-      console.log(e);
       this.$emit('contextmenu',e)
+    },
+    del(e){
+      this.$emit('del',e)
     },
     // 重置边界和鼠标状态
     resetBoundsAndMouseState () {

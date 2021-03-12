@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-11 17:20:55
+ * @LastEditTime : 2021-03-12 16:48:18
  * @Description  : 
  */
 import Vue from "vue";
@@ -40,10 +40,6 @@ Vue.component('vdr', vdr)
 
 
 Vue.use(ElementUI);
-// Vue.use(Navigation, {
-//     router,
-//     store,
-// });
 Vue.use(VueClipboard);
 Vue.use(VueContextMenu)
 Vue.component(draggable.name, draggable);
@@ -57,6 +53,11 @@ Vue.prototype.maxWidth = 1000;
 Vue.prototype.maxHeight = 500;
 Vue.prototype.minWidth = 50;
 Vue.prototype.minHeight = 50;
+
+
+// Vue.config.keyCodes = {
+//     delete:46
+// }
 
 window.vm = new Vue({
     router,

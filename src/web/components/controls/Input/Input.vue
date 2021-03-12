@@ -32,6 +32,7 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
+        @del="delThis"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -113,3 +114,4 @@ export default {
     },
 };
 </script>
+

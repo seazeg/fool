@@ -1,9 +1,3 @@
-<!--
- * @Author       : Evan.G
- * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-12 15:02:32
- * @Description  : 
--->
 <template>
     <vdr
         class-name-handle="drag-handle-class"
@@ -32,6 +26,7 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
+        @del="delThis"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -84,13 +79,11 @@ export default {
         onActivated() {
             this.selectThis();
         },
-        onResizstop() {
+        onResizstop(){
             this.isAnimate = false;
         },
         onDragging(x, y) {
-            setTimeout(() => {
-                this.isDraging = true;
-            }, 50);
+            this.isDraging = true;
         },
         onDragstop(x, y) {
             this.isDraging = false;

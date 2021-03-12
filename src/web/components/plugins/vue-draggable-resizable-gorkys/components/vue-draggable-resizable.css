@@ -2,7 +2,7 @@
   touch-action: none;
   position: absolute;
   box-sizing: border-box;
-  cursor:move;
+  cursor: pointer;
 }
 .handle {
   box-sizing: border-box;

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 15:22:08
+ * @LastEditTime : 2021-03-12 15:06:47
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -17,7 +17,7 @@ export default {
     unitSwitch: { width: "%" },
     zoomParams: {
         width: parseFloat(styleSheet[".hopeui-suggest"].width),
-        height: parseFloat(styleSheet[".hopeui-suggest"].height),
+        height: parseFloat(styleSheet_ext[".hopeui-input"].height),
         x: 0,
         y: 0,
         resizable:true

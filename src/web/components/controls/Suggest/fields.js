@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-03-11 14:36:09
+ * @LastEditTime : 2021-03-12 15:11:40
  * @Description  :
  */
 export const fields = {
@@ -56,6 +56,11 @@ export const fields = {
                 "line-height": value - 2,
                 key: [".hopeui-placeholder"],
                 isDiff: "px",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                top: this.height + 1 + "px!important",
+                key: [".hopeui-suggest"],
+                isDiff: "same",
             });
             this.$store.state.selected.zoomParams.height = value;
         },

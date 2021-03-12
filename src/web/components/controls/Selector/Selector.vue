@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 17:50:27
+ * @LastEditTime : 2021-03-12 15:02:32
  * @Description  : 
 -->
 <template>
@@ -84,11 +84,13 @@ export default {
         onActivated() {
             this.selectThis();
         },
-        onResizstop(){
+        onResizstop() {
             this.isAnimate = false;
         },
         onDragging(x, y) {
-            this.isDraging = true;
+            setTimeout(() => {
+                this.isDraging = true;
+            }, 50);
         },
         onDragstop(x, y) {
             this.isDraging = false;

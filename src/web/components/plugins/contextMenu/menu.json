@@ -9,9 +9,14 @@
             "btnName": "选中组件"
         },
         {
+            "fnHandler": "copyThis",
+            "icoName": "iconfont icon-copy",
+            "btnName": "复制组件(ctrl+c/cmd+c)"
+        },
+        {
             "fnHandler": "delThis",
             "icoName": "iconfont icon-changyonggoupiaorenshanchu",
-            "btnName": "移除组件"
+            "btnName": "移除组件(delete)"
         }
     ]
 }

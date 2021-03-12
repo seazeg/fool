@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-12 16:48:18
+ * @LastEditTime : 2021-03-12 17:37:19
  * @Description  : 
  */
 import Vue from "vue";
@@ -53,11 +53,6 @@ Vue.prototype.maxWidth = 1000;
 Vue.prototype.maxHeight = 500;
 Vue.prototype.minWidth = 50;
 Vue.prototype.minHeight = 50;
-
-
-// Vue.config.keyCodes = {
-//     delete:46
-// }
 
 window.vm = new Vue({
     router,

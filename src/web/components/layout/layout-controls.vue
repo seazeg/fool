@@ -140,7 +140,7 @@ export default {
                     }
                 }
             })([oo]);
-            console.log({ x: e.offsetX, y: e.offsetY });
+            // console.log({ x: e.offsetX, y: e.offsetY });
             e.dataTransfer.setData(
                 "offset",
                 JSON.stringify({ x: e.offsetX, y: e.offsetY })

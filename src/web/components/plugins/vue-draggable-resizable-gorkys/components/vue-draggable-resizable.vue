@@ -12,6 +12,7 @@
     @touchstart="elementTouchDown"
     @contextmenu="contextmenu"
     @keyup.delete="del"
+    @keyup.ctrl.67="copy"
   >
     <div
       v-for="handle in actualHandles"
@@ -334,6 +335,9 @@ export default {
     },
     del(e){
       this.$emit('del',e)
+    },
+    copy(e){
+      this.$emit('copy',e)
     },
     // 重置边界和鼠标状态
     resetBoundsAndMouseState () {

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-11 10:08:47
+ * @LastEditTime : 2021-03-12 17:41:57
  * @Description  :
  */
 import Vue from "vue";
@@ -121,6 +121,25 @@ export default new Vuex.Store({
                 cls.forEach(function (ele, i) {
                     if (ele.id == id) {
                         cls.splice(i, 1);
+                    } else {
+                        if (ele.children) {
+                            func(ele.children, id, state);
+                        }
+                    }
+                });
+            })(state.controls, id, state);
+        },
+        "Hope/CopyControl": (state, id) => {
+            console.log(state.controls);
+            (function func(cls, id, state) {
+                cls.forEach(function (ele, i) {
+                    if (ele.id == id) {
+                        let newEle = _.cloneDeep(ele);
+                        newEle.id = "hope_" + utils.getRandomName(6);
+                        newEle.zoomParams.x = 10;
+                        newEle.zoomParams.y = 10;
+                        state.controls.push(newEle);
+                        return;
                     } else {
                         if (ele.children) {
                             func(ele.children, id, state);

@@ -110,7 +110,7 @@ export default {
                 "px";
             document.addEventListener(
                 "mouseup",
-                function(e) {
+                function (e) {
                     // 解决mac电脑在鼠标右键后会执行mouseup事件
                     if (e.button === 0) {
                         menu.style.display = "none";
@@ -171,11 +171,11 @@ export default {
     text-decoration: none;
     list-style: none;
     margin: 3px 0;
-    min-width:120px;
+    min-width: 220px;
 }
 
 .context-menu-list:hover {
-    background: #2DB4EE;
+    background: #2db4ee;
     color: #fff;
 }
 

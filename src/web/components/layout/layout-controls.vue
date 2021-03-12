@@ -43,7 +43,10 @@
                     v-for="(ele, i) in controls"
                     :key="i"
                 >
-                    <div @dragstart="dragstart(ele, $event)" draggable="true">
+                    <div
+                        @dragstart="dragstart(ele, $event)"
+                        draggable="true"
+                    >
                         <i :class="'iconfont ' + ele.icon"></i> {{ ele.label }}
                     </div>
                 </el-menu-item>
@@ -89,6 +92,7 @@ export default {
     data() {
         return {
             openeds: ["1", "2"],
+            isDraging: false,
         };
     },
     computed: {

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-11 18:19:35
+ * @LastEditTime : 2021-03-12 14:40:54
  * @Description  : 
 -->
 <style lang="less">
@@ -10,12 +10,7 @@
 }
 </style>
 <template>
-    <div
-        class="dragContainer"
-        @drop="drop"
-        @dragover="dragover"
-        style="background: linear-gradient(-90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px, linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px;"
-    >
+    <div class="dragContainer" @drop="drop" @dragover="dragover">
         <component
             v-for="(ele, i) in controls"
             :key="ele.id"
@@ -29,7 +24,7 @@
                 :controls="ele.children"
             ></layout-draggable>
         </component>
-                <!--辅助线-->
+        <!--辅助线-->
         <span
             class="ref-line v-line"
             v-for="item in vLine"
@@ -54,6 +49,21 @@
     </div>
 </template>
 <script>
+function bitsZero(num) {
+    if (num < 0) num = 0;
+    let arr = num.toString().split("");
+    return parseInt(
+        arr
+            .map((item, i) => {
+                if (arr.length - 1 == i) {
+                    return "0";
+                } else {
+                    return item;
+                }
+            })
+            .join("")
+    );
+}
 export default {
     name: "layout-draggable",
     data() {
@@ -70,13 +80,10 @@ export default {
         drop(e) {
             e.preventDefault();
             let element = this.$store.getters.getStagingDragElement,
-            {x,y} = JSON.parse(e.dataTransfer.getData('offset'));
-            // console.log(e.offsetX - x);
-            // console.log(e.offsetY - y);
-            element.zoomParams.x = Math.floor(e.offsetX - x);
-            element.zoomParams.y = Math.floor(e.offsetY - y);
-            console.log(element.zoomParams.x);
-            console.log(element.zoomParams.y);
+                { x, y } = JSON.parse(e.dataTransfer.getData("offset"));
+            element.zoomParams.x = bitsZero(e.offsetX - x);
+            element.zoomParams.y = bitsZero(e.offsetY - y);
+            console.log(element.zoomParams.x, element.zoomParams.y);
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ControlsAddContainer", element);
             this.$store.commit("Hope/ChooseControl", {

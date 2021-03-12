@@ -16,7 +16,7 @@
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-yulan"></i><b>视图</b>
                     </span>
-                    <div class="view-box preview" id="preview" ref="preview">
+                    <div class="view-box preview" id="preview" ref="preview" style="background: linear-gradient(-90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px, linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px;">
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>

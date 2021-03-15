@@ -43,7 +43,11 @@
                     v-for="(ele, i) in controls"
                     :key="i"
                 >
-                    <div @dragstart="dragstart(ele, $event)" draggable="true">
+                    <div
+                        @dragstart="dragstart(ele, $event)"
+                        draggable="true"
+                        @click="addControls(ele)"
+                    >
                         <i :class="'iconfont ' + ele.icon"></i> {{ ele.label }}
                     </div>
                 </el-menu-item>
@@ -58,7 +62,11 @@
                     v-for="(ele, i) in components"
                     :key="i"
                 >
-                    <div @dragstart="dragstart(ele, $event)" draggable="true">
+                    <div
+                        @dragstart="dragstart(ele, $event)"
+                        draggable="true"
+                        @click="addControls(ele)"
+                    >
                         <i :class="'iconfont ' + ele.icon"></i> {{ ele.label }}
                     </div>
                 </el-menu-item>
@@ -131,7 +139,7 @@ export default {
             let oo = _.cloneDeep(ele);
             (function func(cls) {
                 for (let ele of cls) {
-                    let id = "hope_" + utils.getRandomName(6)
+                    let id = "hope_" + utils.getRandomName(6);
                     _this.$set(ele, "id", id);
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
@@ -144,6 +152,21 @@ export default {
                 JSON.stringify({ x: e.offsetX, y: e.offsetY })
             );
             this.$store.commit("Hope/stagingDragElement", oo);
+        },
+        addControls(ele) {
+            let _this = this;
+            let oo = _.cloneDeep(ele);
+            (function func(cls) {
+                for (let ele of cls) {
+                    let id = "hope_" + utils.getRandomName(6);
+                    _this.$set(ele, "id", id);
+                    if ($egu.isArray(ele.children) && ele.children.length > 0) {
+                        func(ele.children);
+                    }
+                }
+            })([oo]);
+            // console.log({ x: e.offsetX, y: e.offsetY });
+            this.$store.commit("Hope/ControlsAddContainer", oo);
         },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-12 17:41:57
+ * @LastEditTime : 2021-03-15 14:28:20
  * @Description  :
  */
 import Vue from "vue";
@@ -138,6 +138,7 @@ export default new Vuex.Store({
                         newEle.id = "hope_" + utils.getRandomName(6);
                         newEle.zoomParams.x = 10;
                         newEle.zoomParams.y = 10;
+                        newEle.isSelected = false; 
                         state.controls.push(newEle);
                         return;
                     } else {

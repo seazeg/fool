@@ -1,3 +1,9 @@
+<!--
+ * @Author       : Evan.G
+ * @Date         : 2020-09-11 10:59:23
+ * @LastEditTime : 2021-03-15 14:14:30
+ * @Description  : 
+-->
 <template>
     <vdr
         class-name-handle="drag-handle-class"
@@ -27,6 +33,7 @@
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
         @del="delThis"
+        @copy="copyThis"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -40,6 +47,7 @@
             :contextMenuData="contextMenuData"
             @selectThis="selectThis"
             @delThis="delThis"
+            @copyThis="copyThis"
             :id="ele.id"
         ></vue-context-menu>
     </vdr>

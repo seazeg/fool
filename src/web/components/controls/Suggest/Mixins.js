@@ -6,7 +6,7 @@
  */
 import styleSheet from "../../stylesheet/suggest.json";
 import styleSheet_ext from "../../stylesheet/input.json";
-import { utils } from "../../../utils/utils.js";
+import { methods, computed } from "../public.js";
 import rightMenu from '../../plugins/contextMenu/menu.json'
 
 export default {

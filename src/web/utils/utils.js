@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 16:31:05
- * @LastEditTime : 2020-10-14 11:42:12
+ * @LastEditTime : 2021-03-12 17:49:19
  * @Description  :
  */
 
 export const utils = {
-    cssFormat: function(s) {
+    cssFormat: function (s) {
         //格式化代码
         s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
         s = s.replace(/;\s*;/g, ";"); //清除连续分号
@@ -16,7 +16,7 @@ export const utils = {
         s = s.replace(/([^\s]);([^\s\}])/g, "$1;\n\t$2");
         return s;
     },
-    cssPack: function(s) {
+    cssPack: function (s) {
         //压缩代码
         s = s.replace(/\/\*(.|\n)*?\*\//g, ""); //删除注释
         s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
@@ -101,5 +101,5 @@ export const utils = {
                 }
             })
             .join(";");
-    },
+    }
 };

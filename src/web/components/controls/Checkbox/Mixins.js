@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:15:28
+ * @LastEditTime : 2021-03-15 15:25:34
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -14,8 +14,8 @@ export default {
     icon: "icon-kongjianyixuan",
     isSelected: false,
     zoomParams: {
-        width: "auto",
-        height: "auto",
+        width: 250,
+        height: 50,
         x: 0,
         y: 0,
         resizable:true

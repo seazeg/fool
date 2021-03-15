@@ -26,6 +26,7 @@
                             alt=""
                         />
                     </div>
+                    <ruleraxisy></ruleraxisy>
                 </el-tab-pane>
                 <el-tab-pane name="html">
                     <span slot="label" class="lab-icon">
@@ -252,8 +253,8 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-coy.css"; //okaidia
 
-import { utils } from "../../utils/utils.js";
 import { handle } from "../../utils/handle";
+import ruleraxisy from "../plugins/ruleraxisy"
 
 export default {
     name: "layout-workspace",
@@ -394,6 +395,7 @@ export default {
     },
     components: {
         PrismEditor,
+        ruleraxisy
     },
     computed: {
         controls: {

@@ -98,6 +98,13 @@ export default {
             var _this = this;
             var index = _this.transferIndex;
             var menuName = "vue-contextmenuName-" + val.id;
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ChooseControl", {
+                id: val.id,
+                type: true,
+            });
+            this.$store.commit("Hope/ControlsSelected", val);
+            $(".vue-contextmenu-listWrapper").css("display", "none");
             var menu = document.getElementsByClassName(menuName)[index];
             menu.style.display = "block";
             var menuHeight = this.contextMenuData.menulists.length * 30;
@@ -206,7 +213,7 @@ export default {
 }
 
 .no-child-btn {
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     cursor: pointer;
 }
 

@@ -83,7 +83,7 @@ li {
 }
 
 .no-child-btn {
-    padding: 30px;
+   padding: 10px 0 10px 10px;
 }
 
 .child-ul-wrapper {

@@ -43,10 +43,7 @@
                     v-for="(ele, i) in controls"
                     :key="i"
                 >
-                    <div
-                        @dragstart="dragstart(ele, $event)"
-                        draggable="true"
-                    >
+                    <div @dragstart="dragstart(ele, $event)" draggable="true">
                         <i :class="'iconfont ' + ele.icon"></i> {{ ele.label }}
                     </div>
                 </el-menu-item>
@@ -134,7 +131,8 @@ export default {
             let oo = _.cloneDeep(ele);
             (function func(cls) {
                 for (let ele of cls) {
-                    _this.$set(ele, "id", "hope_" + utils.getRandomName(6));
+                    let id = "hope_" + utils.getRandomName(6)
+                    _this.$set(ele, "id", id);
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }

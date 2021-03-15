@@ -16,7 +16,12 @@
                     <span slot="label" class="lab-icon">
                         <i class="iconfont icon-yulan"></i><b>视图</b>
                     </span>
-                    <div class="view-box preview" id="preview" ref="preview" style="background: linear-gradient(-90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px, linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px) 0% 0% / 10px 10px;">
+                    <div
+                        class="view-box preview"
+                        id="preview"
+                        ref="preview"
+                        style="background: linear-gradient(-90deg,rgba(0, 0, 0, 0.1) 1px,transparent 1px)0% 0% / 10px 10px,linear-gradient(rgba(0, 0, 0, 0.1) 1px,transparent 1px)0% 0% / 10px 10px;"
+                    >
                         <layout-draggable
                             :controls="controls"
                         ></layout-draggable>
@@ -119,55 +124,48 @@
                         />
                     </div>
                 </el-tab-pane>
-                <el-tab-pane name="tree">
-                    <span slot="label" class="lab-icon">
-                        <i class="iconfont icon-tree"></i><b>组件树</b></span
-                    >
-                    <div class="view-box tree">
-                        <el-tree
-                            :data="controls"
-                            node-key="controlsTree"
-                            @node-click="treeNodeClick"
-                            :expand-on-click-node="false"
-                            default-expand-all
-                            :allow-drop="allowDrop"
-                            draggable
-                        >
-                            <span
-                                class="custom-tree-node"
-                                slot-scope="{ node, data }"
-                            >
-                                <span
-                                    :class="{
-                                        'theme-select':
-                                            data.id == selectedControl.id,
-                                    }"
-                                    ><i class="iconfont" :class="data.icon"></i
-                                    >{{ data.label }} - {{ data.id }}</span
-                                >
-                                <span>
-                                    <el-button
-                                        type="text"
-                                        icon="el-icon-delete"
-                                        circle
-                                        size="mini"
-                                        @click="
-                                            () => treeNodeRemove(node, data)
-                                        "
-                                    >
-                                    </el-button>
-                                </span>
-                            </span>
-                        </el-tree>
-                        <img
-                            class="theme-watermark"
-                            src="../../assets/watermark.svg"
-                            alt=""
-                        />
-                    </div>
-                </el-tab-pane>
             </el-tabs>
+            <div @click="isTreeShow = true" class="treeView">
+                <i class="iconfont icon-tree"></i><span>组件树</span>
+            </div>
         </div>
+
+        <el-drawer
+            title="组件树"
+            :visible.sync="isTreeShow"
+            :with-header="false"
+            size="20%"
+        >
+            <el-tree
+                :data="controls"
+                node-key="controlsTree"
+                @node-click="treeNodeClick"
+                :expand-on-click-node="false"
+                default-expand-all
+                :allow-drop="allowDrop"
+                draggable
+            >
+                <span class="custom-tree-node" slot-scope="{ node, data }">
+                    <span
+                        :class="{
+                            'theme-select': data.id == selectedControl.id,
+                        }"
+                        ><i class="iconfont" :class="data.icon"></i
+                        >{{ data.label }} - {{ data.id }}</span
+                    >
+                    <span>
+                        <el-button
+                            type="text"
+                            icon="el-icon-delete"
+                            circle
+                            size="mini"
+                            @click="() => treeNodeRemove(node, data)"
+                        >
+                        </el-button>
+                    </span>
+                </span>
+            </el-tree>
+        </el-drawer>
 
         <SelectorEditor
             :animationOption="animationOption"
@@ -254,12 +252,13 @@ import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-coy.css"; //okaidia
 
 import { handle } from "../../utils/handle";
-import ruleraxisy from "../plugins/ruleraxisy"
+import ruleraxisy from "../plugins/ruleraxisy";
 
 export default {
     name: "layout-workspace",
     data() {
         return {
+            isTreeShow: false,
             tabChecked: "preview",
             source: {
                 html: "",
@@ -395,7 +394,7 @@ export default {
     },
     components: {
         PrismEditor,
-        ruleraxisy
+        ruleraxisy,
     },
     computed: {
         controls: {
@@ -408,7 +407,7 @@ export default {
         },
         selectedControl() {
             return this.$store.state.selected;
-        }
+        },
     },
     methods: {
         highHTML(code) {

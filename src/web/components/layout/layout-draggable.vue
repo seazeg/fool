@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-12 14:40:54
+ * @LastEditTime : 2021-03-15 11:22:03
  * @Description  : 
 -->
 <style lang="less">
@@ -83,7 +83,6 @@ export default {
                 { x, y } = JSON.parse(e.dataTransfer.getData("offset"));
             element.zoomParams.x = bitsZero(e.offsetX - x);
             element.zoomParams.y = bitsZero(e.offsetY - y);
-            console.log(element.zoomParams.x, element.zoomParams.y);
             this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ControlsAddContainer", element);
             this.$store.commit("Hope/ChooseControl", {

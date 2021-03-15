@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-11 14:45:01
+ * @LastEditTime : 2021-03-15 14:10:17
  * @Description  : 
 -->
 <template>
@@ -30,7 +30,7 @@
                             :min="1"
                             :max="100"
                             show-input
-                            :step="1"
+                            :step="10"
                         ></el-slider>
                     </p>
                     <p v-if="unitSwitch.width == 'px'">
@@ -39,7 +39,7 @@
                             :min="50"
                             :max="maxWidth"
                             show-input
-                            :step="1"
+                            :step="10"
                         ></el-slider>
                     </p>
                 </div>
@@ -51,7 +51,7 @@
                             :min="20"
                             :max="maxHeight"
                             show-input
-                            :step="1"
+                            :step="10"
                         ></el-slider>
                     </p>
                 </div>

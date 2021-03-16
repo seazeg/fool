@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2021-03-15 09:35:35
- * @LastEditTime : 2021-03-15 10:38:02
+ * @LastEditTime : 2021-03-16 14:28:47
  * @Description  : 
 -->
 
@@ -158,7 +158,7 @@ export default {
     width: 20px;
     height: 5000px;
     left: 5px;
-    top: 21px;
+    top: 25px;
     min-height: 20px;
     border-right: 1px solid #d8d8d8;
 }

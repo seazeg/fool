@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2020-12-15 14:30:10
+ * @LastEditTime : 2021-03-16 14:13:51
  * @Description  :
  */
 import Vue from "vue";
@@ -15,13 +15,7 @@ export const navInfo = [
         name: "editor",
         component: () =>
             import(/* webpackChunkName: "button" */ "./components/layout/layout-index.vue"),
-    },
-    {
-        path: "/theme",
-        name: "theme",
-        component: () =>
-            import(/* webpackChunkName: "theme" */ "./theme/theme.vue"),
-    },
+    }
 ];
 
 export default new Router({

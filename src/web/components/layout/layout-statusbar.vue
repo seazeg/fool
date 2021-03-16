@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2021-03-16 11:18:27
- * @LastEditTime : 2021-03-16 14:07:31
+ * @LastEditTime : 2021-03-16 14:41:01
  * @Description  : 
 -->
 <template>
@@ -23,12 +23,13 @@
             >
         </div>
     </div>
+    <div class="layout-statusbar" v-else></div>
 </template>
 <script>
 export default {
     name: "layout-statusbar",
     props: {
         ele: [Array, Object],
-    }
+    },
 };
 </script>

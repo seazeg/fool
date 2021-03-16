@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-03-11 14:30:39
+ * @LastEditTime : 2021-03-16 15:23:38
  * @Description  :
  */
 export const fields = {
@@ -165,7 +165,8 @@ export const fields = {
     },
     extendContentLocation: {
         get() {
-            return this.$store.state.selected.scriptParams.extendContentLocation;
+            return this.$store.state.selected.scriptParams
+                .extendContentLocation;
         },
         set(value) {
             this.$store.commit("Hope/UpdateControlJsOptions", {

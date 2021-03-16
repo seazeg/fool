@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-03-10 17:36:46
+ * @LastEditTime : 2021-03-16 15:25:58
  * @Description  :
  */
 export const fields = {
@@ -15,7 +15,7 @@ export const fields = {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
                 key: [".hopeui-btn"],
-                isDiff: "px",
+                isDiff: "per",
             });
             this.$store.state.selected.zoomParams.width = value;
         },

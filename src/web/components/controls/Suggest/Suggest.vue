@@ -41,7 +41,7 @@
 
         <Mixins
             :id="ele.id + '_container'"
-            :class="{ noevent: isDraging, noanimate: isAnimate }"
+            :class="{ noevent: isDraging, noanimate: isStopAnimate }"
             :ele="ele"
         ></Mixins>
         <vue-context-menu
@@ -65,7 +65,7 @@ export default {
     data() {
         return {
             isDraging: false,
-            isAnimate: false,
+            isStopAnimate: false,
             thishtml: "",
             contextMenuData: Mixins.contextMenuData,
         };
@@ -83,20 +83,24 @@ export default {
     methods: {
         ...Mixins.methods,
         onResizing(x, y, w, h) {
-            this.width = w;
+            if (this.ele.unitSwitch.width == "px") {
+                this.width_px = w;
+            } else {
+                this.width = w;
+            }
             this.height = h;
-            this.isAnimate = true;
+            this.isStopAnimate = true;
         },
         onActivated() {
             this.selectThis();
         },
         onResizstop() {
-            this.isAnimate = false;
+            this.isStopAnimate = false;
         },
         onDragging(x, y) {
             this.isDraging = true;
             this.$store.state.selected.zoomParams.x = x;
-            this.$store.state.selected.zoomParams.y = y
+            this.$store.state.selected.zoomParams.y = y;
         },
         onDragstop(x, y) {
             this.isDraging = false;
@@ -107,7 +111,7 @@ export default {
     },
     mounted() {
         let _this = this;
-        _this.$nextTick(function () {
+        _this.$nextTick(function() {
             try {
                 _this.thishtml = _this.ele.html = $(
                     `#${_this.ele.id}_container`

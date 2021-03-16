@@ -9,6 +9,13 @@
 .layout-container,
 .main-container {
     font-family: "Courier New", Courier, monospace;
+    outline: none;
+}
+
+*:not(:active) {
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    outline: none;
 }
 
 .layout-container .view .el-tabs--border-card > .el-tabs__content {
@@ -1018,9 +1025,9 @@
         span {
             font-size: 12px;
         }
-        b{
+        b {
             font-size: 12px;
-            margin:0 2%;
+            margin: 0 2%;
             position: relative;
             bottom: 1px;
             font-weight: normal;

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 17:03:55
+ * @LastEditTime : 2021-03-16 17:39:49
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -14,8 +14,8 @@ export default {
     icon: "icon-shuffling-banner",
     isSelected: false,
     zoomParams: {
-        width: "auto",
-        height: "auto",
+        width: 600,
+        height: 300,
         x: 10,
         y: 10,
         resizable: false,
@@ -68,10 +68,10 @@ export default {
                 options: ${JSON.stringify(ele.scriptParams)},
                 on:{
                     onFirstInit: function (e) {
-                        //console.log(e);
+                        console.log(e);
                     },
                     onSlideChangeStart: function (e) {
-                        //console.log(e);
+                        console.log(e);
                     }
                 }
             })
@@ -91,7 +91,7 @@ export default {
                 <div
                     class="hope-container"
                     id={this.ele.id}
-                    style="width:600px;height:300px"
+                    style="width:100%;height:300px"
                 >
                     <div class="hope-wrapper">
                         <div class="hope-slide">

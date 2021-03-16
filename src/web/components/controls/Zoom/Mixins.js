@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:01:03
+ * @LastEditTime : 2021-03-16 17:06:03
  * @Description  :
  */
 import styleSheet from "../../stylesheet/zoom.json";
@@ -35,6 +35,25 @@ export default {
             ele.scriptParams.largeWrapper = ele.id + "-preview";
         }
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI图像放大镜组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      largeWrapper: 放大图像承载容器ID | String
+        *      mode: 图外放大模式/图上放大模式 | String
+        *      zoom: 缩放倍率 | Number
+        *      zoomable: 是否可以随时缩放 | Boolean
+        * }
+        * on: {
+        *      enter: 进入图片区域时
+        *      move: 图片区域移动时
+        *      leave: 离开图片区域时
+        *      scale: 图片区域缩放时
+        * }
+        */
         var zoom = hope.zoom({
             ele: '#${ele.id}',
             options: ${JSON.stringify(ele.scriptParams)},

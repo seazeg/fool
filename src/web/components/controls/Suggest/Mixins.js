@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:00:55
+ * @LastEditTime : 2021-03-16 17:05:41
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -29,6 +29,29 @@ export default {
     scriptParams: { noMatchName: "-- 没有匹配的内容 --" },
     script(ele) {
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI联想文本框组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      noMatchName: 无匹配时描述 | String
+        *      searchField: 搜索字段映射 | String
+        *      isFirstData: 是否初始化数据 | Boolean
+        * }
+        * params: {
+        *      [jQuery.ajax字段]: 参数值
+        * }
+        * reader: 自定义内容方法 | Function
+        * on: {
+        *      input: 输入后回调
+        *      change: 选择后回调
+        *      blur: 失去焦点回调
+        *      focus: 获得焦点回调
+        *      init: 初始化回调
+        * }
+        */
         var suggest = hope.suggest({
             ele: "#${ele.id}",
             options: ${JSON.stringify(ele.scriptParams)},

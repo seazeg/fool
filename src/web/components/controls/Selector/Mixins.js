@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 13:57:16
+ * @LastEditTime : 2021-03-16 17:05:29
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -30,6 +30,26 @@ export default {
     scriptParams: { autoHideBar: false, switchIcon: "", searchMode: false },
     script(ele) {
         return ` 
+        /*
+        * @Author       : Evan.G
+        * @Description  : HopeUI下拉框组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      autoHideBar: 是否自动显示隐藏滚动条 | Boolean
+        *      switchIcon: 自定义下拉图标 | String
+        *      searchMode: 搜索下拉模式(桌面端)  | Boolean
+        * }
+        * on: {
+        *      change: 选择完成后回调
+        *      toggle: 下拉切换回调
+        *      init: 初始化回调
+        *      update: 下拉框更新
+        *      close: 下拉框区域外关闭后回调
+        *      input: searchMode下输入后回调
+        * }
+        */
         var select = hope.selector({
             ele: "#${ele.id}",
             options: ${JSON.stringify(ele.scriptParams)},

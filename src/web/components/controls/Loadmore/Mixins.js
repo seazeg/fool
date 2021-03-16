@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:16:13
+ * @LastEditTime : 2021-03-16 17:04:56
  * @Description  :
  */
 import styleSheet from "../../stylesheet/loadmore.json";
@@ -31,6 +31,25 @@ export default {
     },
     script(ele) {
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI流式加载组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      loadBtnName: 按钮名称设置 | String
+        *      autoLoad: 自动加载 | Boolean
+        *      offset: 距离底部多少距离加载 | String
+        * }
+        * params: {
+        *      [jQuery.ajax字段]: 参数值
+        * }
+        * reader: 自定义内容方法 | Function
+        * on: {
+        *      loaded: 加载完成后回调
+        * }
+        */
         var loadmore = hope.loadmore({
             ele: '#${ele.id}',
             options: ${JSON.stringify(ele.scriptParams)},

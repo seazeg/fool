@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 13:57:26
+ * @LastEditTime : 2021-03-16 17:05:54
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
@@ -28,6 +28,22 @@ export default {
     scriptParams: { remainingWords: false },
     script(ele) {
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI多行文本框组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      remainingWords: 是否显示剩余字数 | Boolean
+        * }
+        * on: {
+        *      blur: 失去焦点回调
+        *      focus: 获得焦点回调
+        *      input: 输入后回调
+        *      init: 初始化回调
+        * }
+        */
         var textarea = hope.textarea({
             ele: "#${ele.id}",
             options: ${JSON.stringify(ele.scriptParams)},

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:00:44
+ * @LastEditTime : 2021-03-16 17:05:18
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -27,6 +27,17 @@ export default {
     scriptParams: {},
     script(ele) {
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI单选框组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * on: {
+        *      change: 选中后回调
+        *      init: 初始化回调
+        * }
+        */
         var radio = hope.radio({
             ele: ".${ele.id}",
             on: {

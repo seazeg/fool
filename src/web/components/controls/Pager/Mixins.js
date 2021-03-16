@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 13:57:08
+ * @LastEditTime : 2021-03-16 17:05:08
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -32,6 +32,29 @@ export default {
     },
     script(ele) {
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI分页器组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      omit: 省略时按钮数,必须奇数 | Number
+        *      prevName: 上翻页命名定义 | String
+        *      nextName: 下翻页命名定义 | String
+        *      pageMapping: 当前页字段映射 | String
+        *      extend: 是否完整扩展 | Boolean
+        * }
+        * params: {
+        *      [jQuery.ajax字段]: 参数值
+        * }
+        * reader: 自定义内容方法 | Function
+        * on: {
+        *      jumpOver: 跳转后回调
+        *      init: 初始化完成后回调
+        *      complete: 请求完成后回调
+        * }
+        */
         var pager = hope.pager({
             ele: "#${ele.id}",
             options: ${JSON.stringify(ele.scriptParams)},

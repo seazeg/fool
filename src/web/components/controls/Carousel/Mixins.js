@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 15:53:43
+ * @LastEditTime : 2021-03-16 17:03:55
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -58,6 +58,11 @@ export default {
                     "#" + ele.id + " .hope-pagination";
             }
             return `
+            /*
+            * @Author       : Evan.G
+            * @Description  : hopeUI复选框组件
+            * @API          : http://seazeg.gitee.io/hopeui/
+            */
             var carousel = hope.carousel({
                 ele: '#${ele.id}',
                 options: ${JSON.stringify(ele.scriptParams)},

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:17:22
+ * @LastEditTime : 2021-03-16 17:04:32
  * @Description  :
  */
 import styleSheet from "../../stylesheet/datepicker.json";
@@ -30,6 +30,24 @@ export default {
     },
     script(ele) {
         return `
+        /*
+        * @Author       : Evan.G
+        * @Description  : hopeUI日期时间选择器组件
+        * @API          : http://seazeg.gitee.io/hopeui/
+        * ***********************************************
+        * ele: 元素 dom 节点
+        * options: {
+        *      format: 日期格式 | String
+        *      type: 日期模式/日期时间模式 | String
+        * }
+        * on: {
+        *      change: 状态改变后回调
+        *      clear: 清空后回调
+        *      open: 选择框打开后回调
+        *      close: 选择框关闭后回调
+        *      init: 初始化回调
+        * }
+        */
         var datepicker = hope.datepicker({
             ele: '#${ele.id}',
             options: ${JSON.stringify(ele.scriptParams)},

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 15:25:49
+ * @LastEditTime : 2021-03-16 10:00:44
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -18,7 +18,8 @@ export default {
         height: 50,
         x: 0,
         y: 0,
-        resizable:true
+        resizable:true,
+        draggable: true,
     },
     includes: { base: true},
     styleSheet: { ...styleSheet },

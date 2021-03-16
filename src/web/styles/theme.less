@@ -970,6 +970,7 @@
     font-size: 12px;
     position: absolute;
     cursor: pointer;
+    user-select: none;
     z-index: 10;
     i {
         font-weight: normal;
@@ -986,4 +987,8 @@
 
 #preview *[id*="_container"] {
     user-select: none;
+}
+
+#preview .locking{
+    outline:1px double #3a3a3a
 }

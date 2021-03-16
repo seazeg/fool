@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 15:25:34
+ * @LastEditTime : 2021-03-16 10:00:13
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_checkbox",
@@ -18,12 +18,13 @@ export default {
         height: 50,
         x: 0,
         y: 0,
-        resizable:true
+        resizable: true,
+        draggable: true,
     },
-    includes: { base: true},
+    includes: { base: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
-    script(ele){
+    script(ele) {
         return `
         var checkbox = hope.checkbox({
             ele: '.${ele.id}',
@@ -34,7 +35,7 @@ export default {
             },
         });
         return checkbox
-    `
+    `;
     },
     props: {
         ele: [Object, Array],

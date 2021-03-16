@@ -25,6 +25,7 @@
         :disable-user-select="true"
         :prevent-deactivation="true"
         :resizable="ele.zoomParams.resizable"
+        :draggable="ele.zoomParams.draggable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @resizestop="onResizstop"
@@ -34,6 +35,7 @@
         @contextmenu="showMenu(ele.id, $event)"
         @del="delThis"
         @copy="copyThis"
+        :class="{locking:!ele.zoomParams.draggable}"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -48,6 +50,7 @@
             @selectThis="selectThis"
             @delThis="delThis"
             @copyThis="copyThis"
+            @lockThis="lockThis"
             :id="ele.id"
         ></vue-context-menu>
     </vdr>

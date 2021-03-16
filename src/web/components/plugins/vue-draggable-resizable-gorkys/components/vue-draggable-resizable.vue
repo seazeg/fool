@@ -13,6 +13,7 @@
     @contextmenu="contextmenu"
     @keyup.delete="del"
     @keyup.ctrl.67="copy"
+    @keyup.ctrl.76="lock"
   >
     <div
       v-for="handle in actualHandles"
@@ -332,6 +333,9 @@ export default {
   methods: {
     contextmenu(e){
       this.$emit('contextmenu',e)
+    },
+    lock(e){
+      this.$emit('lock',e)
     },
     del(e){
       this.$emit('del',e)

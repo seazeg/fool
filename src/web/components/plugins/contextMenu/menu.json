@@ -3,10 +3,16 @@
         "x": null,
         "y": null
     },
-    "menulists": [{
+    "menulists": [
+        {
             "fnHandler": "selectThis",
             "icoName": "iconfont icon-xuanze",
             "btnName": "选中组件"
+        },
+        {
+            "fnHandler": "lockThis",
+            "icoName": "iconfont icon-copy",
+            "btnName": "锁定/解锁组件(ctrl+l/cmd+l)"
         },
         {
             "fnHandler": "copyThis",

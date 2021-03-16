@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-12 17:28:21
+ * @LastEditTime : 2021-03-16 10:03:34
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
@@ -37,9 +37,12 @@ export const methods = {
             })
             .catch(() => {});
     },
-    copyThis(e){
+    copyThis(e) {
         this.$store.commit("Hope/CopyControl", this.ele.id);
-    }
+    },
+    lockThis(e) {
+        this.$store.commit("Hope/LockControl", this.ele.id);
+    },
 };
 
 export const computed = {

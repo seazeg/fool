@@ -4,12 +4,6 @@
  * @LastEditTime : 2021-03-12 14:48:32
  * @Description  : 
 -->
-<!--
- * @Author       : Evan.G
- * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-12 17:33:16
- * @Description  : 
--->
 <template>
     <vdr
         class-name-handle="drag-handle-class"
@@ -31,6 +25,7 @@
         :disable-user-select="true"
         :prevent-deactivation="true"
         :resizable="ele.zoomParams.resizable"
+        :draggable="ele.zoomParams.draggable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @resizestop="onResizstop"
@@ -40,6 +35,7 @@
         @contextmenu="showMenu(ele.id, $event)"
         @del="delThis"
         @copy="copyThis"
+        :class="{locking:!ele.zoomParams.draggable}"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -54,6 +50,7 @@
             @selectThis="selectThis"
             @delThis="delThis"
             @copyThis="copyThis"
+            @lockThis="lockThis"
             :id="ele.id"
         ></vue-context-menu>
     </vdr>

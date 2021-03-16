@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:17:34
+ * @LastEditTime : 2021-03-16 10:00:36
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_pager",
@@ -18,7 +18,8 @@ export default {
         height: "auto",
         x: 0,
         y: 0,
-        resizable:false,
+        resizable: false,
+        draggable: true,
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },
@@ -69,7 +70,7 @@ export default {
             },
         });
         return pager
-        `
+        `;
     },
     props: {
         ele: [Object, Array],

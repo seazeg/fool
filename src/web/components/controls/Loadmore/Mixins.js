@@ -6,7 +6,7 @@
  */
 import styleSheet from "../../stylesheet/loadmore.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_loadmore",
@@ -18,7 +18,8 @@ export default {
         height: "auto",
         x: 0,
         y: 0,
-        resizable: false
+        resizable: false,
+        draggable: true,
     },
     includes: { options: true },
     styleSheet: { ...styleSheet },
@@ -73,7 +74,10 @@ export default {
         return (
             <div>
                 <div id={this.ele.id}>
-                    <div id={this.ele.id + "_list"} style="font-size:14px;color:#333;"></div>
+                    <div
+                        id={this.ele.id + "_list"}
+                        style="font-size:14px;color:#333;"
+                    ></div>
                 </div>
             </div>
         );

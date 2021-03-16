@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:17:11
+ * @LastEditTime : 2021-03-16 09:59:47
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -18,7 +18,8 @@ export default {
         height: "auto",
         x: 0,
         y: 0,
-        resizable: false
+        resizable: false,
+        draggable: true,
     },
     includes: { options: true },
     styleSheet: { ...styleSheet },

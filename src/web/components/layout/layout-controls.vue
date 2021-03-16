@@ -165,7 +165,6 @@ export default {
                     }
                 }
             })([oo]);
-            // console.log({ x: e.offsetX, y: e.offsetY });
             this.$store.commit("Hope/ControlsAddContainer", oo);
         },
         handleOpen(key, keyPath) {

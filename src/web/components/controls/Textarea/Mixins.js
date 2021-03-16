@@ -18,7 +18,8 @@ export default {
         height: parseFloat(styleSheet[".hopeui-textarea"].height),
         x: 0,
         y: 0,
-        resizable:true
+        resizable:true,
+        draggable: true,
     },
     unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },

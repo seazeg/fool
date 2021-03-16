@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:17:00
+ * @LastEditTime : 2021-03-16 10:01:03
  * @Description  :
  */
 import styleSheet from "../../stylesheet/zoom.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_zoom",
@@ -18,7 +18,8 @@ export default {
         height: "auto",
         x: 0,
         y: 0,
-        resizable: false
+        resizable: false,
+        draggable: true,
     },
     includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },

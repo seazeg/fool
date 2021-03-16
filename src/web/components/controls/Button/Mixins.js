@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-12 17:04:14
+ * @LastEditTime : 2021-03-16 09:59:40
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -19,7 +19,8 @@ export default {
         height: parseFloat(styleSheet[".hopeui-btn"].height),
         x: 0,
         y: 0,
-        resizable:true
+        resizable: true,
+        draggable: true,
     },
     includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },

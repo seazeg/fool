@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:58:28
+ * @LastEditTime : 2021-03-16 10:31:51
  * @Description  : 
 -->
 <template>
@@ -25,6 +25,7 @@
         :disable-user-select="true"
         :prevent-deactivation="true"
         :resizable="ele.zoomParams.resizable"
+        :draggable="ele.zoomParams.draggable"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @resizestop="onResizstop"
@@ -34,6 +35,7 @@
         @contextmenu="showMenu(ele.id, $event)"
         @del="delThis"
         @copy="copyThis"
+        :class="{locking:!ele.zoomParams.draggable}"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -48,6 +50,7 @@
             @selectThis="selectThis"
             @delThis="delThis"
             @copyThis="copyThis"
+            @lockThis="lockThis"
             :id="ele.id"
         ></vue-context-menu>
     </vdr>

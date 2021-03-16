@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-15 14:28:20
+ * @LastEditTime : 2021-03-16 10:25:13
  * @Description  :
  */
 import Vue from "vue";
@@ -130,7 +130,6 @@ export default new Vuex.Store({
             })(state.controls, id, state);
         },
         "Hope/CopyControl": (state, id) => {
-            console.log(state.controls);
             (function func(cls, id, state) {
                 cls.forEach(function (ele, i) {
                     if (ele.id == id) {
@@ -141,6 +140,19 @@ export default new Vuex.Store({
                         newEle.isSelected = false; 
                         state.controls.push(newEle);
                         return;
+                    } else {
+                        if (ele.children) {
+                            func(ele.children, id, state);
+                        }
+                    }
+                });
+            })(state.controls, id, state);
+        },
+        "Hope/LockControl": (state, id) => {
+            (function func(cls, id, state) {
+                cls.forEach(function (ele, i) {
+                    if (ele.id == id) {
+                        ele.zoomParams.draggable = !ele.zoomParams.draggable; 
                     } else {
                         if (ele.children) {
                             func(ele.children, id, state);

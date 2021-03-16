@@ -21,7 +21,8 @@ export default {
         ),
         x: 0,
         y: 0,
-        resizable:true
+        resizable:true,
+        draggable: true,
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

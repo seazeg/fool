@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:58:49
+ * @LastEditTime : 2021-03-16 10:00:55
  * @Description  :
  */
 import styleSheet from "../../stylesheet/suggest.json";
@@ -20,7 +20,8 @@ export default {
         height: parseFloat(styleSheet_ext[".hopeui-input"].height),
         x: 0,
         y: 0,
-        resizable:true
+        resizable:true,
+        draggable: true,
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },

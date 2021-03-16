@@ -6,7 +6,7 @@
  */
 import styleSheet from "../../stylesheet/datepicker.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_datepicker",
@@ -18,7 +18,8 @@ export default {
         height: "auto",
         x: 0,
         y: 0,
-        resizable: false
+        resizable: false,
+        draggable: true,
     },
     includes: { base: true, effect: false, options: true },
     styleSheet: { ...styleSheet },

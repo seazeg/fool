@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-20 17:00:43
+ * @LastEditTime : 2021-03-16 17:16:12
  * @Description  : 
 -->
 <template>
@@ -21,14 +21,14 @@
             <!-- <el-tab-pane label="布局" name="second">
                 <slot name="layout"></slot>
             </el-tab-pane> -->
-            <el-tab-pane label="动效" name="effect" v-if="selectedControl.includes.effect">
+            <el-tab-pane label="交互" name="effect" v-if="selectedControl.includes.effect">
                 <slot name="effect">
                     <span class="no-config">
                         无任何可配置项
                     </span>
                 </slot>
             </el-tab-pane>
-            <el-tab-pane label="选项" name="options" v-if="selectedControl.includes.options">
+            <el-tab-pane label="配置" name="options" v-if="selectedControl.includes.options">
                 <slot name="options">
                     <span class="no-config">
                         无任何可配置项

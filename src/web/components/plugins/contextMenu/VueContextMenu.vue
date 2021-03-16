@@ -150,7 +150,7 @@
         text-decoration: none;
         list-style: none;
         margin: 3px 0;
-        min-width: 220px;
+        min-width: 180px;
     }
 
     .context-menu-list:hover {

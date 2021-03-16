@@ -4,7 +4,7 @@
 }
 </style>
 <template>
-    <div class="wrapper">
+    <div class="wrapper" >
         <!-- 视图 -->
         <div class="view">
             <el-tabs

@@ -128,6 +128,7 @@
             <div @click="isTreeShow = true" class="treeView">
                 <i class="iconfont icon-tree"></i><span>组件树</span>
             </div>
+            <layout-statusbar :ele="selectedControl"></layout-statusbar>
         </div>
 
         <el-drawer

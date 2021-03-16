@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 11:15:38
+ * @LastEditTime : 2021-03-16 11:54:43
  * @Description  : 
 -->
 <template>
@@ -93,6 +93,8 @@ export default {
         },
         onDragging(x, y) {
             this.isDraging = true;
+            this.$store.state.selected.zoomParams.x = x;
+            this.$store.state.selected.zoomParams.y = y
         },
         onDragstop(x, y) {
             this.isDraging = false;

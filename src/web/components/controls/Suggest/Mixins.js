@@ -18,8 +18,8 @@ export default {
     zoomParams: {
         width: parseFloat(styleSheet[".hopeui-suggest"].width),
         height: parseFloat(styleSheet_ext[".hopeui-input"].height),
-        x: 0,
-        y: 0,
+        x: 10,
+        y: 10,
         resizable: true,
         draggable: true,
         lockAspectRatio: false,

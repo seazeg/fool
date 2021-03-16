@@ -16,8 +16,8 @@ export default {
     zoomParams: {
         width: "auto",
         height: "auto",
-        x: 0,
-        y: 0,
+        x: 10,
+        y: 10,
         resizable: false,
         draggable: true,
     },

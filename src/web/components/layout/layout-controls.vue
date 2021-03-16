@@ -165,7 +165,13 @@ export default {
                     }
                 }
             })([oo]);
+            this.$store.commit("Hope/ResetControlSelected");
             this.$store.commit("Hope/ControlsAddContainer", oo);
+            this.$store.commit("Hope/ChooseControl", {
+                id: oo.id,
+                type: false,
+            });
+            this.$store.commit("Hope/ControlsSelected", oo);
         },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);

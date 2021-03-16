@@ -16,8 +16,8 @@ export default {
     zoomParams: {
         width: parseFloat(styleSheet[".hopeui-textarea"].width),
         height: parseFloat(styleSheet[".hopeui-textarea"].height),
-        x: 0,
-        y: 0,
+        x: 10,
+        y: 10,
         resizable: true,
         draggable: true,
         lockAspectRatio: false,

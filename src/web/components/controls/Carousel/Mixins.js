@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 13:56:41
+ * @LastEditTime : 2021-03-16 15:53:43
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -16,8 +16,8 @@ export default {
     zoomParams: {
         width: "auto",
         height: "auto",
-        x: 0,
-        y: 0,
+        x: 10,
+        y: 10,
         resizable: false,
         draggable: true,
         lockAspectRatio: false

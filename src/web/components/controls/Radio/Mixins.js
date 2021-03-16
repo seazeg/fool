@@ -20,6 +20,7 @@ export default {
         y: 0,
         resizable:true,
         draggable: true,
+        lockAspectRatio: false
     },
     includes: { base: true},
     styleSheet: { ...styleSheet },

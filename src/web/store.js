@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-16 10:25:13
+ * @LastEditTime : 2021-03-16 13:26:07
  * @Description  :
  */
 import Vue from "vue";
@@ -153,6 +153,19 @@ export default new Vuex.Store({
                 cls.forEach(function (ele, i) {
                     if (ele.id == id) {
                         ele.zoomParams.draggable = !ele.zoomParams.draggable; 
+                    } else {
+                        if (ele.children) {
+                            func(ele.children, id, state);
+                        }
+                    }
+                });
+            })(state.controls, id, state);
+        },
+        "Hope/lockRatioControl": (state, id) => {
+            (function func(cls, id, state) {
+                cls.forEach(function (ele, i) {
+                    if (ele.id == id) {
+                        ele.zoomParams.lockAspectRatio = !ele.zoomParams.lockAspectRatio; 
                     } else {
                         if (ele.children) {
                             func(ele.children, id, state);

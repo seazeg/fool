@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:00:22
+ * @LastEditTime : 2021-03-16 13:56:59
  * @Description  :
  */
 import styleSheet from "../../stylesheet/input.json";
@@ -21,6 +21,7 @@ export default {
         y: 0,
         resizable: true,
         draggable: true,
+        lockAspectRatio: false
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

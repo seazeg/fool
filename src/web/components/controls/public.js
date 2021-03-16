@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-16 10:03:34
+ * @LastEditTime : 2021-03-16 13:25:37
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
@@ -43,6 +43,9 @@ export const methods = {
     lockThis(e) {
         this.$store.commit("Hope/LockControl", this.ele.id);
     },
+    lockRatioThis(e){
+        this.$store.commit("Hope/lockRatioControl", this.ele.id);
+    }
 };
 
 export const computed = {

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 09:59:40
+ * @LastEditTime : 2021-03-16 13:20:57
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -21,6 +21,7 @@ export default {
         y: 0,
         resizable: true,
         draggable: true,
+        lockAspectRatio: false
     },
     includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:00:36
+ * @LastEditTime : 2021-03-16 13:57:08
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -28,6 +28,7 @@ export default {
         prevName: "prev",
         nextName: "next",
         extend: true,
+        lockAspectRatio: false
     },
     script(ele) {
         return `

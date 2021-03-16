@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:00:13
+ * @LastEditTime : 2021-03-16 13:56:51
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -20,6 +20,7 @@ export default {
         y: 0,
         resizable: true,
         draggable: true,
+        lockAspectRatio: false
     },
     includes: { base: true },
     styleSheet: { ...styleSheet },

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 11:54:43
+ * @LastEditTime : 2021-03-16 13:56:02
  * @Description  : 
 -->
 <template>
@@ -26,6 +26,7 @@
         :prevent-deactivation="true"
         :resizable="ele.zoomParams.resizable"
         :draggable="ele.zoomParams.draggable"
+        :lock-aspect-ratio="ele.zoomParams.lockAspectRatio"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @resizestop="onResizstop"
@@ -49,7 +50,8 @@
             @delThis="delThis"
             @copyThis="copyThis"
             @lockThis="lockThis"
-            :id="ele.id"
+            @lockRatioThis="lockRatioThis"
+            :ele="ele"
         ></vue-context-menu>
     </vdr>
 </template>

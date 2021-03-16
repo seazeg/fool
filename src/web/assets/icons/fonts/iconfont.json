@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "11391485",
+      "name": "比例",
+      "font_class": "bili",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
       "icon_id": "15038359",
       "name": "锁定",
       "font_class": "suoding",

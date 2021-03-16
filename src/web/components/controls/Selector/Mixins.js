@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:17:42
+ * @LastEditTime : 2021-03-16 13:57:16
  * @Description  :
  */
 import styleSheet from "../../stylesheet/selector.json";
@@ -23,6 +23,7 @@ export default {
         y: 0,
         resizable:true,
         draggable: true,
+        lockAspectRatio: false
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet },

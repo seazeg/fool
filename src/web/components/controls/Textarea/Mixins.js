@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:17:50
+ * @LastEditTime : 2021-03-16 13:57:26
  * @Description  :
  */
 import styleSheet from "../../stylesheet/textarea.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_textarea",
@@ -18,8 +18,9 @@ export default {
         height: parseFloat(styleSheet[".hopeui-textarea"].height),
         x: 0,
         y: 0,
-        resizable:true,
+        resizable: true,
         draggable: true,
+        lockAspectRatio: false,
     },
     unitSwitch: { width: "%" },
     includes: { base: true, effect: true, options: true },

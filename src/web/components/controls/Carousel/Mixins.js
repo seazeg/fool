@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 09:59:47
+ * @LastEditTime : 2021-03-16 13:56:41
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -20,6 +20,7 @@ export default {
         y: 0,
         resizable: false,
         draggable: true,
+        lockAspectRatio: false
     },
     includes: { options: true },
     styleSheet: { ...styleSheet },

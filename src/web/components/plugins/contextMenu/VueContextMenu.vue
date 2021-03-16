@@ -1,5 +1,5 @@
 <template>
-    <ul class="vue-contextmenu-listWrapper" @contextmenu.stop="" :class="'vue-contextmenuName-' + id">
+    <ul class="vue-contextmenu-listWrapper" @contextmenu.stop="" :class="'vue-contextmenuName-' + ele.id">
         <li v-for="item in contextMenuData.menulists" class="context-menu-list" :key="item.btnName">
             <div v-if="item.children && item.children.length > 0" class="has-child">
                 <div class="parent-name btn-wrapper-simple" :class="{
@@ -17,7 +17,21 @@
                         'no-allow': item.disabled ? item.disabled : false,
                     }">
                     <i :class="item.icoName ? item.icoName : ''" class="nav-icon-fontawe"></i>
-                    <span class="nav-name-right">{{ item.btnName }}</span>
+                    <span v-if="ele.zoomParams.draggable && item.type == 'lock'" class="nav-name-right">锁定组件</span>
+                    <span v-else-if="
+                            !ele.zoomParams.draggable && item.type == 'lock'
+                        " class="nav-name-right">解锁组件</span>
+                    <span v-else-if="
+                            ele.zoomParams.lockAspectRatio &&
+                            item.type == 'scale'
+                        " class="nav-name-right">关闭比例缩放</span>
+                    <span v-else-if="
+                            !ele.zoomParams.lockAspectRatio &&
+                            item.type == 'scale'
+                        " class="nav-name-right">开启比例缩放</span>
+                    <span v-else class="nav-name-right">{{
+                        item.btnName
+                    }}</span>
                 </div>
             </div>
         </li>
@@ -58,7 +72,7 @@
                 type: Number,
                 default: 0,
             },
-            id: [String, Number],
+            ele: [Array, Object],
         },
         watch: {
             "contextMenuData.axis"(val) {
@@ -198,7 +212,7 @@
     .nav-name-right {
         margin-left: 25px;
         height: 16px;
-        line-height: 16px;
+        line-height: 18px;
         display: block;
     }
 

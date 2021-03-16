@@ -26,6 +26,7 @@
         :prevent-deactivation="true"
         :resizable="ele.zoomParams.resizable"
         :draggable="ele.zoomParams.draggable"
+        :lock-aspect-ratio="ele.zoomParams.lockAspectRatio"
         @refLineParams="getRefLineParams"
         @resizing="onResizing"
         @resizestop="onResizstop"
@@ -49,7 +50,8 @@
             @delThis="delThis"
             @copyThis="copyThis"
             @lockThis="lockThis"
-            :id="ele.id"
+            @lockRatioThis="lockRatioThis"
+            :ele="ele"
         ></vue-context-menu>
     </vdr>
 </template>
@@ -93,6 +95,8 @@ export default {
         },
         onDragging(x, y) {
             this.isDraging = true;
+            this.$store.state.selected.zoomParams.x = x;
+            this.$store.state.selected.zoomParams.y = y
         },
         onDragstop(x, y) {
             this.isDraging = false;

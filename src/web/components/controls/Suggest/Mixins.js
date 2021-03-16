@@ -7,7 +7,7 @@
 import styleSheet from "../../stylesheet/suggest.json";
 import styleSheet_ext from "../../stylesheet/input.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "../../plugins/contextMenu/menu.json";
 
 export default {
     name: "hope_suggest",
@@ -20,8 +20,9 @@ export default {
         height: parseFloat(styleSheet_ext[".hopeui-input"].height),
         x: 0,
         y: 0,
-        resizable:true,
+        resizable: true,
         draggable: true,
+        lockAspectRatio: false,
     },
     includes: { base: true, effect: true, options: true },
     styleSheet: { ...styleSheet, ...styleSheet_ext },

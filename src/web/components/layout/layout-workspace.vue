@@ -72,7 +72,7 @@
                             plain
                             icon="el-icon-s-open"
                             size="mini"
-                            v-clipboard:copy="copy('html')"
+                            v-clipboard:copy="copy('css')"
                             v-clipboard:success="onCopy"
                             v-clipboard:error="onError"
                             class="codeCopy"
@@ -102,7 +102,7 @@
                             plain
                             icon="el-icon-s-open"
                             size="mini"
-                            v-clipboard:copy="copy('html')"
+                            v-clipboard:copy="copy('javascript')"
                             v-clipboard:success="onCopy"
                             v-clipboard:error="onError"
                             class="codeCopy"

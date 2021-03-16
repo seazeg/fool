@@ -33,7 +33,7 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
-        :class="{locking:!ele.zoomParams.draggable}"
+        :class="{ locking: !ele.zoomParams.draggable && ele.isSelected }"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -88,7 +88,7 @@ export default {
         onActivated() {
             this.selectThis();
         },
-        onResizstop(){
+        onResizstop() {
             this.isAnimate = false;
         },
         onDragging(x, y) {

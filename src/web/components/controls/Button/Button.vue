@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:46:46
+ * @LastEditTime : 2021-03-16 11:15:38
  * @Description  : 
 -->
 <template>
@@ -33,7 +33,7 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
-        :class="{locking:!ele.zoomParams.draggable}"
+        :class="{ locking: !ele.zoomParams.draggable && ele.isSelected }"
     >
         <pre v-html="style"></pre>
         <pre class="htmlCache">{{ thishtml }}</pre>
@@ -88,7 +88,7 @@ export default {
         onActivated() {
             this.selectThis();
         },
-        onResizstop(){
+        onResizstop() {
             this.isAnimate = false;
         },
         onDragging(x, y) {

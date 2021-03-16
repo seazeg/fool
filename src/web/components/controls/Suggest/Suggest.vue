@@ -33,8 +33,6 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
-        @del="delThis"
-        @copy="copyThis"
         :class="{locking:!ele.zoomParams.draggable}"
     >
         <pre v-html="style"></pre>

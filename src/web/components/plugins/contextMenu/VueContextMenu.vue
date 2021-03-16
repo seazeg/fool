@@ -196,7 +196,7 @@
     }
 
     .nav-name-right {
-        margin: 0 25px;
+        margin-left: 25px;
         height: 16px;
         line-height: 16px;
         display: block;

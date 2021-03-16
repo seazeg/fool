@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 10:34:44
+ * @LastEditTime : 2021-03-16 10:46:46
  * @Description  : 
 -->
 <template>
@@ -33,9 +33,6 @@
         @dragging="onDragging"
         @dragstop="onDragstop"
         @contextmenu="showMenu(ele.id, $event)"
-        @del="delThis"
-        @copy="copyThis"
-        @lock="lockThis"
         :class="{locking:!ele.zoomParams.draggable}"
     >
         <pre v-html="style"></pre>

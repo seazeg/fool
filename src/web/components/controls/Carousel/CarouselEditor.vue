@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 16:25:09
+ * @LastEditTime : 2021-03-17 16:31:24
  * @Description  : 
 -->
 <template>
@@ -143,6 +143,8 @@
                         >
                         <el-switch v-model="mousewheelControl"> </el-switch>
                     </div>
+                </el-collapse-item>
+                <el-collapse-item title="高级配置" name="2">
                     <div class="box">
                         <span class="field">触摸距离与滑块滑动距离的比率</span>
                         <p>
@@ -180,8 +182,6 @@
                         <el-switch v-model="hopeToNext"> </el-switch>
                     </div>
                 </el-collapse-item>
-                <el-collapse-item title="字体" name="2"> </el-collapse-item>
-                <el-collapse-item title="边框" name="3"> </el-collapse-item>
             </el-collapse>
         </template>
     </layout-editor>

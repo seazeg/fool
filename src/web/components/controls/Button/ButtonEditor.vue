@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-15 14:08:43
+ * @LastEditTime : 2021-03-17 14:13:04
  * @Description  : 
 -->
 <template>
@@ -61,7 +61,7 @@
                         <el-slider
                             v-model="fontSize"
                             :min="12"
-                            :max="30"
+                            :max="100"
                             show-input
                             :step="1"
                         ></el-slider>

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 10:46:15
+ * @LastEditTime : 2021-03-17 14:11:44
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -14,11 +14,11 @@ export default {
     icon: "icon-danxuankuangzu",
     isSelected: false,
     zoomParams: {
-        width: 250,
-        height: 50,
+        width: "auto",
+        height: "auto",
         x: 10,
         y: 10,
-        resizable:true,
+        resizable: false,
         draggable: true,
         lockAspectRatio: false
     },

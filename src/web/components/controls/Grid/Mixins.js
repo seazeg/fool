@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-02-08 15:43:24
+ * @LastEditTime : 2021-03-17 10:46:47
  * @Description  :
  */
 import styleSheet from "../../stylesheet/grid.json";
 import { utils } from "../../../utils/utils.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+
 
 export default {
     name: "hope_grid",

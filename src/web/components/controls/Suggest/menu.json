@@ -1,0 +1,38 @@
+{
+    "axis": {
+        "x": null,
+        "y": null
+    },
+    "menulists": [
+        {
+            "fnHandler": "selectThis",
+            "icoName": "iconfont icon-xuanze",
+            "type":"select",
+            "btnName": "选中组件"
+        },
+        {
+            "fnHandler": "lockRatioThis",
+            "icoName": "iconfont icon-bili",
+            "type":"scale",
+            "btnName": "开启比例缩放"
+        },
+        {
+            "fnHandler": "lockThis",
+            "icoName": "iconfont icon-suoding",
+            "type":"lock",
+            "btnName": "锁定组件"
+        },
+        {
+            "fnHandler": "copyThis",
+            "icoName": "iconfont icon-copy",
+            "type":"cp",
+            "btnName": "复制组件"
+        },
+        {
+            "fnHandler": "delThis",
+            "icoName": "iconfont icon-changyonggoupiaorenshanchu",
+            "type":"del",
+            "btnName": "移除组件"
+        }
+    ]
+}

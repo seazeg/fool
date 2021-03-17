@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-16 13:25:37
+ * @LastEditTime : 2021-03-16 18:11:21
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
@@ -9,8 +9,10 @@ import { utils } from "../../utils/utils.js";
 export const methods = {
     showMenu(id, event) {
         event.preventDefault();
+        event.stopPropagation();
         let x = event.offsetX;
         let y = event.offsetY;
+        console.log(x,y);
         this.contextMenuData.axis = {
             x,
             y,

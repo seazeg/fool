@@ -17,18 +17,19 @@
                         'no-allow': item.disabled ? item.disabled : false,
                     }">
                     <i :class="item.icoName ? item.icoName : ''" class="nav-icon-fontawe"></i>
-                    <span v-if="ele.zoomParams.draggable && item.type == 'lock'" class="nav-name-right">锁定组件</span>
+                    <span v-if="ele.zoomParams.draggable && item.type == 'lock'"
+                        class="nav-name-right">{{ item.btnName }}</span>
                     <span v-else-if="
                             !ele.zoomParams.draggable && item.type == 'lock'
                         " class="nav-name-right">解锁组件</span>
                     <span v-else-if="
                             ele.zoomParams.lockAspectRatio &&
-                            item.type == 'scale'
+                                item.type == 'scale'
                         " class="nav-name-right">关闭比例缩放</span>
                     <span v-else-if="
                             !ele.zoomParams.lockAspectRatio &&
-                            item.type == 'scale'
-                        " class="nav-name-right">开启比例缩放</span>
+                                item.type == 'scale'
+                        " class="nav-name-right">{{ item.btnName }}</span>
                     <span v-else class="nav-name-right">{{
                         item.btnName
                     }}</span>
@@ -76,8 +77,10 @@
         },
         watch: {
             "contextMenuData.axis"(val) {
-                var x = val.x;
-                var y = val.y;
+                var {
+                    x,
+                    y
+                } = val;
                 var innerWidth = window.innerWidth;
                 var innerHeight = window.innerHeight;
                 var _this = this;
@@ -92,8 +95,8 @@
                 $(".vue-contextmenu-listWrapper").css("display", "none");
                 var menu = document.getElementsByClassName(menuName)[index];
                 menu.style.display = "block";
-                var menuHeight = this.contextMenuData.menulists.length * 30;
-                var menuWidth = 150;
+                var menuHeight = this.contextMenuData.menulists.length * 36;
+                var menuWidth = 180;
                 menu.style.top =
                     (y + menuHeight > innerHeight ? innerHeight - menuHeight : y) +
                     "px";
@@ -156,6 +159,7 @@
         font-family: "Courier New", Courier, monospace;
         font-size: 12px;
         user-select: none;
+        border: 1px solid #e6e6e6;
     }
 
     .vue-contextmenu-listWrapper .context-menu-list {

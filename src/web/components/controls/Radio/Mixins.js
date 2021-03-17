@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 17:05:18
+ * @LastEditTime : 2021-03-17 10:46:15
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
 import { methods, computed } from "../public.js";
-import rightMenu from '../../plugins/contextMenu/menu.json'
+import rightMenu from "./menu.json";
 
 export default {
     name: "hope_radio",

@@ -6,7 +6,7 @@
  */
 import styleSheet from "../../stylesheet/checkbox.json";
 import { methods, computed } from "../public.js";
-import rightMenu from "../../plugins/contextMenu/menu.json";
+import rightMenu from "./menu.json";
 
 export default {
     name: "hope_checkbox",

@@ -7,7 +7,7 @@
 import styleSheet from "../../stylesheet/suggest.json";
 import styleSheet_ext from "../../stylesheet/input.json";
 import { methods, computed } from "../public.js";
-import rightMenu from "../../plugins/contextMenu/menu.json";
+import rightMenu from "./menu.json";
 
 export default {
     name: "hope_suggest",

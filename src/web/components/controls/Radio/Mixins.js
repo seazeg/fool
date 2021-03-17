@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 14:11:44
+ * @LastEditTime : 2021-03-17 14:37:06
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -22,7 +22,7 @@ export default {
         draggable: true,
         lockAspectRatio: false
     },
-    includes: { base: true},
+    includes: { base: true, effect:true},
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

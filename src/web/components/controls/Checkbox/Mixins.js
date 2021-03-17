@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 14:12:06
+ * @LastEditTime : 2021-03-17 14:36:57
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -20,9 +20,9 @@ export default {
         y: 10,
         resizable: false,
         draggable: true,
-        lockAspectRatio: false
+        lockAspectRatio: false,
     },
-    includes: { base: true },
+    includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },
     scriptParams: {},
     script(ele) {

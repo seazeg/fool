@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-18 11:40:43
+ * @LastEditTime : 2021-03-18 14:00:07
  * @Description  :
  */
 import Vue from "vue";
@@ -131,6 +131,7 @@ export default new Vuex.Store({
         },
         "Hope/clearControlsList": (state) => {
             state.controls = [];
+            state.selected = {};
         },
         "Hope/CopyControl": (state, id) => {
             (function func(cls, id, state) {

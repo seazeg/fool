@@ -74,7 +74,6 @@ module.exports = {
                     icon: "src/client/icons/icon.ico",
                     target: ["zip", "nsis"],
                 },
-
                 mac: {
                     icon: "src/client/icons/icon.icns",
                     target: ["zip", "dmg"],

@@ -1,19 +1,18 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 09:30:38
- * @LastEditTime : 2021-03-18 09:53:10
+ * @LastEditTime : 2021-03-18 16:42:04
  * @Description  :
  */
 "use strict";
 
-import { app, protocol, BrowserWindow, ipcMain, screen } from "electron";
+import { app, protocol, BrowserWindow } from "electron";
 import {
     createProtocol,
     installVueDevtools,
 } from "vue-cli-plugin-electron-builder/lib";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -32,7 +31,7 @@ protocol.registerSchemesAsPrivileged([
 function createWindow() {
     // Create the browser window.
     win = new BrowserWindow({
-        width: 1366,
+        width: 1440,
         height: 700,
         webPreferences: {
             webSecurity: false,
@@ -42,9 +41,10 @@ function createWindow() {
     win.setMenu(null);
     win.maximize();
     // win.webContents.openDevTools();
-
+    console.log(process.env.WEBPACK_DEV_SERVER_URL);
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
+        
         win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
         if (!process.env.IS_TEST) win.webContents.openDevTools();
     } else {
@@ -79,6 +79,7 @@ app.on("activate", () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on("ready", async () => {
+    createWindow();
     if (isDevelopment && !process.env.IS_TEST) {
         // Install Vue Devtools
         try {
@@ -87,7 +88,6 @@ app.on("ready", async () => {
             console.error("Vue Devtools failed to install:", e.toString());
         }
     }
-    createWindow();
 });
 
 // Exit cleanly on request from parent process in development mode.

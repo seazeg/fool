@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "10019388",
+      "name": "导出",
+      "font_class": "exportdaochu",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "10019390",
+      "name": "导入",
+      "font_class": "printdaoru",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
       "icon_id": "11391485",
       "name": "比例",
       "font_class": "bili",

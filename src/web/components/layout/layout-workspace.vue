@@ -126,12 +126,16 @@
                 </el-tab-pane>
             </el-tabs>
             <div class="viewTools">
-                <div @click="clearView" class="clearView">
+                <div @click="importControl" class="box">
+                    <i class="iconfont icon-printdaoru"></i><span>导入</span>
+                </div>
+                <b>|</b>
+                <div @click="clearView" class="box">
                     <i class="iconfont icon-changyonggoupiaorenshanchu"></i
                     ><span>清空画布</span>
                 </div>
                 <b>|</b>
-                <div @click="isTreeShow = true" class="treeView">
+                <div @click="isTreeShow = true" class="box">
                     <i class="iconfont icon-tree"></i><span>组件树</span>
                 </div>
             </div>
@@ -260,8 +264,11 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-coy.css"; //okaidia
 
+import { utils } from "../../utils/utils.js";
 import { handle } from "../../utils/handle";
 import ruleraxisy from "../plugins/ruleraxisy";
+
+import ButtonMixins from "../controls/Button/Mixins";
 
 export default {
     name: "layout-workspace",
@@ -465,6 +472,110 @@ export default {
             } else {
                 return true;
             }
+        },
+        importControl() {
+            // ButtonMixins
+            const style = {
+                ".hopeui-btn": {
+                    display: "inline-block",
+                    width: "980px",
+                    height: "40px",
+                    "line-height": "40px",
+                    "background-color": "#2DB4EE",
+                    color: "#ffffff",
+                    "text-align": "center",
+                    "font-size": "14px",
+                    border: "none",
+                    "border-radius": "2px",
+                    transition: "all 0.3s",
+                    "white-space": "nowrap",
+                    overflow: "hidden",
+                    "text-overflow": "ellipsis",
+                    cursor: "pointer",
+                    "border-width": "0px",
+                },
+                ".hopeui-btn i": { padding: "0 2px" },
+                ".hopeui-btn:hover": {
+                    opacity: "0.8",
+                    filter: "alpha(opacity=80)",
+                    transition: "all 0.3s",
+                    color: "#ffffff",
+                },
+                ".hopeui-btn.hopeui-btn-primary": {
+                    border: "1px solid #d8d8d8",
+                    "background-color": "#ffffff",
+                    color: "#555555",
+                    "line-height": "36px",
+                },
+                ".hopeui-btn.hopeui-btn-radius": { "border-radius": "100px" },
+                ".hopeui-btn.hopeui-btn-disabled": {
+                    border: "1px solid #e6e6e6",
+                    "background-color": "#fafafa",
+                    color: "#d2d2d2",
+                    cursor: "not-allowed",
+                    opacity: "1",
+                    "line-height": "36px",
+                },
+                ".hopeui-btn.hopeui-btn-disabled:active": {
+                    border: "1px solid #e6e6e6",
+                    "background-color": "#fafafa",
+                    color: "#d2d2d2",
+                    cursor: "not-allowed",
+                    opacity: "1",
+                    "line-height": "36px",
+                },
+                ".hopeui-btn.hopeui-btn-disabled:hover": {
+                    border: "1px solid #e6e6e6",
+                    "background-color": "#fafafa",
+                    color: "#d2d2d2",
+                    cursor: "not-allowed",
+                    opacity: "1",
+                    "line-height": "36px",
+                },
+                ".hopeui-btn-group": {
+                    display: "inline-block",
+                    "font-size": "0",
+                    "vertical-align": "top",
+                },
+                ".hopeui-btn-group .hopeui-btn": {
+                    "margin-left": "0 !important",
+                    "margin-right": "0 !important",
+                    "border-left": "1px solid rgba(255, 255, 255, 0.5)",
+                    "border-radius": "0",
+                },
+                ".hopeui-btn-group .hopeui-btn:first-child": {
+                    "border-left": "none",
+                    "border-radius": "2px 0 0 2px",
+                },
+                ".hopeui-btn-group .hopeui-btn:last-child": {
+                    "border-radius": "0 2px 2px 0",
+                },
+            };
+            let _this = this,
+                ele = ButtonMixins,
+                oo;
+            ele.styleSheet = styleSheet;
+            ele.zoomParams = zoomParams;
+            ele.scriptParams = scriptParams;
+            oo = _.cloneDeep(ele);
+            (function func(cls) {
+                for (let ele of cls) {
+                    let id = "hope_" + utils.getRandomName(6);
+                    _this.$set(ele, "id", id);
+                    if ($egu.isArray(ele.children) && ele.children.length > 0) {
+                        func(ele.children);
+                    }
+                }
+            })([oo]);
+            this.$store.commit("Hope/ResetControlSelected");
+            this.$store.commit("Hope/ControlsAddContainer", oo);
+            this.$store.commit("Hope/ChooseControl", {
+                id: oo.id,
+                type: false,
+            });
+            this.$store.commit("Hope/ControlsSelected", oo);
+
+            // console.log(JSON.stringify(this.$store.state.selected.styleSheet));
         },
         clearView() {
             this.$confirm("确定清空画布？", "提示", {

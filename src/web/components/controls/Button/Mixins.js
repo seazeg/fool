@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 14:34:52
+ * @LastEditTime : 2021-03-18 10:43:45
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -32,7 +32,7 @@ export default {
     render() {
         return (
             <div>
-                <button type="button" class="hopeui-btn">
+                <button type="button" class="hopeui-btn" contenteditable="true">
                     普通按钮
                 </button>
             </div>

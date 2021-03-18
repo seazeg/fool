@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 14:37:06
+ * @LastEditTime : 2021-03-18 10:47:40
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -63,8 +63,8 @@ export default {
                 <input
                     type="radio"
                     name="radio"
-                    value="男"
-                    title="男"
+                    value="选项一"
+                    title="选项一"
                     class={this.ele.id}
                     checked
                     hope-verify="required"
@@ -72,16 +72,16 @@ export default {
                 <input
                     type="radio"
                     name="radio"
-                    value="女"
-                    title="女"
+                    value="选项二"
+                    title="选项二"
                     class={this.ele.id}
                     hope-verify="required"
                 />
                 <input
                     type="radio"
                     name="radio"
-                    value="什么玩意"
-                    title="什么玩意"
+                    value="选项三"
+                    title="选项三"
                     class={this.ele.id}
                     disabled
                     hope-verify="required"

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-16 18:11:21
+ * @LastEditTime : 2021-03-18 11:42:28
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
@@ -31,7 +31,7 @@ export const methods = {
         this.$confirm("确定移除当前组件？", "提示", {
             confirmButtonText: "确定",
             cancelButtonText: "取消",
-            type: "info",
+            type: "warning",
         })
             .then(() => {
                 this.$store.commit("Hope/RemoveControl", this.ele.id);

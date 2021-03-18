@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 14:36:57
+ * @LastEditTime : 2021-03-18 10:51:37
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -61,21 +61,21 @@ export default {
                 <input
                     type="checkbox"
                     name="subject"
-                    value="音乐"
+                    value="选项一"
                     class={this.ele.id}
                     hope-verify="required"
                 />
                 <input
                     type="checkbox"
                     name="subject"
-                    value="历史"
+                    value="选项二"
                     class={this.ele.id}
                     hope-verify="required"
                 />
                 <input
                     type="checkbox"
                     name="subject"
-                    value="生物"
+                    value="选项三"
                     class={this.ele.id}
                     disabled
                     hope-verify="required"

@@ -4,7 +4,7 @@
 }
 </style>
 <template>
-    <div class="wrapper" >
+    <div class="wrapper">
         <!-- 视图 -->
         <div class="view">
             <el-tabs
@@ -125,9 +125,17 @@
                     </div>
                 </el-tab-pane>
             </el-tabs>
-            <div @click="isTreeShow = true" class="treeView">
-                <i class="iconfont icon-tree"></i><span>组件树</span>
+            <div class="viewTools">
+                <div @click="clearView" class="clearView">
+                    <i class="iconfont icon-changyonggoupiaorenshanchu"></i
+                    ><span>清空画布</span>
+                </div>
+                <b>|</b>
+                <div @click="isTreeShow = true" class="treeView">
+                    <i class="iconfont icon-tree"></i><span>组件树</span>
+                </div>
             </div>
+
             <layout-statusbar :ele="selectedControl"></layout-statusbar>
         </div>
 
@@ -451,48 +459,23 @@ export default {
                 duration: 500,
             });
         },
-        htmlGenerator() {
-            let defaultHTML = `
-                <!DOCTYPE html>
-                    <html lang="zh">
-                    <head>
-                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        <meta charset="UTF-8">
-                        <title>HOPE</title>
-                        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
-                        <meta name="format-detection" content="telephone=no, email=no" />
-                        <meta name="renderer" content="webkit">
-                        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-                        <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9; IE=8; IE=7; IE=EDGE">
-                        <link rel="stylesheet" href="hopeui\/hopeui.min.css" />
-                        <style>
-                            ${this.source.css}
-                        </style>
-                    </head>
-
-                    <body>
-                        ${this.source.html}
-                        <script src="hopeui\/hopeui.min.js"><\/script>
-
-                        <script>
-                        ${this.source.js}
-                        <\/script><\/body><\/html>
-                `;
-
-            $http
-                .post("http://localhost:2599/generateHTML", {
-                    html: defaultHTML,
-                })
-                .then(function (res) {
-                    window.open("http://localhost:2599/preview.html");
-                });
-        },
         allowDrop(draggingNode, dropNode, type) {
             if (!dropNode.data.name.includes("grid")) {
                 return type !== "inner";
             } else {
                 return true;
             }
+        },
+        clearView() {
+            this.$confirm("确定清空画布？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: "warning",
+            })
+                .then(() => {
+                    this.$store.commit("Hope/clearControlsList");
+                })
+                .catch(() => {});
         },
         treeNodeClick(e) {
             console.log(e);
@@ -503,7 +486,7 @@ export default {
             this.$confirm("确定移除当前组件？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",
-                type: "info",
+                type: "warning",
             })
                 .then(() => {
                     this.$store.commit("Hope/RemoveControl", e.id);

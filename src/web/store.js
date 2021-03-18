@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-16 13:26:07
+ * @LastEditTime : 2021-03-18 11:40:43
  * @Description  :
  */
 import Vue from "vue";
@@ -24,10 +24,10 @@ export default new Vuex.Store({
         "Hope/UpdateControlParams": (state, ele) => {
             let styleSheet = state.selected.styleSheet;
             let handler = (ele, isDiff) => {
-                Object.keys(styleSheet).forEach(function (key) {
-                    ele.key.forEach(function (item) {
+                Object.keys(styleSheet).forEach(function(key) {
+                    ele.key.forEach(function(item) {
                         if (key == item) {
-                            Object.keys(styleSheet[key]).forEach(function (
+                            Object.keys(styleSheet[key]).forEach(function(
                                 line
                             ) {
                                 if (line == Object.keys(ele)[0]) {
@@ -118,7 +118,7 @@ export default new Vuex.Store({
         },
         "Hope/RemoveControl": (state, id) => {
             (function func(cls, id, state) {
-                cls.forEach(function (ele, i) {
+                cls.forEach(function(ele, i) {
                     if (ele.id == id) {
                         cls.splice(i, 1);
                     } else {
@@ -129,15 +129,18 @@ export default new Vuex.Store({
                 });
             })(state.controls, id, state);
         },
+        "Hope/clearControlsList": (state) => {
+            state.controls = [];
+        },
         "Hope/CopyControl": (state, id) => {
             (function func(cls, id, state) {
-                cls.forEach(function (ele, i) {
+                cls.forEach(function(ele, i) {
                     if (ele.id == id) {
                         let newEle = _.cloneDeep(ele);
                         newEle.id = "hope_" + utils.getRandomName(6);
                         newEle.zoomParams.x = 10;
                         newEle.zoomParams.y = 10;
-                        newEle.isSelected = false; 
+                        newEle.isSelected = false;
                         state.controls.push(newEle);
                         return;
                     } else {
@@ -150,9 +153,9 @@ export default new Vuex.Store({
         },
         "Hope/LockControl": (state, id) => {
             (function func(cls, id, state) {
-                cls.forEach(function (ele, i) {
+                cls.forEach(function(ele, i) {
                     if (ele.id == id) {
-                        ele.zoomParams.draggable = !ele.zoomParams.draggable; 
+                        ele.zoomParams.draggable = !ele.zoomParams.draggable;
                     } else {
                         if (ele.children) {
                             func(ele.children, id, state);
@@ -163,9 +166,10 @@ export default new Vuex.Store({
         },
         "Hope/lockRatioControl": (state, id) => {
             (function func(cls, id, state) {
-                cls.forEach(function (ele, i) {
+                cls.forEach(function(ele, i) {
                     if (ele.id == id) {
-                        ele.zoomParams.lockAspectRatio = !ele.zoomParams.lockAspectRatio; 
+                        ele.zoomParams.lockAspectRatio = !ele.zoomParams
+                            .lockAspectRatio;
                     } else {
                         if (ele.children) {
                             func(ele.children, id, state);

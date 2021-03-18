@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 17:04:56
+ * @LastEditTime : 2021-03-18 14:52:45
  * @Description  :
  */
 import styleSheet from "../../stylesheet/loadmore.json";
@@ -22,7 +22,7 @@ export default {
         draggable: true,
         lockAspectRatio: false
     },
-    includes: { options: true },
+    includes: {options: true },
     styleSheet: { ...styleSheet },
     scriptParams: {
         loadBtnName: "加载更多",

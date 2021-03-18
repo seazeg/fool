@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-03-11 15:09:36
+ * @LastEditTime : 2021-03-18 14:38:43
  * @Description  :
  */
 export const fields = {
@@ -55,6 +55,7 @@ export const fields = {
                     ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
                     ".hopeui-pager .hopeui-pager-jump input",
+                    ".hopeui-pager .hopeui-pager-count"
                 ],
                 isDiff: "px",
             });
@@ -63,9 +64,16 @@ export const fields = {
                 key: [
                     ".hopeui-pager > span",
                     ".hopeui-pager .hopeui-pager-omit",
-                    ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
                     ".hopeui-pager .hopeui-pager-jump input",
+                ],
+                isDiff: "px",
+            });
+            this.$store.commit("Hope/UpdateControlParams", {
+                "line-height":value,
+                key: [
+                    ".hopeui-pager .hopeui-pager-jump",
+                    ".hopeui-pager .hopeui-pager-count"
                 ],
                 isDiff: "px",
             });
@@ -216,7 +224,6 @@ export const fields = {
                 key: [
                     ".hopeui-pager > span",
                     ".hopeui-pager .hopeui-pager-omit",
-                    ".hopeui-pager .hopeui-pager-jump",
                     ".hopeui-pager .hopeui-pager-jump button",
                     ".hopeui-pager .hopeui-pager-jump input",
                 ],

@@ -1,12 +1,12 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 09:30:38
- * @LastEditTime : 2021-02-20 11:38:36
- * @Description  : 
+ * @LastEditTime : 2021-03-18 09:53:10
+ * @Description  :
  */
 "use strict";
 
-import { app, protocol, BrowserWindow } from "electron";
+import { app, protocol, BrowserWindow, ipcMain, screen } from "electron";
 import {
     createProtocol,
     installVueDevtools,
@@ -39,8 +39,9 @@ function createWindow() {
             nodeIntegration: true,
         },
     });
-    win.setMenu(null);    
-    win.maximize()
+    win.setMenu(null);
+    win.maximize();
+    // win.webContents.openDevTools();
 
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode

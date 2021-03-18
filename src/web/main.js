@@ -1,8 +1,8 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-12 17:37:19
- * @Description  : 
+ * @LastEditTime : 2021-03-18 09:53:03
+ * @Description  :
  */
 import Vue from "vue";
 import App from "./App.vue";
@@ -18,7 +18,7 @@ import ElementUI from "element-ui";
 
 import VueClipboard from "vue-clipboard2";
 
-import VueContextMenu from './components/plugins/contextMenu/main'
+import VueContextMenu from "./components/plugins/contextMenu/main";
 
 import $ from "jquery";
 import egu from "eg-utils";
@@ -32,16 +32,13 @@ import "./assets/icons/fonts/iconfont.css";
 import "./assets/icons/fonts/hopeui/hopefont.css";
 import "./styles/theme.less";
 
-
-
-import vdr from './components/plugins/vue-draggable-resizable-gorkys'
-import './components/plugins/vue-draggable-resizable-gorkys/components/vue-draggable-resizable.css'
-Vue.component('vdr', vdr)
-
+import vdr from "./components/plugins/vue-draggable-resizable-gorkys";
+import "./components/plugins/vue-draggable-resizable-gorkys/components/vue-draggable-resizable.css";
+Vue.component("vdr", vdr);
 
 Vue.use(ElementUI);
 Vue.use(VueClipboard);
-Vue.use(VueContextMenu)
+Vue.use(VueContextMenu);
 Vue.component(draggable.name, draggable);
 
 window.$egu = egu;
@@ -60,4 +57,6 @@ window.vm = new Vue({
     render: (h) => h(App),
 }).$mount("#app");
 
-
+if (navigator.userAgent.toLowerCase().indexOf("electron/") > -1) {
+    require("electron").webFrame.setZoomFactor(window.innerWidth / 1920);
+}

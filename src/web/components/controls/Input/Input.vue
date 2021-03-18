@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 15:25:14
+ * @LastEditTime : 2021-03-18 17:48:03
  * @Description  : 
 -->
 <template>
@@ -83,8 +83,10 @@ export default {
     methods: {
         ...Mixins.methods,
         onResizing(x, y, w, h) {
+         
             if (this.ele.unitSwitch.width == "px") {
                 this.width_px = w;
+                 console.log(w);
             } else {
                 this.width = w;
             }

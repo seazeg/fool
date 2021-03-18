@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-14 16:28:14
- * @LastEditTime : 2021-03-16 15:23:38
+ * @LastEditTime : 2021-03-18 17:53:18
  * @Description  :
  */
 export const fields = {
@@ -17,6 +17,8 @@ export const fields = {
                 key: [".hopeui-input"],
                 isDiff: "per",
             });
+           
+          
             this.$store.state.selected.zoomParams.width = value;
         },
     },
@@ -29,9 +31,14 @@ export const fields = {
         set(value) {
             this.$store.commit("Hope/UpdateControlParams", {
                 width: value,
-                key: [".hopeui-input"],
+                key: [".hopeui-input",".hopeui-input-warp"],
                 isDiff: "px",
-            });
+            });    
+            this.$store.commit("Hope/UpdateControlParams", {
+                width: value + 'px!important',
+                key: [".hopeui-input-warp"],
+                isDiff: "same",
+            });    
             this.$store.state.selected.zoomParams.width = value;
         },
     },

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 10:45:54
+ * @LastEditTime : 2021-03-18 16:13:16
  * @Description  :
  */
 import styleSheet from "../../stylesheet/carousel.json";
@@ -20,7 +20,7 @@ export default {
         y: 10,
         resizable: false,
         draggable: true,
-        lockAspectRatio: false
+        lockAspectRatio: false,
     },
     includes: { options: true },
     styleSheet: { ...styleSheet },
@@ -98,11 +98,7 @@ export default {
                             <div
                                 class="title"
                                 style={
-                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
-                                    "#" +
-                                    Math.floor(
-                                        Math.random() * 0xffffff
-                                    ).toString(16)
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:#aed581"
                                 }
                             >
                                 Slide 1
@@ -112,11 +108,7 @@ export default {
                             <div
                                 class="title"
                                 style={
-                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
-                                    "#" +
-                                    Math.floor(
-                                        Math.random() * 0xffffff
-                                    ).toString(16)
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:#81d4fa"
                                 }
                             >
                                 Slide 2
@@ -126,11 +118,7 @@ export default {
                             <div
                                 class="title"
                                 style={
-                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
-                                    "#" +
-                                    Math.floor(
-                                        Math.random() * 0xffffff
-                                    ).toString(16)
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:#ef9a9a"
                                 }
                             >
                                 Slide 3
@@ -140,11 +128,7 @@ export default {
                             <div
                                 class="title"
                                 style={
-                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
-                                    "#" +
-                                    Math.floor(
-                                        Math.random() * 0xffffff
-                                    ).toString(16)
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:#b4a7d6"
                                 }
                             >
                                 Slide 4
@@ -154,11 +138,7 @@ export default {
                             <div
                                 class="title"
                                 style={
-                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
-                                    "#" +
-                                    Math.floor(
-                                        Math.random() * 0xffffff
-                                    ).toString(16)
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:#f1e694"
                                 }
                             >
                                 Slide 5
@@ -168,11 +148,7 @@ export default {
                             <div
                                 class="title"
                                 style={
-                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:" +
-                                    "#" +
-                                    Math.floor(
-                                        Math.random() * 0xffffff
-                                    ).toString(16)
+                                    "height:300px;color:#fff;font-size:20px;line-height:300px;text-align: center;background:#ec99e9"
                                 }
                             >
                                 Slide 6

@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 13:56:02
+ * @LastEditTime : 2021-03-18 15:25:58
  * @Description  : 
 -->
 <template>
@@ -37,7 +37,7 @@
         :class="{ locking: !ele.zoomParams.draggable && ele.isSelected }"
     >
         <pre v-html="style"></pre>
-        <pre class="htmlCache">{{ thishtml }}</pre>
+        <pre class="htmlCache">{{ ele.html }}</pre>
 
         <Mixins
             :id="ele.id + '_container'"
@@ -113,9 +113,11 @@ export default {
         let _this = this;
         _this.$nextTick(function() {
             try {
-                _this.thishtml = _this.ele.html = $(
-                    `#${_this.ele.id}_container`
-                ).html();
+                _this.$set(
+                    _this.ele,
+                    "html",
+                    $(`#${_this.ele.id}_container`).html()
+                );
                 _this.ele.controlObject = Function(
                     "_this",
                     Mixins.script(_this.ele)

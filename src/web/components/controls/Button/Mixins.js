@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-18 10:43:45
+ * @LastEditTime : 2021-03-18 15:24:23
  * @Description  :
  */
 import styleSheet from "../../stylesheet/button.json";
@@ -21,7 +21,7 @@ export default {
         y: 10,
         resizable: true,
         draggable: true,
-        lockAspectRatio: false
+        lockAspectRatio: false,
     },
     includes: { base: true, effect: true },
     styleSheet: { ...styleSheet },
@@ -32,7 +32,12 @@ export default {
     render() {
         return (
             <div>
-                <button type="button" class="hopeui-btn" contenteditable="true">
+                <button
+                    type="button"
+                    class="hopeui-btn"
+                    contenteditable="true"
+                    onInput={this.input}
+                >
                     普通按钮
                 </button>
             </div>
@@ -47,5 +52,11 @@ export default {
     contextMenuData: rightMenu,
     methods: {
         ...methods,
+        input(e) {
+            let _this = this;
+            _this.thishtml = _this.ele.html = $(
+                `#${_this.ele.id}_container`
+            ).html();
+        },
     },
 };

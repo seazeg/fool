@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-07-09 17:02:39
- * @LastEditTime : 2021-03-11 10:32:32
+ * @LastEditTime : 2021-03-18 15:27:16
  * @Description  :
  */
 
@@ -13,6 +13,7 @@ export const handle = {
     reduceHTML: (ele) => {
         try {
             let result = $(`.${ele.id}`).find('.htmlCache').text();
+            result = result.replace(`contenteditable="true"`,"")
             return format.render(result);
         } catch (error) {}
 

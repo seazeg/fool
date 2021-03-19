@@ -126,14 +126,40 @@
                 </el-tab-pane>
             </el-tabs>
             <div class="viewTools">
-                <div @click="importControl" class="box">
-                    <i class="iconfont icon-printdaoru"></i><span>导入</span>
-                </div>
-                <b>|</b>
-                <div @click="clearView" class="box">
-                    <i class="iconfont icon-changyonggoupiaorenshanchu"></i
-                    ><span>清空画布</span>
-                </div>
+                <el-dropdown @command="menuHandler" trigger="click">
+                    <span class="el-dropdown-link">
+                        <i
+                            class="iconfont icon-caidan"
+                            style="position: relative;top: 2px;"
+                        ></i>
+                        <span>功能菜单</span
+                        ><i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item command="importControl">
+                            <i class="iconfont icon-printdaoru"></i>
+                            <span>导入组件</span>
+                        </el-dropdown-item>
+                        <el-dropdown-item command="exportControl">
+                            <i class="iconfont icon-exportdaochu"></i>
+                            <span>导出组件</span>
+                        </el-dropdown-item>
+                        <el-dropdown-item command="openWorkspace" divided>
+                            <i class="iconfont icon-dakai"></i>
+                            <span>打开工作区</span>
+                        </el-dropdown-item>
+                        <el-dropdown-item command="saveWorkspace">
+                            <i class="iconfont icon-baocun"></i>
+                            <span>保存工作区</span>
+                        </el-dropdown-item>
+                        <el-dropdown-item command="clearWorkspace" divided>
+                            <i
+                                class="iconfont icon-changyonggoupiaorenshanchu"
+                            ></i
+                            ><span>清空画布</span>
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
                 <b>|</b>
                 <div @click="isTreeShow = true" class="box">
                     <i class="iconfont icon-tree"></i><span>组件树</span>
@@ -268,7 +294,19 @@ import { utils } from "../../utils/utils.js";
 import { handle } from "../../utils/handle";
 import ruleraxisy from "../plugins/ruleraxisy";
 
+import SelectorMixins from "../controls/Selector/Mixins";
+import GridMixins from "../controls/Grid/Mixins";
+import RadioMixins from "../controls/Radio/Mixins";
+import InputMixins from "../controls/Input/Mixins";
+import SuggestMixins from "../controls/Suggest/Mixins";
+import CheckboxMixins from "../controls/Checkbox/Mixins";
+import TextareaMixins from "../controls/Textarea/Mixins";
+import PagerMixins from "../controls/Pager/Mixins";
 import ButtonMixins from "../controls/Button/Mixins";
+import CarouselMixins from "../controls/Carousel/Mixins";
+import DatapickerMixins from "../controls/Datepicker/Mixins";
+import ZoomMixins from "../controls/Zoom/Mixins";
+import LoadmoreMixins from "../controls/Loadmore/Mixins";
 
 export default {
     name: "layout-workspace",
@@ -424,6 +462,22 @@ export default {
         selectedControl() {
             return this.$store.state.selected;
         },
+        metaData() {
+            return {
+                hope_selector: SelectorMixins,
+                hope_radio: RadioMixins,
+                hope_input: InputMixins,
+                hope_suggest: SuggestMixins,
+                hope_checkbox: CheckboxMixins,
+                hope_textarea: TextareaMixins,
+                hope_pager: PagerMixins,
+                hope_button: ButtonMixins,
+                hope_carousel: CarouselMixins,
+                hope_datepicker: DatapickerMixins,
+                hope_zoom: ZoomMixins,
+                hope_loadmore: LoadmoreMixins,
+            };
+        },
     },
     methods: {
         highHTML(code) {
@@ -473,111 +527,85 @@ export default {
                 return true;
             }
         },
+        menuHandler(cmd) {
+            switch (cmd) {
+                case "importControl":
+                    this.importControl();
+                    break;
+                case "exportControl":
+                    this.exportControl();
+                    break;
+                case "openWorkspace":
+                    this.openWorkspace();
+                    break;
+                case "saveWorkspace":
+                    this.saveWorkspace();
+                    break;
+                case "clearWorkspace":
+                    this.clearWorkspace();
+                default:
+                    break;
+            }
+        },
         importControl() {
-            // ButtonMixins
-            const style = {
-                ".hopeui-btn": {
-                    display: "inline-block",
-                    width: "980px",
-                    height: "40px",
-                    "line-height": "40px",
-                    "background-color": "#2DB4EE",
-                    color: "#ffffff",
-                    "text-align": "center",
-                    "font-size": "14px",
-                    border: "none",
-                    "border-radius": "2px",
-                    transition: "all 0.3s",
-                    "white-space": "nowrap",
-                    overflow: "hidden",
-                    "text-overflow": "ellipsis",
-                    cursor: "pointer",
-                    "border-width": "0px",
-                },
-                ".hopeui-btn i": { padding: "0 2px" },
-                ".hopeui-btn:hover": {
-                    opacity: "0.8",
-                    filter: "alpha(opacity=80)",
-                    transition: "all 0.3s",
-                    color: "#ffffff",
-                },
-                ".hopeui-btn.hopeui-btn-primary": {
-                    border: "1px solid #d8d8d8",
-                    "background-color": "#ffffff",
-                    color: "#555555",
-                    "line-height": "36px",
-                },
-                ".hopeui-btn.hopeui-btn-radius": { "border-radius": "100px" },
-                ".hopeui-btn.hopeui-btn-disabled": {
-                    border: "1px solid #e6e6e6",
-                    "background-color": "#fafafa",
-                    color: "#d2d2d2",
-                    cursor: "not-allowed",
-                    opacity: "1",
-                    "line-height": "36px",
-                },
-                ".hopeui-btn.hopeui-btn-disabled:active": {
-                    border: "1px solid #e6e6e6",
-                    "background-color": "#fafafa",
-                    color: "#d2d2d2",
-                    cursor: "not-allowed",
-                    opacity: "1",
-                    "line-height": "36px",
-                },
-                ".hopeui-btn.hopeui-btn-disabled:hover": {
-                    border: "1px solid #e6e6e6",
-                    "background-color": "#fafafa",
-                    color: "#d2d2d2",
-                    cursor: "not-allowed",
-                    opacity: "1",
-                    "line-height": "36px",
-                },
-                ".hopeui-btn-group": {
-                    display: "inline-block",
-                    "font-size": "0",
-                    "vertical-align": "top",
-                },
-                ".hopeui-btn-group .hopeui-btn": {
-                    "margin-left": "0 !important",
-                    "margin-right": "0 !important",
-                    "border-left": "1px solid rgba(255, 255, 255, 0.5)",
-                    "border-radius": "0",
-                },
-                ".hopeui-btn-group .hopeui-btn:first-child": {
-                    "border-left": "none",
-                    "border-radius": "2px 0 0 2px",
-                },
-                ".hopeui-btn-group .hopeui-btn:last-child": {
-                    "border-radius": "0 2px 2px 0",
-                },
-            };
-            let _this = this,
-                ele = ButtonMixins,
-                oo;
+            let openControl = {}; //外部载入
+            let ele = this.metaData[openControl.name];
             ele.styleSheet = styleSheet;
             ele.zoomParams = zoomParams;
             ele.scriptParams = scriptParams;
-            oo = _.cloneDeep(ele);
-            (function func(cls) {
-                for (let ele of cls) {
-                    let id = "hope_" + utils.getRandomName(6);
-                    _this.$set(ele, "id", id);
-                    if ($egu.isArray(ele.children) && ele.children.length > 0) {
-                        func(ele.children);
-                    }
-                }
-            })([oo]);
+            ele.html = html
+            this.$set(ele, "id", "hope_" + utils.getRandomName(6));
             this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ControlsAddContainer", oo);
+            this.$store.commit("Hope/ControlsAddContainer", ele);
             this.$store.commit("Hope/ChooseControl", {
-                id: oo.id,
+                id: ele.id,
                 type: false,
             });
-            this.$store.commit("Hope/ControlsSelected", oo);
-
-            // console.log(JSON.stringify(this.$store.state.selected.styleSheet));
+            this.$store.commit("Hope/ControlsSelected", ele);
         },
-        clearView() {
+        exportControl() {
+            let selectedControl = this.selectedControl;
+            let exportControl = {};
+            exportControl.name = selectedControl.name;
+            exportControl.styleSheet = selectedControl.styleSheet;
+            exportControl.scriptParams = selectedControl.scriptParams;
+            exportControl.zoomParams = selectedControl.zoomParams;
+            exportControl.html = selectedControl.html;
+            console.log(exportControl); //导出
+        },
+        openWorkspace() {
+            let _this = this;
+            let openList = {}; //外部载入
+            let importList = [];
+            for (let item of openList) {
+                let obj = _this.metaData[item.name];
+                obj.styleSheet = item.styleSheet;
+                obj.scriptParams = item.scriptParams;
+                obj.zoomParams = item.zoomParams;
+                obj.selected = item.selected;
+                obj.html = item.html;
+                _this.$set(obj, "id", "hope_" + utils.getRandomName(6));
+                importList.push(obj);
+            }
+            this.$store.state.controls = importList;
+            console.log(importList);
+        },
+        saveWorkspace() {
+            let controlsList = this.controls;
+            let exportList = [];
+            for (let item of controlsList) {
+                let obj = {};
+                obj.name = item.name;
+                obj.styleSheet = item.styleSheet;
+                obj.scriptParams = item.scriptParams;
+                obj.zoomParams = item.zoomParams;
+                obj.selected = item.selected;
+                obj.html = item.html;
+                exportList.push(obj);
+            }
+            console.log(exportList); //导出
+        },
+        clearWorkspace() {
             this.$confirm("确定清空画布？", "提示", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消",

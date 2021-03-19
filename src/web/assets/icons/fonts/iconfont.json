@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "887801",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "4570294",
+      "name": "打开",
+      "font_class": "dakai",
+      "unicode": "ebdf",
+      "unicode_decimal": 60383
+    },
+    {
+      "icon_id": "9568043",
+      "name": "保存",
+      "font_class": "baocun",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
       "icon_id": "10019388",
       "name": "导出",
       "font_class": "exportdaochu",

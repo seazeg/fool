@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 09:30:38
- * @LastEditTime : 2021-03-18 16:42:04
+ * @LastEditTime : 2021-03-19 15:15:14
  * @Description  :
  */
 "use strict";
@@ -11,6 +11,7 @@ import {
     createProtocol,
     installVueDevtools,
 } from "vue-cli-plugin-electron-builder/lib";
+import { handler } from "./handler";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 // Keep a global reference of the window object, if you don't, the window will
@@ -44,7 +45,7 @@ function createWindow() {
     console.log(process.env.WEBPACK_DEV_SERVER_URL);
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
-        
+
         win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
         if (!process.env.IS_TEST) win.webContents.openDevTools();
     } else {
@@ -52,6 +53,9 @@ function createWindow() {
         // Load the index.html when not in development
         win.loadURL("app://./index.html");
     }
+
+    handler.importFunc(win);
+    handler.exportFunc(win);
 
     win.on("closed", () => {
         win = null;

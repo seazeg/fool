@@ -136,27 +136,21 @@
                         ><i class="el-icon-arrow-down el-icon--right"></i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item command="importControl">
-                            <i class="iconfont icon-printdaoru"></i>
-                            <span>导入组件</span>
-                        </el-dropdown-item>
-                        <el-dropdown-item command="exportControl">
-                            <i class="iconfont icon-exportdaochu"></i>
-                            <span>导出组件</span>
-                        </el-dropdown-item>
-                        <el-dropdown-item command="openWorkspace" divided>
-                            <i class="iconfont icon-dakai"></i>
-                            <span>打开工作区</span>
-                        </el-dropdown-item>
-                        <el-dropdown-item command="saveWorkspace">
-                            <i class="iconfont icon-baocun"></i>
-                            <span>保存工作区</span>
+                        <el-dropdown-item
+                            :command="item.command"
+                            v-for="(item, index) in menu"
+                            :divided="item.divided"
+                            :key="'menu' + index"
+                            v-if="item.isClient == isClient()"
+                        >
+                            <i class="iconfont" :class="item.icon"></i>
+                            <span>{{ item.name }}</span>
                         </el-dropdown-item>
                         <el-dropdown-item command="clearWorkspace" divided>
                             <i
                                 class="iconfont icon-changyonggoupiaorenshanchu"
-                            ></i
-                            ><span>清空画布</span>
+                            ></i>
+                            <span>清空画布</span>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -165,7 +159,6 @@
                     <i class="iconfont icon-tree"></i><span>组件树</span>
                 </div>
             </div>
-
             <layout-statusbar :ele="selectedControl"></layout-statusbar>
         </div>
 
@@ -292,10 +285,10 @@ import "prismjs/themes/prism-coy.css"; //okaidia
 
 import { utils } from "../../utils/utils.js";
 import { handle } from "../../utils/handle";
+import { message } from "../../utils/message";
 import ruleraxisy from "../plugins/ruleraxisy";
 
 import SelectorMixins from "../controls/Selector/Mixins";
-import GridMixins from "../controls/Grid/Mixins";
 import RadioMixins from "../controls/Radio/Mixins";
 import InputMixins from "../controls/Input/Mixins";
 import SuggestMixins from "../controls/Suggest/Mixins";
@@ -319,6 +312,36 @@ export default {
                 css: "",
                 js: "",
             },
+            menu: [
+                {
+                    name: "打开工作区",
+                    icon: "icon-dakai",
+                    command: "openWorkspace",
+                    divided: false,
+                    isClient: true,
+                },
+                {
+                    name: "保存工作区",
+                    icon: "icon-baocun",
+                    command: "saveWorkspace",
+                    divided: false,
+                    isClient: true,
+                },
+                {
+                    name: "导入组件",
+                    icon: "icon-printdaoru",
+                    command: "importControl",
+                    divided: true,
+                    isClient: true,
+                },
+                {
+                    name: "导出组件",
+                    icon: "icon-exportdaochu",
+                    command: "exportControl",
+                    divided: false,
+                    isClient: true,
+                },
+            ],
             animationOption: [
                 {
                     label: "基础动画",
@@ -547,63 +570,128 @@ export default {
                     break;
             }
         },
-        importControl() {
-            let openControl = {}; //外部载入
-            let ele = this.metaData[openControl.name];
-            ele.styleSheet = styleSheet;
-            ele.zoomParams = zoomParams;
-            ele.scriptParams = scriptParams;
-            ele.html = html
-            this.$set(ele, "id", "hope_" + utils.getRandomName(6));
-            this.$store.commit("Hope/ResetControlSelected");
-            this.$store.commit("Hope/ControlsAddContainer", ele);
-            this.$store.commit("Hope/ChooseControl", {
-                id: ele.id,
-                type: false,
+        controlRepeatCheck(id) {
+            let _this = this;
+            return new Promise((resolve, reject) => {
+                for (let item of _this.$store.state.controls) {
+                    if (item.id == id) {
+                        resolve(true);
+                        return;
+                    } else {
+                        resolve(false);
+                    }
+                }
+                resolve(false);
             });
-            this.$store.commit("Hope/ControlsSelected", ele);
+        },
+        importControl() {
+            let _this = this;
+            message.importFunc("control").then(function(data) {
+                if (data) {
+                    _this.controlRepeatCheck(data.id).then(function(res) {
+                        if (!res) {
+                            let openControl = data;
+                            let ele = _.cloneDeep(
+                                _this.metaData[openControl.name]
+                            );
+                            ele.styleSheet = openControl.styleSheet;
+                            ele.zoomParams = openControl.zoomParams;
+                            ele.scriptParams = openControl.scriptParams;
+                            ele.html = openControl.html;
+                            ele.id = openControl.id;
+                            _this.$store.commit("Hope/ResetControlSelected");
+                            _this.$store.commit(
+                                "Hope/ControlsAddContainer",
+                                ele
+                            );
+                            _this.$store.commit("Hope/ChooseControl", {
+                                id: ele.id,
+                                type: false,
+                            });
+                            _this.$store.commit("Hope/ControlsSelected", ele);
+                        } else {
+                            vm.$message({
+                                message: "组件文件重复导入",
+                                type: "error",
+                            });
+                        }
+                    });
+                } else {
+                    vm.$message({
+                        message: "不是组件文件",
+                        type: "error",
+                    });
+                }
+            });
         },
         exportControl() {
-            let selectedControl = this.selectedControl;
-            let exportControl = {};
-            exportControl.name = selectedControl.name;
-            exportControl.styleSheet = selectedControl.styleSheet;
-            exportControl.scriptParams = selectedControl.scriptParams;
-            exportControl.zoomParams = selectedControl.zoomParams;
-            exportControl.html = selectedControl.html;
-            console.log(exportControl); //导出
+            if (this.selectedControl.name) {
+                let selectedControl = this.selectedControl;
+                let exportControl = {};
+                exportControl.name = selectedControl.name;
+                exportControl.styleSheet = selectedControl.styleSheet;
+                exportControl.scriptParams = selectedControl.scriptParams;
+                exportControl.zoomParams = selectedControl.zoomParams;
+                exportControl.html = selectedControl.html;
+                exportControl.id = selectedControl.id;
+                message.exportFunc("control", exportControl);
+            } else {
+                this.$message({
+                    message: "未选中任何组件",
+                    type: "error",
+                });
+            }
         },
         openWorkspace() {
             let _this = this;
-            let openList = {}; //外部载入
-            let importList = [];
-            for (let item of openList) {
-                let obj = _this.metaData[item.name];
-                obj.styleSheet = item.styleSheet;
-                obj.scriptParams = item.scriptParams;
-                obj.zoomParams = item.zoomParams;
-                obj.selected = item.selected;
-                obj.html = item.html;
-                _this.$set(obj, "id", "hope_" + utils.getRandomName(6));
-                importList.push(obj);
-            }
-            this.$store.state.controls = importList;
-            console.log(importList);
+            message.importFunc("workspace").then(function(data) {
+                if (data) {
+                    let openList = data; //外部载入
+                    let importList = [];
+                    for (let item of openList) {
+                        let obj = _this.metaData[item.name];
+                        obj.styleSheet = item.styleSheet;
+                        obj.scriptParams = item.scriptParams;
+                        obj.zoomParams = item.zoomParams;
+                        obj.selected = item.selected;
+                        obj.html = item.html;
+                        obj.id = item.id;
+                        importList.push(obj);
+                        if (item.selected) {
+                            _this.$store.state.selected = item;
+                        }
+                    }
+                    _this.$store.state.controls = importList;
+                } else {
+                    vm.$message({
+                        message: "不是工作区文件",
+                        type: "error",
+                    });
+                }
+            });
         },
         saveWorkspace() {
-            let controlsList = this.controls;
-            let exportList = [];
-            for (let item of controlsList) {
-                let obj = {};
-                obj.name = item.name;
-                obj.styleSheet = item.styleSheet;
-                obj.scriptParams = item.scriptParams;
-                obj.zoomParams = item.zoomParams;
-                obj.selected = item.selected;
-                obj.html = item.html;
-                exportList.push(obj);
+            if (this.controls.length > 0) {
+                let controlsList = this.controls;
+                let exportList = [];
+                for (let item of controlsList) {
+                    let obj = {};
+                    obj.name = item.name;
+                    obj.styleSheet = item.styleSheet;
+                    obj.scriptParams = item.scriptParams;
+                    obj.zoomParams = item.zoomParams;
+                    obj.selected = item.selected;
+                    obj.html = item.html;
+                    obj.id = item.id;
+                    exportList.push(obj);
+                }
+                message.exportFunc("workspace", exportList);
+            } else {
+                this.$message({
+                    message: "工作区没有任何内容",
+                    type: "error",
+                });
             }
-            console.log(exportList); //导出
         },
         clearWorkspace() {
             this.$confirm("确定清空画布？", "提示", {

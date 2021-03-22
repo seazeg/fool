@@ -641,7 +641,7 @@ export default {
                 exportControl.zoomParams = selectedControl.zoomParams;
                 exportControl.html = selectedControl.html;
                 exportControl.id = selectedControl.id;
-                message.exportFunc("control", exportControl);
+                message.exportFunc("control", exportControl, selectedControl.label);
             } else {
                 this.$message({
                     message: "未选中任何组件",
@@ -695,7 +695,7 @@ export default {
                     obj.id = item.id;
                     exportList.push(obj);
                 }
-                message.exportFunc("workspace", exportList);
+                message.exportFunc("workspace", exportList, "工作区");
             } else {
                 this.$message({
                     message: "工作区没有任何内容",

@@ -1,11 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-22 14:04:54
+ * @LastEditTime : 2021-03-22 15:10:21
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
-// import { message } from "../../utils/message";
+import { message } from "../../utils/message";
 
 export const methods = {
     showMenu(id, event) {
@@ -50,15 +50,15 @@ export const methods = {
         this.$store.commit("Hope/lockRatioControl", this.ele.id);
     },
     exportThis(e) {
-            let selectedControl = this.ele;
-            let exportControl = {};
-            exportControl.name = selectedControl.name;
-            exportControl.styleSheet = selectedControl.styleSheet;
-            exportControl.scriptParams = selectedControl.scriptParams;
-            exportControl.zoomParams = selectedControl.zoomParams;
-            exportControl.html = selectedControl.html;
-            exportControl.id = selectedControl.id;
-            message.exportFunc("control", exportControl);
+        let selectedControl = this.ele;
+        let exportControl = {};
+        exportControl.name = selectedControl.name;
+        exportControl.styleSheet = selectedControl.styleSheet;
+        exportControl.scriptParams = selectedControl.scriptParams;
+        exportControl.zoomParams = selectedControl.zoomParams;
+        exportControl.html = selectedControl.html;
+        exportControl.id = selectedControl.id;
+        message.exportFunc("control", exportControl, selectedControl.label);
     },
 };
 

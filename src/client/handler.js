@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-19 14:44:37
- * @LastEditTime : 2021-03-22 11:27:33
+ * @LastEditTime : 2021-03-22 15:09:40
  * @Description  :
  */
 const fs = require("fs");
@@ -19,17 +19,17 @@ export const handler = {
         ipcMain.on("import-message", (event, arg) => {
             dialog
                 .showOpenDialog(mainWindow, {
+                    title: "选择文件",
                     properties: ["openFile"],
                     filters: filters,
                 })
                 .then((res) => {
-                    console.log('取消状态：',res.canceled);
                     if (!res.canceled) {
                         readFile(res.filePaths[0]).then(function(result) {
                             event.reply("import-callback", result);
                         });
-                    }else{
-                        event.reply("import-callback", 'canceled');
+                    } else {
+                        event.reply("import-callback", "canceled");
                     }
                 })
                 .catch((err) => {
@@ -41,6 +41,8 @@ export const handler = {
         ipcMain.on("export-message", (event, arg) => {
             dialog
                 .showSaveDialog(mainWindow, {
+                    title: "保存文件",
+                    defaultPath: arg.label,
                     filters: filters,
                 })
                 .then((res) => {

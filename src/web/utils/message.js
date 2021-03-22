@@ -1,12 +1,13 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-19 14:52:45
- * @LastEditTime : 2021-03-22 14:35:32
+ * @LastEditTime : 2021-03-22 15:08:12
  * @Description  :
  */
 
+let ipcRenderer = null;
 if (navigator.userAgent.toLowerCase().indexOf("electron/") > -1) {
-    const ipcRenderer = require("electron").ipcRenderer;
+    ipcRenderer = require("electron").ipcRenderer;
 }
 
 export const message = {
@@ -27,10 +28,11 @@ export const message = {
             });
         });
     },
-    exportFunc: (type, info) => {
+    exportFunc: (type, info, label) => {
         ipcRenderer.send("export-message", {
             type: type,
             metaData: info,
+            label: label,
         });
         ipcRenderer.on("export-callback", (event, result) => {
             if (result) {

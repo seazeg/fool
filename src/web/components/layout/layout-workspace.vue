@@ -587,40 +587,47 @@ export default {
         importControl() {
             let _this = this;
             message.importFunc("control").then(function(data) {
-                if (data) {
-                    _this.controlRepeatCheck(data.id).then(function(res) {
-                        if (!res) {
-                            let openControl = data;
-                            let ele = _.cloneDeep(
-                                _this.metaData[openControl.name]
-                            );
-                            ele.styleSheet = openControl.styleSheet;
-                            ele.zoomParams = openControl.zoomParams;
-                            ele.scriptParams = openControl.scriptParams;
-                            ele.html = openControl.html;
-                            ele.id = openControl.id;
-                            _this.$store.commit("Hope/ResetControlSelected");
-                            _this.$store.commit(
-                                "Hope/ControlsAddContainer",
-                                ele
-                            );
-                            _this.$store.commit("Hope/ChooseControl", {
-                                id: ele.id,
-                                type: false,
-                            });
-                            _this.$store.commit("Hope/ControlsSelected", ele);
-                        } else {
-                            vm.$message({
-                                message: "组件文件重复导入",
-                                type: "error",
-                            });
-                        }
-                    });
-                } else {
-                    vm.$message({
-                        message: "不是组件文件",
-                        type: "error",
-                    });
+                if (data != "canceled") {
+                    if (data) {
+                        _this.controlRepeatCheck(data.id).then(function(res) {
+                            if (!res) {
+                                let openControl = data;
+                                let ele = _.cloneDeep(
+                                    _this.metaData[openControl.name]
+                                );
+                                ele.styleSheet = openControl.styleSheet;
+                                ele.zoomParams = openControl.zoomParams;
+                                ele.scriptParams = openControl.scriptParams;
+                                ele.html = openControl.html;
+                                ele.id = openControl.id;
+                                _this.$store.commit(
+                                    "Hope/ResetControlSelected"
+                                );
+                                _this.$store.commit(
+                                    "Hope/ControlsAddContainer",
+                                    ele
+                                );
+                                _this.$store.commit("Hope/ChooseControl", {
+                                    id: ele.id,
+                                    type: false,
+                                });
+                                _this.$store.commit(
+                                    "Hope/ControlsSelected",
+                                    ele
+                                );
+                            } else {
+                                vm.$message({
+                                    message: "组件文件重复导入",
+                                    type: "error",
+                                });
+                            }
+                        });
+                    } else {
+                        vm.$message({
+                            message: "不是组件文件",
+                            type: "error",
+                        });
+                    }
                 }
             });
         },
@@ -645,28 +652,31 @@ export default {
         openWorkspace() {
             let _this = this;
             message.importFunc("workspace").then(function(data) {
-                if (data) {
-                    let openList = data; //外部载入
-                    let importList = [];
-                    for (let item of openList) {
-                        let obj = _this.metaData[item.name];
-                        obj.styleSheet = item.styleSheet;
-                        obj.scriptParams = item.scriptParams;
-                        obj.zoomParams = item.zoomParams;
-                        obj.selected = item.selected;
-                        obj.html = item.html;
-                        obj.id = item.id;
-                        importList.push(obj);
-                        if (item.selected) {
-                            _this.$store.state.selected = item;
+                if (data != "canceled") {
+                    if (data) {
+                        let openList = data; //外部载入
+                        let importList = [];
+                        for (let item of openList) {
+                            let obj = _this.metaData[item.name];
+                            obj.styleSheet = item.styleSheet;
+                            obj.scriptParams = item.scriptParams;
+                            obj.zoomParams = item.zoomParams;
+                            obj.isSelected = item.isSelected;
+                            obj.html = item.html;
+                            obj.id = item.id;
+                            importList.push(obj);
+                            console.log(item);
+                            if (item.isSelected) {
+                                _this.$store.state.selected = obj;
+                            }
                         }
+                        _this.$store.state.controls = importList;
+                    } else {
+                        vm.$message({
+                            message: "不是工作区文件",
+                            type: "error",
+                        });
                     }
-                    _this.$store.state.controls = importList;
-                } else {
-                    vm.$message({
-                        message: "不是工作区文件",
-                        type: "error",
-                    });
                 }
             });
         },
@@ -680,7 +690,7 @@ export default {
                     obj.styleSheet = item.styleSheet;
                     obj.scriptParams = item.scriptParams;
                     obj.zoomParams = item.zoomParams;
-                    obj.selected = item.selected;
+                    obj.isSelected = item.isSelected;
                     obj.html = item.html;
                     obj.id = item.id;
                     exportList.push(obj);

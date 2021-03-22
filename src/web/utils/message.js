@@ -1,21 +1,25 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-19 14:52:45
- * @LastEditTime : 2021-03-19 17:16:34
+ * @LastEditTime : 2021-03-22 11:31:31
  * @Description  :
  */
 const { ipcRenderer } = require("electron");
 
 export const message = {
     importFunc: (type) => {
-        ipcRenderer.send("import-message", {});
         return new Promise((resolve, reject) => {
+            ipcRenderer.send("import-message", {});
             ipcRenderer.on("import-callback", (event, res) => {
-                let data = JSON.parse(res);
-                if (data.type == type) {
-                    resolve(data.metaData);
-                } else {    
-                    resolve(false);
+                if (res != "canceled") {
+                    let data = JSON.parse(res);
+                    if (data.type == type) {
+                        resolve(data.metaData);
+                    } else {
+                        resolve(false);
+                    }
+                } else {
+                    resolve(res);
                 }
             });
         });

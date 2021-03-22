@@ -12,7 +12,7 @@
                 <Tree :itemchildren="item.children" @childhandler="fnHandler" :float="floatDirection" />
             </div>
             <div v-else>
-                <div @click.stop="item.disabled === true ? '' : fnHandler(item)" class="no-child-btn btn-wrapper-simple"
+                <div v-if="(!item.isClient||!item.isWeb)||(item.isClient==isClient)" @click.stop="item.disabled === true ? '' : fnHandler(item)" class="no-child-btn btn-wrapper-simple"
                     :class="{
                         'no-allow': item.disabled ? item.disabled : false,
                     }">
@@ -30,6 +30,7 @@
                             !ele.zoomParams.lockAspectRatio &&
                                 item.type == 'scale'
                         " class="nav-name-right">{{ item.btnName }}</span>
+
                     <span v-else class="nav-name-right">{{
                         item.btnName
                     }}</span>
@@ -144,6 +145,9 @@
                 this.$emit(item.fnHandler);
             },
         },
+        created(){
+            console.log(this.isClient);
+        }
     };
 </script>
 <style scoped>

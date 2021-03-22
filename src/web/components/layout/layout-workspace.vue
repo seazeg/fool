@@ -141,12 +141,12 @@
                             v-for="(item, index) in menu"
                             :divided="item.divided"
                             :key="'menu' + index"
-                            v-if="item.isClient == isClient()"
+                            v-if="item.isClient == isClient"
                         >
                             <i class="iconfont" :class="item.icon"></i>
                             <span>{{ item.name }}</span>
                         </el-dropdown-item>
-                        <el-dropdown-item command="clearWorkspace" divided>
+                        <el-dropdown-item command="clearWorkspace" :divided="isClient">
                             <i
                                 class="iconfont icon-changyonggoupiaorenshanchu"
                             ></i>
@@ -283,9 +283,9 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-coy.css"; //okaidia
 
-import { utils } from "../../utils/utils.js";
-import { handle } from "../../utils/handle";
 import { message } from "../../utils/message";
+
+import { handle } from "../../utils/handle";
 import ruleraxisy from "../plugins/ruleraxisy";
 
 import SelectorMixins from "../controls/Selector/Mixins";

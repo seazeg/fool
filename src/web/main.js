@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-18 15:06:51
- * @LastEditTime : 2021-03-19 14:27:27
+ * @LastEditTime : 2021-03-22 14:37:03
  * @Description  :
  */
 import Vue from "vue";
@@ -45,9 +45,9 @@ window.$egu = egu;
 window.$ = $;
 window.$http = http;
 window._ = _;
-window.isClient = () => {
+window.isClient = (() => {
     return navigator.userAgent.toLowerCase().indexOf("electron/") > -1;
-};
+})();
 
 Vue.prototype.maxWidth = 1000;
 Vue.prototype.maxHeight = 500;
@@ -61,6 +61,6 @@ window.vm = new Vue({
     render: (h) => h(App),
 }).$mount("#app");
 
-if (isClient()) {
+if (isClient) {
     require("electron").webFrame.setZoomFactor(window.innerWidth / 1920);
 }

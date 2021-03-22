@@ -23,6 +23,12 @@
             "btnName": "复制组件"
         },
         {
+            "fnHandler": "exportThis",
+            "icoName": "iconfont icon-exportdaochu",
+            "type":"export",
+            "btnName": "导出组件"
+        },
+        {
             "fnHandler": "delThis",
             "icoName": "iconfont icon-changyonggoupiaorenshanchu",
             "type":"del",

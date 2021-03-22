@@ -1,10 +1,11 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-18 11:42:28
+ * @LastEditTime : 2021-03-22 14:04:54
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
+// import { message } from "../../utils/message";
 
 export const methods = {
     showMenu(id, event) {
@@ -12,7 +13,7 @@ export const methods = {
         event.stopPropagation();
         let x = event.offsetX;
         let y = event.offsetY;
-        console.log(x,y);
+        console.log(x, y);
         this.contextMenuData.axis = {
             x,
             y,
@@ -45,9 +46,20 @@ export const methods = {
     lockThis(e) {
         this.$store.commit("Hope/LockControl", this.ele.id);
     },
-    lockRatioThis(e){
+    lockRatioThis(e) {
         this.$store.commit("Hope/lockRatioControl", this.ele.id);
-    }
+    },
+    exportThis(e) {
+            let selectedControl = this.ele;
+            let exportControl = {};
+            exportControl.name = selectedControl.name;
+            exportControl.styleSheet = selectedControl.styleSheet;
+            exportControl.scriptParams = selectedControl.scriptParams;
+            exportControl.zoomParams = selectedControl.zoomParams;
+            exportControl.html = selectedControl.html;
+            exportControl.id = selectedControl.id;
+            message.exportFunc("control", exportControl);
+    },
 };
 
 export const computed = {
@@ -55,7 +67,7 @@ export const computed = {
         let styleSheet = this.ele.styleSheet;
         let root = this.ele.id;
         let res = {};
-        Object.keys(styleSheet).forEach(function (line) {
+        Object.keys(styleSheet).forEach(function(line) {
             res[`.${root} ${line}`] = styleSheet[line];
         });
         return `<style>${utils.json2css(res)}</style>`;

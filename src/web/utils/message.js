@@ -1,10 +1,13 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-19 14:52:45
- * @LastEditTime : 2021-03-22 11:31:31
+ * @LastEditTime : 2021-03-22 14:35:32
  * @Description  :
  */
-const { ipcRenderer } = require("electron");
+
+if (navigator.userAgent.toLowerCase().indexOf("electron/") > -1) {
+    const ipcRenderer = require("electron").ipcRenderer;
+}
 
 export const message = {
     importFunc: (type) => {

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-19 14:52:45
- * @LastEditTime : 2021-03-22 15:08:12
+ * @LastEditTime : 2021-03-22 15:28:37
  * @Description  :
  */
 
@@ -13,7 +13,7 @@ if (navigator.userAgent.toLowerCase().indexOf("electron/") > -1) {
 export const message = {
     importFunc: (type) => {
         return new Promise((resolve, reject) => {
-            ipcRenderer.send("import-message", {});
+            ipcRenderer.send("import-message", { type: type });
             ipcRenderer.on("import-callback", (event, res) => {
                 if (res != "canceled") {
                     let data = JSON.parse(res);

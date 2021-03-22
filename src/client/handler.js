@@ -1,18 +1,26 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-19 14:44:37
- * @LastEditTime : 2021-03-22 15:09:40
+ * @LastEditTime : 2021-03-22 15:33:01
  * @Description  :
  */
 const fs = require("fs");
 import { ipcMain, dialog } from "electron";
 
-const filters = [
-    {
-        name: "Custom File Type",
-        extensions: ["json"],
-    },
-];
+const filters = {
+    workspace: [
+        {
+            name: "Custom File Type",
+            extensions: ["workspace"],
+        },
+    ],
+    control: [
+        {
+            name: "Custom File Type",
+            extensions: ["control"],
+        },
+    ],
+};
 
 export const handler = {
     importFunc: (mainWindow) => {
@@ -21,7 +29,7 @@ export const handler = {
                 .showOpenDialog(mainWindow, {
                     title: "选择文件",
                     properties: ["openFile"],
-                    filters: filters,
+                    filters: filters[arg.type],
                 })
                 .then((res) => {
                     if (!res.canceled) {
@@ -43,7 +51,7 @@ export const handler = {
                 .showSaveDialog(mainWindow, {
                     title: "保存文件",
                     defaultPath: arg.label,
-                    filters: filters,
+                    filters: filters[arg.type],
                 })
                 .then((res) => {
                     if (!res.canceled) {

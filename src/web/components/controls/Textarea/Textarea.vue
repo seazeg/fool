@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-12 14:48:32
+ * @LastEditTime : 2021-03-22 15:24:46
  * @Description  : 
 -->
 <template>
@@ -51,6 +51,7 @@
             @copyThis="copyThis"
             @lockThis="lockThis"
             @lockRatioThis="lockRatioThis"
+            @exportThis="exportThis"
             :ele="ele"
         ></vue-context-menu>
     </vdr>

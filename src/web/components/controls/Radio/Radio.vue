@@ -51,6 +51,7 @@
             @copyThis="copyThis"
             @lockThis="lockThis"
             @lockRatioThis="lockRatioThis"
+            @exportThis="exportThis"
             :ele="ele"
         ></vue-context-menu>
     </vdr>

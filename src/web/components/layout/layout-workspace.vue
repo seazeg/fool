@@ -599,6 +599,7 @@ export default {
                                 ele.zoomParams = openControl.zoomParams;
                                 ele.scriptParams = openControl.scriptParams;
                                 ele.html = openControl.html;
+                                ele.unitSwitch = openControl.unitSwitch;
                                 ele.id = openControl.id;
                                 _this.$store.commit(
                                     "Hope/ResetControlSelected"
@@ -640,6 +641,7 @@ export default {
                 exportControl.scriptParams = selectedControl.scriptParams;
                 exportControl.zoomParams = selectedControl.zoomParams;
                 exportControl.html = selectedControl.html;
+                exportControl.unitSwitch = selectedControl.unitSwitch;
                 exportControl.id = selectedControl.id;
                 message.exportFunc("control", exportControl, selectedControl.label);
             } else {
@@ -663,6 +665,7 @@ export default {
                             obj.zoomParams = item.zoomParams;
                             obj.isSelected = item.isSelected;
                             obj.html = item.html;
+                            obj.unitSwitch = item.unitSwitch;
                             obj.id = item.id;
                             importList.push(obj);
                             console.log(item);
@@ -692,6 +695,7 @@ export default {
                     obj.zoomParams = item.zoomParams;
                     obj.isSelected = item.isSelected;
                     obj.html = item.html;
+                    obj.unitSwitch = item.unitSwitch;
                     obj.id = item.id;
                     exportList.push(obj);
                 }

@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2021-03-11 11:45:34
- * @LastEditTime : 2021-03-22 15:10:21
+ * @LastEditTime : 2021-03-22 15:44:26
  * @Description  : 公用函数
  */
 import { utils } from "../../utils/utils.js";
@@ -57,6 +57,7 @@ export const methods = {
         exportControl.scriptParams = selectedControl.scriptParams;
         exportControl.zoomParams = selectedControl.zoomParams;
         exportControl.html = selectedControl.html;
+        exportControl.unitSwitch = selectedControl.unitSwitch;
         exportControl.id = selectedControl.id;
         message.exportFunc("control", exportControl, selectedControl.label);
     },

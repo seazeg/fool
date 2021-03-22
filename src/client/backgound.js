@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 09:30:38
- * @LastEditTime : 2021-03-19 15:15:14
+ * @LastEditTime : 2021-03-22 16:19:02
  * @Description  :
  */
 "use strict";
@@ -61,6 +61,10 @@ function createWindow() {
         win = null;
     });
 }
+
+app.hasSingleInstanceLock();
+
+
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {

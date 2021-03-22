@@ -172,7 +172,7 @@
         text-decoration: none;
         list-style: none;
         margin: 3px 0;
-        min-width: 180px;
+        min-width: 150px;
     }
 
     .context-menu-list:hover {

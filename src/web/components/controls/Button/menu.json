@@ -3,14 +3,7 @@
         "x": null,
         "y": null
     },
-    "menulists": [{
-            "fnHandler": "selectThis",
-            "icoName": "iconfont icon-xuanze",
-            "type": "select",
-            "btnName": "选中组件",
-            "isClient": false,
-            "isWeb": true
-        },
+    "menulists": [
         {
             "fnHandler": "lockRatioThis",
             "icoName": "iconfont icon-bili",

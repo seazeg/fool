@@ -3,36 +3,37 @@
         "x": null,
         "y": null
     },
-    "menulists": [
-        {
-            "fnHandler": "selectThis",
-            "icoName": "iconfont icon-xuanze",
-            "type":"select",
-            "btnName": "选中组件"
-        },
-        {
+    "menulists": [{
             "fnHandler": "lockThis",
             "icoName": "iconfont icon-suoding",
-            "type":"lock",
-            "btnName": "锁定组件"
+            "type": "lock",
+            "btnName": "锁定组件",
+            "isClient": false,
+            "isWeb": true
         },
         {
             "fnHandler": "copyThis",
             "icoName": "iconfont icon-copy",
-            "type":"cp",
-            "btnName": "复制组件"
+            "type": "cp",
+            "btnName": "复制组件",
+            "isClient": false,
+            "isWeb": true
         },
         {
             "fnHandler": "exportThis",
             "icoName": "iconfont icon-exportdaochu",
-            "type":"export",
-            "btnName": "导出组件"
+            "type": "export",
+            "btnName": "导出组件",
+            "isClient": true,
+            "isWeb": true
         },
         {
             "fnHandler": "delThis",
             "icoName": "iconfont icon-changyonggoupiaorenshanchu",
-            "type":"del",
-            "btnName": "移除组件"
+            "type": "del",
+            "btnName": "移除组件",
+            "isClient": false,
+            "isWeb": true
         }
     ]
 }

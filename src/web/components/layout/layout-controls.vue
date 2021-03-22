@@ -141,6 +141,7 @@ export default {
                 for (let ele of cls) {
                     let id = "hope_" + utils.getRandomName(6);
                     _this.$set(ele, "id", id);
+                    _this.$set(ele, "key", id);
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }
@@ -160,6 +161,7 @@ export default {
                 for (let ele of cls) {
                     let id = "hope_" + utils.getRandomName(6);
                     _this.$set(ele, "id", id);
+                    _this.$set(ele, "key", id);
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }

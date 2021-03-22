@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-10-15 16:55:02
- * @LastEditTime : 2021-03-15 11:22:03
+ * @LastEditTime : 2021-03-22 11:50:08
  * @Description  : 
 -->
 <style lang="less">
@@ -13,7 +13,7 @@
     <div class="dragContainer" @drop="drop" @dragover="dragover">
         <component
             v-for="(ele, i) in controls"
-            :key="ele.id"
+            :key="ele.key"
             :is="ele.name"
             :ele="ele"
             :class="ele.id"

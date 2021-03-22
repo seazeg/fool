@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-19 18:00:59
+ * @LastEditTime : 2021-03-22 11:51:47
  * @Description  :
  */
 import Vue from "vue";
@@ -69,12 +69,14 @@ export default new Vuex.Store({
                     value = ele.value;
                 selectedControl.scriptParams[key] = value;
                 if (state.resetFlag) {
-                    selectedControl.id = "hope_" + utils.getRandomName(6);
+                    selectedControl.key = "hope_" + utils.getRandomName(6);
                 }
                 // selectedControl.key = "key_" + utils.getRandomName(6);
                 selectedControl.controlObject = Function(
                     selectedControl.script(selectedControl)
                 )();
+
+                state.resetFlag = true;
             } catch (error) {}
         },
         "Hope/ResetControlSelected": (state, eles) => {
@@ -138,7 +140,9 @@ export default new Vuex.Store({
                 cls.forEach(function(ele, i) {
                     if (ele.id == id) {
                         let newEle = _.cloneDeep(ele);
-                        newEle.id = "hope_" + utils.getRandomName(6);
+                        let id = "hope_" + utils.getRandomName(6)
+                        newEle.id = id;
+                        newEle.key = id;
                         newEle.zoomParams.x = 10;
                         newEle.zoomParams.y = 10;
                         newEle.isSelected = false;

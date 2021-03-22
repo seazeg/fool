@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-17 16:31:24
+ * @LastEditTime : 2021-03-22 11:56:55
  * @Description  : 
 -->
 <template>
@@ -106,7 +106,7 @@
                         <el-input
                             v-model="autoplay"
                             placeholder="请输入自动滚动延时时间"
-                            v-if="autoplay > 0"
+                            v-if="isAutoplay"
                         ></el-input>
                     </div>
                     <div class="box">

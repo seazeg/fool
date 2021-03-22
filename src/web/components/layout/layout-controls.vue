@@ -139,9 +139,8 @@ export default {
             let oo = _.cloneDeep(ele);
             (function func(cls) {
                 for (let ele of cls) {
-                    let id = "hope_" + utils.getRandomName(6);
-                    _this.$set(ele, "id", id);
-                    _this.$set(ele, "key", id);
+                    _this.$set(ele, "id", "hope_" + utils.getRandomName(6));
+                    _this.$set(ele, "key", "key_" + utils.getRandomName(6));
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }
@@ -159,9 +158,8 @@ export default {
             let oo = _.cloneDeep(ele);
             (function func(cls) {
                 for (let ele of cls) {
-                    let id = "hope_" + utils.getRandomName(6);
-                    _this.$set(ele, "id", id);
-                    _this.$set(ele, "key", id);
+                    _this.$set(ele, "id", "hope_" + utils.getRandomName(6));
+                    _this.$set(ele, "key", "key_" + utils.getRandomName(6));
                     if ($egu.isArray(ele.children) && ele.children.length > 0) {
                         func(ele.children);
                     }

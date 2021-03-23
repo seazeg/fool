@@ -126,7 +126,7 @@
                 </el-tab-pane>
             </el-tabs>
             <div class="viewTools">
-                <el-dropdown @command="menuHandler" trigger="click" show-timeout="50" hide-timeou="50">
+                <el-dropdown @command="menuHandler" trigger="click" :show-timeout="50" :hide-timeou="50">
                     <span class="el-dropdown-link">
                         <i
                             class="iconfont icon-caidan"

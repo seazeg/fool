@@ -1,288 +1,131 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2020-11-17 14:53:34
+ * @LastEditTime : 2021-03-23 16:12:08
  * @Description  : 
 -->
-
 <template>
-    <form class="hopeui-form" name="form" action="" id="form">
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">下拉框</label>
-            <div class="hopeui-input-block">
-                <select name="city" hope-verify="required">
-                    <option value="">请选择</option>
-                    <option value="qd" selected>青岛</option>
-                    <option value="wh">武汉</option>
-                    <option value="wlmq">乌鲁木齐</option>
-                    <option value="南京">南京</option>
-                    <option value="天津">天津</option>
-                    <option value="123123" selected>郑州</option>
-                    <option value="重庆">重庆</option>
-                    <option value="成都">成都</option>
-                    <option value="云南">云南</option>
-                </select>
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">分组下拉框</label>
-            <div class="hopeui-input-block">
-                <select name="school" hope-verify="required">
-                    <option value="">请选择</option>
-                    <optgroup label="北京"">
-                                <option value=" 北京大学">北京大学</option>
-                        <option value="清华大学" selected>清华大学</option>
-                    </optgroup>
-                    <optgroup label="浙江"">
-                                <option value=" 浙江大学">浙江大学</option>
-                    </optgroup>
-                </select>
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">文本框</label>
-            <div class="hopeui-input-block">
-                <input name="text" type="text" placeholder="请输入" value="" class="hopeui-input" hope-verify="required" />
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">密码框</label>
-            <div class="hopeui-input-block">
-                <input name="password" type="password" placeholder="请输入" value="" class="hopeui-input"
-                    hope-verify="required" />
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">多选框</label>
-            <div class="hopeui-input-block">
-                <input type="checkbox" name="subject" value="音乐" hope-verify="required" />
-                <input type="checkbox" name="subject" value="历史" hope-verify="required" />
-                <input type="checkbox" name="subject" value="生物" hope-verify="required" disabled />
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">多选框</label>
-            <div class="hopeui-input-block">
-                <input type="checkbox" name="task" value="打桩" hope-verify="required" />
-                <input type="checkbox" name="task" value="钓鱼" hope-verify="required" />
-                <input type="checkbox" name="task" value="看电视" hope-verify="required" />
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">单选框</label>
-            <div class="hopeui-input-block">
-                <input type="radio" name="radio" value="男" title="男" hope-verify="required" checked />
-                <input type="radio" name="radio" value="女" title="女" hope-verify="required" />
-                <input type="radio" name="radio" value="什么玩意" title="什么玩意" hope-verify="required" disabled />
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <label class="hopeui-form-label">多文本域</label>
-            <div class="hopeui-input-block">
-                <textarea name="textarea" class="hopeui-textarea" placeholder="请输入内容" hope-verify="required"></textarea>
-            </div>
-        </div>
-        <div class="hopeui-form-item">
-            <div class="hopeui-input-block">
-                <button type="button" class="hopeui-btn hopeui-btn-primary" id="set">
-                    赋值
-                </button>
-                <button type="button" class="hopeui-btn hopeui-btn-primary" id="clear">
-                    重置
-                </button>
-                <button type="submit" class="hopeui-btn">
-                    提交表单
-                </button>
-            </div>
-        </div>
-    </form>
+    <vdr
+        class-name-handle="drag-handle-class"
+        :w="ele.zoomParams.width || 200"
+        :h="ele.zoomParams.height || 200"
+        :max-width="maxWidth"
+        :max-height="maxHeight"
+        :min-width="minWidth"
+        :min-height="minHeight"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="false"
+        :snap="true"
+        :snapTolerance="0"
+        :grid="[10, 10]"
+        :active.sync="ele.isSelected"
+        :x="ele.zoomParams.x || 0"
+        :y="ele.zoomParams.y || 0"
+        :disable-user-select="true"
+        :prevent-deactivation="true"
+        :resizable="ele.zoomParams.resizable"
+        :draggable="ele.zoomParams.draggable"
+        :lock-aspect-ratio="ele.zoomParams.lockAspectRatio"
+        @refLineParams="getRefLineParams"
+        @resizing="onResizing"
+        @resizestop="onResizstop"
+        @activated="onActivated"
+        @dragging="onDragging"
+        @dragstop="onDragstop"
+        @contextmenu="showMenu(ele.id, $event)"
+        :class="{ locking: !ele.zoomParams.draggable && ele.isSelected }"
+    >
+        <pre v-html="style"></pre>
+        <pre class="htmlCache">{{ ele.html }}</pre>
+
+        <Mixins
+            :id="ele.id + '_container'"
+            :class="{ noevent: isDraging, noanimate: isStopAnimate }"
+            :ele="ele"
+            style="background:#fff;height:100%"
+        ></Mixins>
+        <vue-context-menu
+            :contextMenuData="contextMenuData"
+            @selectThis="selectThis"
+            @delThis="delThis"
+            @copyThis="copyThis"
+            @lockThis="lockThis"
+            @lockRatioThis="lockRatioThis"
+            @exportThis="exportThis"
+            :ele="ele"
+        ></vue-context-menu>
+    </vdr>
 </template>
 
 <script>
-    import {
-        utils
-    } from "../../../utils/utils.js";
-    import Mixins from "./Mixins.js";
+import Mixins from "./Mixins.js";
+import { fields } from "./fields.js";
 
-    export default {
-        name: Mixins.name,
-        data() {
-            return {
-                isHover: false,
-            };
+export default {
+    name: Mixins.name,
+    data() {
+        return {
+            isDraging: false,
+            isStopAnimate: false,
+            thishtml: "",
+            contextMenuData: Mixins.contextMenuData,
+        };
+    },
+    components: {
+        Mixins,
+    },
+    props: {
+        ele: [Array, Object],
+    },
+    computed: {
+        ...fields,
+        ...Mixins.computed,
+    },
+    methods: {
+        ...Mixins.methods,
+        onResizing(x, y, w, h) {
+            if (this.ele.unitSwitch.width == "px") {
+                this.width_px = w;
+            } else {
+                this.width = w;
+            }
+            this.height = h;
+            this.isStopAnimate = true;
         },
-        props: {
-            ele: [Array, Object],
+        onActivated() {
+            this.selectThis();
         },
-        computed: {
-            ignoreEle: function () {
-                return "ignoreEle";
-            },
+        onResizstop() {
+            this.isStopAnimate = false;
         },
-        methods: {
-            choose() {
-                this.$emit("choose", this.ele);
-            },
+        onDragging(x, y) {
+            this.isDraging = true;
+            this.$store.state.selected.zoomParams.x = x;
+            this.$store.state.selected.zoomParams.y = y;
         },
-        mounted() {
-           this.$nextTick(() => {
-                var fm = hope.form({
-                    ele: "#form",
-                    on: {
-                        submit: function (e) {
-                            console.log(e);
-                        },
-                    },
-                    controls: {
-                        selector: {
-                            on: {
-                                change: function (e) {
-                                    console.log(e);
-                                },
-                                toggle: function (e) {
-                                    console.log(e);
-                                },
-                            },
-                        },
-                        checkbox: {
-                            on: {
-                                change: function (e) {
-                                    console.log(e);
-                                },
-                            },
-                        },
-                        radio: {
-                            on: {
-                                change: function (e) {
-                                    console.log(e);
-                                },
-                            },
-                        },
-                        input: {
-                            on: {
-                                blur: function (e) {
-                                    console.log(e);
-                                },
-                                focus: function (e) {
-                                    console.log(e);
-                                },
-                                input: function (e) {
-                                    console.log(e);
-                                },
-                            },
-                        },
-                        textarea: {
-                            on: {
-                                blur: function (e) {
-                                    console.log(e);
-                                },
-                                focus: function (e) {
-                                    console.log(e);
-                                },
-                                input: function (e) {
-                                    console.log(e);
-                                },
-                            },
-                        },
-                    },
-                    verify: {
-                        //[name]:fn
-                        city: function (value) {
-                            if (value.length <= 0) {
-                                return "请选择一个选项";
-                            }
-                        },
-                        text: function (value) {
-                            if (value.length <= 0) {
-                                return "文本不能为空";
-                            }
-                            if (value.length < 5) {
-                                return "文本至少得5个字符";
-                            }
-                            if (!/^[A-Za-z]+$/.test(value)) {
-                                return "文本必须是英文";
-                            }
-                        },
-                        school: function (value) {
-                            if (value.length <= 0) {
-                                return "请选择一个选项";
-                            }
-                        },
-                        password: function (value) {
-                            if (value.length <= 0) {
-                                return "文本不能为空";
-                            }
-                            if (value.length < 6) {
-                                return "密码至少输入6个字符";
-                            }
-                        },
-                        task: function (value) {
-                            if (value.length <= 0) {
-                                return "需要选择至少一个选项";
-                            }
-                        },
-                        subject: function (value) {
-                            if (value.length <= 0) {
-                                return "需要选择至少一个选项";
-                            }
-                        },
-                        radio: function (value) {
-                            if (value.length <= 0) {
-                                return "需要选择至少一个选项";
-                            }
-                        },
-                        textarea: function (value) {
-                            if (value.length <= 0) {
-                                return "需要选择至少一个选项";
-                            }
-                        },
-                    },
-                });
-
-                document.querySelector("#set").onclick = function () {
-                    fm.val({
-                        city: {
-                            type: "selector",
-                            value: "南京",
-                        },
-                        school: {
-                            type: "selector",
-                            value: "清华大学",
-                        },
-                        text: {
-                            type: "input",
-                            value: "我爱HopeUI",
-                        },
-                        task: {
-                            type: "checkbox",
-                            value: "打桩",
-                        },
-                        textarea: {
-                            type: "textarea",
-                            value: "我爱北京天安门",
-                        },
-                        password: {
-                            type: "input",
-                            value: "999888999",
-                        },
-                        subject: {
-                            type: "checkbox",
-                            value: "历史",
-                        },
-                        radio: {
-                            type: "radio",
-                            value: "女",
-                        },
-                    });
-                };
-
-
-                document.querySelector("#clear").onclick = function () {
-                    fm.clear();
-                };
-           })
-               
-        
+        onDragstop(x, y) {
+            this.isDraging = false;
         },
-    };
+        getRefLineParams(params) {
+            this.$emit("refLineParams", params);
+        },
+    },
+    mounted() {
+        let _this = this;
+        _this.$nextTick(function() {
+            try {
+                _this.$set(
+                    _this.ele,
+                    "html",
+                    $(`#${_this.ele.id}_container`).html()
+                );
+                _this.ele.controlObject = Function(
+                    "_this",
+                    Mixins.script(_this.ele)
+                )(_this);
+            } catch (error) {}
+        });
+    },
+};
 </script>

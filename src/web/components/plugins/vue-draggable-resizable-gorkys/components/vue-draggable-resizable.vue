@@ -171,7 +171,7 @@ export default {
     },
     z: {
       type: [String, Number],
-      default: 'auto',
+      default: 1,
       validator: (val) => (typeof val === 'string' ? val === 'auto' : val >= 0)
     },
     handles: {

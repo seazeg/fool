@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-23 15:25:30
+ * @LastEditTime : 2021-03-24 10:49:08
  * @Description  : 
 -->
 <template>
@@ -92,7 +92,7 @@
 <script>
 import { fields } from "./fields.js";
 export default {
-    name: "CheckboxEditor",
+    name: "FormEditor",
     data() {
         return {
             base: ["1", "2", "3"],

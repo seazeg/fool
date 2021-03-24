@@ -144,9 +144,6 @@
             fnHandler(item) {
                 this.$emit(item.fnHandler);
             },
-        },
-        created(){
-            console.log(this.isClient);
         }
     };
 </script>

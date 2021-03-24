@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-06-08 15:06:52
- * @LastEditTime : 2021-03-22 11:53:56
+ * @LastEditTime : 2021-03-24 10:02:17
  * @Description  :
  */
 import Vue from "vue";
@@ -18,7 +18,7 @@ export default new Vuex.Store({
         selected: {},
         dialogGridVisible: false,
         gridEle: {},
-        resetFlag: true,
+        resetFlag: true
     },
     mutations: {
         "Hope/UpdateControlParams": (state, ele) => {
@@ -139,7 +139,7 @@ export default new Vuex.Store({
                 cls.forEach(function(ele, i) {
                     if (ele.id == id) {
                         let newEle = _.cloneDeep(ele);
-                        let id = "hope_" + utils.getRandomName(6)
+                        let id = "hope_" + utils.getRandomName(6);
                         newEle.id = id;
                         newEle.key = id;
                         newEle.zoomParams.x = 10;
@@ -184,7 +184,7 @@ export default new Vuex.Store({
         },
         "Hope/stagingDragElement": (state, ele) => {
             state.dragElement = ele;
-        },
+        }
     },
     getters: {
         getStagingDragElement: (state) => {

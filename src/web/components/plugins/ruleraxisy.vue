@@ -1,7 +1,7 @@
 <!--
  * @Author       : Evan.G
  * @Date         : 2021-03-15 09:35:35
- * @LastEditTime : 2021-03-16 14:28:47
+ * @LastEditTime : 2021-03-24 10:05:28
  * @Description  : 
 -->
 
@@ -12,12 +12,14 @@
                 <li>0</li>
                 <li v-for="(item, i) in number">{{ item }}</li>
             </ul>
+            <i class="mark" v-if="selectedControl.zoomParams" :style="{ left: selectedControl.zoomParams.x + 'px' }"></i>
         </div>
         <div class="ruleraxisy">
             <ul class="scaley">
                 <li></li>
                 <li v-for="(item, i) in number">{{ item }}</li>
             </ul>
+            <i class="mark" v-if="selectedControl.zoomParams" :style="{ top: selectedControl.zoomParams.y + 'px' }"></i>
         </div>
     </div>
 </template>
@@ -32,6 +34,9 @@ export default {
                 arr.push(i);
             }
             return arr;
+        },
+        selectedControl() {
+            return this.$store.state.selected;
         },
     },
 };
@@ -161,6 +166,24 @@ export default {
     top: 25px;
     min-height: 20px;
     border-right: 1px solid #d8d8d8;
+}
+
+.ruleraxisx .mark {
+    background: #fff;
+    display: inline-block;
+    position: relative;
+    z-index: 99;
+    width: 1px;
+    height: 15px;
+}
+
+.ruleraxisy .mark {
+    background: #fff;
+    display: block;
+    position: relative;
+    z-index: 99;
+    width: 15px;
+    height: 1px;
 }
 
 .scalex {

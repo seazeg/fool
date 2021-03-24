@@ -500,7 +500,7 @@ export default {
                 hope_zoom: ZoomMixins,
                 hope_loadmore: LoadmoreMixins,
             };
-        },
+        }
     },
     methods: {
         highHTML(code) {
@@ -549,6 +549,9 @@ export default {
             } else {
                 return true;
             }
+        },
+        getCoords(e){
+            this.$store.commit("Hope/coordsSwap",{x:e.offsetX, y:e.offsetY})
         },
         menuHandler(cmd) {
             switch (cmd) {

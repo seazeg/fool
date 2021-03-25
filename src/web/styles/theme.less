@@ -974,6 +974,7 @@
     z-index: 10;
     color: #eeeeee;
     text-shadow: 0px 1px 1px #111;
+    user-select: none;
     .box {
         height: 38px;
         line-height: 38px;
@@ -1004,16 +1005,17 @@
     }
 }
 
-.layout-container .viewTools .el-dropdown{
-    font-size:12px;color:inherit;
+.layout-container .viewTools .el-dropdown {
+    font-size: 12px;
+    color: inherit;
     position: relative;
     bottom: 1px;
     cursor: pointer;
     user-select: none;
     display: inline-block;
 }
-.el-dropdown-menu > li{
-    font-size:12px;
+.el-dropdown-menu > li {
+    font-size: 12px;
 }
 
 #preview *[id*="_container"] {
@@ -1047,6 +1049,11 @@
             position: relative;
             bottom: 1px;
             font-weight: normal;
+        }
+        span.status:hover,
+        span.status:hover {
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
 

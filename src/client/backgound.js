@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-05-13 09:30:38
- * @LastEditTime : 2021-03-23 12:00:15
+ * @LastEditTime : 2021-04-20 20:24:21
  * @Description  :
  */
 "use strict";
@@ -42,7 +42,7 @@ function createWindow() {
     win.setMenu(null);
     win.maximize();
     // win.webContents.openDevTools();
-    console.log(process.env.WEBPACK_DEV_SERVER_URL);
+    // console.log(process.env.WEBPACK_DEV_SERVER_URL);
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
 

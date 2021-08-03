@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-18 10:47:40
+ * @LastEditTime : 2021-08-02 11:52:42
  * @Description  :
  */
 import styleSheet from "../../stylesheet/radio.json";
@@ -39,7 +39,7 @@ export default {
         * }
         */
         var radio = hope.radio({
-            ele: ".${ele.id}",
+            ele: ".all_group .${ele.id}",
             on: {
                 init:function(e){
                     console.log(e);
@@ -59,7 +59,7 @@ export default {
     },
     render() {
         return (
-            <div>
+            <div class="all_group">
                 <input
                     type="radio"
                     name="radio"

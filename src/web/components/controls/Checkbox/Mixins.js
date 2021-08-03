@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-24 10:20:33
+ * @LastEditTime : 2021-08-02 11:54:05
  * @Description  :
  */
 import styleSheet from "../../stylesheet/checkbox.json";
@@ -39,7 +39,7 @@ export default {
         * }
         */
         var checkbox = hope.checkbox({
-            ele: '.${ele.id}',
+            ele: '.all_group .${ele.id}',
             on: {
                 change: function (e) {
                     console.log(e);
@@ -57,7 +57,7 @@ export default {
     },
     render() {
         return (
-            <div>
+            <div class="all_group">
                 <input
                     type="checkbox"
                     name="subject"

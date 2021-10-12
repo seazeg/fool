@@ -19,7 +19,7 @@
     "axios": "^0.19.2",
     "core-js": "^2.6.9",
     "eg-utils": "^1.1.61",
-    "electron": "^8.2.5",
+    "electron": "^11.5.0",
     "element-ui": "^2.13.1",
     "highlight.js": "^10.0.3",
     "jquery": "^3.5.1",

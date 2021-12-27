@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-12-27 11:39:54
+ * @LastEditTime : 2021-12-27 14:09:13
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -76,8 +76,6 @@ export default {
                     template +=
                         "<p>" +
                         data[i].goodsName +
-                        "|" +
-                        data[i].goodsStar +
                         "</p>";
                 }
     

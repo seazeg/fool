@@ -1,7 +1,7 @@
 /*
  * @Author       : Evan.G
  * @Date         : 2020-09-11 10:59:23
- * @LastEditTime : 2021-03-16 17:05:08
+ * @LastEditTime : 2021-12-27 11:39:54
  * @Description  :
  */
 import styleSheet from "../../stylesheet/pager.json";
@@ -28,7 +28,8 @@ export default {
         prevName: "prev",
         nextName: "next",
         extend: true,
-        lockAspectRatio: false
+        lockAspectRatio: false,
+        staticMode: true,
     },
     script(ele) {
         return `
@@ -44,6 +45,7 @@ export default {
         *      nextName: 下翻页命名定义 | String
         *      pageMapping: 当前页字段映射 | String
         *      extend: 是否完整扩展 | Boolean
+        *      staticMode: 静态模式 | Boolean,
         * }
         * params: {
         *      [jQuery.ajax字段]: 参数值
@@ -59,7 +61,7 @@ export default {
             ele: "#${ele.id}",
             options: ${JSON.stringify(ele.scriptParams)},
             params: {
-                url: "/assets/page/list1.json",
+                url: 'assets/page/list.json',
                 dataType: "json",
                 type: "get",
                 data: {
